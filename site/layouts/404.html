@@ -1,0 +1,99 @@
+{{- /* 404 page. Detects locale from URL prefix (/fr/...) and uses
+       English by default for any unknown prefix. */ -}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 — Page not found</title>
+  <link rel="stylesheet" href="{{ "book.min.css" | relURL }}">
+  <style>
+    .oc-404 {
+      max-width: 540px;
+      margin: 14vh auto 0;
+      padding: 0 1.25rem;
+      font-family: var(--font-base, system-ui, sans-serif);
+      color: var(--body-font-color);
+      text-align: center;
+    }
+    .oc-404 h1 { font-size: 4rem; margin: 0 0 .5rem; letter-spacing: -.02em; }
+    .oc-404 .oc-sub { font-size: 1.1rem; color: var(--gray-500); margin: 0 0 2rem; }
+    .oc-404 .oc-msg-fr,
+    .oc-404 .oc-msg-en { margin-bottom: 2rem; line-height: 1.5; }
+    .oc-404 .oc-actions {
+      display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap;
+    }
+    .oc-404 a {
+      display: inline-block; padding: .55rem 1.1rem;
+      border: 1px solid var(--color-link);
+      border-radius: var(--border-radius, 4px);
+      color: var(--color-link); text-decoration: none;
+      transition: background .15s ease, color .15s ease;
+    }
+    .oc-404 a:hover {
+      background: var(--color-link);
+      color: var(--body-background);
+    }
+    .oc-404 a.oc-secondary {
+      border-color: var(--gray-200);
+      color: var(--gray-500);
+    }
+    .oc-404 a.oc-secondary:hover {
+      border-color: var(--color-link);
+      color: var(--color-link);
+      background: transparent;
+    }
+    [data-locale="fr"] .oc-msg-en,
+    [data-locale="en"] .oc-msg-fr { display: none; }
+  </style>
+</head>
+<body>
+  <main class="oc-404" data-locale="en">
+    <h1>404</h1>
+    <p class="oc-sub">Page not found · Page introuvable</p>
+
+    <div class="oc-msg-en">
+      <p>This page does not exist, or the English translation is not available yet.</p>
+      <p>The French edition of this book is feature-complete at <a href="{{ "fr/" | relURL }}">/fr/</a>.</p>
+    </div>
+
+    <div class="oc-msg-fr">
+      <p>Cette page n'existe pas.</p>
+    </div>
+
+    <div class="oc-actions">
+      <a href="{{ "/" | relURL }}" class="oc-home-en">Back to home</a>
+      <a href="{{ "fr/" | relURL }}" class="oc-secondary oc-home-fr">Version française</a>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var path = window.location.pathname;
+      var basePath = {{ site.BaseURL | jsonify }};
+      try { basePath = new URL(basePath).pathname; } catch (_) {}
+      var rel = path;
+      if (basePath && rel.indexOf(basePath) === 0) rel = rel.slice(basePath.length);
+      rel = "/" + rel.replace(/^\/+/, "");
+
+      var locale = "en";
+      var actions = document.querySelector(".oc-actions");
+      var main = document.querySelector(".oc-404");
+      var homeFr = document.querySelector(".oc-home-fr");
+      var homeEn = document.querySelector(".oc-home-en");
+
+      if (rel.indexOf("/fr/") === 0 || rel === "/fr") {
+        // We're under the French tree -> show French copy, primary CTA = FR home.
+        locale = "fr";
+        document.documentElement.lang = "fr";
+        document.title = "404 — Page introuvable";
+        homeEn.textContent = "English home";
+        homeEn.classList.add("oc-secondary");
+        homeFr.classList.remove("oc-secondary");
+        homeFr.textContent = "Retour à l'accueil";
+      }
+      main.setAttribute("data-locale", locale);
+    })();
+  </script>
+</body>
+</html>

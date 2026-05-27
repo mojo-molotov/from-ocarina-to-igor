@@ -1,0 +1,254 @@
+{{- /* Search: modal + tag filters, driving the Pagefind JS API */ -}}
+{{- $closeLabel := cond (eq site.Language.Lang "fr") "Fermer" "Close" -}}
+<div id="oc-search-overlay" class="oc-search-overlay" hidden
+     data-i18n-unavailable="{{ i18n "search_unavailable" }}"
+     data-i18n-no-results="{{ i18n "search_no_results" (dict "Query" "__Q__") }}"
+     data-i18n-no-filter-match="{{ i18n "search_no_filter_match" }}"
+     data-i18n-group-series="{{ i18n "filter_group_series" }}"
+     data-i18n-group-tags="{{ i18n "filter_group_tags" }}">
+  <div id="oc-search-modal" class="oc-search-modal" role="dialog" aria-modal="true" aria-label="{{ i18n "search_aria" }}">
+    <header class="oc-search-head">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </svg>
+      <input type="search" id="oc-search-input" placeholder="{{ i18n "search_placeholder" }}"
+             autocomplete="off" autocapitalize="off" spellcheck="false" />
+      <button id="oc-search-close" class="oc-search-close" type="button" aria-label="{{ $closeLabel }}">&#10005;</button>
+    </header>
+    <div id="oc-search-filters" class="oc-search-filters" aria-label="{{ i18n "filter_group_tags" }}"></div>
+    <div class="oc-search-body">
+      <ul id="oc-search-results" class="oc-search-results"></ul>
+      <p id="oc-search-msg" class="oc-search-msg" hidden></p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var overlay = document.getElementById("oc-search-overlay");
+  var input = document.getElementById("oc-search-input");
+  var results = document.getElementById("oc-search-results");
+  var msg = document.getElementById("oc-search-msg");
+  var filtersEl = document.getElementById("oc-search-filters");
+  var trigger = document.getElementById("oc-search-trigger");
+  var closeBtn = document.getElementById("oc-search-close");
+  if (!overlay || !input) return;
+
+  var pf = null, loading = null, activeIdx = -1, filtersBuilt = false;
+  var selectedTags = new Set();
+  var selectedSeries = new Set();
+  var i18n = {
+    unavailable:      overlay.dataset.i18nUnavailable      || "Search unavailable.",
+    noResultsTpl:     overlay.dataset.i18nNoResults        || "No results for « __Q__ ».",
+    noFilterMatch:    overlay.dataset.i18nNoFilterMatch    || "No page matches these filters.",
+    groupSeries:      overlay.dataset.i18nGroupSeries      || "Series",
+    groupTags:        overlay.dataset.i18nGroupTags        || "Tags",
+  };
+  // Generation counter: every doSearch/open bumps it. A search whose
+  // generation is stale by the time it resolves is discarded.
+  var searchSeq = 0;
+
+  function loadPagefind() {
+    if (pf) return Promise.resolve(pf);
+    if (loading) return loading;
+    loading = import("{{ "pagefind/pagefind.js" | relURL }}").then(function (m) {
+      pf = m;
+      pf.init();
+      return pf;
+    });
+    return loading;
+  }
+
+  function showMsg(text) {
+    results.innerHTML = "";
+    activeIdx = -1;
+    msg.textContent = text;
+    msg.hidden = false;
+  }
+
+  function clearResults() {
+    results.innerHTML = "";
+    msg.hidden = true;
+    activeIdx = -1;
+  }
+
+  function buildFilters() {
+    if (filtersBuilt) return;
+    filtersBuilt = true;
+    loadPagefind()
+      .then(function (lib) { return lib.filters(); })
+      .then(function (f) {
+        function renderGroup(label, values, selectedSet) {
+          if (!values || !Object.keys(values).length) return;
+          var group = document.createElement("div");
+          group.className = "oc-filter-group";
+          var lab = document.createElement("button");
+          lab.type = "button";
+          lab.className = "oc-filter-group-label";
+          lab.setAttribute("aria-expanded", "true");
+          lab.innerHTML = '<span class="oc-fg-chevron" aria-hidden="true">▾</span>' +
+                          '<span class="oc-fg-text"></span>';
+          lab.querySelector(".oc-fg-text").textContent = label;
+          var chips = document.createElement("div");
+          chips.className = "oc-fg-chips";
+          lab.addEventListener("click", function () {
+            var open = lab.getAttribute("aria-expanded") === "true";
+            lab.setAttribute("aria-expanded", open ? "false" : "true");
+            group.classList.toggle("oc-collapsed", open);
+          });
+          group.appendChild(lab);
+          group.appendChild(chips);
+          Object.keys(values).sort().forEach(function (name) {
+            var b = document.createElement("button");
+            b.type = "button";
+            b.className = "oc-fchip";
+            b.textContent = name;
+            b.addEventListener("click", function () {
+              if (selectedSet.has(name)) {
+                selectedSet.delete(name);
+                b.classList.remove("oc-active");
+              } else {
+                selectedSet.add(name);
+                b.classList.add("oc-active");
+              }
+              doSearch();
+            });
+            chips.appendChild(b);
+          });
+          filtersEl.appendChild(group);
+        }
+        renderGroup(i18n.groupSeries, f && f.series, selectedSeries);
+        renderGroup(i18n.groupTags,   f && f.tag,    selectedTags);
+      })
+      .catch(function () { filtersBuilt = false; });
+  }
+
+  function open() {
+    overlay.hidden = false;
+    document.body.style.overflow = "hidden";
+    // Reset the input on every open and invalidate any in-flight search.
+    searchSeq++;
+    input.value = "";
+    clearResults();
+    input.focus();
+    loadPagefind().then(buildFilters).catch(function () {
+      showMsg(i18n.unavailable);
+    });
+  }
+
+  function close() {
+    overlay.hidden = true;
+    document.body.style.overflow = "";
+  }
+
+  function setActive(i) {
+    var items = results.querySelectorAll("a");
+    if (!items.length) return;
+    if (i < 0) i = items.length - 1;
+    if (i >= items.length) i = 0;
+    items.forEach(function (a) { a.classList.remove("oc-active"); });
+    items[i].classList.add("oc-active");
+    items[i].scrollIntoView({ block: "nearest" });
+    activeIdx = i;
+  }
+
+  function render(data, q) {
+    results.innerHTML = "";
+    activeIdx = -1;
+    if (!data.length) {
+      showMsg(q ? i18n.noResultsTpl.replace("__Q__", q) : i18n.noFilterMatch);
+      return;
+    }
+    msg.hidden = true;
+    data.forEach(function (d) {
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.href = d.url;
+      a.innerHTML =
+        '<div class="oc-search-r-title"></div>' +
+        '<div class="oc-search-r-url"></div>' +
+        '<div class="oc-search-r-excerpt">' + d.excerpt + "</div>";
+      a.querySelector(".oc-search-r-title").textContent =
+        d.meta && d.meta.title ? d.meta.title : d.url;
+      a.querySelector(".oc-search-r-url").textContent = decodeURI(d.url);
+      li.appendChild(a);
+      results.appendChild(li);
+    });
+  }
+
+  function collect(search, q, seq) {
+    if (!search) return;
+    return Promise.all(
+      search.results.slice(0, 30).map(function (r) { return r.data(); }),
+    ).then(function (data) {
+      // Drop the result if a newer search has started meanwhile.
+      if (seq !== searchSeq) return;
+      render(data, q);
+    });
+  }
+
+  function doSearch() {
+    var seq = ++searchSeq;
+    var q = input.value.trim();
+    var hasFilters = selectedTags.size > 0 || selectedSeries.size > 0;
+    if (!q && !hasFilters) {
+      clearResults();
+      return;
+    }
+    loadPagefind()
+      .then(function (lib) {
+        // "any" = OR within each filter type. Filter types AND together.
+        var filters = {};
+        if (selectedTags.size > 0)   filters.tag    = { any: Array.from(selectedTags) };
+        if (selectedSeries.size > 0) filters.series = { any: Array.from(selectedSeries) };
+        var opts = hasFilters ? { filters: filters } : {};
+        if (q) {
+          return lib.debouncedSearch(q, opts).then(function (s) {
+            return collect(s, q, seq);
+          });
+        }
+        return lib.search(null, opts).then(function (s) {
+          return collect(s, "", seq);
+        });
+      })
+      .catch(function () {
+        showMsg(i18n.unavailable);
+      });
+  }
+
+  if (trigger) trigger.addEventListener("click", open);
+  closeBtn.addEventListener("click", close);
+  overlay.addEventListener("click", function (e) {
+    if (e.target === overlay) close();
+  });
+  input.addEventListener("input", doSearch);
+
+  var kbd = document.getElementById("oc-search-kbd");
+  var isMac = /Mac|iPhone|iPad|iPod/.test(navigator.platform || navigator.userAgent || "");
+  if (kbd) kbd.textContent = isMac ? "⌘K" : "Ctrl K";
+
+  document.addEventListener("keydown", function (e) {
+    if ((e.metaKey || e.ctrlKey) && (e.key === "k" || e.key === "K")) {
+      e.preventDefault();
+      if (overlay.hidden) open();
+      else close();
+      return;
+    }
+    if (overlay.hidden) return;
+    if (e.key === "Escape") {
+      e.preventDefault();
+      close();
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setActive(activeIdx + 1);
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setActive(activeIdx - 1);
+    } else if (e.key === "Enter") {
+      var items = results.querySelectorAll("a");
+      var pick = activeIdx >= 0 ? items[activeIdx] : items[0];
+      if (pick) window.location = pick.href;
+    }
+  });
+})();
+</script>

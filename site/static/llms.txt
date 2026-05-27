@@ -1,0 +1,49 @@
+# Ocarina — manual
+
+> A multi-chapter primer reverse-engineering the Ocarina test-framework ecosystem (six public repos): framework internals, canonical examples, AI integration, CI/CD, and the philosophy behind every refusal.
+
+Each chapter has a **brief** under `/llms/` — a dense, navigable summary that lists every article, flags ASCII diagrams, states key concepts, and declares what is NOT covered. Fetch a brief first; only fetch individual articles when you need the full depth.
+
+Article sources live under `site/content.en/` (English, default) and `site/content.fr/` (French) on GitHub.
+
+## Docs
+
+- [Ch 00 — Big picture](https://mojo-molotov.github.io/from-ocarina-to-igor/llms/ch00-big-picture.md): Ecosystem cartography across six repos, stack matrix, repo-to-repo contracts, end-to-end execution flow from CLI to artefacts.
+- [Ch 01 — Philosophy](https://mojo-molotov.github.io/from-ocarina-to-igor/llms/ch01-philosophy.md): Why Ocarina refuses features — KISS, ISTQB alignment, political stance, cited sources, operational consequences.
+- [Ch 02 — Ocarina framework](https://mojo-molotov.github.io/from-ocarina-to-igor/llms/ch02-ocarina.md): Framework internals — Result[T], Railway-Oriented Programming, invariants, orchestration (TestExecutor), infra adapters, opinionated layer, custom types.
+- [Ch 03 — Functional programming](https://mojo-molotov.github.io/from-ocarina-to-igor/llms/ch03-functional.md): FP underpinnings — thunks, closures, lazy evaluation, fold, PEP 695 generics, discriminated unions, Effect/Thunk/Result.
+- [Ch 04 — Internal tests](https://mojo-molotov.github.io/from-ocarina-to-igor/llms/ch04-internal-tests.md): How the framework tests itself — cram, pytest, mypy plugins, syrupy snapshots, hypothesis, coverage policy, Allure.
+- [Ch 05 — Igoristan](https://mojo-molotov.github.io/from-ocarina-to-igor/llms/ch05-igoristan.md): The deliberately chaotic public SUT — stack, routes, fake auth/OTP, wireit pipeline, husky/commitlint, CI.
+- [Ch 06 — tests-workers](https://mojo-molotov.github.io/from-ocarina-to-igor/llms/ch06-tests-workers.md): Vercel Edge coordination backend — OTP, history, Corsicadex, Redis, authorization model, distributed test sync.
+- [Ch 07 — ocarina-example](https://mojo-molotov.github.io/from-ocarina-to-igor/llms/ch07-ocarina-example.md): Canonical end-to-end suite — adapters, every scenario family, HumanizedDriver, cache/locks, CI matrix.
+- [Ch 08 — ocarina-with-ai-example](https://mojo-molotov.github.io/from-ocarina-to-igor/llms/ch08-ai-example.md): The AI co-written suite against CURA Healthcare — manifesto, SUT, docs, test strategy, declared gaps, CI.
+- [Ch 09 — Holy Book](https://mojo-molotov.github.io/from-ocarina-to-igor/llms/ch09-holy-book.md): Public documentation site — VitePress, i18n, 40+ LLM skills, CLAUDE.md, PDF generation pipeline, public resources.
+- [Ch 10 — CI/CD](https://mojo-molotov.github.io/from-ocarina-to-igor/llms/ch10-cicd.md): Every workflow across all six repos, presented as one matrix and per-repo breakdowns.
+- [Ch 11 — Independence](https://mojo-molotov.github.io/from-ocarina-to-igor/llms/ch11-independence.md): Sovereign grammar, auditability, explicit refusals — operational consequences of the philosophy in everyday code.
+- [Ch 12 — Manifesto deciphered](https://mojo-molotov.github.io/from-ocarina-to-igor/llms/ch12-manifesto.md): Cultural sources — hacker scene, LulzSec, YTCracker, λ-calculus, RL/typing, infopreneurs, SaaS fraud, DHH/PG, survivor psyche.
+- [Ch 99 — References](https://mojo-molotov.github.io/from-ocarina-to-igor/llms/ch99-references.md): Glossary, cited file index, and cited people across the ecosystem.
+
+## Skills
+
+- [navigate](https://mojo-molotov.github.io/from-ocarina-to-igor/skills/navigate.md): Maps a question to the right chapter brief and article targets.
+- [fetch](https://mojo-molotov.github.io/from-ocarina-to-igor/skills/fetch.md): Fetches at the right depth (local / clone / remote) with hard limits to avoid over-fetching.
+- [answer](https://mojo-molotov.github.io/from-ocarina-to-igor/skills/answer.md): Full workflow — navigate → fetch → synthesize → gap declaration.
+- [synthesize](https://mojo-molotov.github.io/from-ocarina-to-igor/skills/synthesize.md): Cross-chapter synthesis tracing inter-chapter relationships within the primer without reaching external sources.
+- [locate](https://mojo-molotov.github.io/from-ocarina-to-igor/skills/locate.md): Symbol lookup returning the exact article that documents a class name, method, type, CLI flag, endpoint, or error.
+
+## Related
+
+- [Holy Book — public Ocarina documentation](https://mojo-molotov.github.io/ocarina-holy-book/): User-facing docs (setup, onboarding, first scenarios) for the `ocarina` framework.
+- [Holy Book `llms.txt`](https://mojo-molotov.github.io/ocarina-holy-book/llms.txt): Companion LLM sitemap for the Holy Book.
+- [Holy Book `llms-full.txt`](https://mojo-molotov.github.io/ocarina-holy-book/llms-full.txt): Holy Book contents flattened into a single file.
+- [`ocarina` on GitHub](https://github.com/mojo-molotov/ocarina): Python framework source (DSL, orchestration, infra) — ~3 000 lines, auditable directly.
+- [`ocarina-example` on GitHub](https://github.com/mojo-molotov/ocarina-example): Canonical end-to-end suite against Igoristan.
+- [`ocarina-with-ai-example` on GitHub](https://github.com/mojo-molotov/ocarina-with-ai-example): End-to-end suite against CURA, co-written with Claude Code.
+- [`igoristan` on GitHub](https://github.com/mojo-molotov/igoristan): Deliberately chaotic public SUT (GitHub Pages).
+- [`tests-workers` on GitHub](https://github.com/mojo-molotov/tests-workers): Vercel Edge backend (OTP, Corsicadex).
+- [`ocarina-holy-book` on GitHub](https://github.com/mojo-molotov/ocarina-holy-book): Public documentation site source + 40+ LLM skills.
+
+## Optional
+
+- [Allure report (CI history)](https://mojo-molotov.github.io/ocarina/allure-report/): Aggregated test history for the `ocarina` framework's own CI.
+- [Clone this primer](https://github.com/mojo-molotov/from-ocarina-to-igor): `git clone https://github.com/mojo-molotov/from-ocarina-to-igor.git` — article sources under `site/content.en/` and `site/content.fr/`, briefs under `site/static/llms/`.

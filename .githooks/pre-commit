@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Format staged markdown under site/content/ with Prettier.
+# Re-stages the formatted files so the commit captures the result.
+set -euo pipefail
+
+files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^site/content\.[a-z]+/.*\.md$' || true)
+[ -z "$files" ] && exit 0
+
+echo "pre-commit: prettier on staged markdown..."
+# shellcheck disable=SC2086
+npx -y prettier@3.8.3 --write --log-level warn --ignore-path site/.prettierignore $files
+echo "$files" | xargs git add

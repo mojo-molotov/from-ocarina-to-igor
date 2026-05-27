@@ -1,0 +1,72 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  HUGO_VERSION: 0.161.1
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install Hugo extended
+        run: |
+          curl -sSLo /tmp/hugo.deb \
+            "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
+          sudo dpkg -i /tmp/hugo.deb
+
+      - uses: actions/configure-pages@v6
+        id: pages
+
+      - name: Build (Hugo + drop Mermaid + Pagefind)
+        working-directory: site
+        run: ./build.sh
+        env:
+          HUGO_ENVIRONMENT: production
+          # actions/configure-pages emits base_url without a trailing slash;
+          # Hugo expects one for relURL to compose paths correctly.
+          HUGO_BASEURL: ${{ steps.pages.outputs.base_url }}/
+          HUGO_MINIFY: "1"
+
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6
+
+      - name: Minify HTML
+        run: |
+          bunx html-minifier-terser@7.2.0 \
+            --input-dir site/public --output-dir site/public --file-ext html \
+            --collapse-whitespace \
+            --remove-comments \
+            --remove-redundant-attributes \
+            --remove-script-type-attributes \
+            --remove-style-link-type-attributes \
+            --use-short-doctype \
+            --decode-entities \
+            --minify-css true
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: site/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

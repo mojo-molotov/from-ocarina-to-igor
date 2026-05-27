@@ -1,0 +1,14 @@
+{{- /* Section pages (_index.md): same override as single.html */ -}}
+{{ define "main" }}
+<article class="markdown book-article">
+{{- .Content -}}
+  <div class="oc-pf-tags" aria-hidden="true">
+    {{- with .Params.tags -}}
+      {{- range . }}<span data-pagefind-filter="tag:{{ . }}"></span>{{ end -}}
+    {{- end -}}
+    {{- with .Params.series -}}
+      {{- range . }}<span data-pagefind-filter="series:{{ . }}"></span>{{ end -}}
+    {{- end -}}
+  </div>
+</article>
+{{ end }}

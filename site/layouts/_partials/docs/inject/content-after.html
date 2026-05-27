@@ -1,0 +1,9 @@
+{{- /* Clickable tag pills at the bottom of every page */ -}}
+{{- with .Params.tags }}
+<nav class="oc-tags" aria-label="Tags de la page">
+  <span class="oc-tags-label">Tags</span>
+  {{- range . }}
+  <a class="oc-tag" href="{{ printf "/tags/%s/" (. | urlize) | relURL }}">{{ . }}</a>
+  {{- end }}
+</nav>
+{{- end }}

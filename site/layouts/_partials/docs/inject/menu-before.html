@@ -1,0 +1,36 @@
+{{- /* Language switcher above the search trigger. For each language other
+       than the current one: link to the equivalent translated page if it
+       exists; otherwise to that language's home with a "no translation
+       yet" tooltip. */ -}}
+{{- $cur := . -}}
+{{- $curLang := site.Language.Lang -}}
+<div class="oc-langswitch" role="group" aria-label="Language / Langue">
+  {{- range $site := hugo.Sites -}}
+    {{- $code := $site.Language.Lang -}}
+    {{- $name := $site.Language.Label -}}
+    {{- if eq $code $curLang -}}
+      <span class="oc-lang oc-lang-active" aria-current="true">{{ $name }}</span>
+    {{- else -}}
+      {{- $match := "" -}}
+      {{- range $cur.Translations -}}
+        {{- if eq .Lang $code -}}{{- $match = .RelPermalink -}}{{- end -}}
+      {{- end -}}
+      {{- if $match -}}
+        <a class="oc-lang" href="{{ $match }}">{{ $name }}</a>
+      {{- else -}}
+        <a class="oc-lang oc-lang-fallback"
+           href="{{ $site.Home.RelPermalink }}"
+           title="{{ i18n "no_translation_yet" }}">{{ $name }}</a>
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+</div>
+
+{{- /* Search trigger */ -}}
+<button id="oc-search-trigger" class="oc-search-trigger" type="button" aria-label="{{ i18n "search_aria" }}">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+    <circle cx="11" cy="11" r="7" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
+  </svg>
+  <span>{{ i18n "search_placeholder" }}</span>
+  <kbd id="oc-search-kbd">⌘K</kbd>
+</button>

@@ -1,0 +1,7 @@
+{{- /* Same as the theme, but the "#" anchor is excluded from the Pagefind index */ -}}
+<h{{ .Level }} id="{{ .Anchor }}" {{- with .Attributes.class -}}class="{{ . }}"{{- end -}}>
+  {{- .Text -}}
+  {{- if default true .Attributes.anchor -}}
+  <a class="anchor" href="#{{ .Anchor }}" data-pagefind-ignore="all">#</a>
+  {{- end -}}
+</h{{ .Level }}>

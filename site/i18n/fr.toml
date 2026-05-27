@@ -1,0 +1,23 @@
+[search_placeholder]
+other = "Rechercher…"
+
+[search_aria]
+other = "Rechercher"
+
+[search_unavailable]
+other = "Recherche indisponible — lancer ./build.sh pour générer l'index Pagefind."
+
+[search_no_results]
+other = "Aucun résultat pour « {{ .Query }} »."
+
+[search_no_filter_match]
+other = "Aucune page pour ces filtres."
+
+[filter_group_series]
+other = "Séries"
+
+[filter_group_tags]
+other = "Tags"
+
+[no_translation_yet]
+other = "Pas encore traduit en français — ouvre la page d'accueil française."

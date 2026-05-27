@@ -1,0 +1,5 @@
+{{ define "main" }}
+{{ range hugo.Sites }}
+SITE: {{ .Language.Lang }} | Home permalink: {{ .Home.Permalink }} | RelPermalink: {{ .Home.RelPermalink }} | Output URL: {{ .Home.OutputFormats.Get "html" | default "n/a" }}
+{{ end }}
+{{ end }}

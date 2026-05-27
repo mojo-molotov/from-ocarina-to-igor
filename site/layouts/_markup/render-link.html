@@ -1,0 +1,30 @@
+{{- $dest := .Destination -}}
+{{- $isRemote := or (strings.HasPrefix $dest "http://") (strings.HasPrefix $dest "https://") (strings.HasPrefix $dest "//") (strings.HasPrefix $dest "mailto:") (strings.HasPrefix $dest "#") -}}
+{{- if and (not $isRemote) (strings.Contains $dest ".md") -}}
+  {{- /* Internal .md links: resolved at build time, relative (README.md -> _index.md) */ -}}
+  {{- $anchor := "" -}}
+  {{- $path := $dest -}}
+  {{- if strings.Contains $path "#" -}}
+    {{- $parts := split $path "#" -}}
+    {{- $path = index $parts 0 -}}
+    {{- $anchor = printf "#%s" (index $parts 1) -}}
+  {{- end -}}
+  {{- $path = strings.TrimSuffix ".md" $path -}}
+  {{- $path = strings.TrimSuffix "/README" $path -}}
+  {{- $path = strings.TrimSuffix "README" $path -}}
+  {{- $path = strings.TrimSuffix "/" $path -}}
+  {{- if eq $path "" }}{{ $path = "." }}{{ end -}}
+  {{- with .PageInner.GetPage $path -}}
+    <a href="{{ .RelPermalink }}{{ $anchor }}"{{ with $.Title }} title="{{ . }}"{{ end }}>{{ $.Text | safeHTML }}</a>
+  {{- else -}}
+    {{- warnf "render-link: unresolved .md link %q from %q" $dest $.Page.Path -}}
+    <a href="{{ $dest }}"{{ with $.Title }} title="{{ . }}"{{ end }}>{{ $.Text | safeHTML }}</a>
+  {{- end -}}
+{{- else -}}
+  {{- /* Non-.md links: prefix root-absolute paths with baseURL so they
+         survive under /from-ocarina-to-igor/ (mirrors render-image.html). */ -}}
+  {{- if and (not $isRemote) (strings.HasPrefix $dest "/") -}}
+    {{- $dest = $dest | strings.TrimPrefix "/" | relURL -}}
+  {{- end -}}
+  <a href="{{ $dest | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $isRemote }} target="_blank" rel="noopener"{{ end }}>{{ .Text | safeHTML }}</a>
+{{- end -}}

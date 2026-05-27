@@ -1,0 +1,6 @@
+# Ignore everything by default — only content markdown is formatted.
+**
+
+# Allow markdown under the localised content directories.
+!content.en/**/*.md
+!content.fr/**/*.md

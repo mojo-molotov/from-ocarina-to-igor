@@ -1,0 +1,8 @@
+{{- /* Prefix root-absolute paths with baseURL so images survive under /from-ocarina-to-igor/.
+       External URLs (http(s)://, //) pass through untouched. */ -}}
+{{- $dest := .Destination -}}
+{{- $isExternal := or (strings.HasPrefix $dest "http://") (strings.HasPrefix $dest "https://") (strings.HasPrefix $dest "//") -}}
+{{- if and (not $isExternal) (strings.HasPrefix $dest "/") -}}
+  {{- $dest = $dest | strings.TrimPrefix "/" | relURL -}}
+{{- end -}}
+<img src="{{ $dest | safeURL }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }}>

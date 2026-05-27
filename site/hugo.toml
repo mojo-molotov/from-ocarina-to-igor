@@ -1,0 +1,68 @@
+baseURL = "/"
+theme = "hugo-book"
+
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+disablePathToLower = true
+enableGitInfo = false
+enableEmoji = true
+
+[languages.en]
+  locale = "en-US"
+  label = "English"
+  contentDir = "content.en"
+  weight = 1
+  title = "Ocarina — manual"
+
+[languages.fr]
+  locale = "fr-FR"
+  label = "Français"
+  contentDir = "content.fr"
+  weight = 2
+  title = "Ocarina — précis"
+
+# Skip JS minification only; HTML/CSS/JSON/SVG/XML follow `hugo --minify`.
+[minify]
+  disableJS = true
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+  [markup.highlight]
+    # true: Chroma writes colors inline (hugo-book ships no stylesheet
+    # for token classes)
+    noClasses = true
+    style = "dracula"
+
+[taxonomies]
+  tag = "tags"
+  series = "series"
+
+# "Tags" entry appended at the bottom of the sidebar (per language)
+[[languages.en.menu.after]]
+  name = "Tags"
+  pageRef = "/tags"
+  weight = 10
+
+[[languages.fr.menu.after]]
+  name = "Tags"
+  pageRef = "/tags"
+  weight = 10
+
+[params]
+  # Light/dark theme following the OS
+  BookTheme = "auto"
+  # Table of contents on the right of each page
+  BookToC = true
+  # '*': every root section shows up in the sidebar
+  BookSection = "*"
+  # Search: hugo-book's fuse.js disabled, replaced by Pagefind
+  BookSearch = false
+  # No Disqus, no service worker
+  BookComments = false
+  BookServiceWorker = false
+  BookPortableLinks = false
+  BookDateFormat = "2 January 2006"
