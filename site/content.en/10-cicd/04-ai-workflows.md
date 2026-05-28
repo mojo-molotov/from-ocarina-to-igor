@@ -1,6 +1,6 @@
 ---
 title: "10.04 — ocarina-with-ai-example workflows"
-description: "See also ../08-ai-example/09-ci-matrix.md"
+description: "The ocarina-with-ai-example workflows: ai_proof_ci for the fast PR gate and a manual ai_proof_e2e with a Firefox and Chrome matrix."
 weight: 4
 date: 2026-05-20
 series: ["ci-cd"]

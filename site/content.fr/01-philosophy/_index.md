@@ -1,6 +1,6 @@
 ---
 title: "Chapitre 01 — Philosophie d'Igor Casanova"
-description: "Ocarina est un projet opinionated : il refuse explicitement d'être tout pour tout le monde. La philosophie n'est pas un préambule décoratif, c'est le filtre qui a écarté chaque feature, DSL ou raccourci alternatif. Ce chapitre dépile les positions documentées dans le Holy Book et matérialisées dans le code."
+description: "La philosophie opinionated d'Ocarina : le filtre qui a écarté chaque feature, DSL ou raccourci, des positions du Holy Book jusqu'au code."
 weight: 2
 date: 2026-05-20
 tags: ["philosophie"]

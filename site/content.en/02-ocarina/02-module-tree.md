@@ -1,5 +1,6 @@
 ---
 title: "02.02 — The ocarina module tree"
+description: "The ocarina Python module tree: 114 files across four conceptual layers, from the railway core to the opinionated components."
 weight: 2
 date: 2026-05-20
 series: ["ocarina"]

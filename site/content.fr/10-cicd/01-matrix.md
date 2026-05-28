@@ -1,6 +1,6 @@
 ---
 title: "10.01 — Matrice récapitulative des workflows"
-description: "Vue d'ensemble synthétique de tous les workflows de l'écosystème."
+description: "La matrice récapitulative de tous les workflows CI de l'écosystème Ocarina : dépôt, trigger, OS, stack et effet de chaque pipeline."
 weight: 1
 date: 2026-05-20
 series: ["ci-cd"]

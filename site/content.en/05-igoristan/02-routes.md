@@ -1,5 +1,6 @@
 ---
 title: "05.02 — Igoristan routes"
+description: "The Igoristan's ten routes, their role in the SUT and their dose of deliberate chaos to exercise Ocarina."
 weight: 2
 date: 2026-05-20
 series: ["igoristan"]

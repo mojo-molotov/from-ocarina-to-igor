@@ -1,5 +1,6 @@
 ---
 title: "12.11 — L'industrie SaaS, la fraude à l'ARR, jeu de dupes"
+description: "Pourquoi Ocarina rejette le SaaS : un écosystème circulaire où le revenu déclaré est gonflé par convention, décrit comme un jeu de dupes."
 weight: 11
 date: 2026-05-20
 series: ["analyse-manifeste"]

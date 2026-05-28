@@ -1,6 +1,6 @@
 ---
 title: "99.01 — Glossaire"
-description: "Terminologie utilisée dans l'écosystème Ocarina. Sources d'origine entre parenthèses."
+description: "Le glossaire de l'écosystème Ocarina : terminologie ROP, ISTQB, programmation fonctionnelle et sécurité, avec les sources d'origine."
 weight: 1
 date: 2026-05-20
 series: ["references"]

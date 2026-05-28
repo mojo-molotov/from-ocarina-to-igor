@@ -1,6 +1,6 @@
 ---
 title: "Chapter 08 — ocarina-with-ai-example"
-description: "CURA Healthcare e2e suite co-written by Claude Code. The living proof of concept for the AI is the bridge philosophy."
+description: "ocarina-with-ai-example, the CURA Healthcare e2e suite co-written by Claude Code: living proof of the AI is the bridge philosophy."
 weight: 9
 date: 2026-05-20
 tags: ["ai-example"]

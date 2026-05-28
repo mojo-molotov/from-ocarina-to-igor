@@ -1,6 +1,6 @@
 ---
 title: "09.03.03 — Skills Black-hat"
-description: "Idéations d'attaques métier — pas d'exécution : « security testing is functional and static, never active »."
+description: "La famille de skills Black-hat exposés aux IA : des idéations d'attaques métier sans exécution, le test de sécurité y est fonctionnel et statique."
 weight: 3
 date: 2026-05-20
 series: ["skills"]

@@ -1,6 +1,6 @@
 ---
 title: "02.06 — Scenario[Driver]"
-description: "Fichier source : src/ocarina/custom_types/scenario.py"
+description: "La dataclass Scenario[Driver] d'Ocarina : la chaîne de test avec son setup et son teardown optionnels, regroupés en une valeur immuable."
 weight: 6
 date: 2026-05-20
 series: ["ocarina"]

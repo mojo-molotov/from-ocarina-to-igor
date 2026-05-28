@@ -1,6 +1,6 @@
 ---
 title: "01.04 — Citations et influences revendiquées"
-description: "Les références citées dans le Holy Book ne sont pas neutres : elles fixent le cadre théorique d'Ocarina. On les recoupe ici par grands axes, puis on en propose une lecture d'ensemble."
+description: "Les références revendiquées par Ocarina : Wlaschin, lambda-calcul, types Python, et la lecture d'ensemble qui en fait un cadre théorique cohérent."
 weight: 4
 date: 2026-05-20
 series: ["philosophie"]

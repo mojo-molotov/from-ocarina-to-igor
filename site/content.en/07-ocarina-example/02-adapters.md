@@ -1,6 +1,6 @@
 ---
 title: "07.02 — The 5 adapters"
-description: "Every Ocarina project starts by writing five adapters on top of the framework. The ocarina-example project provides them as reference."
+description: "The five adapters every Ocarina project writes on top of the framework, provided as a reference by ocarina-example."
 weight: 2
 date: 2026-05-20
 series: ["ocarina-example"]

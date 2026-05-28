@@ -1,6 +1,6 @@
 ---
 title: "06.03 — GET /api/otp-history"
-description: "Source file: api/otp-history.ts"
+description: "The GET /api/otp-history endpoint of tests-workers: a Redis SCAN returning all OTP events to disambiguate the workers."
 weight: 3
 date: 2026-05-20
 series: ["tests-workers"]

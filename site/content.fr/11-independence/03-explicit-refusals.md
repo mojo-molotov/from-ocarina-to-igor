@@ -1,6 +1,6 @@
 ---
 title: "11.03 — Refus explicites"
-description: "Synthèse des refus dispersés dans le Holy Book."
+description: "La synthèse des refus explicites d'Ocarina : async, plugin pytest, DSL textuel et programmation réactive, chacun avec sa raison."
 weight: 3
 date: 2026-05-20
 series: ["independance"]

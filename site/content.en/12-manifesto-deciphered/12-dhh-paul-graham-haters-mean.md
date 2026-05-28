@@ -1,6 +1,6 @@
 ---
 title: "12.12 — DHH, Paul Graham, Haters, Mean People Fail"
-description: "The Holy Book quotes two big names: David Heinemeier Hansson (DHH) and Paul Graham (pg). These two authors aren't cited at random; each embodies a precise rhetorical posture. This file explains who they are, what they wrote, and why Paul Graham's Haters essay (and its younger sibling Mean People Fail) is the direct intellectual precedent of the First feedbacks chapter."
+description: "DHH and Paul Graham in the manifesto: why the essays Haters and Mean People Fail are the direct intellectual precedent of the First Feedbacks chapter."
 weight: 12
 date: 2026-05-20
 series: ["manifesto-analysis"]

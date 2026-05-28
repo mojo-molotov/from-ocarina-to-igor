@@ -1,6 +1,6 @@
 ---
 title: "09.03.02 — Analyse skills"
-description: "Dynamic analyses: use the logs / reports of a recent execution to diagnose flakiness."
+description: "The Analyse family of AI-facing skills: dynamic analyses that use execution logs and reports to diagnose flakiness."
 weight: 2
 date: 2026-05-20
 series: ["skills"]

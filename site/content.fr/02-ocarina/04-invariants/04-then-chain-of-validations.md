@@ -1,6 +1,6 @@
 ---
 title: "02.04.04 — .then(...) et chain_validations(...)"
-description: "Deux mécanismes différents pour composer plusieurs validations en une seule."
+description: "then et chain_validations : deux mécanismes pour composer plusieurs validations, changer le type validé et conserver la chaîne d'assertions."
 weight: 4
 date: 2026-05-20
 series: ["invariants"]

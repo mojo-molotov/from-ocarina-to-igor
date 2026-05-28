@@ -1,6 +1,6 @@
 ---
 title: "03.07 — Discriminated unions + TypeGuard + @final = sealed unions"
-description: "The combo that makes Result[T] and TestResult both typed and usable without casts."
+description: "Discriminated unions, TypeGuard and final: the combo that makes Result[T] and TestResult both typed and usable without casts."
 weight: 7
 date: 2026-05-20
 series: ["functional"]

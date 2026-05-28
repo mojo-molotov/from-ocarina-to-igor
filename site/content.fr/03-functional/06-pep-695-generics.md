@@ -1,6 +1,6 @@
 ---
 title: "03.06 — Generics PEP 695 dans Ocarina"
-description: "Ocarina exploite à fond la syntaxe générique introduite par PEP 695 (Python 3.12+). C'est ce qui rend tout l'écosystème typé sans que ce soit le foutoir."
+description: "Les generics PEP 695 dans Ocarina : classes, fonctions et alias de types paramétrés qui rendent tout l'écosystème typé sans lourdeur."
 weight: 6
 date: 2026-05-20
 series: ["fonctionnel"]

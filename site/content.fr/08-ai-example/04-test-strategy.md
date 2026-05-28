@@ -1,6 +1,6 @@
 ---
 title: "08.04 — Stratégie de test"
-description: "Six types de tests, six rôles distincts. Documentés dans CURA_TEST_STRATEGY.md §3."
+description: "La stratégie de test de ocarina-with-ai-example : six types de tests aux statuts attendus distincts, du happy path au business attack en échec intentionnel."
 weight: 4
 date: 2026-05-20
 series: ["ai-example"]

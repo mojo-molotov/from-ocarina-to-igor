@@ -1,6 +1,6 @@
 ---
 title: "01.05 — The project's political stance"
-description: "The Holy Book doesn't separate philosophy from the politics of the repo itself. Five operating commitments come out of it."
+description: "The five operational commitments flowing from Ocarina's philosophy: incorruptibility, an assumed direction, and their consequences for the repository."
 weight: 5
 date: 2026-05-20
 series: ["philosophy"]

@@ -1,6 +1,6 @@
 ---
 title: "Chapter 11 — Testers' independence"
-description: "Ocarina presents itself as a tool of emancipation. Three axes: sovereign grammar, auditability, explicit refusals. This chapter ties the philosophy to its practical consequences."
+description: "Tester independence according to Ocarina: sovereign grammar, auditability and explicit refusals, from philosophy to practical consequences."
 weight: 12
 date: 2026-05-20
 tags: ["independence"]

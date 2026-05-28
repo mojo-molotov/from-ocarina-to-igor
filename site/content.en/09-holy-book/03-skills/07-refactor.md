@@ -1,6 +1,6 @@
 ---
 title: "09.03.07 — Refactor skills"
-description: "Skills that refactor the existing automated-test base."
+description: "The Refactor family of AI-facing skills: refactoring an existing test base, deduplication and introducing retries into the POMs."
 weight: 7
 date: 2026-05-20
 series: ["skills"]

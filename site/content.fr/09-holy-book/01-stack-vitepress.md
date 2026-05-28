@@ -1,5 +1,6 @@
 ---
 title: "09.01 — Stack VitePress + Sugar Theme + plugins maison"
+description: "La stack du Holy Book : VitePress 2 alpha, le thème Sugar, des plugins maison et pagefind pour la recherche."
 weight: 1
 date: 2026-05-20
 series: ["holy-book"]

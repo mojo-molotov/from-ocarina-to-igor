@@ -1,5 +1,6 @@
 ---
 title: "02.07 — Watcher[Driver]"
+description: "Watcher[Driver] : l'observateur parallélisé qui tourne en daemon thread aux côtés du scénario pour détecter toasts, popups et validations parasites."
 weight: 7
 date: 2026-05-20
 series: ["ocarina"]

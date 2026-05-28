@@ -1,5 +1,6 @@
 ---
 title: "02.03.02 — The builder state machine"
+description: "Ocarina's builder state machine: four successive typed states that let the type-checker forbid any syntactic deviation in the DSL."
 weight: 2
 date: 2026-05-20
 series: ["railway"]

@@ -1,6 +1,6 @@
 ---
 title: "06.02 — GET /api/otp"
-description: "Fichier source : api/otp.ts"
+description: "L'endpoint GET /api/otp de tests-workers : génération d'un OTP avec otplib, stockage Redis et payload de coordination des workers."
 weight: 2
 date: 2026-05-20
 series: ["tests-workers"]

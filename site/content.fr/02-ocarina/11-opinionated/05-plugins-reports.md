@@ -1,5 +1,6 @@
 ---
 title: "02.11.05 — Plugins de rapport"
+description: "Les plugins de rapport opt-in d'Ocarina : pretty_print_results, results_to_json, generate_docx_proof et timing, exécutables en séquence ou en parallèle."
 weight: 5
 date: 2026-05-20
 series: ["opinionated"]

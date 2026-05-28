@@ -1,6 +1,6 @@
 ---
 title: "Chapitre 02.11 — Couche opinionated/"
-description: "Tout ce qui est opt-in : un utilisateur sourcilleux peut tout remplacer. CLI, loggers, plugins de rapport, bootstrap, alias drive_page. Cette couche est ce qu'on voit en surface ; elle n'est pas le cœur, c'est la version « clé en main » qu'Ocarina fournit pour qu'un projet typique n'ait pas à réinventer."
+description: "La couche opinionated d'Ocarina, entièrement opt-in : CLI, loggers, plugins de rapport et bootstrap, la version clé en main remplaçable du framework."
 weight: 11
 date: 2026-05-20
 tags: ["ocarina"]

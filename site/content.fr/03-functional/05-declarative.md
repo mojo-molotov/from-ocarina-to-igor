@@ -1,6 +1,6 @@
 ---
 title: "03.05 — Programmation déclarative"
-description: "Un scénario d'Ocarina décrit, il n'exécute pas. C'est ce qui le rend factorisable, multipliable, et lisible."
+description: "La programmation déclarative dans Ocarina : un scénario décrit sans exécuter, ce qui le rend factorisable, multipliable et lisible."
 weight: 5
 date: 2026-05-20
 series: ["fonctionnel"]

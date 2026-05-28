@@ -1,6 +1,6 @@
 ---
 title: "02.04.01 — The validate → assert_that → execute → raise_if_invalid flow"
-description: "Source file: src/ocarina/dsl/invariants/validate.py (entry-point) + src/ocarina/dsl/invariants/internals/validation_chain.py"
+description: "The validate, assert_that, execute, raise_if_invalid flow: the state machine of Ocarina's typed invariants sub-DSL."
 weight: 1
 date: 2026-05-20
 series: ["invariants"]

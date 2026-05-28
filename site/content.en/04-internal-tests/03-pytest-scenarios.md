@@ -1,6 +1,6 @@
 ---
 title: "04.03 — Scenario tests (pytest + allure)"
-description: "13 test_*.py files in tests/scenarios/ cover the DSL and orchestration. Dynamic tests."
+description: "Ocarina's thirteen scenario test files under pytest and allure, dynamically covering the DSL and the orchestration."
 weight: 3
 date: 2026-05-20
 series: ["internal-tests"]

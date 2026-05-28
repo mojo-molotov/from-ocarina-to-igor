@@ -1,6 +1,6 @@
 ---
 title: "07.09 — catch_me_if_you_can"
-description: "Détecte les éléments parasites qui pop sur la page pendant que le test tourne, et les trace."
+description: "catch_me_if_you_can : le watcher de ocarina-example qui détecte et trace les éléments parasites apparaissant pendant qu'un test tourne."
 weight: 9
 date: 2026-05-20
 series: ["ocarina-example"]

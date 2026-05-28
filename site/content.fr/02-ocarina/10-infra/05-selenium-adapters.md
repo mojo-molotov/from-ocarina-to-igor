@@ -1,5 +1,6 @@
 ---
 title: "02.10.05 — Adapters Selenium"
+description: "Les adapters Selenium d'Ocarina : tout ce qui matérialise POMBase, WebDriversPool et Screenshotter, hors du DSL pur et remplaçable par Playwright."
 weight: 5
 date: 2026-05-20
 series: ["infra"]

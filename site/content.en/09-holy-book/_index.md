@@ -1,6 +1,6 @@
 ---
 title: "Chapter 09 — Holy Book"
-description: "Ocarina's public documentation. VitePress, FR + EN + RU, AI-generated PDFs, 40+ skills exposed to LLMs. URL: https://mojo-molotov.github.io/ocarina-holy-book/"
+description: "The Holy Book, Ocarina's public documentation: VitePress in FR, EN and RU, AI-generated PDFs and 40-plus skills exposed to LLMs."
 weight: 10
 date: 2026-05-20
 tags: ["holy-book"]

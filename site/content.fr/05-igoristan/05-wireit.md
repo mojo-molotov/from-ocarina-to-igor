@@ -1,6 +1,6 @@
 ---
 title: "05.05 — Pipelines wireit"
-description: "wireit est un orchestrateur de scripts NPM avec cache incrémental. L'Igoristan l'utilise pour enchaîner format-check, lint, typecheck, prebuild, build, dev, preview, le tout avec un cache fin par tâche."
+description: "Les pipelines wireit de l'Igoristan : enchaînement de format-check, lint, typecheck, build et dev avec un cache incrémental fin par tâche."
 weight: 5
 date: 2026-05-20
 series: ["igoristan"]

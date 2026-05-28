@@ -1,6 +1,6 @@
 ---
 title: "05.07 — CI/CD de l'Igoristan"
-description: "Deux workflows : ci-pr.yml sur PR (3 jobs parallèles), deploy.yml sur push main (GitHub Pages)."
+description: "La CI/CD de l'Igoristan : ci-pr.yml avec trois jobs parallélisés sur PR, et deploy.yml pour la mise en ligne sur GitHub Pages."
 weight: 7
 date: 2026-05-20
 series: ["igoristan"]

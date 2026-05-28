@@ -1,6 +1,6 @@
 ---
 title: "09.06 — Ressources publiques"
-description: "Tableau complet des URLs publiques exposées par le Holy Book. Pour les humains, les LLMs, les scrapers."
+description: "Le tableau complet des URLs publiques exposées par le Holy Book, pour les humains, les LLMs et les scrapers."
 weight: 6
 date: 2026-05-20
 series: ["holy-book"]

@@ -1,6 +1,6 @@
 ---
 title: "09.03.01 — Skills Review"
-description: "Lectures statiques, remontent des constats. Une grande famille. Permet à l'IA d'effectuer de la revue sur son projet de manière systématique."
+description: "La famille de skills Review exposés aux IA : des lectures statiques qui remontent des constats de revue systématique sur un projet Ocarina."
 weight: 1
 date: 2026-05-20
 series: ["skills"]

@@ -1,5 +1,6 @@
 ---
 title: "07.01 — Tree"
+description: "The full tree of ocarina-example: pages, lib, api, caches, constants and tests of the reference e2e suite against the Igoristan."
 weight: 1
 date: 2026-05-20
 series: ["ocarina-example"]

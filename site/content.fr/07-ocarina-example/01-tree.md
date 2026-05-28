@@ -1,5 +1,6 @@
 ---
 title: "07.01 — Arborescence"
+description: "L'arborescence complète de ocarina-example : pages, lib, api, caches, constants et tests de la suite e2e de référence contre l'Igoristan."
 weight: 1
 date: 2026-05-20
 series: ["ocarina-example"]

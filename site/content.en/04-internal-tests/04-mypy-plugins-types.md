@@ -1,6 +1,6 @@
 ---
 title: "04.04 — Static typing tests (pytest-mypy-plugins)"
-description: "Five *test_types.yml files that test the checker's behavior. A testing dimension unique to Ocarina in its way: we make sure that what should be a mypy error actually is one."
+description: "Ocarina's static typing tests through pytest-mypy-plugins: checking that what should be a mypy error actually is one."
 weight: 4
 date: 2026-05-20
 series: ["internal-tests"]

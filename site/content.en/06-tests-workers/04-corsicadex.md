@@ -1,6 +1,6 @@
 ---
 title: "06.04 — GET /api/corsicadex?id=N"
-description: "Source file: api/corsicadex.ts"
+description: "The GET /api/corsicadex endpoint of tests-workers: a static lookup by id, exercised by the Igoristan's Corsicamon scenarios."
 weight: 4
 date: 2026-05-20
 series: ["tests-workers"]

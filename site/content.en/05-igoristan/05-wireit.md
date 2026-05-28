@@ -1,6 +1,6 @@
 ---
 title: "05.05 — wireit pipelines"
-description: "wireit is an NPM script orchestrator with incremental cache. Igoristan uses it to chain format-check, lint, typecheck, prebuild, build, dev, preview, all with fine per-task caching."
+description: "The Igoristan's wireit pipelines: chaining format-check, lint, typecheck, build and dev with fine-grained incremental per-task caching."
 weight: 5
 date: 2026-05-20
 series: ["igoristan"]

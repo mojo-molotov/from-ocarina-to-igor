@@ -1,5 +1,6 @@
 ---
 title: "02.05.04 — TestSuite[Driver] — parallelized engine"
+description: "TestSuite[Driver]: Ocarina's parallelized engine, concurrent test execution, worker saturation, ID filtering and pre-execution invariants."
 weight: 4
 date: 2026-05-20
 series: ["orchestration"]

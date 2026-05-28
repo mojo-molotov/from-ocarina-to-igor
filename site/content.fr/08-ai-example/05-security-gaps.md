@@ -1,6 +1,6 @@
 ---
 title: "08.05 — Gaps sécurité (G-SEC-1 à G-SEC-3)"
-description: "Trois gaps de sécurité documentés. Pas exploités activement (cf. règle « security testing is functional and static, never active »), mais observés via tests fonctionnels."
+description: "Les trois gaps de sécurité de CURA documentés par ocarina-with-ai-example, observés par tests fonctionnels et jamais exploités activement."
 weight: 5
 date: 2026-05-20
 series: ["ai-example"]

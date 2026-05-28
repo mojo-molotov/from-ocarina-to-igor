@@ -1,6 +1,6 @@
 ---
 title: "08.07 — Gaps spec (G-SPEC-1 à G-SPEC-3)"
-description: "Trois gaps sur le comportement métier vs la spec attendue d'un système de santé."
+description: "Les trois gaps de spec de CURA, écarts entre le comportement métier observé et celui attendu d'un système de santé, par ocarina-with-ai-example."
 weight: 7
 date: 2026-05-20
 series: ["ai-example"]

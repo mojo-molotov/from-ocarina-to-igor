@@ -1,6 +1,6 @@
 ---
 title: "Chapter 07 — ocarina-example, the canonical suite"
-description: "E2E suite designed to test Igoristan. The reference example: every Ocarina project starts by reading this repo and copying its adapters."
+description: "ocarina-example, the reference e2e suite against the Igoristan: the repository every Ocarina project reads and copies adapters from."
 weight: 8
 date: 2026-05-20
 tags: ["ocarina-example", "scenarios"]

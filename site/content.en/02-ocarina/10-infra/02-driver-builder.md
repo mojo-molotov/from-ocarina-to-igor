@@ -1,5 +1,6 @@
 ---
 title: "02.10.02 — DriverBuilder[Driver]"
+description: "DriverBuilder[Driver]: browser profile handling through a temporary copy, producing the driver and dispose pair the pool expects."
 weight: 2
 date: 2026-05-20
 series: ["infra"]

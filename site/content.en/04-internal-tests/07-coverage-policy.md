@@ -1,6 +1,6 @@
 ---
 title: "04.07 — Coverage policy: what's tested, what isn't, why"
-description: "Line coverage is explicitly scoped to the pure DSL and agnostic infra. The rest gets tested by other means (cram, types, snapshots, e2e) or stays out of scope (inert shapes)."
+description: "Ocarina's coverage policy: line coverage scoped to the pure DSL and agnostic infra, the rest tested otherwise or out of scope."
 weight: 7
 date: 2026-05-20
 series: ["internal-tests"]

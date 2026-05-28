@@ -1,6 +1,6 @@
 ---
 title: "Chapitre 02.10 — Infrastructure"
-description: "Tout ce qui touche aux ressources externes : pool de drivers, builders, screenshotters, compteur d'acts, et les adapters Selenium qui implémentent ces abstractions."
+description: "La couche infrastructure d'Ocarina : pool de drivers, builders, screenshotter, compteur d'acts et les adapters Selenium qui les implémentent."
 weight: 10
 date: 2026-05-20
 tags: ["ocarina", "selenium"]

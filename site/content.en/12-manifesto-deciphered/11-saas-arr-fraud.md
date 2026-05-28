@@ -1,5 +1,6 @@
 ---
 title: "12.11 — The SaaS industry, ARR fraud, the con"
+description: "Why Ocarina rejects SaaS: a circular ecosystem where declared revenue is inflated by convention, described as a con."
 weight: 11
 date: 2026-05-20
 series: ["manifesto-analysis"]

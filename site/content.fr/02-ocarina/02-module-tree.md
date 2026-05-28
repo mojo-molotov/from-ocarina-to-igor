@@ -1,5 +1,6 @@
 ---
 title: "02.02 — Arborescence du module ocarina"
+description: "L'arborescence du module Python ocarina : 114 fichiers répartis en quatre couches conceptuelles, du railway aux composants opinionated."
 weight: 2
 date: 2026-05-20
 series: ["ocarina"]

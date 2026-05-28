@@ -1,5 +1,6 @@
 ---
 title: "06.01 — Stack Vercel Edge"
+description: "La stack de tests-workers : des Vercel Edge Functions et Upstash Redis, sans application Next.js, pour coordonner des tests parallélisés."
 weight: 1
 date: 2026-05-20
 series: ["tests-workers"]

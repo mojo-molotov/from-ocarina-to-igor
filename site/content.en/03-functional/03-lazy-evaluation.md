@@ -1,6 +1,6 @@
 ---
 title: "03.03 — Lazy evaluation"
-description: "In Ocarina, nothing is executed until you explicitly trigger it. That's what makes scenarios composable as values."
+description: "Lazy evaluation in Ocarina: nothing runs before explicit triggering, which makes scenarios composable as values."
 weight: 3
 date: 2026-05-20
 series: ["functional"]

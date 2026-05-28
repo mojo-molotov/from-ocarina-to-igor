@@ -1,6 +1,6 @@
 ---
 title: '12.17 — The survivor''s psyche: "enemies", "narcissism", "hell", "survival", and how it bubbles up into the code'
-description: "Ocarina's Holy Book author uses strong words: enemies, narcissism, hell on earth, survival. These words aren't stylistic flourishes. They're the precise descriptors of an experience lived by a whole cohort that went through the 2000s underground internet described in 16-underground-internet-2000s.md. This page explains why these words are accurate, what this lived experience produces on the psyche, and how these psychological adaptations imprint deeply into the way one programs, architects, always stays up to date."
+description: "The survivor psyche behind the manifesto: why the words enemies, narcissism and survival are exact, and how that experience reaches into the code."
 weight: 20
 date: 2026-05-20
 series: ["manifesto-analysis"]

@@ -1,6 +1,6 @@
 ---
 title: "09.03.04 — Skills Comprehend"
-description: "Skills qui aident l'IA à comprendre un projet ou un écosystème avant d'agir."
+description: "La famille de skills Comprehend exposés aux IA : des skills qui aident à comprendre un projet, son écosystème et les bornes du SUT avant d'agir."
 weight: 4
 date: 2026-05-20
 series: ["skills"]

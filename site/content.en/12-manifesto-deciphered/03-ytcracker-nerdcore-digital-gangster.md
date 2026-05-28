@@ -1,6 +1,6 @@
 ---
 title: "12.03 — YTCracker, Nerdcore, Digital Gangster"
-description: "Bryce Case Jr., a single man, connects four universes: the US hacker scene (1999-2005), the birth of Nerdcore (nerd hip-hop, 2005-2008), Digital Gangster (forum 2005-2017), and crypto culture (from 2013 onward, notably with Bitcoin Baron). The Holy Book quotes him several times."
+description: "YTCracker, alias Bryce Case Jr.: the man linking the hacker scene, Nerdcore, the Digital Gangster forum and crypto culture, cited by the manifesto."
 weight: 3
 date: 2026-05-20
 series: ["manifesto-analysis"]

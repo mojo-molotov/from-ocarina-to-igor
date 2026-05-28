@@ -1,6 +1,6 @@
 ---
 title: "10.05 — Workflows igoristan"
-description: "Voir aussi ../05-igoristan/07-ci-deploy.md"
+description: "Les workflows de l'Igoristan : ci-pr avec trois jobs parallélisés sur PR, et deploy pour la mise en ligne sur GitHub Pages."
 weight: 5
 date: 2026-05-20
 series: ["ci-cd"]

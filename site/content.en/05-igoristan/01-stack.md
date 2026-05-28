@@ -1,5 +1,6 @@
 ---
 title: "05.01 — Igoristan stack"
+description: "The Igoristan stack: React 19, Vike in SSG mode, Vite 7, TailwindCSS 4 and Valibot, orchestrated by wireit and pnpm."
 weight: 1
 date: 2026-05-20
 series: ["igoristan"]

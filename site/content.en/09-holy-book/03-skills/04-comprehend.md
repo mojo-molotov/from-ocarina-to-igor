@@ -1,6 +1,6 @@
 ---
 title: "09.03.04 — Comprehend skills"
-description: "Skills that help the AI understand a project or ecosystem before acting."
+description: "The Comprehend family of AI-facing skills: skills that help understand a project, its ecosystem and the SUT's limits before acting."
 weight: 4
 date: 2026-05-20
 series: ["skills"]

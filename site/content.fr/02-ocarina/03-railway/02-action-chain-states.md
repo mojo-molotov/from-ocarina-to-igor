@@ -1,5 +1,6 @@
 ---
 title: "02.03.02 — La machine à états du builder"
+description: "La machine à états du builder d'Ocarina : quatre états typés successifs qui interdisent au type-checker toute fantaisie syntaxique dans le DSL."
 weight: 2
 date: 2026-05-20
 series: ["railway"]

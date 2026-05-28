@@ -1,6 +1,6 @@
 ---
 title: "08.06 — Data gaps (G-DATA-1, G-DATA-2)"
-description: "Two major gaps on data integrity."
+description: "The two CURA data-integrity gaps, including the missing server-side validation of the visit date, documented by ocarina-with-ai-example."
 weight: 6
 date: 2026-05-20
 series: ["ai-example"]

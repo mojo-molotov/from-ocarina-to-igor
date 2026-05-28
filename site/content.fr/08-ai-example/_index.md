@@ -1,6 +1,6 @@
 ---
 title: "Chapitre 08 — ocarina-with-ai-example"
-description: "Suite e2e CURA Healthcare co-écrite par Claude Code. C'est le proof of concept vivant de la philosophie « l'IA est le pont »."
+description: "ocarina-with-ai-example, la suite e2e CURA Healthcare co-écrite par Claude Code : la preuve par l'exemple de la philosophie l'IA est le pont."
 weight: 9
 date: 2026-05-20
 tags: ["ai-example"]

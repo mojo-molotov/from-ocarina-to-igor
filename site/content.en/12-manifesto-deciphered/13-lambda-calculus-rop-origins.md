@@ -1,6 +1,6 @@
 ---
 title: "12.13 — Lambda calculus, ROP, Haskell / F# / OCaml, monads"
-description: "Ocarina invents nothing on the theoretical front. It applies: from Alonzo Church's lambda calculus (1936) to Eugenio Moggi's (1989) and Philip Wadler's (1992-95) monads, formalized as Railway Oriented Programming by Scott Wlaschin (2014)."
+description: "Ocarina's theoretical roots: from Church's lambda calculus to Moggi's and Wadler's monads, up to Wlaschin's Railway Oriented Programming."
 weight: 13
 date: 2026-05-20
 series: ["manifesto-analysis"]

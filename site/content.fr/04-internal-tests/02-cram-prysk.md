@@ -1,6 +1,6 @@
 ---
 title: "04.02 — Cram tests (prysk)"
-description: "Tests CLI au format cram : un fichier .t contient des commandes shell et leur sortie attendue. Outil utilisé : prysk (réécriture moderne de l'original cram)."
+description: "Les tests CLI d'Ocarina au format cram : des fichiers .t décrivant commandes shell et sortie attendue, exécutés via prysk."
 weight: 2
 date: 2026-05-20
 series: ["tests-internes"]

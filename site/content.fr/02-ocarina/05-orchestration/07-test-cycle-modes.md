@@ -1,5 +1,6 @@
 ---
 title: "02.05.07 — TestCycle[Driver] + modes"
+description: "TestCycle[Driver] : l'orchestration des campagnes smoke puis main, avec deux modes de gestion d'échec des tests smoke."
 weight: 7
 date: 2026-05-20
 series: ["orchestration"]

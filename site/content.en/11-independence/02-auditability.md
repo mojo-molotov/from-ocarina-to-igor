@@ -1,6 +1,6 @@
 ---
 title: "11.02 — Auditability in an afternoon"
-description: "Operational commitment: a human must be able to read the whole framework and understand it in a few hours. No hidden magic."
+description: "Ocarina's auditability in an afternoon: a framework readable end to end, a single runtime dependency and no hidden magic."
 weight: 2
 date: 2026-05-20
 series: ["independence"]

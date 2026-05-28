@@ -1,6 +1,6 @@
 ---
 title: "02.12 — Custom types & custom errors"
-description: "Couche shape d'Ocarina. Aucune logique : juste des types, des alias, des exceptions, des protocols. C'est ce qui rend le DSL typé sans logique runtime additionnelle."
+description: "La couche shape d'Ocarina : types, alias, exceptions et protocols, sans aucune logique runtime, ce qui rend le DSL typé sans surcoût d'exécution."
 weight: 12
 date: 2026-05-20
 series: ["ocarina"]

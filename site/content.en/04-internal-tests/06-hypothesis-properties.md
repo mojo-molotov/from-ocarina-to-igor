@@ -1,6 +1,6 @@
 ---
 title: "04.06 — Property-based testing (hypothesis)"
-description: "A single file (test_invariants_properties.py), but the pattern is interesting: we generate inputs and verify universal properties of the invariant predicates."
+description: "Ocarina's property-based testing with hypothesis: generating inputs and checking universal properties of the invariant predicates."
 weight: 6
 date: 2026-05-20
 series: ["internal-tests"]

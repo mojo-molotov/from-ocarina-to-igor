@@ -1,6 +1,6 @@
 ---
 title: "07.06 — Scénarios sacred upload"
-description: "La page /igoristan/sacred-upload permet de glisser-déposer un fichier. Exerce le pattern d'upload de fichiers côté Ocarina."
+description: "Les scénarios sacred upload de ocarina-example : le glisser-déposer de fichier qui exerce le pattern d'upload côté Ocarina."
 weight: 6
 date: 2026-05-20
 series: ["ocarina-example"]

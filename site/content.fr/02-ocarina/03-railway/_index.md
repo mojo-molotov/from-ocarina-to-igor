@@ -1,6 +1,6 @@
 ---
 title: "Chapitre 02.03 — Railway Oriented Programming"
-description: "Le cœur d'Ocarina. Tout le DSL repose sur cette mécanique : représenter le succès et l'échec comme deux rails parallèles, faire qu'un échec bascule le train sur le rail d'échec, et l'y fait rester (court-circuit), préserver la composition syntaxique pour que le scénario reste lisible."
+description: "Le Railway Oriented Programming au cœur d'Ocarina : succès et échec comme deux rails parallèles, court-circuit, et composition syntaxique lisible."
 weight: 3
 date: 2026-05-20
 tags: ["ocarina", "rop"]

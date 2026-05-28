@@ -1,5 +1,6 @@
 ---
 title: "02.05.04 — TestSuite[Driver] — moteur parallélisé"
+description: "TestSuite[Driver] : le moteur parallélisé d'Ocarina, exécution concurrente des tests, saturation des workers, filtrage par IDs et invariants pré-exécution."
 weight: 4
 date: 2026-05-20
 series: ["orchestration"]

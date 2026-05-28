@@ -1,6 +1,6 @@
 ---
 title: "04.01 — Stratégie « dehors comme un utilisateur »"
-description: "La posture documentée dès le conftest.py des tests scénarios. Aucun test ne triche en regardant les internes."
+description: "La stratégie de test interne d'Ocarina, dehors comme un utilisateur : aucun test ne triche en regardant les internes, posée dès le conftest.py."
 weight: 1
 date: 2026-05-20
 series: ["tests-internes"]

@@ -1,6 +1,6 @@
 ---
 title: "Chapter 05 — Igoristan, the public SUT"
-description: "Deliberately chaotic web app, hosted on GitHub Pages, Igor's personal empire. Doubles as ocarina-example's SUT and a playground for replay, watchers, match_page."
+description: "The Igoristan, Ocarina's deliberately chaotic public SUT: a playground to demonstrate retries, watchers and match_page."
 weight: 6
 date: 2026-05-20
 tags: ["igoristan"]

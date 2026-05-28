@@ -1,6 +1,6 @@
 ---
 title: "99.02 — Index des fichiers cités"
-description: "Par dépôt, les fichiers source explicitement cités dans le précis. URLs GitHub directs."
+description: "L'index des fichiers source cités dans le précis, classés par dépôt, avec leurs URLs GitHub directes."
 weight: 2
 date: 2026-05-20
 series: ["references"]

@@ -1,6 +1,6 @@
 ---
 title: "10.02 — Workflows ocarina (framework)"
-description: "Trois workflows : main_ci.yml (production), dev_ci.yml (branches dev/feature/fix), unstable_python_full_build.yml (cron mensuel sur Python 3.15-dev)."
+description: "Les trois workflows du framework ocarina : main_ci pour la production, dev_ci pour les branches de travail et un build mensuel sur Python 3.15-dev."
 weight: 2
 date: 2026-05-20
 series: ["ci-cd"]

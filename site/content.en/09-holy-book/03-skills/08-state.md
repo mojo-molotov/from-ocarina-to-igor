@@ -1,6 +1,6 @@
 ---
 title: "09.03.08 — State skill"
-description: "A single skill: question-state. Interrogates the environment before believing a result."
+description: "The State skill exposed to AIs, question-state: probing the environment's state before trusting a surprising test result."
 weight: 8
 date: 2026-05-20
 series: ["skills"]

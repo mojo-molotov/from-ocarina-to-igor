@@ -1,6 +1,6 @@
 ---
 title: "Chapitre 03 — Programmation fonctionnelle avec Ocarina"
-description: "Comment Ocarina applique la programmation fonctionnelle, et pourquoi ces choix sont structurants. Ce chapitre est plus transversal que les autres : il revisite la mécanique du framework sous l'angle FP."
+description: "Comment et pourquoi Ocarina applique la programmation fonctionnelle : une relecture transversale de la mécanique du framework sous l'angle FP."
 weight: 4
 date: 2026-05-20
 tags: ["fonctionnel"]

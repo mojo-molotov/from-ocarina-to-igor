@@ -1,5 +1,6 @@
 ---
 title: "02.10.02 — DriverBuilder[Driver]"
+description: "DriverBuilder[Driver] : la gestion du profil navigateur via une copie temporaire, produisant la paire driver et dispose attendue par la pool."
 weight: 2
 date: 2026-05-20
 series: ["infra"]

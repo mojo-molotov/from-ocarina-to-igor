@@ -1,6 +1,6 @@
 ---
 title: "12.17 — La psyché du survivant : « ennemis », « narcissisme », « enfer », « survie », et comment ça remonte jusque dans le code"
-description: "L'auteur du Holy Book d'Ocarina utilise des mots forts&nbsp;:&nbsp;ennemis, narcissisme, enfer sur terre, survie. Ces mots ne sont pas des effets de style. Ce sont les descripteurs précis d'une expérience vécue par toute une cohorte qui a traversé l'internet souterrain 2000s décrit dans 16-underground-internet-2000s.md. Cette page explique pourquoi ces mots sont exacts, ce que produit ce vécu sur la psyché, et comment ces adaptations psychologiques s'inscrivent profondément dans la façon de programmer, d'architecturer, de toujours se tenir à jour."
+description: "La psyché du survivant derrière le manifeste : pourquoi les mots ennemis, narcissisme et survie sont exacts, et comment ce vécu remonte jusque dans le code."
 weight: 20
 date: 2026-05-20
 series: ["analyse-manifeste"]

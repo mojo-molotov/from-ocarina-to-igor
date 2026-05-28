@@ -1,5 +1,6 @@
 ---
 title: "01.02 — ISTQB vs pytest / Jest / Mocha"
+description: "Why Ocarina adopts the ISTQB vocabulary where pytest, Jest and Mocha stay hybrid, and the resulting Test, Suite, Campaign, Cycle hierarchy."
 weight: 2
 date: 2026-05-20
 series: ["philosophy"]

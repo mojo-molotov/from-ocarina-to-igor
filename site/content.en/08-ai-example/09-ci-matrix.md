@@ -1,6 +1,6 @@
 ---
 title: "08.09 — CI: ai_proof_ci.yml + ai_proof_e2e.yml"
-description: "Two workflows. Fast PR (lint+typecheck). Manual e2e with Firefox/Chrome matrix + Heroku warm-up + ChromeDriver stacktrace filtering."
+description: "The CI of ocarina-with-ai-example: a fast lint and typecheck PR, and a manual e2e with a Firefox and Chrome matrix, Heroku warm-up and stacktrace filtering."
 weight: 9
 date: 2026-05-20
 series: ["ai-example"]

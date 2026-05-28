@@ -1,6 +1,6 @@
 ---
 title: "09.03.08 — Skill State"
-description: "Un seul skill : question-state. Interroge l'environnement avant de croire un résultat."
+description: "Le skill State exposé aux IA, question-state : interroger l'état de l'environnement avant de croire un résultat de test surprenant."
 weight: 8
 date: 2026-05-20
 series: ["skills"]

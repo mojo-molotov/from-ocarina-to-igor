@@ -1,6 +1,6 @@
 ---
 title: "09.03.03 — Black-hat skills"
-description: 'Business-attack ideation — no execution: "security testing is functional and static, never active".'
+description: "The Black-hat family of AI-facing skills: business-attack ideation with no execution, where security testing stays functional and static."
 weight: 3
 date: 2026-05-20
 series: ["skills"]

@@ -1,5 +1,6 @@
 ---
 title: "01.01 — Flipping the problem"
+description: "Ocarina's founding bet against Robot Framework and Cucumber: removing the barrier between those who code and those who define the tests."
 weight: 1
 date: 2026-05-20
 series: ["philosophy"]

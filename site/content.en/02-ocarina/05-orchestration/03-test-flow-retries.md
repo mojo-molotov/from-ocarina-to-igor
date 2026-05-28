@@ -1,5 +1,6 @@
 ---
 title: "02.05.03 — TestFlow[Driver] — retry policy"
+description: "TestFlow[Driver]: Ocarina's retry policy, a retry loop with a fresh driver per attempt and linear backoff."
 weight: 3
 date: 2026-05-20
 series: ["orchestration"]

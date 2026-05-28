@@ -1,6 +1,6 @@
 ---
 title: "Chapter 01 — Igor Casanova's philosophy"
-description: "Ocarina is opinionated. It refuses to be all things to all people. The philosophy isn't decorative preamble — it's the filter that killed every feature, DSL, and shortcut along the way. This chapter unpacks the positions documented in the Holy Book and made real in code."
+description: "Ocarina's opinionated philosophy: the filter that ruled out every feature, DSL or shortcut, from the Holy Book's positions down to the code."
 weight: 2
 date: 2026-05-20
 tags: ["philosophy"]

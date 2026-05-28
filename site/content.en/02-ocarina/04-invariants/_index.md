@@ -1,6 +1,6 @@
 ---
 title: "Chapter 02.04 — Invariants"
-description: "Ocarina's sub-DSL for typed, composable invariants. Used everywhere: CLI, POMs, the custom_invariants/testing/ that check suite consistency before any test runs."
+description: "Ocarina's typed, composable invariants sub-DSL, used by the CLI, the POMs and pre-execution suite validation."
 weight: 4
 date: 2026-05-20
 tags: ["ocarina", "rop", "invariants"]

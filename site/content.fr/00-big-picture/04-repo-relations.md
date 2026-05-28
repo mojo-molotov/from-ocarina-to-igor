@@ -1,5 +1,6 @@
 ---
 title: "00.04 — Relations entre les six dépôts"
+description: "Les relations bilatérales entre les six dépôts : qui importe quoi, quels artefacts circulent, quels secrets et contrats sont partagés."
 weight: 4
 date: 2026-05-20
 series: ["big-picture"]

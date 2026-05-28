@@ -1,6 +1,6 @@
 ---
 title: "12.16 — The underground internet of 1995-2010: forums, tools, banalization of cruelty"
-description: "To understand the rage running through Ocarina's Holy Book, you have to understand what the internet really was before Facebook (2006-2008), before Cloudflare became the gatekeeper (2010+), before moderation was taken seriously. It was a Wild West where state-level capabilities developed in teenagers' bedrooms, where an adversary's privacy could be demolished in 48 hours, and where classical legal recourse was inoperative. This page describes the mechanics, without complacency, without heroization."
+description: "The underground internet of 1995-2010: forums, tools and the normalization of cruelty, the historical context of the Ocarina manifesto's rage."
 weight: 19
 date: 2026-05-20
 series: ["manifesto-analysis"]

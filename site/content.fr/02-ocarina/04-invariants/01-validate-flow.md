@@ -1,6 +1,6 @@
 ---
 title: "02.04.01 — Le flot validate → assert_that → execute → raise_if_invalid"
-description: "Fichier source : src/ocarina/dsl/invariants/validate.py (entry-point) + src/ocarina/dsl/invariants/internals/validation_chain.py"
+description: "Le flot validate, assert_that, execute, raise_if_invalid : la machine à états du sous-DSL d'invariants typés d'Ocarina."
 weight: 1
 date: 2026-05-20
 series: ["invariants"]

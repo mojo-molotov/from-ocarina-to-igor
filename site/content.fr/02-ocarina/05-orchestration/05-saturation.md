@@ -1,6 +1,6 @@
 ---
 title: "02.05.05 — Saturation des workers"
-description: "Mécanisme propre à Ocarina : si une suite a moins de tests que de workers disponibles, on clone aléatoirement des tests jusqu'à atteindre le nombre de workers. Les copies sont renommées [COPY 1] <name>, [COPY 2] <name>, etc."
+description: "La saturation des workers : le clonage aléatoire des tests d'une suite jusqu'au nombre de workers, pour que les succès ne doivent rien au hasard."
 weight: 5
 date: 2026-05-20
 series: ["orchestration"]

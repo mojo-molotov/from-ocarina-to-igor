@@ -1,5 +1,6 @@
 ---
 title: "02.11.04 — Loggers: PrintLogger, FileLogger, PrintAndFileLogger, MutedLogger"
+description: "Ocarina's four canonical loggers, PrintLogger, FileLogger, PrintAndFileLogger and MutedLogger, plus the create_matching_logger factory, all opt-in."
 weight: 4
 date: 2026-05-20
 series: ["opinionated"]

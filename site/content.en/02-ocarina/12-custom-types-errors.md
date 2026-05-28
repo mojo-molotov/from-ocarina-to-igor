@@ -1,6 +1,6 @@
 ---
 title: "02.12 — Custom types & custom errors"
-description: "Ocarina's shape layer. No logic — types, aliases, exceptions, protocols. What makes the DSL typed without adding runtime logic."
+description: "Ocarina's shape layer: types, aliases, exceptions and protocols, with no runtime logic, making the DSL typed at no execution cost."
 weight: 12
 date: 2026-05-20
 series: ["ocarina"]

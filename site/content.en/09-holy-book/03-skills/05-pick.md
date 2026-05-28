@@ -1,6 +1,6 @@
 ---
 title: "09.03.05 — Pick skills"
-description: "Artifact picking (screenshots, logs, reports). Always by mtime, never by filename."
+description: "The Pick family of AI-facing skills: artifact selection, screenshots, logs and reports, always by mtime and never by filename."
 weight: 5
 date: 2026-05-20
 series: ["skills"]

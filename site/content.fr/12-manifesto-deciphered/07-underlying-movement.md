@@ -1,6 +1,6 @@
 ---
 title: "12.07 — Le mouvement de fond"
-description: "Trois trajectoires possibles pour qui était dans la scène hackers 1999-2012 : (1) rester black hat et finir en prison (au mieux), (2) décrocher complètement, (3) se reconstruire seul par la Recherche. Le Holy Book parle de la troisième. C'est de là qu'Ocarina vient."
+description: "Les trois trajectoires d'un membre de la scène hackers 1999-2012, prison, décrochage ou reconstruction par la Recherche, et celle dont Ocarina est issu."
 weight: 7
 date: 2026-05-20
 series: ["analyse-manifeste"]

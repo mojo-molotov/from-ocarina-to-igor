@@ -1,5 +1,6 @@
 ---
 title: "02.03.07 — match_page / when"
+description: "match_page et when : la construction qui gère les pages rendues différemment, bannière cookies, A/B test ou mode dégradé, ajoutée après coup au DSL."
 weight: 7
 date: 2026-05-20
 series: ["railway"]

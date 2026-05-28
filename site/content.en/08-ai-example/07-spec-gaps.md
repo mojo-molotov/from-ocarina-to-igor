@@ -1,6 +1,6 @@
 ---
 title: "08.07 — Spec gaps (G-SPEC-1 to G-SPEC-3)"
-description: "Three gaps on actual business behavior vs the expected spec of a healthcare system."
+description: "The three CURA spec gaps, divergences between observed behavior and what a healthcare system should do, by ocarina-with-ai-example."
 weight: 7
 date: 2026-05-20
 series: ["ai-example"]

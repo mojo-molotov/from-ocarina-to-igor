@@ -1,5 +1,6 @@
 ---
 title: "02.03.04 — chain_actions et le ChainRunner"
+description: "chain_actions et le ChainRunner : la primitive de fold qui aplatit un scénario en liste d'actions plutôt qu'en escalier d'appels chaînés."
 weight: 4
 date: 2026-05-20
 series: ["railway"]

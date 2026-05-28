@@ -1,6 +1,6 @@
 ---
 title: "02.11.03 — Auto CLI store + flags + validation"
-description: "Source file: src/ocarina/opinionated/cli/selenium/create_cli_store.py"
+description: "Ocarina's ready-made Selenium CLI store: the driver, profile, browser and headless flags, with their defaults and validation."
 weight: 3
 date: 2026-05-20
 series: ["opinionated"]

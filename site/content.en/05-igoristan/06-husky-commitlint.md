@@ -1,6 +1,6 @@
 ---
 title: "05.06 — Husky + lint-staged + commitlint + commitizen"
-description: "Strict commit discipline. Conventional, signed, format-checked."
+description: "The Igoristan's commit discipline: Husky, lint-staged, commitlint and commitizen for conventional, format-checked messages."
 weight: 6
 date: 2026-05-20
 series: ["igoristan"]

@@ -1,5 +1,6 @@
 ---
 title: "02.05.03 — TestFlow[Driver] — politique de rejeu"
+description: "TestFlow[Driver] : la politique de rejeu d'Ocarina, boucle de retries avec driver propre à chaque tentative et backoff linéaire."
 weight: 3
 date: 2026-05-20
 series: ["orchestration"]

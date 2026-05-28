@@ -1,6 +1,6 @@
 ---
 title: "99.02 — Index of cited files"
-description: "Per repo, the source files explicitly cited in the primer. Direct GitHub URLs."
+description: "The index of source files cited throughout the compendium, organized by repository, with direct GitHub URLs."
 weight: 2
 date: 2026-05-20
 series: ["references"]

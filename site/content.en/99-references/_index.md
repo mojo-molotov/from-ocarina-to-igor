@@ -1,6 +1,6 @@
 ---
 title: "Chapter 99 — References"
-description: "Glossary, index of cited files, cited people. For readers looking up a specific term or a source file."
+description: "The Ocarina compendium's references: glossary, source-file index and people cited, to look up a precise term or file."
 weight: 99
 date: 2026-05-20
 tags: ["references"]

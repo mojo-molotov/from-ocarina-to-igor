@@ -1,5 +1,6 @@
 ---
 title: "02.10.03 — Screenshotter[TDriver]"
+description: "Screenshotter[TDriver]: Ocarina's screenshot utility, thread-safe, driver-agnostic through a Protocol and configurable, with burst support."
 weight: 3
 date: 2026-05-20
 series: ["infra"]

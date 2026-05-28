@@ -1,6 +1,6 @@
 ---
 title: "06.07 — Flux de coordination OTP + l'anti-précision volontaire"
-description: "La raison d'être du backend : permettre à N workers parallèles d'Ocarina de récupérer le bon OTP pour leur user, même quand plusieurs OTP sont générés à la même seconde."
+description: "Le flux de coordination OTP de tests-workers : comment N workers parallèles d'Ocarina récupèrent le bon OTP malgré l'imprécision volontaire."
 weight: 7
 date: 2026-05-20
 series: ["tests-workers"]

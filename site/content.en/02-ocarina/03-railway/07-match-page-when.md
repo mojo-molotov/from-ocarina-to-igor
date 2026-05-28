@@ -1,5 +1,6 @@
 ---
 title: "02.03.07 — match_page / when"
+description: "match_page and when: the construct that handles pages rendered differently, cookie banners, A/B tests or degraded mode, added to the DSL afterwards."
 weight: 7
 date: 2026-05-20
 series: ["railway"]

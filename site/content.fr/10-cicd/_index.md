@@ -1,6 +1,6 @@
 ---
 title: "Chapitre 10 — CI/CD de tout l'écosystème"
-description: "Tableau récapitulatif de tous les workflows CI de l'écosystème."
+description: "La CI/CD de tout l'écosystème Ocarina : tableau récapitulatif et détail des workflows de chacun des six dépôts."
 weight: 11
 date: 2026-05-20
 tags: ["ci-cd"]

@@ -1,6 +1,6 @@
 ---
 title: "02.04.03 — .otherwise(...) et _any_of"
-description: "Comment Ocarina exprime un OR logique entre deux prédicats sans casser l'agrégation d'erreurs."
+description: "Comment Ocarina exprime un OR logique entre prédicats via otherwise et any_of, sans casser l'agrégation des erreurs de validation."
 weight: 3
 date: 2026-05-20
 series: ["invariants"]

@@ -1,6 +1,6 @@
 ---
 title: "07.10 — EnvGetters"
-description: "Typed accessor for environment variables. Avoids typos, autocompletes in the IDE, refuses unknown keys at compile time."
+description: "EnvGetters: ocarina-example's typed access to environment variables, rejecting unknown keys and providing autocompletion."
 weight: 10
 date: 2026-05-20
 series: ["ocarina-example"]

@@ -1,6 +1,6 @@
 ---
 title: "12.15 — Typage, ISTQB, Reinforcement Learning, probes : pourquoi l'IA marche dans Ocarina"
-description: "Pourquoi tant d'obsession pour le typage strict, la formalisation de chaque interface, l'alignement sur l'ISTQB, le refus d'exécuter une assertion sans avoir observé ? Le mécanisme est emprunté au Reinforcement Learning&nbsp;:&nbsp;un agent ne progresse que sous contrainte&nbsp;+&nbsp;signal de récompense."
+description: "Pourquoi l'IA fonctionne dans Ocarina : typage strict, alignement ISTQB et probes, un mécanisme emprunté au Reinforcement Learning, contrainte plus récompense."
 weight: 15
 date: 2026-05-20
 series: ["analyse-manifeste"]

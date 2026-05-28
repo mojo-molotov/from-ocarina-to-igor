@@ -1,6 +1,6 @@
 ---
 title: "07.06 — Sacred upload scenarios"
-description: "The /igoristan/sacred-upload page lets you drag-and-drop a file. Exercises the file-upload pattern on the Ocarina side."
+description: "The sacred upload scenarios of ocarina-example: the file drag-and-drop that exercises Ocarina's upload pattern."
 weight: 6
 date: 2026-05-20
 series: ["ocarina-example"]

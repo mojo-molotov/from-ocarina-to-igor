@@ -1,6 +1,6 @@
 ---
 title: "12.16 — L'internet souterrain des années 1995-2010 : forums, outils, banalisation de la cruauté"
-description: "Pour comprendre la rage qui traverse le Holy Book d'Ocarina, il faut comprendre ce qu'était vraiment internet avant Facebook (2006-2008), avant que Cloudflare ne devienne le gardien des portes (2010+), avant que la modération ne soit prise au sérieux. C'était un Far West où des compétences étatiques se développaient dans des chambres d'adolescents, où la vie privée d'un adversaire pouvait être démolie en 48 heures, et où les recours juridiques classiques étaient inopérants. Cette page décrit la mécanique, sans complaisance, sans héroïsation."
+description: "L'internet souterrain des années 1995-2010 : forums, outils et banalisation de la cruauté, le contexte historique de la rage du manifeste Ocarina."
 weight: 19
 date: 2026-05-20
 series: ["analyse-manifeste"]

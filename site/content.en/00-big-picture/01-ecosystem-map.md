@@ -1,5 +1,6 @@
 ---
 title: "00.01 — Ecosystem cartography"
+description: "The six public repositories of the Ocarina ecosystem, their five roles and the contracts that link them, shown in a single map."
 weight: 1
 date: 2026-05-20
 series: ["big-picture"]

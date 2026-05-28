@@ -1,6 +1,6 @@
 ---
 title: "02.03.03 — The failure rail: NeutralAction*"
-description: "Edge case in the builder: what happens when you chain an action onto an ActionChain that has already failed?"
+description: "Ocarina's failure rail: the NeutralAction classes that absorb actions chained after a failure, with no user-side if."
 weight: 3
 date: 2026-05-20
 series: ["railway"]

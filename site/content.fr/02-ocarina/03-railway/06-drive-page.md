@@ -1,6 +1,6 @@
 ---
 title: "02.03.06 — drive_page"
-description: "Fichier source : src/ocarina/opinionated/dsl/drive_page.py"
+description: "drive_page : l'alias de surface qui enchaîne des actions de page via chain_actions, point d'entrée lisible d'un scénario Ocarina."
 weight: 6
 date: 2026-05-20
 series: ["railway"]

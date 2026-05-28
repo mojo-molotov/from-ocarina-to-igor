@@ -1,6 +1,6 @@
 ---
 title: "Chapitre 00 — Big picture"
-description: "Cartographie de l'écosystème : qui parle à qui, qui dépend de quoi, et dans quel sens circulent les données."
+description: "Vue d'ensemble de l'écosystème Ocarina : cartographie des dépôts, matrice des stacks, flux d'exécution et relations entre les projets."
 weight: 1
 date: 2026-05-20
 tags: ["big-picture"]

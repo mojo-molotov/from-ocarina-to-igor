@@ -1,5 +1,6 @@
 ---
 title: "02.09 — Ports: ILogger, ITakeScreenshot"
+description: "Ocarina's only two ports, ILogger and ITakeScreenshot: the abstractions the DSL lives on, kept distinct from the infra adapters."
 weight: 9
 date: 2026-05-20
 series: ["ocarina"]

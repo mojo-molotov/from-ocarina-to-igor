@@ -1,5 +1,6 @@
 ---
 title: "01.03 — KISS and ostentatious complexity"
+description: "Ocarina's answer to the simplicity critique: KISS properly understood, the difference between simple and unsophisticated, and a refusal of ostentatious complexity."
 weight: 3
 date: 2026-05-20
 series: ["philosophy"]

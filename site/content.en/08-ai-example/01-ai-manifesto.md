@@ -1,5 +1,6 @@
 ---
 title: "08.01 — Code: 99% Claude, 1% Igor, intelligence: 50-50"
+description: "The README of ocarina-with-ai-example and its candid statement: 99% of the code written by Claude Code, intelligence shared fifty-fifty."
 weight: 1
 date: 2026-05-20
 series: ["ai-example"]

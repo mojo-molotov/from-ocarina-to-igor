@@ -1,6 +1,6 @@
 ---
 title: "05.03 — Le faux useAuth + MFA OTP"
-description: "Le hook useAuth de l'Igoristan est volontairement faux. Il introduit deux mécaniques pour exercer le rejeu et la coordination des workers d'Ocarina : un échec aléatoire de 10% et un MFA OTP optionnel."
+description: "Le faux hook useAuth de l'Igoristan : un échec aléatoire de 10% et un MFA OTP optionnel, pour exercer le rejeu et la coordination des workers."
 weight: 3
 date: 2026-05-20
 series: ["igoristan"]

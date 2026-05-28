@@ -1,6 +1,6 @@
 ---
 title: "04.08 — Allure + action composite allure-history + déploiement GH Pages"
-description: "Le rapport Allure est généré à chaque CI, historisé sur une branche Git dédiée, puis publié sur GitHub Pages. Live URL : <https://mojo-molotov.github.io/ocarina/allure-report/>."
+description: "Le rapport Allure d'Ocarina, généré à chaque CI, historisé sur une branche Git dédiée puis publié sur GitHub Pages."
 weight: 8
 date: 2026-05-20
 series: ["tests-internes"]

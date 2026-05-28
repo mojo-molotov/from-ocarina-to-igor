@@ -1,6 +1,6 @@
 ---
 title: "09.05 — Génération de PDF (generate-books)"
-description: "Les PDFs publics (ocarina-ru.pdf, ocarina-en.pdf, ocarina-fr.pdf...) sont générés par IA à partir du dossier docs/, d'un script Python et d'un prompt Markdown."
+description: "La génération des PDF publics du Holy Book : des livres FR, EN et RU produits par IA à partir du dossier docs, d'un script Python et d'un prompt."
 weight: 5
 date: 2026-05-20
 series: ["holy-book"]

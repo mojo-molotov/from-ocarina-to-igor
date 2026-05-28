@@ -1,6 +1,6 @@
 ---
 title: "05.07 — Igoristan CI/CD"
-description: "Two workflows: ci-pr.yml on PR (3 parallel jobs), deploy.yml on push main (GitHub Pages)."
+description: "The Igoristan's CI/CD: ci-pr.yml with three parallelized jobs on PRs, and deploy.yml for publishing to GitHub Pages."
 weight: 7
 date: 2026-05-20
 series: ["igoristan"]

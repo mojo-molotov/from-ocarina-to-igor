@@ -1,6 +1,6 @@
 ---
 title: "Chapter 00 — Big picture"
-description: "Cartography of the ecosystem: who talks to whom, who depends on what, and which way the data flows."
+description: "An overview of the Ocarina ecosystem: repository map, stack matrix, execution flow and relations between the projects."
 weight: 1
 date: 2026-05-20
 tags: ["big-picture"]

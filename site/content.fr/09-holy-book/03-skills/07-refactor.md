@@ -1,6 +1,6 @@
 ---
 title: "09.03.07 — Skills Refactor"
-description: "Skills qui refactor la base de tests automatisés existante."
+description: "La famille de skills Refactor exposés aux IA : le refactoring d'une base de tests existante, déduplication et introduction de retries dans les POMs."
 weight: 7
 date: 2026-05-20
 series: ["skills"]

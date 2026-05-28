@@ -1,5 +1,6 @@
 ---
 title: "00.03 — Flux d'exécution global d'une campagne e2e"
+description: "Le flux d'exécution complet d'une campagne e2e Ocarina, du parsing CLI jusqu'au SUT, en passant par la pool de drivers, le cycle et les plugins."
 weight: 3
 date: 2026-05-20
 series: ["big-picture"]

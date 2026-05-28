@@ -1,5 +1,6 @@
 ---
 title: "08.02 — CURA Healthcare (SUT)"
+description: "CURA Healthcare, le SUT externe de ocarina-with-ai-example : application PHP open source hébergée sur un dyno Heroku, credentials publics."
 weight: 2
 date: 2026-05-20
 series: ["ai-example"]

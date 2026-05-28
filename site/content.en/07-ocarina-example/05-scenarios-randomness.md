@@ -1,6 +1,6 @@
 ---
 title: "07.05 — Randomness scenarios (4 levels)"
-description: "Four progressive levels of chaos. We start simple, ramp up complexity, stress Ocarina more and more."
+description: "The randomness scenarios of ocarina-example: four progressive levels of chaos that stress Ocarina further and further."
 weight: 5
 date: 2026-05-20
 series: ["ocarina-example"]

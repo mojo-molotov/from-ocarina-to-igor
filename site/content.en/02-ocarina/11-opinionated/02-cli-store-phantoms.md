@@ -1,5 +1,6 @@
 ---
 title: "02.11.02 — CliStore[TKeys] + _CliField[T] + phantom_validate"
+description: "CliStore[TKeys], the write-once field and phantom_validate: the store of parsed CLI values, validated on write and autocompleted on keys."
 weight: 2
 date: 2026-05-20
 series: ["opinionated"]

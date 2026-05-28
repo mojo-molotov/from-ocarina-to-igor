@@ -1,6 +1,6 @@
 ---
 title: "01.05 — Posture politique du projet"
-description: "Le Holy Book ne sépare pas la philosophie de la politique du dépôt lui-même. Cinq engagements opérationnels en découlent."
+description: "Les cinq engagements opérationnels qui découlent de la philosophie d'Ocarina : incorruptibilité, direction assumée, et leurs conséquences sur le dépôt."
 weight: 5
 date: 2026-05-20
 series: ["philosophie"]

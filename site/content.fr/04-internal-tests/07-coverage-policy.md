@@ -1,6 +1,6 @@
 ---
 title: "04.07 — Politique de couverture : ce qui est testé, ce qui ne l'est pas, pourquoi"
-description: "La couverture par ligne est explicitement scopée au DSL pur et à l'infra agnostique. Le reste est testé par d'autres moyens (cram, types, snapshots, e2e) ou hors scope (shapes inertes)."
+description: "La politique de couverture d'Ocarina : la couverture par ligne scopée au DSL pur et à l'infra agnostique, le reste testé autrement ou hors scope."
 weight: 7
 date: 2026-05-20
 series: ["tests-internes"]

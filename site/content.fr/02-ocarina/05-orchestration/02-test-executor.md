@@ -1,6 +1,6 @@
 ---
 title: "02.05.02 — TestExecutor[Driver]"
-description: "Fichier source : src/ocarina/dsl/testing/internals/test_executor.py"
+description: "TestExecutor[Driver] : la responsabilité unique d'exécuter une seule tentative d'un test avec un seul driver, sans connaître le rejeu ni la pool."
 weight: 2
 date: 2026-05-20
 series: ["orchestration"]

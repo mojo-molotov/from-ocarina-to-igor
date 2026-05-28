@@ -1,5 +1,6 @@
 ---
 title: "02.10.01 — WebDriversPool[Driver]"
+description: "WebDriversPool[Driver] : la pool thread-safe d'Ocarina, concurrence garantie par sémaphore, warmup surveillé et driver neuf à chaque acquisition."
 weight: 1
 date: 2026-05-20
 series: ["infra"]

@@ -1,6 +1,6 @@
 ---
 title: "10.03 — ocarina-example workflows"
-description: "See also ../07-ocarina-example/11-ci.md"
+description: "The ocarina-example workflows: main_ci and dev_ci for lint and typecheck, and a manual e2e with a Redis service and Firefox."
 weight: 3
 date: 2026-05-20
 series: ["ci-cd"]

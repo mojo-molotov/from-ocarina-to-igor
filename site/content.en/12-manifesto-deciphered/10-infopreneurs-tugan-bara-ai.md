@@ -1,6 +1,6 @@
 ---
 title: "12.10 — Infopreneurs, Tugan Bara, AI"
-description: "The ecosystem opposite to Ocarina. Not another testing framework: another cultural model. We have to name what the Holy Book fights to understand why it fights. And why AI is killing this model."
+description: "The ecosystem opposite to Ocarina: the infopreneur cultural model, embodied by Tugan Bara, and how AI is killing it."
 weight: 10
 date: 2026-05-20
 series: ["manifesto-analysis"]

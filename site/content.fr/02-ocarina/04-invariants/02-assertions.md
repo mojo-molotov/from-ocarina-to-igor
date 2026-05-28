@@ -1,6 +1,6 @@
 ---
 title: "02.04.02 — Catalogue des assertions builtin"
-description: "Fichier source : src/ocarina/dsl/invariants/assertions.py ~25 prédicats."
+description: "Le catalogue des assertions builtin d'Ocarina : une vingtaine de prédicats directs, closures et HOF suivant un même contrat de validation."
 weight: 2
 date: 2026-05-20
 series: ["invariants"]

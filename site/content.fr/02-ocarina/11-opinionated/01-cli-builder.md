@@ -1,5 +1,6 @@
 ---
 title: "02.11.01 — CliBuilder + CliArg + _SilentArgumentParser"
+description: "CliBuilder, CliArg et le parser silencieux : la surcouche déclarative d'Ocarina sur argparse, avec agrégation d'erreurs et effets post-parse."
 weight: 1
 date: 2026-05-20
 series: ["opinionated"]

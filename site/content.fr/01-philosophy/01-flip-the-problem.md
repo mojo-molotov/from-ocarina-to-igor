@@ -1,5 +1,6 @@
 ---
 title: "01.01 — Prendre le problème à l'envers"
+description: "Le pari fondateur d'Ocarina face à Robot Framework et Cucumber : supprimer la barrière entre ceux qui codent et ceux qui définissent les tests."
 weight: 1
 date: 2026-05-20
 series: ["philosophie"]

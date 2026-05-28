@@ -1,5 +1,6 @@
 ---
 title: "00.01 — Cartographie de l'écosystème"
+description: "Les six dépôts publics de l'écosystème Ocarina, leurs cinq rôles et les contrats qui les relient, présentés en une seule cartographie."
 weight: 1
 date: 2026-05-20
 series: ["big-picture"]

@@ -1,6 +1,6 @@
 ---
 title: "12.18 — « Vilains but not Monsters », DEF CON, « live as a white hat or die as a black hat », et l'idéologie d'Ocarina"
-description: "Ocarina n'est ni une lubie esthétique ni un OVNI hors-sol. C'est l'expression technique d'une idéologie cohérente héritée du mouvement hacker&nbsp;:&nbsp;l'éthique Vilain, mais pas un monstre, la culture tribale des conférences (DEF CON en tête), et la devise de YTCracker prononcée sur scène&nbsp;:&nbsp;«&nbsp;live as a white hat, or die as a black hat&nbsp;»."
+description: "L'idéologie d'Ocarina : l'éthique vilain mais pas un monstre, la culture tribale de DEF CON et la devise de YTCracker live as a white hat or die as a black hat."
 weight: 22
 date: 2026-05-20
 series: ["analyse-manifeste"]

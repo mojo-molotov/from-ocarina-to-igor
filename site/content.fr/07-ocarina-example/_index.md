@@ -1,6 +1,6 @@
 ---
 title: "Chapitre 07 — ocarina-example, la suite canonique"
-description: "Suite e2e conçue pour tester l'Igoristan. C'est l'exemple de référence : tout projet Ocarina commence par lire ce dépôt et copier ses adapters."
+description: "ocarina-example, la suite e2e de référence contre l'Igoristan : le dépôt que tout projet Ocarina lit et dont il copie les adapters."
 weight: 8
 date: 2026-05-20
 tags: ["ocarina-example", "scenarios"]

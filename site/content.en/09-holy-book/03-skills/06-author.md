@@ -1,6 +1,6 @@
 ---
 title: "09.03.06 — Author skills"
-description: "Skills that produce a deliverable. Tests, probes, docs, reports."
+description: "The Author family of AI-facing skills: skills that produce a deliverable, tests, probes, test strategy or coverage extension."
 weight: 6
 date: 2026-05-20
 series: ["skills"]

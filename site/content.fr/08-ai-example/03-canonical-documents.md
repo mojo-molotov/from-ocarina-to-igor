@@ -1,6 +1,6 @@
 ---
 title: "08.03 — Documentation"
-description: "Le projet IA est le plus documenté de l'écosystème d'Ocarina."
+description: "Les documents canoniques de ocarina-with-ai-example : CLAUDE.md, CURA_FRD.md, CURA_TEST_STRATEGY.md et IDENTIFIED_GAPS.md."
 weight: 3
 date: 2026-05-20
 series: ["ai-example"]

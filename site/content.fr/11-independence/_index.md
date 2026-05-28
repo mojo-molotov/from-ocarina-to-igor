@@ -1,6 +1,6 @@
 ---
 title: "Chapitre 11 — L'indépendance des testeurs"
-description: "Ocarina se revendique comme étant un outil d'émancipation. Trois axes : grammaire souveraine, auditabilité, refus explicites. Ce chapitre lie la philosophie aux conséquences pratiques."
+description: "L'indépendance des testeurs selon Ocarina : grammaire souveraine, auditabilité et refus explicites, de la philosophie aux conséquences pratiques."
 weight: 12
 date: 2026-05-20
 tags: ["independance"]

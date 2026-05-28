@@ -1,6 +1,6 @@
 ---
 title: "12.02 — LulzSec, le Lulzboat, AntiSec"
-description: "Trois sujets distincts : (1) LulzSec en tant que groupe, (2) le Lulzboat en tant que métaphore identitaire, (3) AntiSec en tant que mouvement (deux versions : 1999 et 2011). Le Holy Book les invoque d'un même souffle ; ils ont chacun leur histoire."
+description: "LulzSec, le Lulzboat et AntiSec : trois sujets distincts invoqués d'un même souffle par le manifeste, et l'histoire propre de chacun."
 weight: 2
 date: 2026-05-20
 series: ["analyse-manifeste"]

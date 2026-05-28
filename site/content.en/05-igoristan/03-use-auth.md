@@ -1,6 +1,6 @@
 ---
 title: "05.03 — The fake useAuth + MFA OTP"
-description: "Igoristan's useAuth hook is deliberately fake. Two mechanics to exercise Ocarina's replay and worker coordination: a 10% random failure and an optional MFA OTP."
+description: "The Igoristan's fake useAuth hook: a 10% random failure and an optional OTP MFA, to exercise retries and worker coordination."
 weight: 3
 date: 2026-05-20
 series: ["igoristan"]

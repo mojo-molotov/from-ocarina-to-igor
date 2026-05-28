@@ -1,5 +1,6 @@
 ---
 title: "02.03.05 — create_act et ses hooks"
+description: "create_act : la primitive bas niveau qui crée le verbe act d'un projet, avec ses hooks on_failure et la convention d'un act unique."
 weight: 5
 date: 2026-05-20
 series: ["railway"]

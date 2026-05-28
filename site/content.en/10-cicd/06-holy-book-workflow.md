@@ -1,6 +1,6 @@
 ---
 title: "10.06 — ocarina-holy-book workflow"
-description: "A single workflow: deploy.yml. On push main → VitePress build → upload Pages."
+description: "The Holy Book's single workflow, deploy.yml: on push to main, build VitePress then publish to GitHub Pages."
 weight: 6
 date: 2026-05-20
 series: ["ci-cd"]

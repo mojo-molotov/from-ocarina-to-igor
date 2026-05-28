@@ -1,6 +1,6 @@
 ---
 title: "05.04 — Key UI components"
-description: "The src/components/ files and their role in the playground."
+description: "The Igoristan's key UI components, LoginForm, ChaoticForm, Dropzone and RandomLoader, and their role in this playground."
 weight: 4
 date: 2026-05-20
 series: ["igoristan"]

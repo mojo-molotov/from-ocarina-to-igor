@@ -1,6 +1,6 @@
 ---
 title: "11.01 — Sovereign grammar"
-description: "No imposed DSL. No plugin ecosystem. Extension by composition, never by inheritance."
+description: "Ocarina's sovereign grammar: no imposed DSL or plugin ecosystem, extension happens through composition and never through inheritance."
 weight: 1
 date: 2026-05-20
 series: ["independence"]

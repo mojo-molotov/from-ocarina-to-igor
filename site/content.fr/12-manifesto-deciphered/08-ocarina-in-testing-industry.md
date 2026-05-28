@@ -1,6 +1,6 @@
 ---
 title: "12.08 — Ocarina dans l'industrie du test"
-description: "Ocarina n'est pas un meilleur pytest, pas un meilleur Robot Framework, pas un meilleur Cypress. Il est structurellement ailleurs. Ce chapitre essaie d'expliquer le shift qu'il représente, et la longueur d'avance qu'il prend."
+description: "Pourquoi Ocarina n'est pas un meilleur pytest ou Cypress mais structurellement ailleurs : le shift qu'il représente dans l'industrie du test."
 weight: 8
 date: 2026-05-20
 series: ["analyse-manifeste"]

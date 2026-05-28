@@ -1,6 +1,6 @@
 ---
 title: "Chapter 02.11 — opinionated/ layer"
-description: "Everything that's opt-in: a picky user can swap any of it. CLI, loggers, report plugins, bootstrap, drive_page alias. This layer is what you see on the surface, not the core — it's the turnkey version Ocarina ships so a typical project doesn't have to reinvent it."
+description: "Ocarina's fully opt-in opinionated layer: CLI, loggers, report plugins and bootstrap, the framework's replaceable turnkey version."
 weight: 11
 date: 2026-05-20
 tags: ["ocarina"]

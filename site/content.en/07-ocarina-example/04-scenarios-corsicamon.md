@@ -1,6 +1,6 @@
 ---
 title: "07.04 — Corsicamon scenarios"
-description: "Igoristan's Corsican Pokédex (Corsicadex) page. API key input, random draw with 1/5 fail, transient_errors for Error('lol'), and POM-internal retries against Corsicamons loaded / network error states."
+description: "The Corsicamon scenarios of ocarina-example: API key entry, a one-in-five draw failure, transient_errors and POM-internal retries."
 weight: 4
 date: 2026-05-20
 series: ["ocarina-example"]

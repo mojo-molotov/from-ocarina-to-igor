@@ -1,5 +1,6 @@
 ---
 title: "01.03 — KISS et complexité ostentatoire"
+description: "La réponse d'Ocarina à la critique de simplicité : KISS bien compris, la distinction entre simple et peu élaboré, et le refus de la complexité ostentatoire."
 weight: 3
 date: 2026-05-20
 series: ["philosophie"]

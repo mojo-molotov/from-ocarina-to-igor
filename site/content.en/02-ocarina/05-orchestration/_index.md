@@ -1,6 +1,6 @@
 ---
 title: "Chapter 02.05 — Orchestration"
-description: "Test → TestSuite → TestCampaign → TestCycle: how each level slots into the next, who owns parallelization, who owns retries, who decides skipping, and where the pre-execution invariants live."
+description: "Ocarina's orchestration chain, Test to Suite to Campaign to Cycle: who handles parallelization, retries, skipping and invariants."
 weight: 5
 date: 2026-05-20
 tags: ["ocarina", "invariants", "parallelization"]

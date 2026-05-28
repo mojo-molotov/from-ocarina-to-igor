@@ -1,6 +1,6 @@
 ---
 title: "03.02 — Closures comme primitive d'inversion de contrôle"
-description: "Pas de DI container. Pas de framework d'injection. Une closure est la primitive d'injection d'Ocarina."
+description: "Les closures comme primitive d'inversion de contrôle dans Ocarina : pas de conteneur DI, l'injection passe par la capture de scope."
 weight: 2
 date: 2026-05-20
 series: ["fonctionnel"]

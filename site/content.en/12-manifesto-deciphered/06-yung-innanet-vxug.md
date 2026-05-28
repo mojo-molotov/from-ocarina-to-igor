@@ -1,6 +1,6 @@
 ---
 title: "12.06 — Yung Innanet (kayos) + VX Underground"
-description: "The Holy Book's most violent passage borrows lyrics from true colors, a track by Yung Innanet (alias kayos), original sysadmin of VX Underground. Yung Innanet died on October 18, 2025 by firearm suicide."
+description: "Yung Innanet, alias kayos, the original VX Underground sysadmin: the track true colors quoted in the manifesto's most violent passage."
 weight: 6
 date: 2026-05-20
 series: ["manifesto-analysis"]

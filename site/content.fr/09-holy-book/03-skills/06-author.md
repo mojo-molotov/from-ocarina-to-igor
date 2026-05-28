@@ -1,6 +1,6 @@
 ---
 title: "09.03.06 — Skills Author"
-description: "Skills qui produisent un livrable. Tests, sondes, docs, rapports."
+description: "La famille de skills Author exposés aux IA : des skills qui produisent un livrable, tests, sondes, stratégie de test ou extension de couverture."
 weight: 6
 date: 2026-05-20
 series: ["skills"]

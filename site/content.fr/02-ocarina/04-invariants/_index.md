@@ -1,6 +1,6 @@
 ---
 title: "Chapitre 02.04 — Invariants"
-description: "Sous-DSL d'Ocarina dédié à l'expression d'invariants typés et composables. Utilisé partout : par la CLI, par les POMs, par les custom_invariants/testing/ qui valident la cohérence des suites avant exécution."
+description: "Le sous-DSL d'invariants typés et composables d'Ocarina, utilisé par la CLI, les POMs et la validation des suites avant exécution."
 weight: 4
 date: 2026-05-20
 tags: ["ocarina", "rop", "invariants"]

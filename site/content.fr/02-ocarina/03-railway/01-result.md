@@ -1,6 +1,6 @@
 ---
 title: "02.03.01 — Le type Result[T]"
-description: "Fichier source : src/ocarina/railway/result.py — zéro dépendance."
+description: "Le type Result[T] = Ok[T] ou Fail au cœur d'Ocarina : une union discriminée à zéro dépendance, avec is_ok et is_fail pour le narrowing."
 weight: 1
 date: 2026-05-20
 series: ["railway"]

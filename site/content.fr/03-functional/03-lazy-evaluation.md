@@ -1,6 +1,6 @@
 ---
 title: "03.03 — Évaluation paresseuse"
-description: "Dans Ocarina, rien n'est exécuté tant qu'on ne l'a pas explicitement déclenché. C'est ce qui rend les scénarios composables comme des valeurs."
+description: "L'évaluation paresseuse dans Ocarina : rien ne s'exécute avant déclenchement explicite, ce qui rend les scénarios composables comme des valeurs."
 weight: 3
 date: 2026-05-20
 series: ["fonctionnel"]

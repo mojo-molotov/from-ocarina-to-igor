@@ -1,6 +1,6 @@
 ---
 title: "12.14 — L'IA, et comment Ocarina l'applique pour de vrai"
-description: "« AI-powered » est devenu en 2023-2026 un slogan marketing complètement débile&nbsp;:&nbsp;99&nbsp;% des produits qui le revendiquent enrichissent un produit existant avec un endpoint chat.completions. Ocarina propose, à l'opposé, une infrastructure logicielle pensée pour qu'une IA puisse contribuer comme un développeur senior. ocarina-with-ai-example étant la preuve par l'exemple."
+description: "Au-delà du slogan AI-powered : comment Ocarina conçoit une infrastructure logicielle où une IA peut contribuer comme un développeur senior."
 weight: 14
 date: 2026-05-20
 series: ["analyse-manifeste"]

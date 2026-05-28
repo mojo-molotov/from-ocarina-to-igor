@@ -1,6 +1,6 @@
 ---
 title: "03.04 — reduce / fold dans Ocarina"
-description: "Un seul reduce dans toute la base de code. Mais c'est le réducteur central : il fait fonctionner chain_actions."
+description: "L'unique reduce de la base de code d'Ocarina : le fold central qui fait fonctionner chain_actions."
 weight: 4
 date: 2026-05-20
 series: ["fonctionnel"]

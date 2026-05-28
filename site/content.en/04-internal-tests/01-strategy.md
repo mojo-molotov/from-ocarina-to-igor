@@ -1,6 +1,6 @@
 ---
 title: "04.01 — From the outside like a user strategy"
-description: "The posture documented in the scenario tests' conftest.py. No test cheats by peeking at internals."
+description: "Ocarina's internal testing strategy, from the outside like a user: no test cheats by peeking at internals, set from the conftest.py."
 weight: 1
 date: 2026-05-20
 series: ["internal-tests"]

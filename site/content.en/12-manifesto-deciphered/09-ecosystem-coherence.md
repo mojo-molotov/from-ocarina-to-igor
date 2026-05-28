@@ -1,6 +1,6 @@
 ---
 title: "12.09 — Ecosystem coherence"
-description: "Six repos, several languages, several technologies, several licenses, several deployment platforms. At first glance, heterogeneous. On a second read, rigorously coherent: every piece serves exactly the same bet."
+description: "How six repositories heterogeneous in languages, licenses and platforms serve rigorously the same bet: the coherence of the Ocarina ecosystem."
 weight: 9
 date: 2026-05-20
 series: ["manifesto-analysis"]

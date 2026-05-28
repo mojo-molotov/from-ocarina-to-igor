@@ -1,6 +1,6 @@
 ---
 title: "10.01 — Workflow summary matrix"
-description: "Synthetic overview of every ecosystem workflow."
+description: "The summary matrix of every CI workflow in the Ocarina ecosystem: repository, trigger, OS, stack and effect of each pipeline."
 weight: 1
 date: 2026-05-20
 series: ["ci-cd"]

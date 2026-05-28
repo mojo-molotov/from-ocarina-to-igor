@@ -1,5 +1,6 @@
 ---
 title: "02.01 — Ocarina's technical identity"
+description: "Ocarina's technical identity through its pyproject.toml: name, version 1.1.0, Python 3.14+, minimal dependencies and quality toolchain."
 weight: 1
 date: 2026-05-20
 series: ["ocarina"]

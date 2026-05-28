@@ -1,5 +1,6 @@
 ---
 title: "Chapitre 12 — Analyse du manifeste"
+description: "L'analyse du manifeste Ocarina : ses citations sourcées, les sous-cultures hackers qui les portent et le mouvement de fond qu'elles incarnent."
 weight: 13
 date: 2026-05-20
 tags: ["analyse-manifeste"]

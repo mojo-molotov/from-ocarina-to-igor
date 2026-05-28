@@ -1,5 +1,6 @@
 ---
 title: "00.03 — End-to-end execution flow of an e2e campaign"
+description: "The full execution flow of an Ocarina e2e campaign, from CLI parsing to the SUT, through the drivers pool, the cycle and the plugins."
 weight: 3
 date: 2026-05-20
 series: ["big-picture"]

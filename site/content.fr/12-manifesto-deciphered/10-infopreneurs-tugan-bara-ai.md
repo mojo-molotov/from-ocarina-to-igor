@@ -1,6 +1,6 @@
 ---
 title: "12.10 — Infopreneurs, Tugan Bara, IA"
-description: "L'écosystème opposé à Ocarina. Pas un autre framework de test&nbsp;:&nbsp;un autre modèle culturel. Il faut nommer ce que combat le Holy Book pour comprendre pourquoi il combat. Et pourquoi l'IA est en train de tuer ce modèle."
+description: "L'écosystème opposé à Ocarina : le modèle culturel des infopreneurs, incarné par Tugan Bara, et comment l'IA est en train de le tuer."
 weight: 10
 date: 2026-05-20
 series: ["analyse-manifeste"]

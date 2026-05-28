@@ -1,5 +1,6 @@
 ---
 title: "05.02 — Les routes de l'Igoristan"
+description: "Les dix routes de l'Igoristan, leur rôle dans le SUT et leur dose de chaos volontaire pour exercer Ocarina."
 weight: 2
 date: 2026-05-20
 series: ["igoristan"]

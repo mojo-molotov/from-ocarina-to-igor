@@ -1,6 +1,6 @@
 ---
 title: "02.05.05 — Worker saturation"
-description: "Ocarina-specific trick: if a suite has fewer tests than workers, tests get randomly cloned until the worker count is filled. Copies are renamed [COPY 1] <name>, [COPY 2] <name>, etc."
+description: "Worker saturation: random cloning of a suite's tests up to the worker count, so that passing tests owe nothing to chance."
 weight: 5
 date: 2026-05-20
 series: ["orchestration"]

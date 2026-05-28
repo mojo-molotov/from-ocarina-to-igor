@@ -1,6 +1,6 @@
 ---
 title: "Chapitre 02 — Ocarina, le framework"
-description: "Ce chapitre dépile l'intégralité du framework ocarina (Python 3.14+, version 1.1.0) ainsi que du Railway Oriented Programming jusqu'aux plugins de reporting. Il est structuré comme un parcours en couches : du plus profond (le type Result[T]) vers le plus visible (le bootstrap qui démarre tout)."
+description: "Le framework Ocarina dépilé en couches, du type Result[T] jusqu'au bootstrap : Railway Oriented Programming, invariants, orchestration et reporting."
 weight: 3
 date: 2026-05-20
 tags: ["ocarina", "rop"]

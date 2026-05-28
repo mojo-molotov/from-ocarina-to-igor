@@ -1,6 +1,6 @@
 ---
 title: "02.04.05 — BusinessInvariantValidator vs FrameworkInvariantValidator"
-description: "Deux factories — strictement identiques en code — qui existent uniquement pour signaler l'intention."
+description: "BusinessInvariantValidator et FrameworkInvariantValidator : deux factories identiques en code qui existent uniquement pour signaler l'intention."
 weight: 5
 date: 2026-05-20
 series: ["invariants"]

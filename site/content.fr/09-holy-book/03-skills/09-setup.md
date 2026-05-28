@@ -1,6 +1,6 @@
 ---
 title: "09.03.09 — Skill Setup"
-description: "Un seul skill : setup-environment. Onboarding d'un nouveau contributeur (humain ou IA) sur le projet."
+description: "Le skill Setup exposé aux IA, setup-environment : l'onboarding d'un nouveau contributeur, humain ou IA, sur un projet Ocarina."
 weight: 9
 date: 2026-05-20
 series: ["skills"]

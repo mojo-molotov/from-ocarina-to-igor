@@ -1,6 +1,6 @@
 ---
 title: "09.06 — Public resources"
-description: "Full table of public URLs exposed by the Holy Book. For humans, LLMs, scrapers."
+description: "The full table of public URLs exposed by the Holy Book, for humans, LLMs and scrapers."
 weight: 6
 date: 2026-05-20
 series: ["holy-book"]

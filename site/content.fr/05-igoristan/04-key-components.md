@@ -1,6 +1,6 @@
 ---
 title: "05.04 — Composants UI clés"
-description: "Les composants src/components/ et leur rôle dans le terrain de jeu."
+description: "Les composants UI clés de l'Igoristan, LoginForm, ChaoticForm, Dropzone et RandomLoader, et leur rôle dans ce terrain de jeu."
 weight: 4
 date: 2026-05-20
 series: ["igoristan"]

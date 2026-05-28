@@ -1,6 +1,6 @@
 ---
 title: "12.07 — The underlying movement"
-description: "Three possible trajectories for anyone in the 1999-2012 hacker scene: (1) stay black hat and end up in prison (at best), (2) drop off entirely, (3) rebuild oneself alone through Research. The Holy Book speaks of the third. That's where Ocarina comes from."
+description: "The three trajectories of a 1999-2012 hacker-scene member, prison, dropping out or rebuilding through research, and the one Ocarina came from."
 weight: 7
 date: 2026-05-20
 series: ["manifesto-analysis"]

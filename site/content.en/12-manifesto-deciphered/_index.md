@@ -1,5 +1,6 @@
 ---
 title: "Chapter 12 — Manifesto analysis"
+description: "Decoding the Ocarina manifesto: its sourced quotes, the hacker subcultures behind them and the underlying movement they embody."
 weight: 13
 date: 2026-05-20
 tags: ["manifesto-analysis"]

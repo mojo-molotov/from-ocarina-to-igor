@@ -1,5 +1,6 @@
 ---
 title: "Ocarina — manual"
+description: "The Ocarina compendium: a complete tour of the framework, the ecosystem, the philosophy and the manifesto, from the big picture to the references."
 date: 2026-05-20
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "12.15 — Typing, ISTQB, Reinforcement Learning, probes: why AI works in Ocarina"
-description: "Why so much obsession over strict typing, formalizing every interface, alignment on ISTQB, refusing to execute an assertion without having observed first? The mechanism is borrowed from Reinforcement Learning: an agent only progresses under constraint + reward signal."
+description: "Why AI works in Ocarina: strict typing, ISTQB alignment and probes, a mechanism borrowed from reinforcement learning, constraint plus reward."
 weight: 15
 date: 2026-05-20
 series: ["manifesto-analysis"]

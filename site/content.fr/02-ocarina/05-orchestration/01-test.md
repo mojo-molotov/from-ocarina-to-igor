@@ -1,6 +1,6 @@
 ---
 title: "02.05.01 — Test[Driver]"
-description: "Fichier source : src/ocarina/dsl/testing/oc_test.py"
+description: "La classe Test[Driver] d'Ocarina : unité d'orchestration de base, avec spawn, fragments pre et post, et gestion du skip."
 weight: 1
 date: 2026-05-20
 series: ["orchestration"]

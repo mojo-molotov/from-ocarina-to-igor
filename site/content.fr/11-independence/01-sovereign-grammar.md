@@ -1,6 +1,6 @@
 ---
 title: "11.01 — Grammaire souveraine"
-description: "Pas de DSL imposé. Pas d'écosystème de plugins. Extension par composition, jamais par héritage."
+description: "La grammaire souveraine d'Ocarina : pas de DSL imposé ni d'écosystème de plugins, l'extension se fait par composition et jamais par héritage."
 weight: 1
 date: 2026-05-20
 series: ["independance"]

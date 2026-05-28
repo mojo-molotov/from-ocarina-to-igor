@@ -1,6 +1,6 @@
 ---
 title: "04.03 — Tests scénarios (pytest + allure)"
-description: "13 fichiers test_*.py du dossier tests/scenarios/ couvrent le DSL et l'orchestration. Tests dynamiques."
+description: "Les treize fichiers de tests scénarios d'Ocarina sous pytest et allure, qui couvrent dynamiquement le DSL et l'orchestration."
 weight: 3
 date: 2026-05-20
 series: ["tests-internes"]

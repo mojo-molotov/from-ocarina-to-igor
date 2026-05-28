@@ -1,6 +1,6 @@
 ---
 title: "Chapitre 04 — Tests internes du framework"
-description: "Comment Ocarina se teste lui-même. Cinq familles de tests, une politique de couverture lucide, un rapport Allure historisé sur GitHub Pages."
+description: "Comment Ocarina se teste lui-même : cinq familles de tests, une politique de couverture assumée et un rapport Allure historisé sur GitHub Pages."
 weight: 5
 date: 2026-05-20
 tags: ["tests-internes", "typage", "scenarios"]

@@ -1,6 +1,6 @@
 ---
 title: "09.03.01 — Review skills"
-description: "Static reads, surface findings. A large family. Lets the AI review its project systematically."
+description: "The Review family of AI-facing skills: static reads that surface systematic review findings on an Ocarina project."
 weight: 1
 date: 2026-05-20
 series: ["skills"]

@@ -1,6 +1,6 @@
 ---
 title: "09.03 — Skills exposés aux IA"
-description: "Plus de 40 skills (procédures destinées aux LLMs) versionnés sur GitHub. Classés par familles. Documentés dans using-ocarina-with-ai.md."
+description: "Les plus de 40 skills exposés aux IA par le Holy Book : des procédures destinées aux LLMs, versionnées sur GitHub et classées par familles."
 weight: 3
 date: 2026-05-20
 tags: ["holy-book"]

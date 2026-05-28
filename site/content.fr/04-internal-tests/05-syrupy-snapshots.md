@@ -1,6 +1,6 @@
 ---
 title: "04.05 — Snapshot testing (syrupy)"
-description: "syrupy est un plugin pytest qui sérialise la sortie d'un test dans un fichier .ambr et compare aux runs suivants. Utilisé pour la sortie de pretty_print_results et results_to_json."
+description: "Le snapshot testing d'Ocarina avec syrupy : sérialisation de la sortie de pretty_print_results et results_to_json, comparée aux runs suivants."
 weight: 5
 date: 2026-05-20
 series: ["tests-internes"]

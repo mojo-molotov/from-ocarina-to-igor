@@ -1,6 +1,6 @@
 ---
 title: "12.05 — Les hackers indonésiens début 2000s"
-description: "Le Holy Book cite «&nbsp;le premier groupe d'hackers indonésiens&nbsp;» sans le nommer dans le texte principal, mais le mantra cité («&nbsp;We Can Do All What You Can't Do&nbsp;») est bien celui de YogyaCarderLink (YCL). Reste à expliquer pourquoi la scène indonésienne de cette époque mérite d'être citée dans un manifeste de framework de test en 2026."
+description: "Les hackers indonésiens du début des années 2000 et le collectif YogyaCarderLink : pourquoi leur mantra figure dans le manifeste Ocarina."
 weight: 5
 date: 2026-05-20
 series: ["analyse-manifeste"]

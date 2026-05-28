@@ -1,6 +1,6 @@
 ---
 title: "12.01 — Every manifesto quote, sourced"
-description: "The Holy Book is packed with quotes whose origin is never announced in the text. They are passwords: if you recognize them, you know where the author comes from; otherwise, you read the slogan without the subtext."
+description: "Every quote in the Ocarina manifesto traced to its source: implicit references that reveal where the author comes from."
 weight: 1
 date: 2026-05-20
 series: ["manifesto-analysis"]

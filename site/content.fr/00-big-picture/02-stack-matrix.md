@@ -1,5 +1,6 @@
 ---
 title: "00.02 — Matrice stack / responsabilité / licence"
+description: "Matrice complète par dépôt : langage, version, stack principale, outillage, mode de distribution et licence pour les six projets."
 weight: 2
 date: 2026-05-20
 series: ["big-picture"]

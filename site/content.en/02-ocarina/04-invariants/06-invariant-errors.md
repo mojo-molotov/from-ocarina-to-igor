@@ -1,6 +1,6 @@
 ---
 title: "02.04.06 — Invariant error hierarchy"
-description: "Source file: src/ocarina/dsl/invariants/errors.py."
+description: "Ocarina's invariant error hierarchy: InvariantViolationError, DuplicatesError and AggregateInvariantViolationError."
 weight: 6
 date: 2026-05-20
 series: ["invariants"]

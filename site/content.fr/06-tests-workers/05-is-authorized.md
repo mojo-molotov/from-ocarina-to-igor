@@ -1,5 +1,6 @@
 ---
 title: "06.05 — isAuthorized.ts"
+description: "isAuthorized.ts : la vérification du header x-api-key qui protège les endpoints de tests-workers."
 weight: 5
 date: 2026-05-20
 series: ["tests-workers"]

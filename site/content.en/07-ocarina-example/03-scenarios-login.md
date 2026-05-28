@@ -1,6 +1,6 @@
 ---
 title: "07.03 — Dashboard login scenarios"
-description: "Three families: happy paths, unhappy paths, data-driven multi-login. All exercise the 10%-fail useAuth and OTP coordination."
+description: "The Dashboard login scenarios of ocarina-example: happy, unhappy and data-driven, exercising the 10%-failure useAuth and OTP coordination."
 weight: 3
 date: 2026-05-20
 series: ["ocarina-example"]

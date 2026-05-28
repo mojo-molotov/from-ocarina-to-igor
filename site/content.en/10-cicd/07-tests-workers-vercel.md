@@ -1,6 +1,6 @@
 ---
 title: "10.07 — tests-workers: no GitHub CI, auto Vercel deploy"
-description: "The only repo in the ecosystem with no GitHub Actions workflow. Everything goes through Vercel."
+description: "tests-workers, the only repository in the ecosystem without a GitHub Actions workflow: all deployment goes automatically through Vercel."
 weight: 7
 date: 2026-05-20
 series: ["ci-cd"]

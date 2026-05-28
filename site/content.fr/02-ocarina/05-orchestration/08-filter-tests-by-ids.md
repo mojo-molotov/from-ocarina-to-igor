@@ -1,5 +1,6 @@
 ---
 title: "02.05.08 — filter_tests_by_ids"
+description: "filter_tests_by_ids : le filtrage des tests d'une suite via les flags CLI only et exclude, mutuellement exclusifs."
 weight: 8
 date: 2026-05-20
 series: ["orchestration"]

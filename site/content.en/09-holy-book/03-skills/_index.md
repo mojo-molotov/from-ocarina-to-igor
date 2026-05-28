@@ -1,6 +1,6 @@
 ---
 title: "09.03 — Skills exposed to AIs"
-description: "More than 40 skills (procedures aimed at LLMs) versioned on GitHub. Grouped into families. Documented in using-ocarina-with-ai.md."
+description: "The 40-plus AI-facing skills exposed by the Holy Book: LLM-oriented procedures, versioned on GitHub and organized into families."
 weight: 3
 date: 2026-05-20
 tags: ["holy-book"]

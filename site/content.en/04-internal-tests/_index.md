@@ -1,6 +1,6 @@
 ---
 title: "Chapter 04 — Framework internal tests"
-description: "How Ocarina tests itself. Five test families, a clear-eyed coverage policy, an Allure report archived on GitHub Pages."
+description: "How Ocarina tests itself: five families of tests, a deliberate coverage policy and an Allure report versioned on GitHub Pages."
 weight: 5
 date: 2026-05-20
 tags: ["internal-tests", "typing", "scenarios"]

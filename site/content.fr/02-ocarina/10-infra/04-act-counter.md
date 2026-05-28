@@ -1,6 +1,6 @@
 ---
 title: "02.10.04 — ActCounter + ThreadsBasedActCounter"
-description: "Compteur thread-local du nombre d'act exécutés par tentative. Permet de reporter au rapport « ce test a fait 17 steps avant d'échouer au step 18 »."
+description: "ActCounter et ThreadsBasedActCounter : le compteur thread-local des act exécutés par tentative, pour situer l'étape exacte d'un échec dans le rapport."
 weight: 4
 date: 2026-05-20
 series: ["infra"]

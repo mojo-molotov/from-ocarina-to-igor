@@ -1,5 +1,6 @@
 ---
 title: "02.08 — POMBase"
+description: "POMBase: Ocarina's framework-agnostic abstract base for the Page Object Model, two required methods and no mention of Selenium."
 weight: 8
 date: 2026-05-20
 series: ["ocarina"]

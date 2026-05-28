@@ -1,6 +1,6 @@
 ---
 title: "08.08 — BFCache Chrome (B-BROWSER-1) + artefacts d'environnement"
-description: "Chrome restore une page no-store après logout, depuis le BFCache, alors qu'il s'agit d'une page protégée par authentification."
+description: "Le gap BFCache de Chrome dans CURA : une page protégée restaurée après logout depuis le cache, plus les artefacts d'environnement liés."
 weight: 8
 date: 2026-05-20
 series: ["ai-example"]

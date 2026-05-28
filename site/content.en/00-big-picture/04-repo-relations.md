@@ -1,5 +1,6 @@
 ---
 title: "00.04 — Relations between the six repositories"
+description: "The bilateral relations between the six repositories: who imports what, which artifacts flow, which secrets and contracts are shared."
 weight: 4
 date: 2026-05-20
 series: ["big-picture"]

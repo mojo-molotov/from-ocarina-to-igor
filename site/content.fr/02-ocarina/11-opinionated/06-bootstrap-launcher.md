@@ -1,5 +1,6 @@
 ---
 title: "02.11.06 — bootstrap + run_plugins"
+description: "bootstrap et run_plugins : le point d'entrée d'un projet Ocarina, en trois étapes, cycle.run_all puis run_plugins puis post_exec."
 weight: 6
 date: 2026-05-20
 series: ["opinionated"]

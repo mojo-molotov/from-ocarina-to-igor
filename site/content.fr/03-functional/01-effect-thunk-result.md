@@ -1,6 +1,6 @@
 ---
 title: "03.01 — Effect, Thunk[T], Result[T]"
-description: "Trois lignes de code dans custom_types/ + une dans railway/. Tout le DSL repose dessus."
+description: "Effect, Thunk[T] et Result[T] : les quelques lignes de types sur lesquelles repose tout le DSL fonctionnel d'Ocarina."
 weight: 1
 date: 2026-05-20
 series: ["fonctionnel"]

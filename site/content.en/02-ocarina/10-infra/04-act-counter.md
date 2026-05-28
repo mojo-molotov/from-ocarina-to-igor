@@ -1,6 +1,6 @@
 ---
 title: "02.10.04 — ActCounter + ThreadsBasedActCounter"
-description: "Thread-local counter of acts executed per attempt. Lets the report say 'this test made 17 steps before dying at step 18'."
+description: "ActCounter and ThreadsBasedActCounter: the thread-local counter of acts run per attempt, to pinpoint the exact failing step in the report."
 weight: 4
 date: 2026-05-20
 series: ["infra"]

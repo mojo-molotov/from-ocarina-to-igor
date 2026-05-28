@@ -1,6 +1,6 @@
 ---
 title: "09.04 — CLAUDE.md et CLAUDE.slim.md"
-description: "Le Holy Book publie activement les fichiers CLAUDE.md. Cela permet à un LLM de récupérer la doc projet sans passer par le repo."
+description: "CLAUDE.md et CLAUDE.slim.md : les fichiers de contexte projet publiés par le Holy Book pour qu'un LLM récupère la doc sans passer par le repo."
 weight: 4
 date: 2026-05-20
 series: ["holy-book"]

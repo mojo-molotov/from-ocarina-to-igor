@@ -1,6 +1,6 @@
 ---
 title: "07.04 — Scénarios Corsicamon"
-description: "La page « Pokédex corse (Corsicadex) » de l'Igoristan. Saisie d'API key, tirage au sort avec 1/5 d'échec, transient_errors pour Error('lol'), et retries internes au POM face aux états « Corsicamons chargés / erreur réseau »."
+description: "Les scénarios Corsicamon de ocarina-example : saisie d'API key, tirage avec un échec sur cinq, transient_errors et retries internes au POM."
 weight: 4
 date: 2026-05-20
 series: ["ocarina-example"]

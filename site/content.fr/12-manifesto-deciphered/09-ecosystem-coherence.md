@@ -1,6 +1,6 @@
 ---
 title: "12.09 — Cohérence de l'écosystème"
-description: "Six dépôts, plusieurs langages, plusieurs technologies, plusieurs licences, plusieurs plateformes de déploiement. À première vue, hétérogène. À deuxième lecture, rigoureusement cohérent&nbsp;:&nbsp;chaque pièce sert exactement le même pari."
+description: "Comment six dépôts hétérogènes en langages, licences et plateformes servent rigoureusement le même pari : la cohérence de l'écosystème Ocarina."
 weight: 9
 date: 2026-05-20
 series: ["analyse-manifeste"]

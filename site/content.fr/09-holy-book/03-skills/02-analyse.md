@@ -1,6 +1,6 @@
 ---
 title: "09.03.02 — Skills Analyse"
-description: "Analyses dynamiques : utilisent les logs / les rapports d'une exécution récente pour diagnostiquer la flakiness."
+description: "La famille de skills Analyse exposés aux IA : des analyses dynamiques qui exploitent logs et rapports d'exécution pour diagnostiquer la flakiness."
 weight: 2
 date: 2026-05-20
 series: ["skills"]

@@ -1,6 +1,6 @@
 ---
 title: "09.03.05 — Skills Pick"
-description: "Sélection d'artefacts (screenshots, logs, reports). Toujours par mtime, jamais par nom de fichier."
+description: "La famille de skills Pick exposés aux IA : la sélection d'artefacts, screenshots, logs et rapports, toujours par mtime et jamais par nom de fichier."
 weight: 5
 date: 2026-05-20
 series: ["skills"]

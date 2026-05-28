@@ -1,5 +1,6 @@
 ---
 title: "02.05.08 — filter_tests_by_ids"
+description: "filter_tests_by_ids: filtering a suite's tests through the mutually exclusive only and exclude CLI flags."
 weight: 8
 date: 2026-05-20
 series: ["orchestration"]

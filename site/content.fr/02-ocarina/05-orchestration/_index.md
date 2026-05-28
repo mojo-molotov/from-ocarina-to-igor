@@ -1,6 +1,6 @@
 ---
 title: "Chapitre 02.05 — Orchestration"
-description: "Chaîne Test → TestSuite → TestCampaign → TestCycle : comment chaque niveau s'articule, qui gère la parallélisation, qui gère les rejeux, qui décide du skip, et où vivent les invariants pré-exécution."
+description: "La chaîne d'orchestration d'Ocarina, Test vers Suite vers Campaign vers Cycle : qui gère la parallélisation, les rejeux, le skip et les invariants."
 weight: 5
 date: 2026-05-20
 tags: ["ocarina", "invariants", "parallelisation"]

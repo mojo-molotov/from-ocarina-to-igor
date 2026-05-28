@@ -1,6 +1,6 @@
 ---
 title: "12.01 — Toutes les citations du manifeste, sourcées"
-description: "Le Holy Book est truffé de citations dont la provenance n'est jamais annoncée dans le texte. Ce sont des mots de passe : si tu les reconnais, tu sais d'où vient l'auteur ; sinon, tu lis le slogan sans le sous-texte."
+description: "Toutes les citations du manifeste Ocarina attribuées à leur source : des références implicites qui révèlent d'où vient l'auteur."
 weight: 1
 date: 2026-05-20
 series: ["analyse-manifeste"]

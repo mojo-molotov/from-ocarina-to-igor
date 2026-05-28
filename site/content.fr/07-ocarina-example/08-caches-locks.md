@@ -1,6 +1,6 @@
 ---
 title: "07.08 — Cache L1 + clés réservées + locks Redis distribués"
-description: "Mécanique de coordination interne : un cache in-memory pour partager des valeurs au sein d'un test, un lock Redis pour sérialiser un click entre plusieurs workers."
+description: "Le cache L1 in-memory et les locks Redis distribués de ocarina-example : partager des valeurs dans un test, sérialiser un click entre workers."
 weight: 8
 date: 2026-05-20
 series: ["ocarina-example"]

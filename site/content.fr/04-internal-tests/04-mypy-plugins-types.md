@@ -1,6 +1,6 @@
 ---
 title: "04.04 — Tests du typage statique (pytest-mypy-plugins)"
-description: "Cinq fichiers *test_types.yml qui testent le comportement du checker. C'est une dimension de tests unique à Ocarina dans son genre : on s'assure que ce qui devrait être une erreur mypy en est bien une."
+description: "Les tests du typage statique d'Ocarina via pytest-mypy-plugins : vérifier que ce qui devrait être une erreur mypy en est bien une."
 weight: 4
 date: 2026-05-20
 series: ["tests-internes"]

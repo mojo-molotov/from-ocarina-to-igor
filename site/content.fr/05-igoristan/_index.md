@@ -1,6 +1,6 @@
 ---
 title: "Chapitre 05 — L'Igoristan, le SUT public"
-description: "Application web volontairement chaotique, hébergée sur GitHub Pages, empire personnel d'Igor. Sert de SUT à ocarina-example et de terrain de jeu pour démontrer le rejeu, les watchers, les match_page."
+description: "L'Igoristan, le SUT public volontairement chaotique d'Ocarina : terrain de jeu pour démontrer le rejeu, les watchers et match_page."
 weight: 6
 date: 2026-05-20
 tags: ["igoristan"]

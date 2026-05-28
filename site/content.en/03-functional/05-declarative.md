@@ -1,6 +1,6 @@
 ---
 title: "03.05 — Declarative programming"
-description: "An Ocarina scenario describes, it doesn't execute. That's what makes it factorable, multipliable, readable."
+description: "Declarative programming in Ocarina: a scenario describes without executing, which makes it factorable, multipliable and readable."
 weight: 5
 date: 2026-05-20
 series: ["functional"]

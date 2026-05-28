@@ -1,6 +1,6 @@
 ---
 title: "01.04 — Citations and claimed influences"
-description: "The references cited in the Holy Book aren't neutral — they set Ocarina's theoretical frame. We cut them by axis here, then offer the overall reading."
+description: "The references claimed by Ocarina: Wlaschin, lambda calculus, Python typing, and the overall reading that makes them a coherent theoretical frame."
 weight: 4
 date: 2026-05-20
 series: ["philosophy"]

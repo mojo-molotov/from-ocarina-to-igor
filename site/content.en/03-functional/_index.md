@@ -1,6 +1,6 @@
 ---
 title: "Chapter 03 — Functional programming with Ocarina"
-description: "How Ocarina applies functional programming and why these choices are load-bearing. More transversal than the other chapters: revisits the framework's mechanics from an FP angle."
+description: "How and why Ocarina applies functional programming: a cross-cutting rereading of the framework's mechanics from the FP angle."
 weight: 4
 date: 2026-05-20
 tags: ["functional"]

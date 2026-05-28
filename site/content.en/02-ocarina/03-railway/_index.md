@@ -1,6 +1,6 @@
 ---
 title: "Chapter 02.03 — Railway Oriented Programming"
-description: "Ocarina's beating heart. The whole DSL rides on this mechanic: success and failure as two parallel rails. A failure switches the train to the failure rail and locks it there (short-circuit), but composition stays linear so the scenario still reads top-to-bottom."
+description: "Railway Oriented Programming at Ocarina's core: success and failure as two parallel rails, short-circuiting, and readable syntactic composition."
 weight: 3
 date: 2026-05-20
 tags: ["ocarina", "rop"]

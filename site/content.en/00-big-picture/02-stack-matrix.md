@@ -1,5 +1,6 @@
 ---
 title: "00.02 — Stack / responsibility / license matrix"
+description: "A full per-repository matrix: language, version, main stack, tooling, distribution mode and license across the six projects."
 weight: 2
 date: 2026-05-20
 series: ["big-picture"]

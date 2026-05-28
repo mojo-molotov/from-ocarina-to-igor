@@ -1,6 +1,6 @@
 ---
 title: "04.08 — Allure + composite action allure-history + GH Pages deploy"
-description: "The Allure report gets generated on every CI, archived on a dedicated Git branch, then published on GitHub Pages. Live URL: https://mojo-molotov.github.io/ocarina/allure-report/."
+description: "Ocarina's Allure report, generated on every CI run, versioned on a dedicated Git branch and published to GitHub Pages."
 weight: 8
 date: 2026-05-20
 series: ["internal-tests"]

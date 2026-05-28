@@ -1,6 +1,6 @@
 ---
 title: "Chapter 10 — CI/CD across the whole ecosystem"
-description: "Summary table of every CI workflow in the ecosystem."
+description: "The CI/CD of the whole Ocarina ecosystem: a summary table and the detailed workflows of each of the six repositories."
 weight: 11
 date: 2026-05-20
 tags: ["ci-cd"]

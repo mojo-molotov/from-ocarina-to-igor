@@ -1,6 +1,6 @@
 ---
 title: "11.02 — Auditabilité « en une après‑midi »"
-description: "Engagement opérationnel : un humain doit pouvoir lire tout le framework et le comprendre en quelques heures. Pas de magie cachée."
+description: "L'auditabilité d'Ocarina en une après-midi : un framework lisible de bout en bout, une seule dépendance d'exécution et aucune magie cachée."
 weight: 2
 date: 2026-05-20
 series: ["independance"]

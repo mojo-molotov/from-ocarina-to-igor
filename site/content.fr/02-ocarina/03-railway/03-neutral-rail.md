@@ -1,6 +1,6 @@
 ---
 title: "02.03.03 — Le rail d'échec : NeutralAction*"
-description: "Cas particulier du builder : que se passe-t-il quand on enchaîne une action sur un ActionChain qui a déjà échoué ?"
+description: "Le rail d'échec d'Ocarina : les classes NeutralAction qui absorbent les actions enchaînées après un échec, sans if côté utilisateur."
 weight: 3
 date: 2026-05-20
 series: ["railway"]

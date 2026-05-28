@@ -1,5 +1,6 @@
 ---
 title: "06.06 — lib/redis.ts + Upstash"
+description: "lib/redis.ts: the tests-workers Upstash Redis client, configured through environment variables for the Edge runtime."
 weight: 6
 date: 2026-05-20
 series: ["tests-workers"]

@@ -1,5 +1,6 @@
 ---
 title: "07.07 — HumanizedDriver"
+description: "HumanizedDriver: a WebDriver proxy that humanizes typing, slowness, typos and corrections, by intercepting find_element calls."
 weight: 7
 date: 2026-05-20
 series: ["ocarina-example"]

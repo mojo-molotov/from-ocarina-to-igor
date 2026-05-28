@@ -1,6 +1,6 @@
 ---
 title: "06.07 — OTP coordination flow + deliberate imprecision"
-description: "The backend's reason to exist: let N parallel Ocarina workers retrieve the right OTP for their user, even when several OTPs are generated in the same second."
+description: "The tests-workers OTP coordination flow: how N parallel Ocarina workers retrieve the right OTP despite deliberate imprecision."
 weight: 7
 date: 2026-05-20
 series: ["tests-workers"]

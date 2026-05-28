@@ -1,5 +1,6 @@
 ---
 title: "02.05.06 — TestCampaign[Driver]"
+description: "TestCampaign[Driver] : l'exécution ordonnée d'une séquence de suites partageant une config de workers, avec le drapeau campaign_has_failed."
 weight: 6
 date: 2026-05-20
 series: ["orchestration"]

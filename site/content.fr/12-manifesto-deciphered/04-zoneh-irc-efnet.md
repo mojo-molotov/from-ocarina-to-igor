@@ -1,6 +1,6 @@
 ---
 title: "12.04 — Zone-H, IRC, EFnet"
-description: "Trois infrastructures sans lesquelles la scène hackers 1998-2012 n'aurait jamais été la même : Zone-H (archive de defaces), IRC, EFnet (le réseau IRC historique). Le Holy Book ne cite Zone-H qu'une fois, mais c'est un mot-clé qui ouvre toute une infrastructure."
+description: "Zone-H, IRC et EFnet : trois infrastructures de la scène hackers 1998-2012, dont un seul mot dans le manifeste ouvre toute une culture."
 weight: 4
 date: 2026-05-20
 series: ["analyse-manifeste"]

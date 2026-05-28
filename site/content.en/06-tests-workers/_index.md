@@ -1,6 +1,6 @@
 ---
 title: "Chapter 06 — tests-workers, Vercel Edge backend"
-description: "Three HTTP endpoints, two libs (@upstash/redis, otplib), zero Next.js app code. The bare minimum to coordinate parallel tests against Igoristan."
+description: "tests-workers, Ocarina's Vercel Edge backend: three endpoints, Upstash Redis and otplib, the minimum to coordinate parallelized tests."
 weight: 7
 date: 2026-05-20
 tags: ["tests-workers", "otp"]

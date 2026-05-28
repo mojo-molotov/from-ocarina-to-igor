@@ -1,6 +1,6 @@
 ---
 title: "10.07 — tests-workers : pas de CI GitHub, déploiement Vercel auto"
-description: "Le seul dépôt de l'écosystème sans workflow GitHub Actions. Tout passe par Vercel."
+description: "tests-workers, le seul dépôt de l'écosystème sans workflow GitHub Actions : tout le déploiement passe automatiquement par Vercel."
 weight: 7
 date: 2026-05-20
 series: ["ci-cd"]
