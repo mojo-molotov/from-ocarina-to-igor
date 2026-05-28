@@ -124,6 +124,7 @@ https://mojo-molotov.github.io/ocarina-holy-book/llms.txt
 https://mojo-molotov.github.io/ocarina-holy-book/llms-full.txt
 https://mojo-molotov.github.io/ocarina-holy-book/CLAUDE.md
 https://mojo-molotov.github.io/ocarina-holy-book/CLAUDE.slim.md
+https://mojo-molotov.github.io/ocarina-holy-book/ocarina-ru.pdf
 https://mojo-molotov.github.io/ocarina-holy-book/ocarina-en.pdf
 https://mojo-molotov.github.io/ocarina-holy-book/ocarina-fr.pdf
 ```

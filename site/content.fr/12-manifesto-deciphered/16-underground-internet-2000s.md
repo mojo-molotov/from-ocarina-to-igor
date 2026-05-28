@@ -204,7 +204,7 @@ C'est l'une des **incarnations francophones** de la culture _no-limit_. VV a fin
 
 ## 5. 4chan et /b/&nbsp;—&nbsp;l'anonymat radical
 
-**4chan**, fondé en 2003 par **Christopher «&nbsp;_moot_&nbsp;» Poole** (alors 15 ans), copie du japonais **2chan** (Hiroyuki Nishimura).
+**4chan**, fondé en 2003 par **Christopher «&nbsp;_moot_&nbsp;» Poole** (alors à l'âge de 15 ans), copie du japonais **2chan** (Hiroyuki Nishimura).
 
 - **/b/** (_random_)&nbsp;:&nbsp;board sans règles, sans archive (les threads disparaissent après un certain nombre de pages), anonymat total (pas de pseudo persistant), volume massif (millions de messages/jour à son pic).
 - **Anonymous** comme entité collective émerge littéralement de /b/ vers 2006-2008.
@@ -279,7 +279,7 @@ Une victime de doxing/harassment qui porte plainte se retrouve souvent avec&nbsp
 Quand le système judiciaire est inopérant, le _conflit_ se résout par&nbsp;:
 
 - **Contre-doxing**&nbsp;:&nbsp;la victime, ou un allié, dox l'auteur en retour.
-- **Countre-attaque** technique&nbsp;:&nbsp;DDoS, deface, exfiltration.
+- **Contre-attaque** technique&nbsp;:&nbsp;DDoS, deface, exfiltration.
 - **Public shaming**&nbsp;:&nbsp;exposition publique sur Twitter, Reddit, médias (_call-out_).
 - **Hacker tribunals/syndicates informels**&nbsp;:&nbsp;un groupe respecté dans la scène _juge_ et _excommunie_ l'auteur.
 
@@ -307,7 +307,7 @@ Les forums marchands **séparent**&nbsp;:
 
 Cette séparation a fait **exploser** le nombre de victimes&nbsp;:&nbsp;avant, il fallait être _capable_ techniquement pour faire du mal. Depuis, **n'importe qui avec quelques dollars** pouvait lancer une attaque ciblée.
 
-On retrouve le même pattern avec _The Anarchist Cookbook_ (William Powell, 1971), qui publiait des instructions pour fabriquer des bombes artisanales destinées, sauf que l'_Anarchist Cookbook_ produisait quelques cas isolés, alors que les forums marchands _underground_ produisaient **des milliers** de victimes par mois.
+On retrouve le même pattern avec _The Anarchist Cookbook_ (William Powell, 1971), qui publiait des instructions pour fabriquer des bombes artisanales, sauf que l'_Anarchist Cookbook_ produisait quelques cas isolés, alors que les forums marchands _underground_ produisaient **des milliers** de victimes par mois.
 
 ### Parallèle Anarchist Cookbook
 
