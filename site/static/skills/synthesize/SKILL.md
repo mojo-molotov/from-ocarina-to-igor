@@ -5,9 +5,9 @@
 **Scope**: primer only (`site/content.en/`). Does not reach the Holy Book, external repos, or source code unless the briefs explicitly point there.
 
 **Primer base URL**: `https://mojo-molotov.github.io/from-ocarina-to-igor/`  
-**Related skills**: `{base}/skills/navigate.md` · `{base}/skills/fetch.md` · `{base}/skills/answer.md` · `{base}/skills/locate.md`
+**Related skills**: `{base}/skills/navigate/SKILL.md` · `{base}/skills/fetch/SKILL.md` · `{base}/skills/answer/SKILL.md` · `{base}/skills/locate/SKILL.md`
 
-**Prerequisite**: you have identified that the question spans more than one chapter — either because `navigate.md` returned two chapters, or because a brief's Connections section points directly to another chapter relevant to the question.
+**Prerequisite**: you have identified that the question spans more than one chapter — either because `navigate/SKILL.md` returned two chapters, or because a brief's Connections section points directly to another chapter relevant to the question.
 
 ---
 
@@ -30,13 +30,13 @@ Before reading anything, name the relationship the question is asking about. Pic
 | Ideology → code | ch12 ↔ ch02 | How does a cultural/ideological source show up as a technical decision? |
 | Canonical suite → AI suite | ch07 ↔ ch08 | What did the AI suite replicate from the canonical one, and what did it do differently? |
 
-If no row matches: the question may not be a cross-ref question. Use `answer.md` with a single chapter instead.
+If no row matches: the question may not be a cross-ref question. Use `answer/SKILL.md` with a single chapter instead.
 
 ---
 
 ## Step 2 — read the two (or three) briefs
 
-Fetch the briefs for the identified chapters (using `fetch.md`).
+Fetch the briefs for the identified chapters (using `fetch/SKILL.md`).
 
 In each brief, read:
 1. **Key concepts** — what are the load-bearing ideas on each side?
@@ -103,4 +103,4 @@ After the cross-ref synthesis, check:
 
 - Is one side of the relationship **not covered** in the primer? Say which side and why (runtime state, post-1.1.0, business logic detail).
 - Is the connection **inferred** rather than documented? Label it as such.
-- Does the question actually require going outside the primer (Holy Book, source code)? Say so explicitly and point to `answer.md`'s gap recovery section for the next step.
+- Does the question actually require going outside the primer (Holy Book, source code)? Say so explicitly and point to `answer/SKILL.md`'s gap recovery section for the next step.

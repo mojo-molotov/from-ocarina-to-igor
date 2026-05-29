@@ -39,3 +39,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/05-igoristan
 ## Not covered here
 
 The actual JS/TS implementation detail of each route's business logic — the primer describes routes structurally. Read the `igoristan` source for full implementation.
+
+## Going deeper
+
+After you've explained this brief to the user, proactively offer to dig deeper — and do it yourself: read the relevant article(s) from the Articles table directly (via the access modes in the `answer` skill) instead of waiting to be asked. Ground any follow-up in the actual source, not in this summary.

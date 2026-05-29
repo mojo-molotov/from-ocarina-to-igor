@@ -24,3 +24,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/99-reference
 ## Not covered here
 
 API documentation (consult the framework source and docstrings). Installation / setup (consult the Holy Book). This chapter indexes what the primer covers — not what it doesn't cover.
+
+## Going deeper
+
+After you've explained this brief to the user, proactively offer to dig deeper — and do it yourself: read the relevant article(s) from the Articles table directly (via the access modes in the `answer` skill) instead of waiting to be asked. Ground any follow-up in the actual source, not in this summary.

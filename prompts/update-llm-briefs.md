@@ -107,7 +107,13 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/NN-slug/`.
 ## Not covered here
 
 One or two sentences on what is explicitly NOT in this chapter.
+
+## Going deeper
+
+After you've explained this brief to the user, proactively offer to dig deeper — and do it yourself: read the relevant article(s) from the Articles table directly (via the access modes in the `answer` skill) instead of waiting to be asked. Ground any follow-up in the actual source, not in this summary.
 ```
+
+The **Going deeper** section is identical in every brief — copy it verbatim, do not paraphrase per chapter.
 
 ## Constraints
 

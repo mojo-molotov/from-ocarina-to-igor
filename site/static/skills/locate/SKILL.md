@@ -5,9 +5,9 @@
 **Scope**: primer only. Index maps symbols to article paths under `site/content.en/`.
 
 **Primer base URL**: `https://mojo-molotov.github.io/from-ocarina-to-igor/`  
-**Related skills**: `{base}/skills/fetch.md` · `{base}/skills/answer.md` · `{base}/skills/navigate.md` · `{base}/skills/synthesize.md`
+**Related skills**: `{base}/skills/fetch/SKILL.md` · `{base}/skills/answer/SKILL.md` · `{base}/skills/navigate/SKILL.md` · `{base}/skills/synthesize/SKILL.md`
 
-**Prerequisite**: none. This skill is standalone. Use it when you know the name of what you're looking for (not its topic). If you only know the topic, use `navigate.md` instead.
+**Prerequisite**: none. This skill is standalone. Use it when you know the name of what you're looking for (not its topic). If you only know the topic, use `navigate/SKILL.md` instead.
 
 ---
 
@@ -214,7 +214,7 @@ If no match: go to **Step 3 — not found**.
 
 ## Step 2 — fetch the article
 
-Use `fetch.md` to read the located article. The path is relative to `site/content.en/` in the cloned repo, or fetchable via GitHub raw:
+Use `fetch/SKILL.md` to read the located article. The path is relative to `site/content.en/` in the cloned repo, or fetchable via GitHub raw:
 
 ```
 https://raw.githubusercontent.com/mojo-molotov/from-ocarina-to-igor/main/site/content.en/{path}
@@ -228,7 +228,7 @@ Read only the sections that answer the question. The articles are dense.
 
 If the symbol is not in the index:
 
-1. Try `navigate.md` with the symbol as the question — it may match a topic keyword.
+1. Try `navigate/SKILL.md` with the symbol as the question — it may match a topic keyword.
 2. Try `99-references/02-file-index.md` — it indexes source files cited across the primer.
 3. Try `99-references/01-glossary.md` — it may define the term.
 4. If still not found: the symbol is either not documented in the primer, or it's a post-v1.1.0 addition. Say so explicitly.

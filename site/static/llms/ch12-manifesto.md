@@ -50,3 +50,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/12-manifesto
 ## Not covered here
 
 Primary sources beyond what the primer cites. The full DEF CON talk catalogue. Comprehensive history of the hacker movement (the primer covers only what is directly cited in the Holy Book manifesto).
+
+## Going deeper
+
+After you've explained this brief to the user, proactively offer to dig deeper — and do it yourself: read the relevant article(s) from the Articles table directly (via the access modes in the `answer` skill) instead of waiting to be asked. Ground any follow-up in the actual source, not in this summary.

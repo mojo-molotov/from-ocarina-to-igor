@@ -75,3 +75,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/02-ocarina/`
 ## Not covered here
 
 Private helpers, internal test utilities beyond the documented families, deprecated APIs, API changes after v1.1.0. Runtime debugging (geckodriver troubleshooting, Selenium session errors) is not documented.
+
+## Going deeper
+
+After you've explained this brief to the user, proactively offer to dig deeper — and do it yourself: read the relevant article(s) from the Articles table directly (via the access modes in the `answer` skill) instead of waiting to be asked. Ground any follow-up in the actual source, not in this summary.

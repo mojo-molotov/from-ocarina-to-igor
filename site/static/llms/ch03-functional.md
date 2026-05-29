@@ -32,3 +32,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/03-functiona
 ## Not covered here
 
 General FP theory beyond what Ocarina applies. Haskell / F# / OCaml lineage is in Ch 12 (lambda calculus article). Category theory, monads as mathematical objects — not here.
+
+## Going deeper
+
+After you've explained this brief to the user, proactively offer to dig deeper — and do it yourself: read the relevant article(s) from the Articles table directly (via the access modes in the `answer` skill) instead of waiting to be asked. Ground any follow-up in the actual source, not in this summary.

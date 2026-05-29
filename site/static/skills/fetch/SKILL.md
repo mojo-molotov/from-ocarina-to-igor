@@ -3,9 +3,9 @@
 **Goal**: fetch primer content at the right depth — brief only, or full article — depending on context and what the question actually needs.
 
 **Primer base URL**: `https://mojo-molotov.github.io/from-ocarina-to-igor/`  
-**Related skills**: `{base}/skills/navigate.md` · `{base}/skills/answer.md` · `{base}/skills/locate.md` · `{base}/skills/synthesize.md`
+**Related skills**: `{base}/skills/navigate/SKILL.md` · `{base}/skills/answer/SKILL.md` · `{base}/skills/locate/SKILL.md` · `{base}/skills/synthesize/SKILL.md`
 
-**Prerequisite**: a chapter brief slug and optional article path (from `navigate.md`, `locate.md`, or `answer.md`).
+**Prerequisite**: a chapter brief slug and optional article path (from `navigate/SKILL.md`, `locate/SKILL.md`, or `answer/SKILL.md`).
 
 ---
 

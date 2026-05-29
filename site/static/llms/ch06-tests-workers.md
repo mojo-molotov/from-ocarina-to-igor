@@ -36,3 +36,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/06-tests-wor
 ## Not covered here
 
 Live Redis key state, current OTP values, Vercel environment variables. Real-time environment state is never documented in the primer.
+
+## Going deeper
+
+After you've explained this brief to the user, proactively offer to dig deeper — and do it yourself: read the relevant article(s) from the Articles table directly (via the access modes in the `answer` skill) instead of waiting to be asked. Ground any follow-up in the actual source, not in this summary.

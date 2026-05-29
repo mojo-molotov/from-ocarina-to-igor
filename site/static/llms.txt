@@ -25,11 +25,13 @@ Article sources live under `site/content.en/` (English, default) and `site/conte
 
 ## Skills
 
-- [navigate](https://mojo-molotov.github.io/from-ocarina-to-igor/skills/navigate.md): Maps a question to the right chapter brief and article targets.
-- [fetch](https://mojo-molotov.github.io/from-ocarina-to-igor/skills/fetch.md): Fetches at the right depth (local / clone / remote) with hard limits to avoid over-fetching.
-- [answer](https://mojo-molotov.github.io/from-ocarina-to-igor/skills/answer.md): Full workflow — navigate → fetch → synthesize → gap declaration.
-- [synthesize](https://mojo-molotov.github.io/from-ocarina-to-igor/skills/synthesize.md): Cross-chapter synthesis tracing inter-chapter relationships within the primer without reaching external sources.
-- [locate](https://mojo-molotov.github.io/from-ocarina-to-igor/skills/locate.md): Symbol lookup returning the exact article that documents a class name, method, type, CLI flag, endpoint, or error.
+For any question about the ecosystem, **start with `answer`** — it is the orchestrator and default entry point, chaining navigate → fetch → synthesize → gap declaration. The other four are the standalone building blocks it composes; load one of them directly only when the question calls for just that step.
+
+- [answer](https://mojo-molotov.github.io/from-ocarina-to-igor/skills/answer/SKILL.md): Default entry point. Full workflow orchestrating the building blocks below: navigate → fetch → synthesize → gap declaration.
+- [navigate](https://mojo-molotov.github.io/from-ocarina-to-igor/skills/navigate/SKILL.md): Maps a question to the right chapter brief and article targets.
+- [fetch](https://mojo-molotov.github.io/from-ocarina-to-igor/skills/fetch/SKILL.md): Fetches at the right depth (local / clone / remote) with hard limits to avoid over-fetching.
+- [locate](https://mojo-molotov.github.io/from-ocarina-to-igor/skills/locate/SKILL.md): Symbol lookup returning the exact article that documents a class name, method, type, CLI flag, endpoint, or error.
+- [synthesize](https://mojo-molotov.github.io/from-ocarina-to-igor/skills/synthesize/SKILL.md): Cross-chapter synthesis tracing inter-chapter relationships within the primer without reaching external sources.
 
 ## Related
 

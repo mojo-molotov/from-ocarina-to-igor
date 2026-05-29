@@ -6,9 +6,9 @@ This skill is self-contained. Load it alone and follow it start to finish.
 
 **Primer base URL**: `https://mojo-molotov.github.io/from-ocarina-to-igor/`  
 **Related skills** (standalone, load separately if the question explicitly calls for it):
-- Cross-chapter synthesis: `{base}/skills/synthesize.md`
-- Symbol lookup (when you know the class/method name): `{base}/skills/locate.md`
-- Navigate / fetch only (rare): `{base}/skills/navigate.md` · `{base}/skills/fetch.md`
+- Cross-chapter synthesis: `{base}/skills/synthesize/SKILL.md`
+- Symbol lookup (when you know the class/method name): `{base}/skills/locate/SKILL.md`
+- Navigate / fetch only (rare): `{base}/skills/navigate/SKILL.md` · `{base}/skills/fetch/SKILL.md`
 
 ---
 
@@ -26,8 +26,8 @@ This skill is self-contained. Load it alone and follow it start to finish.
 
 **Before the table, check these short-circuits:**
 
-- **Symbol lookup** (you know a class, method, type, CLI flag, endpoint, or error code by name): load `locate.md` instead — it routes by symbol directly to the article, faster than this table.
-- **Multi-chapter question** (the answer clearly requires tracing a relationship between two or more chapters — e.g. "compare X in ocarina-example vs ocarina-with-ai-example", "how does the philosophy show up in the framework"): load `synthesize.md` — it has the inter-chapter map and procedure.
+- **Symbol lookup** (you know a class, method, type, CLI flag, endpoint, or error code by name): load `locate/SKILL.md` instead — it routes by symbol directly to the article, faster than this table.
+- **Multi-chapter question** (the answer clearly requires tracing a relationship between two or more chapters — e.g. "compare X in ocarina-example vs ocarina-with-ai-example", "how does the philosophy show up in the framework"): load `synthesize/SKILL.md` — it has the inter-chapter map and procedure.
 - **Out of scope** (the question is clearly not about Ocarina at all): say so, don't pretend to route it.
 
 Otherwise, match the question against the table below. Pick the **first** matching row.
@@ -51,7 +51,7 @@ Otherwise, match the question against the table below. Pick the **first** matchi
 
 **If no row matches**: skip to **Step 4 — Handling gaps**. Do not guess a chapter.
 
-**Escalation rule**: if while answering you find yourself heavily leaning on concepts that live in another chapter (not just citing them — really borrowing from them), stop and load `synthesize.md`. The table optimizes for the primary chapter; cross-chapter answers need explicit tracing.
+**Escalation rule**: if while answering you find yourself heavily leaning on concepts that live in another chapter (not just citing them — really borrowing from them), stop and load `synthesize/SKILL.md`. The table optimizes for the primary chapter; cross-chapter answers need explicit tracing.
 
 ### Disambiguation — when keywords overlap
 

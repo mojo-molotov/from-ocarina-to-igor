@@ -4,7 +4,7 @@
 
 **Primer base URL**: `https://mojo-molotov.github.io/from-ocarina-to-igor/`  
 **Briefs**: `{base}/llms/ch{NN}-{slug}.md`  
-**Related skills**: `{base}/skills/fetch.md` · `{base}/skills/answer.md` · `{base}/skills/locate.md` · `{base}/skills/synthesize.md`
+**Related skills**: `{base}/skills/fetch/SKILL.md` · `{base}/skills/answer/SKILL.md` · `{base}/skills/locate/SKILL.md` · `{base}/skills/synthesize/SKILL.md`
 
 ---
 
@@ -29,13 +29,13 @@ Match the question against the topic table below. Pick the **first** matching ro
 | manifesto, hacker, LulzSec, YTCracker, Zone-H, DEF CON, villain, λ-calculus, DHH, Paul Graham, infopreneur, SaaS fraud, survivor, underground, typing, RL | `ch12-manifesto` | `12-manifesto-deciphered/` — article matching keyword |
 | glossary, term, definition, cited files, cited people, references | `ch99-references` | `99-references/01-glossary.md` |
 
-If no row matches → say so clearly. Do not guess a chapter. Offer to synthesize from the Holy Book or source code instead (see `gap-aware` section in `answer.md`).
+If no row matches → say so clearly. Do not guess a chapter. Offer to synthesize from the Holy Book or source code instead (see `gap-aware` section in `answer/SKILL.md`).
 
 ---
 
 ## Step 2 — fetch and decide depth
 
-Fetch the identified brief using `fetch.md` (`{base}/skills/fetch.md`). Read it.
+Fetch the identified brief using `fetch/SKILL.md` (`{base}/skills/fetch/SKILL.md`). Read it.
 
 **Stop at the brief if**: the question is about what exists, the general flow, or which file to look at.
 
@@ -45,5 +45,5 @@ Fetch the identified brief using `fetch.md` (`{base}/skills/fetch.md`). Read it.
 
 **Never open more than 3 articles without a clear reason.** The brief table is the filter.
 
-To answer from what you've fetched: use `answer.md` (`{base}/skills/answer.md`).  
-For cross-chapter relationships specifically: use `synthesize.md` (`{base}/skills/synthesize.md`).
+To answer from what you've fetched: use `answer/SKILL.md` (`{base}/skills/answer/SKILL.md`).  
+For cross-chapter relationships specifically: use `synthesize/SKILL.md` (`{base}/skills/synthesize/SKILL.md`).
