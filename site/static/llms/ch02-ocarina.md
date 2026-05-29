@@ -6,10 +6,10 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/02-ocarina/`
 
 | File | Description |
 | --- | --- |
-| `01-identity.md` | Technical identity: Python 3.14+, v1.1.0, single runtime dependency (`selenium`), `mypy --strict`, MIT. |
+| `01-identity.md` | Technical identity: Python 3.14+, v1.1.0, single runtime dependency (`python-docx`), `mypy --strict`, MIT. |
 | `02-module-tree.md` | Full Python module tree with layered ASCII diagram. **Contains ASCII diagram.** |
-| `03-railway/01-result.md` | `Result[T]` discriminated union: `Ok[T]` / `Err`. The base type of the entire railway. |
-| `03-railway/02-action-chain-states.md` | `ActionChain` builder state machine: EMPTY → LOADED → COMMITTED. **Contains ASCII diagram.** |
+| `03-railway/01-result.md` | `Result[T] = Ok[T] | Fail` discriminated union. `Fail` is not generic — the error channel is always `Exception` (deliberate KISS choice). The base type of the entire railway. |
+| `03-railway/02-action-chain-states.md` | `ActionChain` type-state builder: ActionStart → ActionFailure → ActionSuccess → ActionChain, with a parallel Neutral* chain (NeutralActionStart/Failure/Success) implementing railway short-circuiting while keeping the fluent API. **Contains ASCII diagram.** |
 | `03-railway/03-neutral-rail.md` | The neutral rail: how a chain absorbs errors without stopping. |
 | `03-railway/04-chain-actions-fold.md` | `chain_actions`: fold-left over a list of thunks, threading `Result[T]`. |
 | `03-railway/05-create-act-hooks.md` | `create` / `act` hooks: lifecycle entry points for scenarios. |
@@ -48,12 +48,12 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/02-ocarina/`
 
 ## Key concepts
 
-- **Railway Oriented Programming (ROP)**: every operation returns `Result[T]`. Errors are values, never exceptions (in normal flow). The chain short-circuits on `Err` without raising.
+- **Railway Oriented Programming (ROP)**: every operation returns `Result[T] = Ok[T] | Fail`. Errors are values, never exceptions (in normal flow). `Fail` carries an `Exception` and is not generic — the error channel is untyped on purpose (KISS). The chain short-circuits on `Fail` without raising.
 - **`ActionChain`**: builder pattern over a list of thunks. State machine prevents misuse at static analysis time.
 - **Invariants**: `validate(driver).assert_that(condition).execute()` — observe first, assert second. Never execute without having observed.
 - **ISTQB hierarchy**: `Test` < `TestSuite` < `TestCampaign` < `TestCycle`. Each level has a defined contract.
 - **Ports**: Ocarina core depends on two interfaces (`ILogger`, `ITakeScreenshot`). Everything else is a detail.
-- **Single runtime dep**: only `selenium`. No test runner, no assertion lib, no fixture framework.
+- **Single runtime dep**: only `python-docx` (used by the `generate_docx_proof` report plugin). Selenium is a dev/optional dependency for the Selenium adapters, not a runtime dep. No test runner, no assertion lib, no fixture framework.
 - **`mypy --strict`**: the entire framework is fully typed. Type errors are caught statically.
 
 ## Diagrams

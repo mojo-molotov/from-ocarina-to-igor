@@ -200,7 +200,7 @@ src/ocarina/
                                   │
 ┌─────────────────────────────────▼────────────────────────────────────────┐
 │ COUCHE 2 — custom_types/  +  custom_errors/  +  custom_invariants/       │
-│   _Shapes_, alias, types, exceptions, invariants prêts-à-l'emploi.       │
+│   Shapes, alias, types, exceptions, invariants prêts-à-l'emploi.       │
 └─────────────────────────────────┬────────────────────────────────────────┘
                                   │
 ┌─────────────────────────────────▼────────────────────────────────────────┐

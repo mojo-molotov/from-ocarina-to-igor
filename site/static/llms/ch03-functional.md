@@ -17,9 +17,9 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/03-functiona
 ## Key concepts
 
 - **`Thunk[T]`**: a zero-argument callable returning `T`. The building block of lazy evaluation in Ocarina.
-- **`Result[T]`** is a discriminated union (`Ok[T] | Err`), not an exception. Pattern-matched with `TypeGuard`.
+- **`Result[T]`** is a discriminated union (`Ok[T] | Fail`), not an exception. `Fail` is not generic — the error channel is always `Exception` (deliberate KISS choice). Pattern-matched with `TypeGuard`.
 - **Closures as IoC**: instead of DI containers or service locators, Ocarina captures dependencies in closures at construction time. `drive_page(driver)(url)` is a closure.
-- **Fold left**: `chain_actions` is `functools.reduce` over thunks, threading the accumulated `Result[T]`. Short-circuits on first `Err`.
+- **Fold left**: `chain_actions` is `functools.reduce` over thunks, threading the accumulated `Result[T]`. Short-circuits on first `Fail`.
 - **PEP 695**: Ocarina requires Python 3.14+ because it uses the new type alias syntax. The chapter explains the generics design.
 - **Sealed unions**: `@final` on `Ok` and `Err` + exhaustive `match` = the type checker guarantees every case is handled.
 

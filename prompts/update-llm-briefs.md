@@ -119,6 +119,7 @@ The **Going deeper** section is identical in every brief — copy it verbatim, d
 
 - **Never invent** article descriptions. Read the article. If you cannot access it, say so.
 - **Never invent** class names, API signatures, or configuration keys not present in the source.
+- **Derive every factual claim about the code from the real source, never paraphrase from memory.** Any statement about dependencies (runtime vs dev), state/class names (e.g. the `ActionChain` states), type definitions (e.g. `Result[T] = Ok[T] | Fail`), or code size (SLOC) must be checked against `ocarina`'s actual source before it goes in a brief. For code size, give a verifiable figure and state how it was measured (e.g. AST count excluding blank lines, comments and docstrings) — never a vague "~N lines". When in doubt, read the source or omit the claim.
 - **One-line descriptions** in the Articles table. No multi-sentence descriptions.
 - **No Markdown formatting** in `title:` or `description:` frontmatter fields of articles — but brief files have no frontmatter, so this does not apply here.
 - **ASCII diagrams**: never modify them. If an article you're reading has an ASCII diagram, note it in the brief with "**Contains ASCII diagram.**" and add it to the Diagrams section.

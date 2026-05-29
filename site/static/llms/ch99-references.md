@@ -12,7 +12,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/99-reference
 ## Key concepts
 
 - **Glossary**: the authoritative definition of every term used in the primer. If a term appears without explanation in another chapter, this is the lookup point.
-- **Key glossary entries**: `Result[T]`, `Ok[T]`, `Err`, `ActionChain`, `Thunk[T]`, `Effect`, `TestCycle`, `TestCampaign`, `TestSuite`, `Test`, `Scenario`, `Watcher`, `POMBase`, `DriversPool`, `ROP`, `ISTQB`, `SUT`, `Corsicadex`, `HumanizedDriver`, `EnvGetters`, `skill` (LLM procedure), `llms.txt`.
+- **Key glossary entries**: `Result[T]`, `Ok[T]`, `Fail`, `ActionChain`, `Thunk[T]`, `Effect`, `TestCycle`, `TestCampaign`, `TestSuite`, `Test`, `Scenario`, `Watcher`, `POMBase`, `DriversPool`, `ROP`, `ISTQB`, `SUT`, `Corsicadex`, `HumanizedDriver`, `EnvGetters`, `skill` (LLM procedure), `llms.txt`.
 - **File index**: maps source files in each of the six repos to the primer articles that discuss them. Use this to find which primer article covers a specific file you're looking at in the source.
 - **Cited people**: the glossary section on cited people gives brief identifications for every person named in the primer (Wlaschin, Church, Wadler, Moggi, DHH, Paul Graham, YTCracker, Yung Innanet, Roberto Preatoni, Terry Davis, etc.).
 
