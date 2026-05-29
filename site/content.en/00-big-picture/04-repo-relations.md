@@ -87,8 +87,8 @@ CURA is **not part of the ecosystem repos**. It's an external SUT&nbsp;—&nbsp;
 
 | Direction              | Mechanism                                                                            | Detail                                                                                       |
 | ---------------------- | ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
-| Holy Book → everything | Internal Markdown links to the other repos (`mojo-molotov/ocarina`, etc.)            | The chapters “First steps”, “First real-world hurdles”, etc. cite them through GitHub links. |
-| Everything → Holy Book | Ocarina's `pyproject.toml#Documentation` URL points to the Holy Book                 | `Documentation = "https://mojo-molotov.github.io/ocarina-holy-book"`                         |
+| Holy Book&nbsp;→&nbsp;everything | Internal Markdown links to the other repos (`mojo-molotov/ocarina`, etc.)            | The chapters “First steps”, “First real-world hurdles”, etc. cite them through GitHub links. |
+| Everything&nbsp;→&nbsp;Holy Book | Ocarina's `pyproject.toml#Documentation` URL points to the Holy Book                 | `Documentation = "https://mojo-molotov.github.io/ocarina-holy-book"`                         |
 | LLMs → Holy Book       | `llms.txt`, `llms-full.txt`, `CLAUDE.md`, `CLAUDE.slim.md` exposed at canonical URLs | See [`../09-holy-book/06-public-resources.md`](../09-holy-book/06-public-resources.md)       |
 
 ## Secrets / environment variables

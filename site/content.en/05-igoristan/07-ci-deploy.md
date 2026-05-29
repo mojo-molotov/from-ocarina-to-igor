@@ -136,8 +136,8 @@ jobs:
 
 | Job      | Effect                                                                                                                      |
 | -------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `build`  | `pnpm install --frozen-lockfile` → `pnpm build` (= `wireit build` = `lint → typecheck → vike build`) → upload `dist/client` |
-| `deploy` | `actions/deploy-pages@v5` → publishes the artifact → URL = https://mojo-molotov.github.io/igoristan/                        |
+| `build`  | `pnpm install --frozen-lockfile`&nbsp;→&nbsp;`pnpm build` (= `wireit build` = `lint → typecheck → vike build`) →&nbsp;upload `dist/client` |
+| `deploy` | `actions/deploy-pages@v5`&nbsp;→&nbsp;publishes the artifact →&nbsp;URL = https://mojo-molotov.github.io/igoristan/                        |
 
 ## `concurrency: pages` + `cancel-in-progress: false`
 

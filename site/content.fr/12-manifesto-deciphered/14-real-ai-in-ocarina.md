@@ -35,7 +35,7 @@ Quand le Holy Book d'Ocarina parle «&nbsp;_d'IA_&nbsp;», il parle **des couche
 | Date         | **Juin 2017** (arXiv), présenté à **NeurIPS décembre 2017**                          |
 | Contribution | Architecture **Transformer**&nbsp;:&nbsp;self-attention au lieu de récurrence (LSTM) |
 
-L'architecture _Transformer_ permet de _paralléliser_ l'entraînement sur GPU. Ce qui prenait des semaines en LSTM se fait en heures. L'entraînement passe à l'échelle d'Internet. GPT-1 (2018)&nbsp;→&nbsp;GPT-2 (2019)&nbsp;→&nbsp;GPT-3 (2020, 175&nbsp;B params)&nbsp;→&nbsp;GPT-4 (2023)&nbsp;→&nbsp;Claude 3 (2024)&nbsp;→&nbsp;Claude 4 (2025).
+L'architecture _Transformer_ permet de _paralléliser_ l'entraînement sur GPU. Ce qui prenait des semaines en LSTM se fait en heures. L'entraînement passe à l'échelle d'Internet. GPT-1 (2018)&nbsp;→&nbsp;GPT-2 (2019) →&nbsp;GPT-3 (2020, 175&nbsp;B params) →&nbsp;GPT-4 (2023) →&nbsp;Claude 3 (2024) →&nbsp;Claude 4 (2025).
 
 ### Acteurs
 

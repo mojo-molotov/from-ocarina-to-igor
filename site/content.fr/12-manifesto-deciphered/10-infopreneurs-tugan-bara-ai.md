@@ -40,7 +40,7 @@ Tradition née aux États-Unis dans les années 1970-1980 avec&nbsp;:
 - **Jay Abraham**&nbsp;—&nbsp;_Getting Everything You Can Out of All You've Got_.
 - **Frank Kern**, **Russell Brunson** (ClickFunnels), **Eben Pagan**&nbsp;—&nbsp;la génération 2000s du _marketing digital_.
 
-Schéma&nbsp;:&nbsp;_problème&nbsp;→&nbsp;agitation&nbsp;→&nbsp;solution&nbsp;→&nbsp;CTA&nbsp;+&nbsp;urgence&nbsp;+&nbsp;rareté_.  
+Schéma&nbsp;:&nbsp;_problème&nbsp;→&nbsp;agitation →&nbsp;solution →&nbsp;CTA&nbsp;+&nbsp;urgence&nbsp;+&nbsp;rareté_.  
 Bonus empilés. Urgence factice. Prix décroissant (_value stacking_). Garantie 30 jours «&nbsp;_satisfait ou remboursement intégral_&nbsp;».
 
 ### L'arrivée en France

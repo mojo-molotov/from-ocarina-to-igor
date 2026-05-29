@@ -39,7 +39,7 @@ Tradition born in the United States in the 1970s-1980s with:
 - **Jay Abraham**&nbsp;—&nbsp;_Getting Everything You Can Out of All You've Got_.
 - **Frank Kern**, **Russell Brunson** (ClickFunnels), **Eben Pagan**&nbsp;—&nbsp;the 2000s _digital marketing_ generation.
 
-Scheme: _problem → agitation → solution → CTA + urgency + scarcity_.  
+Scheme: _problem&nbsp;→&nbsp;agitation →&nbsp;solution →&nbsp;CTA + urgency + scarcity_.  
 Stacked bonuses. Fake urgency. Decreasing price (_value stacking_). 30-day "_satisfied or full refund_" guarantee.
 
 ### Arrival in France

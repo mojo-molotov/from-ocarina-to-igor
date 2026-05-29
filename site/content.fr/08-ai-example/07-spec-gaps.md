@@ -110,7 +110,7 @@ Sinon l'utilisateur perd le contexte («&nbsp;_je voulais accéder à mon histor
 
 ### Symptôme
 
-User non-authentifié clique sur un _deep-link_ qui le dirige vers `/appointment.php` ou `/history.php`&nbsp;→&nbsp;il atterit sur la page d'accueil&nbsp;→&nbsp;il doit alors cliquer sur «&nbsp;_Make Appointment_&nbsp;» à nouveau pour atteindre la page de connexion.
+User non-authentifié clique sur un _deep-link_ qui le dirige vers `/appointment.php` ou `/history.php`&nbsp;→&nbsp;il atterit sur la page d'accueil →&nbsp;il doit alors cliquer sur «&nbsp;_Make Appointment_&nbsp;» à nouveau pour atteindre la page de connexion.
 
 ### Test
 

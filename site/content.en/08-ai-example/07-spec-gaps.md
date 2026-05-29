@@ -108,7 +108,7 @@ Should redirect to `/profile.php#login`, not `/`. The user loses context ("I wan
 
 ### Symptom
 
-Unauthenticated user clicks a _deep-link_ pointing at `/appointment.php` or `/history.php` → lands on the homepage → has to click "_Make Appointment_" again to reach the login page.
+Unauthenticated user clicks a _deep-link_ pointing at `/appointment.php` or `/history.php`&nbsp;→&nbsp;lands on the homepage →&nbsp;has to click "_Make Appointment_" again to reach the login page.
 
 ### Test
 

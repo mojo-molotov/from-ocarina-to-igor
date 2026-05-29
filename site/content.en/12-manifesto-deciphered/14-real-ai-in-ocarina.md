@@ -35,7 +35,7 @@ When Ocarina's Holy Book talks about "_AI_", it talks about **layers 3 and 4**: 
 | Date         | **June 2017** (arXiv), presented at **NeurIPS December 2017**             |
 | Contribution | **Transformer** architecture: self-attention instead of recurrence (LSTM) |
 
-The _Transformer_ architecture lets you _parallelize_ training on GPU. What took weeks in LSTM does hours. Training scales to Internet-size. GPT-1 (2018) → GPT-2 (2019) → GPT-3 (2020, 175B params) → GPT-4 (2023) → Claude 3 (2024) → Claude 4 (2025).
+The _Transformer_ architecture lets you _parallelize_ training on GPU. What took weeks in LSTM does hours. Training scales to Internet-size. GPT-1 (2018)&nbsp;→&nbsp;GPT-2 (2019) →&nbsp;GPT-3 (2020, 175B params) →&nbsp;GPT-4 (2023) →&nbsp;Claude 3 (2024) →&nbsp;Claude 4 (2025).
 
 ### Actors
 

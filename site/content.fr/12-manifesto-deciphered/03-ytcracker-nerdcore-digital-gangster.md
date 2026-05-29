@@ -299,7 +299,7 @@ Deux long-format particulièrement documentés&nbsp;:
 
 C'est **la** référence audio sur YTCracker. Il y raconte son parcours&nbsp;:&nbsp;les hacks scolaires d'adolescent («&nbsp;_I hacked pretty much every school district in the state_&nbsp;»), les cibles institutionnelles («&nbsp;_I did the FAA, New York Department of Agriculture… pretty much every school district in Colorado_&nbsp;»), et la montée de la _Nerdcore_ («&nbsp;_the genre, right around I would say 2006, 2007, started to really kinda gain steam_&nbsp;»).
 
-C'est l'épisode où l'on entend Bryce Case Jr. lui-même retracer la trajectoire _black hat 1999_&nbsp;→&nbsp;_nerdcore 2005_&nbsp;→&nbsp;_Digital Gangster_&nbsp;→&nbsp;_crypto /&nbsp;consulting_.
+C'est l'épisode où l'on entend Bryce Case Jr. lui-même retracer la trajectoire _black hat 1999_&nbsp;→&nbsp;_nerdcore 2005_ →&nbsp;_Digital Gangster_ →&nbsp;_crypto /&nbsp;consulting_.
 
 ### Shawn Ryan Show, épisode 85 (23 novembre 2023)
 

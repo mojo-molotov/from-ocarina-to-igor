@@ -9,7 +9,7 @@ series_order: 6
 
 # 10.06&nbsp;—&nbsp;Workflow `ocarina-holy-book`
 
-> Un seul workflow&nbsp;: `deploy.yml`. Sur push main&nbsp;→&nbsp;build VitePress&nbsp;→&nbsp;upload Pages.
+> Un seul workflow&nbsp;: `deploy.yml`. Sur push main&nbsp;→&nbsp;build VitePress →&nbsp;upload Pages.
 
 ## Code
 

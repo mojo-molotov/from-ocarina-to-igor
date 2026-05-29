@@ -150,7 +150,7 @@ Random delay (700–2200 ms), dynamic title (with/without `500`), alternating co
 On the Ocarina side, this triggers:
 
 - The `on_failure` hook on `act` that detects `ERROR_PAGE_REGEX` (see [`../07-ocarina-example/02-adapters.md`](../07-ocarina-example/02-adapters.md)).
-- The transformation into `HttpErrorPageReachedError` → caught by `transient_errors` → retry.
+- The transformation into `HttpErrorPageReachedError`&nbsp;→&nbsp;caught by `transient_errors` →&nbsp;retry.
 - OR use of `match_page` (when defined in a scenario).
 
 ### dashboard

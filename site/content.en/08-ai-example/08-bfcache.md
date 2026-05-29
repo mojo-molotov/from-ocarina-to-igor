@@ -133,7 +133,7 @@ Heroku eco-dyno concurrency limit hit by near-simultaneous POSTs. Infra issue, n
 
 ### Flakiness handling
 
-`TimeoutException ⊆ WebDriverException` → in `transient_errors` → auto-retry. A failure surviving all retries means contention was too high&nbsp;—&nbsp;not a regression, but worth a DevOps follow-up.
+`TimeoutException ⊆ WebDriverException`&nbsp;→&nbsp;in `transient_errors` →&nbsp;auto-retry. A failure surviving all retries means contention was too high&nbsp;—&nbsp;not a regression, but worth a DevOps follow-up.
 
 ## A-ENV-2&nbsp;—&nbsp;Weak-password detection modal (Chrome)
 

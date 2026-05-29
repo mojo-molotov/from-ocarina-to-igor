@@ -91,7 +91,7 @@ The user dispatching the workflow must have access to the OC environment.
     key: venv-${{ runner.os }}-py-${{ hashFiles('pyproject.toml') }}
 ```
 
-`hashFiles('pyproject.toml')`: if `pyproject.toml` changes (new dep, bumped version), the cache key changes → cache miss → clean reinstall.
+`hashFiles('pyproject.toml')`: if `pyproject.toml` changes (new dep, bumped version), the cache key changes&nbsp;→&nbsp;cache miss →&nbsp;clean reinstall.
 
 ## `Setup Firefox`
 

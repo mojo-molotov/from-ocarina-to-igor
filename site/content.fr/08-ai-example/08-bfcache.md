@@ -133,7 +133,7 @@ _"Heroku eco-dyno concurrency limit hit"._ C'est lié à l'infra sur laquelle es
 
 ### Gestion de la flakiness
 
-`TimeoutException ⊆ WebDriverException`&nbsp;→&nbsp;ça part dans `transient_errors`&nbsp;→&nbsp;auto-retry.  
+`TimeoutException ⊆ WebDriverException`&nbsp;→&nbsp;ça part dans `transient_errors` →&nbsp;auto-retry.  
 Un fail survivant aux retries indique que l'on a potentiellement atteint un niveau de contention trop important, ce ne serait pas forcément une régression et mériterait une _analyse complémentaire_ côté _DevOps_.
 
 ## A-ENV-2&nbsp;—&nbsp;Modale de détection d'un mot de passe faible (Chrome)

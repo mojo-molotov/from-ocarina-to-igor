@@ -124,7 +124,7 @@ Character rendering philosophy:
 | Type                                             | Strategy                                                                                      |
 | ------------------------------------------------ | --------------------------------------------------------------------------------------------- |
 | Text characters (plain text)                     | Native ReportLab vector glyph                                                                 |
-| Color emoji ("real" emoji)                       | Extract SVG from font → rasterize via cairosvg → insert PNG into the PDF                      |
+| Color emoji ("real" emoji)                       | Extract SVG from font&nbsp;→&nbsp;rasterize via cairosvg →&nbsp;insert PNG into the PDF                      |
 | Supplementary plane symbols (rare but important) | PNG fallback&nbsp;—&nbsp;the airplane emoji is important for telling slipologues to clear off |
 
 ### 5. Output

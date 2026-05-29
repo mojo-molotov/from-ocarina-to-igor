@@ -150,7 +150,7 @@ Délai aléatoire (700-2200 ms), titre dynamique (avec/sans `500`), composants a
 Côté Ocarina, ça déclenche&nbsp;:
 
 - Le hook `on_failure` côté `act` qui détecte `ERROR_PAGE_REGEX` (cf. [`../07-ocarina-example/02-adapters.md`](../07-ocarina-example/02-adapters.md)).
-- La transformation en `HttpErrorPageReachedError`&nbsp;→&nbsp;catched par `transient_errors`&nbsp;→&nbsp;retry.
+- La transformation en `HttpErrorPageReachedError`&nbsp;→&nbsp;catched par `transient_errors` →&nbsp;retry.
 - OU l'utilisation de `match_page` (lorsqu'elle est définie dans un scénario)
 
 ### dashboard
