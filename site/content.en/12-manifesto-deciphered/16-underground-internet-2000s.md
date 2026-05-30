@@ -352,6 +352,9 @@ When you've _lived_ these operations, you no longer use the word _adversary_ or 
 
 See [`17-survivor-psyche-programming.md`](17-survivor-psyche-programming.md)
 
+Is it any better today?  
+To have your own opinion, **see also**: [764 (organization)](https://en.wikipedia.org/wiki/764_(organization))
+
 ## 11. Connections with the rest of the primer
 
 - [`02-lulzsec-lulzboat-antisec.md`](02-lulzsec-lulzboat-antisec.md)&nbsp;—&nbsp;LulzSec / AntiSec, organized hacktivism.

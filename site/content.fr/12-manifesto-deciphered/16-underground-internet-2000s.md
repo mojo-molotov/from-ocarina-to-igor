@@ -356,6 +356,9 @@ Quand on a _vécu_ ces opérations, on n'utilise plus le mot _adversaire_ ou _op
 
 Cf. [`17-survivor-psyche-programming.md`](17-survivor-psyche-programming.md)
 
+Est-ce que c'est mieux aujourd'hui&nbsp;?  
+Pour se faire son propre avis, **lire aussi**&nbsp;: [764 (réseau cybercriminel)](https://fr.wikipedia.org/wiki/764_(r%C3%A9seau_cybercriminel))
+
 ## 11. Connexions avec le reste du précis
 
 - [`02-lulzsec-lulzboat-antisec.md`](02-lulzsec-lulzboat-antisec.md)&nbsp;—&nbsp;LulzSec /&nbsp;AntiSec, hacktivisme organisé.
