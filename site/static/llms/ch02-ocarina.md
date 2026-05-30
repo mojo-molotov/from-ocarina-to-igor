@@ -6,7 +6,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/02-ocarina/`
 
 | File | Description |
 | --- | --- |
-| `01-identity.md` | Technical identity: Python 3.14+, v1.1.0, single runtime dependency (`python-docx`), `mypy --strict`, MIT. |
+| `01-identity.md` | Technical identity: Python 3.14+, v1.1.3, single runtime dependency (`python-docx`), `mypy --strict`, MIT. |
 | `02-module-tree.md` | Full Python module tree with layered ASCII diagram. **Contains ASCII diagram.** |
 | `03-railway/01-result.md` | `Result[T] = Ok[T] | Fail` discriminated union. `Fail` is not generic — the error channel is always `Exception` (deliberate KISS choice). The base type of the entire railway. |
 | `03-railway/02-action-chain-states.md` | `ActionChain` type-state builder: ActionStart → ActionFailure → ActionSuccess → ActionChain, with a parallel Neutral* chain (NeutralActionStart/Failure/Success) implementing railway short-circuiting while keeping the fluent API. **Contains ASCII diagram.** |
@@ -33,14 +33,14 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/02-ocarina/`
 | `07-watcher.md` | `Watcher`: lazy callback registered on a chain, fires on state change. |
 | `08-pom-base.md` | `POMBase`: the base class all Page Object Models inherit from. |
 | `09-ports.md` | Ports and adapters: `ILogger`, `ITakeScreenshot` — the two interfaces Ocarina depends on. |
-| `10-infra/01-drivers-pool.md` | `DriversPool`: concurrent Selenium driver lifecycle management. |
+| `10-infra/01-drivers-pool.md` | `WebDriversPool[Driver]`: concurrent, backend-agnostic web-driver lifecycle management (Selenium or Playwright). |
 | `10-infra/02-driver-builder.md` | `DriverBuilder`: constructs Firefox/Chrome WebDrivers with options. |
 | `10-infra/03-screenshotter.md` | `Screenshotter`: `ITakeScreenshot` implementation. |
 | `10-infra/04-act-counter.md` | `ActCounter`: counts actions for saturation and metrics. |
-| `10-infra/05-selenium-adapters.md` | Selenium adapters: typed wrappers around raw WebDriver calls. |
+| `10-infra/05-selenium-adapters.md` | Selenium adapters: typed wrappers around raw WebDriver calls. As of v1.1.3 a parallel Playwright adapter ships under `infra/playwright/`; the page also explains its `PlaywrightDriver` actor — Playwright's sync API is thread-affine, so all calls are marshalled onto one owner thread via `submit()` to stay compatible with Ocarina's threaded pool/warmup/Watcher. |
 | `11-opinionated/01-cli-builder.md` | `CLIBuilder`: Click-based CLI construction for test suites. |
 | `11-opinionated/02-cli-store-phantoms.md` | Store and phantom CLI parameters. |
-| `11-opinionated/03-selenium-cli.md` | `SeleniumCLI`: opinionated CLI entry point for Selenium campaigns. |
+| `11-opinionated/03-selenium-cli.md` | `SeleniumCLI`: opinionated CLI entry point for Selenium campaigns. A parallel Playwright CLI store ships in `opinionated/cli/playwright/` (v1.1.3). |
 | `11-opinionated/04-loggers.md` | Built-in loggers: console, file, structured. |
 | `11-opinionated/05-plugins-reports.md` | Reporter plugins: Allure, JSON, composite. |
 | `11-opinionated/06-bootstrap-launcher.md` | `bootstrap`: the one function that wires everything and starts the campaign. |
@@ -53,7 +53,8 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/02-ocarina/`
 - **Invariants**: `validate(driver).assert_that(condition).execute()` — observe first, assert second. Never execute without having observed.
 - **ISTQB hierarchy**: `Test` < `TestSuite` < `TestCampaign` < `TestCycle`. Each level has a defined contract.
 - **Ports**: Ocarina core depends on two interfaces (`ILogger`, `ITakeScreenshot`). Everything else is a detail.
-- **Single runtime dep**: only `python-docx` (used by the `generate_docx_proof` report plugin). Selenium is a dev/optional dependency for the Selenium adapters, not a runtime dep. No test runner, no assertion lib, no fixture framework.
+- **Dual backend behind the ports**: since v1.1.3 the framework ships **two** driver adapters — Selenium and Playwright — in parallel under `custom_types/`, `dsl/testing/`, `infra/`, `pom/` and `opinionated/cli/` (each has a `selenium/` and a `playwright/` subpackage). The pure DSL and the orchestration stay backend-agnostic; only the leaf `infra/<backend>/` and `pom/<backend>/` folders know the concrete driver. Adding Puppeteer or a fake driver is the same exercise.
+- **Single runtime dep**: only `python-docx` (used by the `generate_docx_proof` report plugin). Selenium and Playwright are dev/optional dependencies for their respective shipped adapters (v1.1.3), not runtime deps. No test runner, no assertion lib, no fixture framework.
 - **`mypy --strict`**: the entire framework is fully typed. Type errors are caught statically.
 
 ## Diagrams
@@ -74,7 +75,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/02-ocarina/`
 
 ## Not covered here
 
-Private helpers, internal test utilities beyond the documented families, deprecated APIs, API changes after v1.1.0. Runtime debugging (geckodriver troubleshooting, Selenium session errors) is not documented.
+Private helpers, internal test utilities beyond the documented families, deprecated APIs, API changes after v1.1.3. Runtime debugging (geckodriver troubleshooting, Selenium session errors) is not documented.
 
 ## Going deeper
 

@@ -36,7 +36,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/00-big-pictu
 
 ## Not covered here
 
-Stack versions beyond v1.1.0, runtime environment state, secrets layout, live deployment status.
+Stack versions beyond v1.1.3, runtime environment state, secrets layout, live deployment status.
 
 ## Going deeper
 

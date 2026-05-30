@@ -1,6 +1,6 @@
 ---
 title: "02.01 — Ocarina's technical identity"
-description: "Ocarina's technical identity through its pyproject.toml: name, version 1.1.0, Python 3.14+, minimal dependencies and quality toolchain."
+description: "Ocarina's technical identity through its pyproject.toml: name, version 1.1.3, Python 3.14+, minimal dependencies and quality toolchain."
 weight: 1
 date: 2026-05-20
 series: ["ocarina"]
@@ -15,7 +15,7 @@ tags: ["typing"]
 ```toml
 [project]
 name = "ocarina"
-version = "1.1.0"
+version = "1.1.3"
 description = "Websites test framework for Igor"
 requires-python = ">=3.14"
 authors = [{ name="Igor Casanova", email="[REDACTED]" }]
@@ -26,7 +26,7 @@ readme = "README.md"
 dependencies = ["python-docx>=1.2.0"]
 ```
 
-1. **`version = "1.1.0"`**: _stable 1.x_, not a pre-release.
+1. **`version = "1.1.3"`**: _stable 1.x_, not a pre-release.
 2. **`requires-python = ">=3.14"`**: PEP 695 generic typing everywhere.
 3. **`dependencies = ["python-docx>=1.2.0"]`**: **one** runtime dependency. The rest lives in `dev`.
 4. **`license = "MIT"`**.
@@ -50,6 +50,7 @@ dev = [
     "pre-commit>=4.5.1",
     "syrupy>=5.1.0",
     "selenium>=4.40.0",
+    "playwright>=1.60.0",
     "twine>=6.2.0",
     "build>=1.4.2",
     "prysk>=0.20.0",
@@ -67,7 +68,8 @@ dev = [
 | `allure-pytest` / `allure-python-commons` | Allure report (deployed to GH Pages).                                                                                                                                 |
 | `pre-commit`                              | Local git hooks (ruff-format).                                                                                                                                        |
 | `syrupy`                                  | _Snapshot testing_ (output of `pretty_print_results`, `results_to_json`).                                                                                             |
-| `selenium`                                | Present in `dev` because Ocarina **doesn't depend** on Selenium to work; it just exposes a Selenium _adapter_ so the framework is immediately operational out of box. |
+| `selenium`                                | Present in `dev` because Ocarina **doesn't depend** on Selenium to work; it just ships a Selenium _adapter_ so the framework is immediately operational out of box.   |
+| `playwright`                              | Same logic: a second shipped _adapter_ (since `1.1.3`). Ocarina now drives **both** Selenium and Playwright out of the box, behind the same ports.                    |
 | `twine` / `build`                         | PyPI publishing.                                                                                                                                                      |
 | `prysk`                                   | CLI tests in the _cram_ (`.t`) format. Successor to `cram`.                                                                                                           |
 

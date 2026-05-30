@@ -1,6 +1,6 @@
 ---
 title: "02.02 — Arborescence du module ocarina"
-description: "L'arborescence du module Python ocarina : 114 fichiers répartis en quatre couches conceptuelles, du railway aux composants opinionated."
+description: "L'arborescence du module Python ocarina : 134 fichiers répartis en quatre couches conceptuelles, du railway aux composants opinionated."
 weight: 2
 date: 2026-05-20
 series: ["ocarina"]
@@ -9,7 +9,7 @@ series_order: 2
 
 # 02.02&nbsp;—&nbsp;Arborescence du module `ocarina`
 
-Le module Python source contient **114 fichiers `.py`** répartis en quatre couches conceptuelles.
+Le module Python source contient **134 fichiers `.py`** répartis en quatre couches conceptuelles.
 
 ```
 src/ocarina/
@@ -32,11 +32,16 @@ src/ocarina/
 │   ├── test_runner.py                       # TestRunner[Driver]
 │   ├── oc_test.py                           # TestName / TestScenario / TestScenarioFragment
 │   ├── oc_test_layers.py                    # TestResult / TestSuiteResult / TestCampaignResults / TestCycleResults
-│   └── selenium/
-│       ├── built_web_driver.py              # BuiltSeleniumWebDriver
-│       ├── oc_test_scenario.py
-│       ├── supported_browsers.py            # type SupportedSeleniumBrowser = Literal["chrome", "firefox", "edge", "safari"]
-│       └── web_drivers_pool.py              # type SeleniumWebDriversPool = WebDriversPool[WebDriver]
+│   ├── selenium/
+│   │   ├── built_web_driver.py              # BuiltSeleniumWebDriver
+│   │   ├── oc_test_scenario.py
+│   │   ├── supported_browsers.py            # type SupportedSeleniumBrowser = Literal["chrome", "firefox", "edge", "safari"]
+│   │   └── web_drivers_pool.py              # type SeleniumWebDriversPool = WebDriversPool[WebDriver]
+│   └── playwright/
+│       ├── built_web_driver.py              # type BuiltPlaywrightDriver = BuiltWebDriver[PlaywrightDriver]
+│       ├── oc_test_scenario.py              # PlaywrightTestScenario / PlaywrightTestScenarioFragment
+│       ├── supported_browsers.py            # type SupportedPlaywrightBrowser = Literal["chromium", "firefox", "webkit"]
+│       └── web_drivers_pool.py              # type PlaywrightDriversPool = WebDriversPool[PlaywrightDriver]
 │
 ├── custom_errors/                           # Couche 2 : erreurs
 │   ├── __init__.py
@@ -66,9 +71,12 @@ src/ocarina/
 ├── pom/                                     # Couche 3 : Page Object Model
 │   ├── __init__.py
 │   ├── base.py                              # POMBase (ABC : verify + get_current_title)
-│   └── selenium/
+│   ├── selenium/
+│   │   ├── __init__.py
+│   │   └── muted.py                         # MutedPOM utilitaire
+│   └── playwright/
 │       ├── __init__.py
-│       └── muted.py                         # MutedPOM utilitaire
+│       └── muted.py                         # MutedPlaywrightPOM utilitaire
 │
 ├── aggregates/                              # Couche 3 : agrégats de résultats
 │   ├── __init__.py
@@ -96,10 +104,14 @@ src/ocarina/
 │   │   │   ├── __init__.py
 │   │   │   ├── test_executor.py             # class TestExecutor[Driver] + ExecutionOutcome (frozen, slots)
 │   │   │   └── test_flow.py                 # class TestFlow[Driver]
-│   │   └── selenium/
+│   │   ├── selenium/
+│   │   │   ├── __init__.py
+│   │   │   ├── create_test.py               # create_selenium_test(...)
+│   │   │   └── create_watcher.py            # create_selenium_watcher(...) + type SeleniumWatcher
+│   │   └── playwright/
 │   │       ├── __init__.py
-│   │       ├── create_test.py               # create_selenium_test(...)
-│   │       └── create_watcher.py            # create_selenium_watcher(...) + type SeleniumWatcher
+│   │       ├── create_test.py               # create_playwright_test(...)
+│   │       └── create_watcher.py            # create_playwright_watcher(...) + type PlaywrightWatcher
 │   └── testing_with_railway/
 │       ├── __init__.py
 │       ├── chain_actions.py                 # class ChainRunner[T] + chain_actions
@@ -118,13 +130,21 @@ src/ocarina/
 │   ├── driver_builder.py                    # class DriverBuilder[Driver]
 │   ├── screenshotter.py                     # class Screenshotter[TDriver] + ScreenshotterConfig
 │   ├── act_counter.py                       # class ActCounter (interface)
-│   └── selenium/
+│   ├── selenium/
+│   │   ├── __init__.py
+│   │   ├── create_driver.py                 # _build_firefox / _build_chrome / _build_edge / _build_safari
+│   │   ├── create_drivers_pool.py           # create_selenium_drivers_pool
+│   │   ├── create_screenshotter.py          # create_selenium_screenshotter
+│   │   ├── driver_healthcheck.py            # driver_healthcheck (ping driver.title)
+│   │   └── mixins.py                        # SeleniumTitleMixin (détrompeur de typage)
+│   └── playwright/
 │       ├── __init__.py
-│       ├── create_driver.py                 # _build_firefox / _build_chrome / _build_edge / _build_safari
-│       ├── create_drivers_pool.py           # create_selenium_drivers_pool
-│       ├── create_screenshotter.py          # create_selenium_screenshotter
-│       ├── driver_healthcheck.py            # driver_healthcheck (ping driver.title)
-│       └── mixins.py                        # SeleniumTitleMixin (détrompeur de typage)
+│       ├── create_driver.py                 # create_playwright_driver (chromium / firefox / webkit)
+│       ├── create_drivers_pool.py           # create_playwright_drivers_pool
+│       ├── create_screenshotter.py          # create_playwright_screenshotter + _playwright_save_full_page
+│       ├── driver.py                        # class PlaywrightDriver (wrapper sync)
+│       ├── driver_healthcheck.py            # playwright_driver_healthcheck (ping driver.title)
+│       └── mixins.py                        # PlaywrightTitleMixin (détrompeur de typage)
 │
 └── opinionated/                             # Couche 6 : opt-in, tout ce qui est "joli mais remplaçable"
     ├── __init__.py
@@ -137,10 +157,14 @@ src/ocarina/
     │   ├── builder.py                       # CliBuilder + CliArg + _SilentArgumentParser
     │   ├── store.py                         # CliStore[TKeys] + _CliField[T] + field(...)
     │   ├── phantoms.py                      # phantom_validate (no-op predicate)
-    │   └── selenium/
+    │   ├── selenium/
+    │   │   ├── __init__.py
+    │   │   ├── cli_store_singleton.py       # SeleniumCliStoreSingleton (push / get)
+    │   │   └── create_cli_store.py          # create_selenium_{auto,win,macos,linux}_cli_store
+    │   └── playwright/
     │       ├── __init__.py
-    │       ├── cli_store_singleton.py       # SeleniumCliStoreSingleton (push / get)
-    │       └── create_cli_store.py          # create_selenium_{auto,win,macos,linux}_cli_store
+    │       ├── cli_store_singleton.py       # PlaywrightCliStoreSingleton (push / get)
+    │       └── create_cli_store.py          # create_playwright_{,auto_}cli_store
     ├── dsl/
     │   ├── __init__.py
     │   └── drive_page.py                    # drive_page = chain_actions, alias sémantique
@@ -214,8 +238,8 @@ Cette **stratification stricte** garantit l'absence de _cycles d'import_ et perm
 | Substituer            | Conséquence                                                                                                                               |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | **`opinionated/`**    | On garde le DSL et l'orchestration. Aucune perte. Voir [`11-opinionated/`](11-opinionated/README.md).                                     |
-| **`infra/selenium/`** | On peut utiliser Playwright, Puppeteer, ou un fake driver. La signature à respecter est `BuiltWebDriver[Driver] = tuple[Driver, Effect]`. |
-| **`pom/selenium/`**   | Idem&nbsp;: `POMBase` est agnostique.                                                                                                     |
+| **`infra/selenium/`** | Ocarina livre désormais **les deux**&nbsp;: `infra/selenium/` et `infra/playwright/`. On en choisit un, ou on ajoute Puppeteer / un fake driver&nbsp;: la signature à respecter est `BuiltWebDriver[Driver] = tuple[Driver, Effect]`. |
+| **`pom/selenium/`**   | Idem&nbsp;: `POMBase` est agnostique. Un `pom/playwright/` est livré à côté.                                                              |
 
 ## Relation d'imports
 

@@ -6,6 +6,7 @@ defaultContentLanguageInSubdir = false
 disablePathToLower = true
 enableGitInfo = false
 enableEmoji = true
+enableRobotsTXT = true
 
 [languages.en]
   locale = "en-US"

@@ -171,3 +171,14 @@
     border-color: var(--color-link);
   }
 </style>
+
+{{- /* SEO: hugo-book's html-head emits hreflang only for the *other* languages
+       (it ranges over .Translations, which excludes the current page). Google
+       wants every page to list all alternates *including itself*, plus an
+       x-default. We add the self-reference and x-default here, additively. */ -}}
+<link rel="alternate" hreflang="{{ .Site.Language.Lang }}" href="{{ .Permalink }}" title="{{ partial "docs/title" . }}">
+{{- $xdefault := .Permalink -}}
+{{- range .AllTranslations -}}
+  {{- if eq .Language.Lang "en" -}}{{ $xdefault = .Permalink -}}{{- end -}}
+{{- end -}}
+<link rel="alternate" hreflang="x-default" href="{{ $xdefault }}">

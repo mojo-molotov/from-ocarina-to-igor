@@ -112,7 +112,7 @@ class LoginPage(POMBase):
         return self
 ```
 
-On peut écrire un `PlaywrightTitleMixin`, un `PuppeteerTitleMixin`, …
+Le `PlaywrightTitleMixin` n'est plus hypothétique&nbsp;—&nbsp;depuis la `1.1.3` Ocarina le livre dans `pom/playwright/`, juste à côté de `SeleniumTitleMixin`. On écrit un `PuppeteerTitleMixin` de la même façon si besoin.
 
 ## `Self` (PEP 673)
 

@@ -1,0 +1,8 @@
+{{- /* Project override of hugo-book's html-head-title.
+
+  Theme default is `{{ page title }} • {{ site title }}`, which on the home
+  page (where the section title equals the site title) renders the site title
+  twice: "Ocarina — manual • Ocarina — manual". Drop the prefix whenever the
+  page title is empty or identical to the site title. */ -}}
+{{- $t := partial "docs/title" . -}}
+{{- if and $t (ne (printf "%v" $t) (printf "%v" .Site.Title)) -}}{{ $t }} • {{ end -}}{{ .Site.Title -}}

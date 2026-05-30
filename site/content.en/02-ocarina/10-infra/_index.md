@@ -1,6 +1,6 @@
 ---
 title: "Chapter 02.10 — Infrastructure"
-description: "Ocarina's infrastructure layer: drivers pool, builders, screenshotter, act counter and the Selenium adapters that implement them."
+description: "Ocarina's infrastructure layer: drivers pool, builders, screenshotter, act counter and the Selenium and Playwright adapters that implement them."
 weight: 10
 date: 2026-05-20
 tags: ["ocarina", "selenium"]
@@ -10,7 +10,7 @@ sidebar:
 
 # Chapter 02.10&nbsp;—&nbsp;Infrastructure
 
-> Everything that touches _external resources_: driver pool, builders, screenshotters, act counter, and the Selenium adapters that implement them.
+> Everything that touches _external resources_: driver pool, builders, screenshotters, act counter, and the Selenium adapters that implement them. Since `1.1.3`, a parallel `infra/playwright/` ships the same contracts in Playwright flavor&nbsp;—&nbsp;same pool, same builder, same ports.
 
 ## Plan
 
@@ -30,7 +30,7 @@ type BuiltWebDriver[Driver] = tuple[Driver, Effect]
 
 The exchange unit between the builder and the pool: a `(driver, dispose)` tuple. `dispose` is an `Effect` (no argument, no return) that knows how to clean up _that exact_ driver (`driver.quit()` + removal of the tmp profile if needed).
 
-That **dead-simple** signature is the portability guarantee: any tech (Playwright, Puppeteer, fake driver) can produce a `BuiltWebDriver[Driver]` as long as it exposes a `dispose: Effect`.
+That **dead-simple** signature is the portability guarantee: any tech can produce a `BuiltWebDriver[Driver]` as long as it exposes a `dispose: Effect`. Ocarina proves it ships **two** such backends&nbsp;—&nbsp;Selenium and, since `1.1.3`, Playwright&nbsp;—&nbsp;and nothing stops you adding Puppeteer or a fake driver.
 
 ## `WebDriversPool[Driver]`
 
