@@ -19,7 +19,7 @@ sidebar:
 | 01  | [`01-ai-manifesto.md`](01-ai-manifesto.md)               | Le README et son constat «&nbsp;_Code&nbsp;: 99% Claude /&nbsp;Intelligence&nbsp;: 50-50_&nbsp;».                            |
 | 02  | [`02-sut-cura.md`](02-sut-cura.md)                       | CURA Healthcare&nbsp;: SUT externe, PHP open source, Heroku eco-dyno.                                                        |
 | 03  | [`03-canonical-documents.md`](03-canonical-documents.md) | Les 4 documents&nbsp;: `CLAUDE.md`, `CURA_FRD.md`, `CURA_TEST_STRATEGY.md`, `IDENTIFIED_GAPS.md`.                            |
-| 04  | [`04-test-strategy.md`](04-test-strategy.md)             | Types de tests (happy /&nbsp;unhappy /&nbsp;edge /&nbsp;business attack /&nbsp;exploratory /&nbsp;regression).               |
+| 04  | [`04-test-strategy.md`](04-test-strategy.md)             | Types de tests (happy /&nbsp;unhappy /&nbsp;edge /&nbsp;business logic vulnerability /&nbsp;exploratory /&nbsp;regression).               |
 | 05  | [`05-security-gaps.md`](05-security-gaps.md)             | Gaps sécurité&nbsp;: CSRF, session, rate-limit (G-SEC-1 à G-SEC-3).                                                          |
 | 06  | [`06-data-gaps.md`](06-data-gaps.md)                     | Gaps data&nbsp;: visit_date sans validation, doublons (G-DATA-1 à G-DATA-2).                                                 |
 | 07  | [`07-spec-gaps.md`](07-spec-gaps.md)                     | Gaps spec&nbsp;: ordre history, profile placeholder, redirects (G-SPEC-1 à G-SPEC-3).                                        |
@@ -55,7 +55,7 @@ L'humain garde le contrôle. L'IA produit la mécanique.
 ## Singularité
 
 1. **Lecture du PHP source pour trouver de vrais défauts**&nbsp;: CSRF absent, validation client-only, ordre d'history par soumission, etc.
-2. **Tests d'attaques métier**&nbsp;: past-date booking, doublons, créneaux géographiquement impossibles.
+2. **Tests de vulnérabilités de logique métier**&nbsp;: past-date booking, doublons, créneaux géographiquement impossibles.
 3. **Divergence cross-browser traitée comme un finding**&nbsp;: BFCache Chrome qui restaure une `no-store` page après logout.
 
 Chaque gap est documenté avec _file:line_ et _PHP evidence_, et matérialisé en _test intentionnellement rouge_ qui restera rouge tant que CURA n'est pas corrigé.

@@ -40,7 +40,7 @@ The `docs/.vitepress/plugins/skills.ts` plugin walks this folder and copies them
 | :-: | ------------------------------ | ------------------------------------------------------------------------ |
 | 01  | [Review](01-review.md)         | Static reads, surface findings                                           |
 | 02  | [Analyse](02-analyse.md)       | Dynamic: flakiness, fixture, watcher, screenshot                         |
-| 03  | [Black-hat](03-black-hat.md)   | Business-attack ideation                                                 |
+| 03  | [Black-hat](03-black-hat.md)   | Business-logic-vulnerability ideation                                                 |
 | 04  | [Comprehend](04-comprehend.md) | Catalog, ecosystem, SUT constraints, Ocarina indexing in the LLM context |
 | 05  | [Pick](05-pick.md)             | Artifact usage (screenshots, logs, reports)                              |
 | 06  | [Author](06-author.md)         | Delegate deliverable production to the LLM                               |

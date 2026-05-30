@@ -40,7 +40,7 @@ Le plugin `docs/.vitepress/plugins/skills.ts` traverse ce dossier et les copie p
 | :-: | ------------------------------ | ------------------------------------------------------------------------------------ |
 | 01  | [Review](01-review.md)         | Lectures statiques, remontent des constats                                           |
 | 02  | [Analyse](02-analyse.md)       | Dynamique&nbsp;: flakiness, fixture, watcher, screenshot                             |
-| 03  | [Black-hat](03-black-hat.md)   | Idéations d'attaques métier                                                          |
+| 03  | [Black-hat](03-black-hat.md)   | Idéations de vulnérabilités de logique métier                                                          |
 | 04  | [Comprehend](04-comprehend.md) | Catalogue, écosystème, contraintes SUT, indexation d'Ocarina dans le contexte du LLM |
 | 05  | [Pick](05-pick.md)             | Utilisation des artefacts (screenshots, logs, reports)                               |
 | 06  | [Author](06-author.md)         | Délègue la production de livrables au LLM                                            |

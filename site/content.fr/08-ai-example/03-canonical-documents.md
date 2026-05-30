@@ -142,7 +142,7 @@ C'est une documentation **reconstruite** par IA afin de rendre vérifiable le tr
 
 1. Scope (functional e2e, out: perf/accessibility/email/etc.)
 2. Test objectives
-3. **Test types**&nbsp;: happy /&nbsp;unhappy /&nbsp;edge /&nbsp;**business attack** /&nbsp;exploratory /&nbsp;**permanent security regression**
+3. **Test types**&nbsp;: happy /&nbsp;unhappy /&nbsp;edge /&nbsp;**business logic vulnerability** /&nbsp;exploratory /&nbsp;**permanent security regression**
 4. Coverage tables (REQ-AUTH-N × test_X)
 5. Suite/campaign tree
 6. Expected pass/fail breakdown

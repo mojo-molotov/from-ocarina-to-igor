@@ -1,6 +1,6 @@
 ---
 title: "08.04 — Stratégie de test"
-description: "La stratégie de test de ocarina-with-ai-example : six types de tests aux statuts attendus distincts, du happy path au business attack en échec intentionnel."
+description: "La stratégie de test de ocarina-with-ai-example : six types de tests aux statuts attendus distincts, du happy path à la business logic vulnerability en échec intentionnel."
 weight: 4
 date: 2026-05-20
 series: ["ai-example"]
@@ -19,7 +19,7 @@ tags: ["parallelisation"]
 | **Happy path** (cas passant)                                                                                                | PASS                                                                | Parcours nominaux décrits d'après les SFD                                                                      |
 | **Unhappy path** (cas non passant)                                                                                          | PASS (le test passe quand l'application refuse de "laisser passer") | Validations existantes correctes                                                                               |
 | **Edge case /&nbsp;boundary** (tests aux limites)                                                                           | PASS ou FAIL                                                        | Selon le test, souvent accompagné d'une note ajoutée sur les SFD                                               |
-| **Business attack /&nbsp;gap test** (tests fonctionnels pour essayer de faire "tomber" le produit et d'identifier des gaps) | **FAIL intentionnel**                                               | Comportements qu'un système devrait empêcher mais que CURA n'empêche pas                                       |
+| **Business logic vulnerability /&nbsp;gap test** (tests fonctionnels pour essayer de faire "tomber" le produit et d'identifier des gaps) | **FAIL intentionnel**                                               | Comportements qu'un système devrait empêcher mais que CURA n'empêche pas                                       |
 | **Exploratory /&nbsp;observed-behaviour** (exploratoire)                                                                    | PASS                                                                | Documente le comportement actuel quand la spec ne le couvre pas                                                |
 | **Permanent security regression fixture** (non-régression)                                                                  | PASS (= la sécurité tient)                                          | Vérifie qu'un correctif de sécurité tient (correctifs qui resteront définitivement dans le patrimoine de test) |
 
@@ -44,7 +44,7 @@ tags: ["parallelisation"]
 
 Synchronisé avec le document de spécifications (`CURA_FRD.md`)&nbsp;: on y ajoute une _note_ quand un gap est trouvé.
 
-## Business attack /&nbsp;gap test
+## Business logic vulnerability /&nbsp;gap test
 
 Tests intentionnellement en échec jusqu'à livraison de correctifs&nbsp;:
 

@@ -173,7 +173,7 @@ If no match: go to **Step 3 — not found**.
 | AI manifesto, "Code: 99% Claude" | `08-ai-example/01-ai-manifesto.md` |
 | CURA Healthcare, Heroku eco-dyno | `08-ai-example/02-sut-cura.md` |
 | `CLAUDE.md` (AI example), `CURA_FRD.md`, `CURA_TEST_STRATEGY.md`, `IDENTIFIED_GAPS.md` | `08-ai-example/03-canonical-documents.md` |
-| test strategy (AI), happy/unhappy/edge/business attack/exploratory | `08-ai-example/04-test-strategy.md` |
+| test strategy (AI), happy/unhappy/edge/business logic vulnerability/exploratory | `08-ai-example/04-test-strategy.md` |
 | G-SEC-1, G-SEC-2, G-SEC-3, CSRF, session, rate-limit | `08-ai-example/05-security-gaps.md` |
 | G-DATA-1, G-DATA-2, visit_date, duplicates | `08-ai-example/06-data-gaps.md` |
 | G-SPEC-1, G-SPEC-2, G-SPEC-3, history order, profile placeholder | `08-ai-example/07-spec-gaps.md` |

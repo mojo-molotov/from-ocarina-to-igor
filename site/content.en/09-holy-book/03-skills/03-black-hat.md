@@ -1,6 +1,6 @@
 ---
 title: "09.03.03 — Black-hat skills"
-description: "The Black-hat family of AI-facing skills: business-attack ideation with no execution, where security testing stays functional and static."
+description: "The Black-hat family of AI-facing skills: business-logic-vulnerability ideation with no execution, where security testing stays functional and static."
 weight: 3
 date: 2026-05-20
 series: ["skills"]
@@ -10,13 +10,13 @@ tags: ["holy-book"]
 
 # 09.03.03&nbsp;—&nbsp;Black-hat skills (6)
 
-> **Ideations** of business attacks&nbsp;—&nbsp;no execution: "_security testing is functional and static, never active_".
+> **Ideations** of business logic vulnerabilities&nbsp;—&nbsp;no execution: "_security testing is functional and static, never active_".
 
 ## Listing (potentially non-exhaustive)
 
 | Skill                              | Target                                                                                                         |
 | ---------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `business-attack-ideation`         | Break the product through legitimate-looking but malicious usage paths                                         |
+| `business-logic-vulnerability-ideation`         | Break the product through legitimate-looking but malicious usage paths                                         |
 | `incoherence-attack-ideation`      | Each step taken alone looks innocent; but combinations of these steps can cause an inconsistency in the system |
 | `persistence-attack-ideation`      | Repeated attempts at a blocked action                                                                          |
 | `permission-appropriateness-audit` | Is the access model itself appropriate?                                                                        |
@@ -35,7 +35,7 @@ The human:
 
 The AI **never launches** an active attack. Forbidden.
 
-## `business-attack-ideation`
+## `business-logic-vulnerability-ideation`
 
 ```
 input  : the FRDs + the SUT source code (if open source)

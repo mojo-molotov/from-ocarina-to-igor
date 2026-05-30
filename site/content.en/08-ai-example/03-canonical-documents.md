@@ -141,7 +141,7 @@ Documentation **reconstructed** by AI to make the co-built work verifiable.
 
 1. Scope (functional e2e, out: perf/accessibility/email/etc.)
 2. Test objectives
-3. **Test types**: happy / unhappy / edge / **business attack** / exploratory / **permanent security regression**
+3. **Test types**: happy / unhappy / edge / **business logic vulnerability** / exploratory / **permanent security regression**
 4. Coverage tables (REQ-AUTH-N × test_X)
 5. Suite/campaign tree
 6. Expected pass/fail breakdown

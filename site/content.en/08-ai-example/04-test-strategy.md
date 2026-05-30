@@ -1,6 +1,6 @@
 ---
 title: "08.04 — Test strategy"
-description: "The test strategy of ocarina-with-ai-example: six test types with distinct expected statuses, from happy path to intentionally failing business attacks."
+description: "The test strategy of ocarina-with-ai-example: six test types with distinct expected statuses, from happy path to intentionally failing business logic vulnerabilities."
 weight: 4
 date: 2026-05-20
 series: ["ai-example"]
@@ -19,7 +19,7 @@ tags: ["parallelisation"]
 | **Happy path**                                                                                    | PASS                                                  | Nominal flows described from the FRDs                                            |
 | **Unhappy path**                                                                                  | PASS (the test passes when the app correctly refuses) | Existing validations work                                                        |
 | **Edge case / boundary**                                                                          | PASS or FAIL                                          | Depending on the test, often accompanied by a note added to the FRDs             |
-| **Business attack / gap test** (functional tests trying to "break" the product and identify gaps) | **Intentional FAIL**                                  | Behaviors a system should prevent but CURA doesn't                               |
+| **Business logic vulnerability / gap test** (functional tests trying to "break" the product and identify gaps) | **Intentional FAIL**                                  | Behaviors a system should prevent but CURA doesn't                               |
 | **Exploratory / observed-behaviour**                                                              | PASS                                                  | Documents current behavior when the spec doesn't cover it                        |
 | **Permanent security regression fixture**                                                         | PASS (= security holds)                               | Verifies a security fix holds (fixes that stay permanently in the test heritage) |
 
@@ -44,7 +44,7 @@ tags: ["parallelisation"]
 
 Synced with `CURA_FRD.md`: a note is added when a gap is found.
 
-## Business attack / gap test
+## Business logic vulnerability / gap test
 
 Intentionally failing tests until a fix lands:
 

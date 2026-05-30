@@ -9,7 +9,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/08-ai-exampl
 | `01-ai-manifesto.md` | The repo README: "Code: 99% Claude / Intelligence: 50-50" headline, the AI co-authorship manifesto. |
 | `02-sut-cura.md` | CURA Healthcare: external open-source PHP SUT hosted on Heroku eco-dyno (cold starts). |
 | `03-canonical-documents.md` | The 4 canonical documents: `CLAUDE.md` (AI instructions), `CURA_FRD.md` (functional requirements), `CURA_TEST_STRATEGY.md`, `IDENTIFIED_GAPS.md`. |
-| `04-test-strategy.md` | Test types: happy path, unhappy path, edge cases, business attack, exploratory, regression. |
+| `04-test-strategy.md` | Test types: happy path, unhappy path, edge cases, business logic vulnerability, exploratory, regression. |
 | `05-security-gaps.md` | Security gaps identified: CSRF (G-SEC-1), session management (G-SEC-2), rate limiting (G-SEC-3). |
 | `06-data-gaps.md` | Data gaps: `visit_date` with no backend validation (G-DATA-1), duplicate appointments (G-DATA-2). |
 | `07-spec-gaps.md` | Spec gaps: appointment history order (G-SPEC-1), profile placeholder (G-SPEC-2), redirect flows (G-SPEC-3). |

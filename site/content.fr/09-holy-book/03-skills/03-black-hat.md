@@ -1,6 +1,6 @@
 ---
 title: "09.03.03 — Skills Black-hat"
-description: "La famille de skills Black-hat exposés aux IA : des idéations d'attaques métier sans exécution, le test de sécurité y est fonctionnel et statique."
+description: "La famille de skills Black-hat exposés aux IA : des idéations de vulnérabilités de logique métier sans exécution, le test de sécurité y est fonctionnel et statique."
 weight: 3
 date: 2026-05-20
 series: ["skills"]
@@ -10,13 +10,13 @@ tags: ["holy-book"]
 
 # 09.03.03&nbsp;—&nbsp;Skills Black-hat (6)
 
-> **Idéations** d'attaques métier&nbsp;—&nbsp;pas d'exécution&nbsp;: «&nbsp;_security testing is functional and static, never active_&nbsp;».
+> **Idéations** de vulnérabilités de logique métier&nbsp;—&nbsp;pas d'exécution&nbsp;: «&nbsp;_security testing is functional and static, never active_&nbsp;».
 
 ## Listing (potentiellement non exhaustif)
 
 | Skill                              | Cible                                                                                                                                    |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `business-attack-ideation`         | Faire tomber le produit via des chemins d'usage légitimes mais malicieux                                                                 |
+| `business-logic-vulnerability-ideation`         | Faire tomber le produit via des chemins d'usage légitimes mais malicieux                                                                 |
 | `incoherence-attack-ideation`      | Chaque étape prise isolément a l'air innocente&nbsp;; mais des combinaisons de ces étapes peuvent causer une incohérence dans le système |
 | `persistence-attack-ideation`      | Tentatives répétées sur une action bloquée                                                                                               |
 | `permission-appropriateness-audit` | Le modèle d'accès est-il lui-même approprié&nbsp;?                                                                                       |
@@ -35,7 +35,7 @@ L'humain&nbsp;:
 
 L'IA **ne lance jamais** d'attaque active. **C'est interdit.**
 
-## `business-attack-ideation`
+## `business-logic-vulnerability-ideation`
 
 ```
 input  : les SFD + le code source du SUT (si open source)

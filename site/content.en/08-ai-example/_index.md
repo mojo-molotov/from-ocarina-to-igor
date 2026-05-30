@@ -19,7 +19,7 @@ sidebar:
 | 01  | [`01-ai-manifesto.md`](01-ai-manifesto.md)               | The README and its "_Code: 99% Claude / Intelligence: 50-50_" headline.                                                |
 | 02  | [`02-sut-cura.md`](02-sut-cura.md)                       | CURA Healthcare: external SUT, open-source PHP, Heroku eco-dyno.                                                       |
 | 03  | [`03-canonical-documents.md`](03-canonical-documents.md) | The 4 documents: `CLAUDE.md`, `CURA_FRD.md`, `CURA_TEST_STRATEGY.md`, `IDENTIFIED_GAPS.md`.                            |
-| 04  | [`04-test-strategy.md`](04-test-strategy.md)             | Test types (happy / unhappy / edge / business attack / exploratory / regression).                                      |
+| 04  | [`04-test-strategy.md`](04-test-strategy.md)             | Test types (happy / unhappy / edge / business logic vulnerability / exploratory / regression).                                      |
 | 05  | [`05-security-gaps.md`](05-security-gaps.md)             | Security gaps: CSRF, session, rate-limit (G-SEC-1 to G-SEC-3).                                                         |
 | 06  | [`06-data-gaps.md`](06-data-gaps.md)                     | Data gaps: visit_date with no validation, duplicates (G-DATA-1 to G-DATA-2).                                           |
 | 07  | [`07-spec-gaps.md`](07-spec-gaps.md)                     | Spec gaps: history order, profile placeholder, redirects (G-SPEC-1 to G-SPEC-3).                                       |
@@ -55,7 +55,7 @@ The human keeps control. The AI produces the machinery.
 ## Singularity
 
 1. **Reading the PHP source to find real defects**: missing CSRF, client-only validation, history ordered by submission, etc.
-2. **Business-attack tests**: past-date booking, duplicate appointments, geographically impossible slots.
+2. **Business logic vulnerability tests**: past-date booking, duplicate appointments, geographically impossible slots.
 3. **Cross-browser divergence as a finding**: Chrome BFCache restoring a `no-store` page after logout.
 
 Each gap is documented with `file:line` and PHP evidence, and materialized as an intentionally red test that stays red until CURA is fixed.
