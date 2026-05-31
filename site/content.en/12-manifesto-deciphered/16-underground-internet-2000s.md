@@ -1,10 +1,10 @@
 ---
 title: "12.16 — The underground internet of 1995-2010: forums, tools, banalization of cruelty"
 description: "The underground internet of 1995-2010: forums, tools and the normalization of cruelty, the historical context of the Ocarina manifesto's rage."
-weight: 19
+weight: 16
 date: 2026-05-20
 series: ["manifesto-analysis"]
-series_order: 19
+series_order: 16
 ---
 
 # 12.16&nbsp;—&nbsp;The underground internet of 1995-2010: forums, tools, banalization of cruelty

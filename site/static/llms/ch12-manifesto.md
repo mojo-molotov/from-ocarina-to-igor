@@ -24,6 +24,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/12-manifesto
 | `16-underground-internet-2000s.md` | The pre-Facebook, pre-Cloudflare internet: forums, tools, banalization of cruelty — the context for the manifesto's rage. |
 | `17-survivor-psyche-programming.md` | "Enemies", "narcissism", "hell", "survival" — the psychological adaptations of the cohort that lived through the 2000s underground, and how they imprint on code. |
 | `18-villains-defcon-ocarina-ideology.md` | "Villains but not Monsters", DEF CON, "live as a white hat or die as a black hat" — Ocarina's complete ideology. |
+| `19-its-over.md` | Closing open letter: the author's farewell, the last piece of software left to "your world", the rage and exhaustion behind walking away. |
 
 ## Key concepts
 

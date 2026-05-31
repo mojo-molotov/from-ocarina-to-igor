@@ -1,10 +1,10 @@
 ---
 title: "12.17 — La psyché du survivant : « ennemis », « narcissisme », « enfer », « survie », et comment ça remonte jusque dans le code"
 description: "La psyché du survivant derrière le manifeste : pourquoi les mots ennemis, narcissisme et survie sont exacts, et comment ce vécu remonte jusque dans le code."
-weight: 20
+weight: 17
 date: 2026-05-20
 series: ["analyse-manifeste"]
-series_order: 20
+series_order: 17
 ---
 
 # 12.17&nbsp;—&nbsp;La psyché du survivant&nbsp;:&nbsp;«&nbsp;_ennemis_&nbsp;», «&nbsp;_narcissisme_&nbsp;», «&nbsp;_enfer_&nbsp;», «&nbsp;_survie_&nbsp;», et comment ça remonte jusque dans le code

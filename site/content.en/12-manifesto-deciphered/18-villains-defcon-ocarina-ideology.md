@@ -1,10 +1,10 @@
 ---
 title: '12.18 — "Villains but not Monsters", DEF CON, "live as a white hat or die as a black hat", and Ocarina''s ideology'
 description: "Ocarina's ideology: the villain but not a monster ethic, the tribal culture of DEF CON and YTCracker's motto live as a white hat or die as a black hat."
-weight: 22
+weight: 18
 date: 2026-05-20
 series: ["manifesto-analysis"]
-series_order: 22
+series_order: 18
 ---
 
 # 12.18&nbsp;—&nbsp;"_Villains but not Monsters_", DEF CON, "_live as a white hat or die as a black hat_", and Ocarina's ideology

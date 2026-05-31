@@ -1,10 +1,10 @@
 ---
 title: '12.17 — The survivor''s psyche: "enemies", "narcissism", "hell", "survival", and how it bubbles up into the code'
 description: "The survivor psyche behind the manifesto: why the words enemies, narcissism and survival are exact, and how that experience reaches into the code."
-weight: 20
+weight: 17
 date: 2026-05-20
 series: ["manifesto-analysis"]
-series_order: 20
+series_order: 17
 ---
 
 # 12.17&nbsp;—&nbsp;The survivor's psyche: "_enemies_", "_narcissism_", "_hell_", "_survival_", and how it bubbles up into the code

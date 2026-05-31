@@ -1,10 +1,10 @@
 ---
 title: "12.16 — L'internet souterrain des années 1995-2010 : forums, outils, banalisation de la cruauté"
 description: "L'internet souterrain des années 1995-2010 : forums, outils et banalisation de la cruauté, le contexte historique de la rage du manifeste Ocarina."
-weight: 19
+weight: 16
 date: 2026-05-20
 series: ["analyse-manifeste"]
-series_order: 19
+series_order: 16
 ---
 
 # 12.16&nbsp;—&nbsp;L'internet souterrain des années 1995-2010&nbsp;: forums, outils, banalisation de la cruauté
