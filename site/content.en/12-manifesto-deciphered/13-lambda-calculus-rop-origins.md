@@ -473,3 +473,15 @@ The Holy Book doesn't say "_ROP_", "_monad_", "_Curry-Howard_"&nbsp;—&nbsp;but
 The _shift_ Ocarina represents (see [`08-ocarina-in-testing-industry.md`](08-ocarina-in-testing-industry.md)) **isn't an invention**&nbsp;—&nbsp;it's a **redistribution** of mature theory toward a domain that ignored it.
 
 That's Graham's posture in _Beating the Averages_: take a mature academic idea industry hasn't retained, and turn it into a tangible advantage in a deliverable.
+
+## 7. Rabbit hole&nbsp;—&nbsp;fragments of a journey
+
+[... _So fuck that little mouse 'Cause I'm an Albatraoz (Whoo!)_](https://www.youtube.com/watch?v=sZhsKZSeZ1k)
+
+- [Algebra - Functions](https://www.youtube.com/watch?v=Imn_Qi3dlns)
+- [What is group theory](https://www.youtube.com/watch?v=KufsL2VgELo)
+- [The purest coding style, where bugs are near impossible](https://www.youtube.com/watch?v=HlgG395PQWw)
+- [The State monad in TypeScript, with Giuseppe Maggiore](https://youtu.be/qx3wSQAUhGk?t=1549)
+- [Maths, Python, artificial neural networks from scratch](https://www.youtube.com/watch?v=pauPCy_s0Ok)
+- [But what is a GPT? A visual intro to Transformers](https://www.youtube.com/watch?v=wjZofJX0v4M)
+- [Writing My Own Database From Scratch](https://www.youtube.com/watch?v=5Pc18ge9ohI)

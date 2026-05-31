@@ -481,3 +481,15 @@ Mais il _applique_ chacun de ces concepts. Et son argument implicite est&nbsp;:
 Le _shift_ que représente Ocarina (cf. [`08-ocarina-in-testing-industry.md`](08-ocarina-in-testing-industry.md)) **n'est pas une invention**, c'est une **redistribution** de théories matures vers un domaine qui les ignorait.
 
 C'est la posture de Graham dans _Beating the Averages_&nbsp;:&nbsp;prendre une idée académique mature que l'industrie n'a pas retenue, et en faire un avantage tangible dans un livrable.
+
+## 7. _Rabbit hole_&nbsp;—&nbsp;fragments d'un parcours
+
+[... _So fuck that little mouse 'Cause I'm an Albatraoz (Whoo!)_](https://www.youtube.com/watch?v=sZhsKZSeZ1k)
+
+- [Algèbre - Les fonctions](https://www.youtube.com/watch?v=Imn_Qi3dlns)
+- [Qu'est-ce que la théorie des groupes](https://www.youtube.com/watch?v=KufsL2VgELo)
+- [Le style de code le plus pur, où les bugs sont quasi impossibles](https://www.youtube.com/watch?v=HlgG395PQWw)
+- [La State Monad en TypeScript, avec Giuseppe Maggiore](https://youtu.be/qx3wSQAUhGk?t=1549)
+- [Des maths, du Python, les réseaux de neurones artificiels de 0](https://www.youtube.com/watch?v=pauPCy_s0Ok)
+- [Mais c'est quoi, un GPT&nbsp;? Introduction visuelle aux Transformers](https://www.youtube.com/watch?v=wjZofJX0v4M)
+- [Écrire ma propre base de données de zéro](https://www.youtube.com/watch?v=5Pc18ge9ohI)
