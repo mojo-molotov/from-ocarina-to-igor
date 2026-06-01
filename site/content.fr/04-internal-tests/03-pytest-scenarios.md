@@ -147,7 +147,7 @@ L'[acteur Playwright](../02-ocarina/10-infra/06-playwright-actor.md) est le choi
 
 ### `test_playwright_adapter.py`&nbsp;—&nbsp;smoke navigateur réel
 
-Skippé automatiquement quand le binaire Chromium de Playwright n'est pas installé&nbsp;: une CI sans navigateur reste verte. L'adapter est exclu de la couverture (comme l'adapter Selenium) parce qu'il ne s'exerce que contre un vrai navigateur. Ces tests gardent les parties **genuinely novel** de l'adapter, sans équivalent côté Selenium&nbsp;:
+Skippé automatiquement quand le binaire Chromium de Playwright n'est pas installé&nbsp;: une CI sans navigateur reste verte. L'adapter est exclu de la couverture (comme l'adapter Selenium) parce qu'il ne s'exerce que contre un vrai navigateur. Ces tests vérifient les parties spécifiques de l'adapter Playwright, sans équivalent côté Selenium&nbsp;:
 
 - l'acteur mono-thread survivant à un usage cross-thread&nbsp;;
 - le warmup de la pool passant un driver du thread de warmup à un thread worker&nbsp;;
