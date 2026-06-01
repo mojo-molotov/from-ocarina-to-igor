@@ -38,7 +38,7 @@ For any question about the ecosystem, **start with `answer`** — it is the orch
 - [Holy Book — public Ocarina documentation](https://mojo-molotov.github.io/ocarina-holy-book/): User-facing docs (setup, onboarding, first scenarios) for the `ocarina` framework.
 - [Holy Book `llms.txt`](https://mojo-molotov.github.io/ocarina-holy-book/llms.txt): Companion LLM sitemap for the Holy Book.
 - [Holy Book `llms-full.txt`](https://mojo-molotov.github.io/ocarina-holy-book/llms-full.txt): Holy Book contents flattened into a single file.
-- [`ocarina` on GitHub](https://github.com/mojo-molotov/ocarina): Python framework source (DSL, orchestration, infra) — 3,610 SLOC (~8,000 raw lines in `src/`), auditable directly.
+- [`ocarina` on GitHub](https://github.com/mojo-molotov/ocarina): Python framework source (DSL, orchestration, infra) — ~4,060 SLOC (~8,700 raw lines in `src/`), auditable directly.
 - [`ocarina-example` on GitHub](https://github.com/mojo-molotov/ocarina-example): Canonical end-to-end suite against Igoristan.
 - [`ocarina-with-ai-example` on GitHub](https://github.com/mojo-molotov/ocarina-with-ai-example): End-to-end suite against CURA, co-written with Claude Code.
 - [`igoristan` on GitHub](https://github.com/mojo-molotov/igoristan): Deliberately chaotic public SUT (GitHub Pages).
