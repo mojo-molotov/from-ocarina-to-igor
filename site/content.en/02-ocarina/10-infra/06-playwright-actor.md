@@ -52,16 +52,16 @@ So a driver is **built on one thread** (warmup) and **used from another** (worke
 ```
    warmup / worker / watcher threads          owner thread (1, private)
    ─────────────────────────────────          ─────────────────────────
-                                                 ┌─────────────────┐
-   driver.submit(fn) ──────┐                     │  Playwright     │
-                           │   Queue[(fn,fut)]   │  Browser        │
-   driver.submit(fn) ──────┼────────────────────▶│  BrowserContext │
-                           │                     │  Page, Locator  │
-   driver.submit(fn) ──────┘                     │                 │
-            ▲                                    │  fn(page) runs  │
-            │         future.result()            │  HERE, and only │
-            └────────────────────────────────────│  HERE           │
-                      result (plain data)        └─────────────────┘
+                                                 ┌──────────────────┐
+   driver.submit(fn) ──────┐                     │  Playwright      │
+                           │   Queue[(fn,fut)]   │  Browser         │
+   driver.submit(fn) ──────┼────────────────────▶│  BrowserContext  │
+                           │                     │  Page, Locator   │
+   driver.submit(fn) ──────┘                     │                  │
+            ▲                                    │  fn(page) runs   │
+            │         future.result()            │  HERE, and only  │
+            └────────────────────────────────────│  HERE            │
+                      result (plain data)        └──────────────────┘
 ```
 
 The _handle_ (`PlaywrightDriver`) is therefore safe to create on one thread and use from another: only the **work** ever touches Playwright, and that work always runs on the owner thread. Ocarina's pool, warmup, and worker parallelization survive intact, without giving up the sync API.
