@@ -31,6 +31,23 @@ Examples:
 This applies to prose in `site/content/` and to any new explanation involving
 threads, async, workers, CI matrix jobs, etc.
 
+This is a language-specific rule: it governs **French** prose
+(`site/content.fr/`). English prose (`site/content.en/`) keeps the
+standard English terms ("parallelization", "marshalling", etc.).
+
+### marshalling → marshallisation (French only)
+
+In French prose, never write the English gerund "marshalling". Use the
+French noun **marshallisation**. The verb forms **marshalliser** /
+**marshallisé** / **marshallisée** / **marshallisés** are fine and preferred.
+
+Examples (French):
+- ✅ "la marshallisation par `submit`"
+- ✅ "chaque appel est marshallisé sur le thread propriétaire"
+- ❌ "le marshalling par `submit`"
+
+In English (`site/content.en/`), "marshalling" / "marshalled" stay as-is.
+
 ## Frontmatter: plain text only
 
 In `site/content/**/*.md` frontmatter, the `title:` and `description:` fields

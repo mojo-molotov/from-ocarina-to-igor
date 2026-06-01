@@ -205,6 +205,6 @@ Le `CLAUDE.md` du projet IA documente le pattern pour le `SeleniumBackAndForward
 
 > Dossier source&nbsp;: [`src/ocarina/infra/playwright/`](https://github.com/mojo-molotov/ocarina/tree/main/src/ocarina/infra/playwright)
 
-L'adapter Playwright reprend la structure de l'adapter Selenium, fichier pour fichier (`create_driver`, `create_drivers_pool`, `create_screenshotter`, `driver_healthcheck`, `mixins`), avec **un fichier en plus**&nbsp;: `driver.py`. Ce fichier porte tout le travail&nbsp;: l'API _sync_ de Playwright est thread-affine, ce qui collisionne avec le modèle threadé d'Ocarina (pool, warmup, Watcher). La réponse est un acteur épinglé à un seul thread propriétaire, avec marshalling par `submit` et ceiling de liveness contre les drivers morts.
+L'adapter Playwright reprend la structure de l'adapter Selenium, fichier pour fichier (`create_driver`, `create_drivers_pool`, `create_screenshotter`, `driver_healthcheck`, `mixins`), avec **un fichier en plus**&nbsp;: `driver.py`. Ce fichier porte tout le travail&nbsp;: l'API _sync_ de Playwright est thread-affine, ce qui collisionne avec le modèle threadé d'Ocarina (pool, warmup, Watcher). La réponse est un acteur épinglé à un seul thread propriétaire, avec marshallisation par `submit` et ceiling de liveness contre les drivers morts.
 
 Ce modèle de concurrence a sa propre page dédiée, diagrammes à l'appui&nbsp;: [`06-playwright-actor.md`](06-playwright-actor.md).

@@ -88,7 +88,7 @@ Ces fichiers sont **couverts** par&nbsp;:
 
 Ce sont les **suites e2e externes** qui prouvent que ces adapters marchent, pas la couverture pytest du framework.
 
-> Nuance pour l'acteur Playwright&nbsp;: `infra/playwright/*` est **hors métrique de couverture**, mais sa logique de marshalling _est_ bel et bien exercée par `test_playwright_driver_actor.py`, qui patche `sync_playwright` par un mock et tourne en CI **sans navigateur**. Omis du _score_ ≠ non testé.
+> Nuance pour l'acteur Playwright&nbsp;: `infra/playwright/*` est **hors métrique de couverture**, mais sa logique de marshallisation _est_ bel et bien exercée par `test_playwright_driver_actor.py`, qui patche `sync_playwright` par un mock et tourne en CI **sans navigateur**. Omis du _score_ ≠ non testé.
 
 ### 4. Loggers opinionated (sauf FileLogger)
 

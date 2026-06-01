@@ -1,6 +1,6 @@
 ---
 title: "02.10.06 — L'acteur Playwright : un thread propriétaire"
-description: "Comment Ocarina réconcilie l'API sync thread-affine de Playwright avec son modèle threadé : un acteur mono-thread, le marshalling par submit, et une ceiling de liveness contre les drivers morts."
+description: "Comment Ocarina réconcilie l'API sync thread-affine de Playwright avec son modèle threadé : un acteur mono-thread, la marshallisation par submit, et une ceiling de liveness contre les drivers morts."
 weight: 6
 date: 2026-06-01
 series: ["infra"]
@@ -257,4 +257,4 @@ Chaque driver écrit son propre fichier au nom unique, donc les artefacts par-te
 
 ## En une phrase
 
-L'API sync de Playwright est épinglée à un thread&nbsp;; Ocarina est threadé. L'acteur réconcilie les deux en confinant **tout** Playwright à un thread propriétaire daemon, en marshallisant chaque appel par `submit`, et en bornant ce marshalling par une ceiling de liveness qui transforme un driver mort en `DriverDiedError` au lieu d'un hang. Le reste de l'infra ne voit qu'un driver ordinaire avec `quit()` et `save_screenshot()`.
+L'API sync de Playwright est épinglée à un thread&nbsp;; Ocarina est threadé. L'acteur réconcilie les deux en confinant **tout** Playwright à un thread propriétaire daemon, en marshallisant chaque appel par `submit`, et en bornant cette marshallisation par une ceiling de liveness qui transforme un driver mort en `DriverDiedError` au lieu d'un hang. Le reste de l'infra ne voit qu'un driver ordinaire avec `quit()` et `save_screenshot()`.
