@@ -48,6 +48,19 @@ Examples (French):
 
 In English (`site/content.en/`), "marshalling" / "marshalled" stay as-is.
 
+### bout-à-bout → de bout en bout (French only)
+
+In French prose, never write "bout-à-bout". Use **de bout en bout** (or
+the noun phrase **test de bout en bout**).
+
+Examples (French):
+- ✅ "un test de bout en bout"
+- ✅ "le scénario vérifié de bout en bout"
+- ❌ "un test bout-à-bout"
+- ❌ "vérifié bout-à-bout"
+
+The acronym **e2e** stays as-is in both languages.
+
 ## Frontmatter: plain text only
 
 In `site/content/**/*.md` frontmatter, the `title:` and `description:` fields

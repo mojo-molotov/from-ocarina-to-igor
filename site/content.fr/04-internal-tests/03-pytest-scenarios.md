@@ -127,12 +127,12 @@ Note&nbsp;: ce test produit de vrais `.docx` que `python-docx` valide.
 
 ## Les deux tests Playwright
 
-L'[acteur Playwright](../02-ocarina/10-infra/06-playwright-actor.md) est la pièce la plus risquée de l'adapter&nbsp;: de la marshallisation cross-thread, des timeouts de liveness, de la mort de driver. Il est donc couvert à **deux niveaux**, qui ne demandent pas le même environnement.
+L'[acteur Playwright](../02-ocarina/10-infra/06-playwright-actor.md) est le choix d'implémentation le plus sensible de l'adapter&nbsp;: de la marshallisation cross-thread, des timeouts de liveness, de la gestion de crashs de drivers. Il est donc couvert à **deux niveaux&nbsp;:**
 
 | Fichier                            | Navigateur réel&nbsp;? | Ce qu'il garde                                                                                       |
 | ---------------------------------- | ---------------------- | ---------------------------------------------------------------------------------------------------- |
 | `test_playwright_driver_actor.py`  | **Non** (mock)         | La logique de marshallisation du thread propriétaire, isolée.                                            |
-| `test_playwright_adapter.py`       | **Oui** (Chromium)     | Le bout-à-bout réel&nbsp;: warmup, pool, mixin, screenshotter, watcher.                              |
+| `test_playwright_adapter.py`       | **Oui** (Chromium)     | Le test de bout en bout réel&nbsp;: warmup, pool, mixin, screenshotter, watcher.                              |
 
 ### `test_playwright_driver_actor.py`&nbsp;—&nbsp;l'acteur sans navigateur
 

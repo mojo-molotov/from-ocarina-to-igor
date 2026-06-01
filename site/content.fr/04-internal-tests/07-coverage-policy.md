@@ -76,7 +76,7 @@ omit = [
 | `src/ocarina/dsl/testing/selenium/*`       | `create_selenium_test`, `create_selenium_watcher` (factory triviales sur `Test` /&nbsp;`Watcher`). |
 | `src/ocarina/opinionated/cli/selenium/*`   | `create_selenium_*_cli_store` (lit `platform.system`, instancie).                                  |
 | `src/ocarina/pom/selenium/muted.py`        | `MutedPOM` utilitaire (presque vide).                                                              |
-| `src/ocarina/infra/playwright/*`           | Code Playwright réel + l'[acteur `PlaywrightDriver`](../02-ocarina/10-infra/06-playwright-actor.md). Le bout-à-bout ne se prouve qu'avec un vrai navigateur. |
+| `src/ocarina/infra/playwright/*`           | Code Playwright réel + l'[acteur `PlaywrightDriver`](../02-ocarina/10-infra/06-playwright-actor.md). Le test de bout en bout ne se prouve qu'avec un vrai navigateur. |
 | `src/ocarina/dsl/testing/playwright/*`     | `create_playwright_test`, `create_playwright_watcher` (mêmes factory triviales).                   |
 | `src/ocarina/opinionated/cli/playwright/*` | `create_playwright_cli_store` (CLI Playwright).                                                     |
 | `src/ocarina/pom/playwright/*`             | `MutedPlaywrightPOM` + `mixins` (Null Object, presque vide).                                       |
