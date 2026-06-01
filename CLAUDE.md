@@ -75,6 +75,17 @@ Examples (French):
 
 In English (`site/content.en/`), "hang" / "hangs" stay as-is.
 
+### wall-clock → elapsed real time (both languages)
+
+Never use "wall-clock" / "wall clock". Use **elapsed real time** in
+English. In French, use **temps réel écoulé** (e.g. a timeout bound is
+"un seuil de temps réel écoulé", not "un délai wall-clock").
+
+Examples:
+- ✅ (en) "asserted with an elapsed-real-time ceiling"
+- ✅ (fr) "assertion bornée par un seuil de temps réel écoulé"
+- ❌ "a wall-clock ceiling" / "un plafond wall-clock"
+
 ## Frontmatter: plain text only
 
 In `site/content/**/*.md` frontmatter, the `title:` and `description:` fields

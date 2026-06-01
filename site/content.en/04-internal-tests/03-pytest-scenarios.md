@@ -141,7 +141,7 @@ The [Playwright actor](../02-ocarina/10-infra/06-playwright-actor.md) is the ris
 - `submit()` returns its value from a non-owner thread;
 - a re-entrant `submit()` (from the owner thread) raises instead of deadlocking;
 - the healthcheck returns silently for a _voluntarily disposed_ driver, but raises if a live driver actually crashes;
-- boot and `submit` calls overrunning their `call_timeout`&nbsp;→&nbsp;`DriverDiedError` **without hanging** (asserted with a wall-clock ceiling);
+- boot and `submit` calls overrunning their `call_timeout`&nbsp;→&nbsp;`DriverDiedError` **without hanging** (asserted with an elapsed-real-time ceiling);
 - a dead driver rejects all further use;
 - no owner-thread _leak_ on normal disposal, nor after a driver dies.
 

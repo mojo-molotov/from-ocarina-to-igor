@@ -141,7 +141,7 @@ L'[acteur Playwright](../02-ocarina/10-infra/06-playwright-actor.md) est le choi
 - `submit()` renvoie bien sa valeur depuis un thread non-propriétaire&nbsp;;
 - un `submit()` ré-entrant (depuis le thread propriétaire) lève au lieu de _deadlock_&nbsp;;
 - le healthcheck sort en silence sur un driver _volontairement disposé_, mais lève si un driver vivant crashe&nbsp;;
-- le boot et les appels `submit` qui dépassent leur `call_timeout`&nbsp;→&nbsp;`DriverDiedError` **sans cesser de répondre** (assertion avec plafond wall-clock)&nbsp;;
+- le boot et les appels `submit` qui dépassent leur `call_timeout`&nbsp;→&nbsp;`DriverDiedError` **sans cesser de répondre** (assertion bornée par un seuil de temps réel écoulé)&nbsp;;
 - un driver mort refuse tout usage ultérieur&nbsp;;
 - pas de _leak_ du thread propriétaire à la disposition normale, ni après une mort de driver.
 
