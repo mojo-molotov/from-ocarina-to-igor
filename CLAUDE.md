@@ -61,6 +61,20 @@ Examples (French):
 
 The acronym **e2e** stays as-is in both languages.
 
+### hanguer → cesser de répondre (French only)
+
+In French prose, "hanguer" (a franglais coinage from English "to hang")
+is not a word. Use **cesser de répondre**, or **se figer** / **rester
+bloqué** depending on context.
+
+Examples (French):
+- ✅ "renvoie une erreur bornée sans cesser de répondre"
+- ✅ "le process se fige au lieu de se terminer"
+- ❌ "sans hanguer"
+- ❌ "le process hangue"
+
+In English (`site/content.en/`), "hang" / "hangs" stay as-is.
+
 ## Frontmatter: plain text only
 
 In `site/content/**/*.md` frontmatter, the `title:` and `description:` fields

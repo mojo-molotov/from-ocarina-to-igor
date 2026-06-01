@@ -87,7 +87,7 @@ def submit[T](self, fn: Callable[[Page], T]) -> T:
 
 Un `ThreadPoolExecutor(max_workers=1)` ferait _presque_ l'affaire&nbsp;: un seul worker, les soumissions traitées dans l'ordre. Presque. Le problème est à la **sortie du process**.
 
-Les workers d'un `ThreadPoolExecutor` ne sont **pas** des daemons&nbsp;: ils sont _joints_ par un hook `atexit`. Si le worker est coincé sur un _pipe_ Playwright mort (le navigateur a crashé, le transport ne répond plus), il ne revient jamais&nbsp;—&nbsp;et ce `join` à la sortie **fait hanguer le process pour toujours**. Sur un run de CI, c'est un job qui ne se termine pas.
+Les workers d'un `ThreadPoolExecutor` ne sont **pas** des daemons&nbsp;: ils sont _joints_ par un hook `atexit`. Si le worker est coincé sur un _pipe_ Playwright mort (le navigateur a crashé, le transport ne répond plus), il ne revient jamais&nbsp;—&nbsp;et ce `join` à la sortie **fige le process pour toujours**. Sur un run de CI, c'est un job qui ne se termine pas.
 
 Ocarina remplace donc l'executor par un `_OwnerThread` maison&nbsp;: un thread **daemon** unique qui draine une `Queue` de `(callable, Future)`.
 
@@ -108,10 +108,10 @@ La différence est dans la **mort**&nbsp;:
 | `ThreadPoolExecutor(max_workers=1)`                          | `_OwnerThread` (daemon)                                                       |
 | ------------------------------------------------------------ | ---------------------------------------------------------------------------- |
 | Worker non-daemon, joint à l'`atexit`                        | Daemon&nbsp;: **abandonné** à la sortie du process                           |
-| Worker coincé sur un pipe mort&nbsp;→&nbsp;`join` hangue à l'exit | Worker coincé&nbsp;→&nbsp;jamais joint, le process sort quand même           |
+| Worker coincé sur un pipe mort&nbsp;→&nbsp;`join` reste bloqué à l'exit | Worker coincé&nbsp;→&nbsp;jamais joint, le process sort quand même           |
 | Pas de contrôle sur le `join`                                | On ne joint **jamais** nous-mêmes (un future en cours n'est pas annulable)   |
 
-Le coût assumé&nbsp;: un _leak par mort_. Quand un driver meurt coincé, son thread, l'appel bloqué et sa closure restent référencés jusqu'à la sortie du process. C'est l'arbitrage délibéré contre le fait de hanguer tout le run. Mieux vaut fuir un thread mort que ne jamais terminer.
+Le coût assumé&nbsp;: un _leak par mort_. Quand un driver meurt coincé, son thread, l'appel bloqué et sa closure restent référencés jusqu'à la sortie du process. C'est l'arbitrage délibéré contre le fait de figer tout le run. Mieux vaut fuir un thread mort que ne jamais terminer.
 
 ## Le contrat de `submit`
 
@@ -123,7 +123,7 @@ Trois règles, toutes vérifiées par le code&nbsp;:
 
 ## `call_timeout`&nbsp;: une ceiling de liveness, pas un deadline
 
-Le point le plus subtil. `call_timeout` (180&nbsp;s par défaut) n'est **pas** un deadline par opération. C'est un plafond de _liveness_&nbsp;: il ne sert qu'à transformer un _hang infini_ sur un thread propriétaire mort en un échec **borné** et éventuel.
+Le point le plus subtil. `call_timeout` (180&nbsp;s par défaut) n'est **pas** un deadline par opération. C'est un plafond de _liveness_&nbsp;: il ne sert qu'à transformer un _blocage infini_ sur un thread propriétaire mort en un échec **borné** et éventuel.
 
 Il est volontairement **découplé** de `wait_timeout` (qui, lui, borne les auto-waits de Playwright) et réglé **généreusement**, bien au-dessus du plus lent `submit` légitime&nbsp;: un long _humanized fill_, un gros `timeout=` par appel, plusieurs auto-waits dans une seule lambda.
 
@@ -142,7 +142,7 @@ Il est volontairement **découplé** de `wait_timeout` (qui, lui, borne les auto
           raise DriverDiedError  ──▶  le caller skip / retry avec un driver frais
 ```
 
-Le biais est assumé&nbsp;: **errer large est le bon choix**. Un `call_timeout` trop serré tuerait des appels lents-mais-vivants&nbsp;; trop large, il détecte simplement un driver mort _plus tard_&nbsp;—&nbsp;ce qui reste infiniment préférable à hanguer pour toujours. On le baisse pour une récupération plus rapide des drivers morts, on le monte si un seul appel tourne légitimement plus longtemps.
+Le biais est assumé&nbsp;: **errer large est le bon choix**. Un `call_timeout` trop serré tuerait des appels lents-mais-vivants&nbsp;; trop large, il détecte simplement un driver mort _plus tard_&nbsp;—&nbsp;ce qui reste infiniment préférable à rester bloqué pour toujours. On le baisse pour une récupération plus rapide des drivers morts, on le monte si un seul appel tourne légitimement plus longtemps.
 
 ## `is_dead` ≠ `is_closed`
 
@@ -257,4 +257,4 @@ Chaque driver écrit son propre fichier au nom unique, donc les artefacts par-te
 
 ## En une phrase
 
-L'API sync de Playwright est épinglée à un thread&nbsp;; Ocarina est threadé. L'acteur réconcilie les deux en confinant **tout** Playwright à un thread propriétaire daemon, en marshallisant chaque appel par `submit`, et en bornant cette marshallisation par une ceiling de liveness qui transforme un driver mort en `DriverDiedError` au lieu d'un hang. Le reste de l'infra ne voit qu'un driver ordinaire avec `quit()` et `save_screenshot()`.
+L'API sync de Playwright est épinglée à un thread&nbsp;; Ocarina est threadé. L'acteur réconcilie les deux en confinant **tout** Playwright à un thread propriétaire daemon, en marshallisant chaque appel par `submit`, et en bornant cette marshallisation par une ceiling de liveness qui transforme un driver mort en `DriverDiedError` au lieu d'un blocage. Le reste de l'infra ne voit qu'un driver ordinaire avec `quit()` et `save_screenshot()`.
