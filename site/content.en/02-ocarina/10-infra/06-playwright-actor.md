@@ -111,7 +111,7 @@ The difference is in how thread death is handled:
 | Worker wedged on a dead pipe&nbsp;→&nbsp;`join` hangs exit    | Worker wedged&nbsp;→&nbsp;never joined, the process exits anyway          |
 | No control over the `join`                                | We **never** join ourselves (a running future is not cancellable)         |
 
-The accepted cost: a _per-death leak_. When a driver dies wedged, its thread, the stuck call, and its closure stay referenced until process exit. That is the deliberate trade against hanging the whole run. Better to leak a dead thread than to never finish. At process exit the leak is reclaimed anyway, since the daemon thread is torn down with the process.
+The accepted cost: a _per-death leak_. When a driver dies wedged, its thread, the stuck call, and its closure stay referenced until process exit. That is the deliberate trade against hanging the whole run. Better to leak a dead thread than to never finish. At process exit the leaked thread is reaped anyway, since the daemon is torn down with the process.
 
 ## The `submit` contract
 
@@ -125,7 +125,7 @@ Three rules, all enforced by the code:
 
 The subtlest point. `call_timeout` (180s default) is **not** a per-operation deadline. It is a _liveness_ ceiling: it exists only to turn an _infinite hang_ on a dead owner thread into an eventual, **bounded** failure.
 
-It is deliberately **decoupled** from `wait_timeout` (which bounds Playwright's auto-waits) and set **generously**, well above the slowest legitimate single `submit` possible.
+It is deliberately **decoupled** from `wait_timeout` (which bounds Playwright's auto-waits) and set **generously**, well above the slowest legitimate single `submit`.
 
 ```
    submit(fn)
@@ -143,7 +143,7 @@ It is deliberately **decoupled** from `wait_timeout` (which bounds Playwright's 
 ```
 
 Raise `call_timeout` whenever a single call legitimately runs longer.  
-Note: such a call can usually be split into several `submit`s instead, which remains the recommended approach above all.
+Note: such a call can usually be split into several `submit`s instead, which remains the recommended approach anyway.
 
 ## `is_dead` ≠ `is_closed`
 
