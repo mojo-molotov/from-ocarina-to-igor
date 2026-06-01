@@ -86,6 +86,25 @@ Examples:
 - ✅ (fr) "assertion bornée par un seuil de temps réel écoulé"
 - ❌ "a wall-clock ceiling" / "un plafond wall-clock"
 
+### ceiling → seuil (French only)
+
+In French prose, don't use the English "ceiling" (nor leave it untranslated).
+Use **un seuil** (masculine: "un seuil", "le seuil"). In English, "ceiling"
+stays.
+
+Examples (French):
+- ✅ "un seuil de liveness"
+- ❌ "une ceiling de liveness" / "un ceiling"
+
+### deadline is feminine in French
+
+When "deadline" is used in French prose, it is **feminine**: write
+**une deadline** / **la deadline**, never "un deadline".
+
+Examples (French):
+- ✅ "ce n'est pas une deadline par opération"
+- ❌ "ce n'est pas un deadline par opération"
+
 ## Frontmatter: plain text only
 
 In `site/content/**/*.md` frontmatter, the `title:` and `description:` fields

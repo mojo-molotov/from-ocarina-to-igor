@@ -1,6 +1,6 @@
 ---
 title: "02.10.06 — L'acteur Playwright : un thread propriétaire"
-description: "Comment Ocarina réconcilie l'API sync thread-affine de Playwright avec son modèle threadé : un acteur mono-thread, la marshallisation par submit, et une ceiling de liveness contre les drivers morts."
+description: "Comment Ocarina réconcilie l'API sync thread-affine de Playwright avec son modèle threadé : un acteur mono-thread, la marshallisation par submit, et un seuil de liveness contre les drivers morts."
 weight: 6
 date: 2026-06-01
 series: ["infra"]
@@ -12,11 +12,11 @@ tags: ["ocarina", "playwright", "concurrence"]
 
 > Dossier source&nbsp;: [`src/ocarina/infra/playwright/`](https://github.com/mojo-molotov/ocarina/tree/main/src/ocarina/infra/playwright)
 >
-> L'adapter Playwright reprend la structure de l'adapter Selenium fichier pour fichier (`create_driver`, `create_drivers_pool`, `create_screenshotter`, `driver_healthcheck`, `mixins`), avec **un fichier en plus**&nbsp;: [`driver.py`](https://github.com/mojo-molotov/ocarina/blob/main/src/ocarina/infra/playwright/driver.py). Ce fichier mérite un chapitre à lui seul. C'est lui qui réconcilie l'API _sync_ de Playwright, intrinsèquement liée à un thread, avec le modèle threadé d'Ocarina (pool, warmup, Watcher). Le modèle a été stressé, stabilisé&nbsp;; il tient.
+> L'adapter Playwright reprend la structure de l'adapter Selenium fichier pour fichier (`create_driver`, `create_drivers_pool`, `create_screenshotter`, `driver_healthcheck`, `mixins`), avec **un fichier en plus**&nbsp;: [`driver.py`](https://github.com/mojo-molotov/ocarina/blob/main/src/ocarina/infra/playwright/driver.py). Ce fichier mérite un chapitre à lui seul. C'est lui qui réconcilie l'API _sync_ de Playwright, intrinsèquement liée à un thread, avec le modèle threadé d'Ocarina (pool, warmup, Watcher).
 
 ## Le problème&nbsp;: l'API sync de Playwright est thread-affine
 
-L'API **sync** de Playwright lie chaque objet qu'elle renvoie&nbsp;—&nbsp;`Playwright`, `Browser`, `BrowserContext`, `Page`, `Locator`, …&nbsp;—&nbsp;au thread qui a appelé `sync_playwright().start()`. Sous le capot, c'est un _greenlet_ épinglé à ce thread. Y toucher depuis un autre thread lève&nbsp;:
+L'API **sync** de Playwright lie chaque objet qu'elle renvoie (`Playwright`, `Browser`, `BrowserContext`, `Page`, `Locator`, …) au thread qui a appelé `sync_playwright().start()`. Sous le capot, c'est un _greenlet_ épinglé à ce thread. Y toucher depuis un autre thread lève&nbsp;:
 
 ```
 greenlet.error: cannot switch to a different thread
@@ -119,11 +119,11 @@ Trois règles, toutes vérifiées par le code&nbsp;:
 
 1. **Renvoyer des données brutes.** `fn` doit retourner du plat et _thread-safe_ (`str`, `bool`, `bytes`, `None`)&nbsp;—&nbsp;jamais une `Page`, un `Locator` ou un `ElementHandle` vivants, qui sont liés au thread propriétaire et inutilisables ailleurs. `PlaywrightTitleMixin` montre le pattern&nbsp;: `return self._driver.submit(lambda page: page.title())`.
 2. **Pas de ré-entrance.** Un `submit()` (ou `quit()`) appelé _depuis_ le thread propriétaire attendrait un future que ce même thread est censé résoudre&nbsp;: un _deadlock_. Le code le détecte (`threading.get_ident() == self._owner_ident`) et lève un `RuntimeError` explicite plutôt que de figer.
-3. **L'appel est borné.** `future.result(timeout=call_timeout)` pose un plafond.
+3. **L'appel est borné.** `future.result(timeout=call_timeout)` pose un seuil.
 
-## `call_timeout`&nbsp;: une ceiling de liveness, pas un deadline
+## `call_timeout`&nbsp;: un seuil de liveness, pas une deadline
 
-Le point le plus subtil. `call_timeout` (180&nbsp;s par défaut) n'est **pas** un deadline par opération. C'est un plafond de _liveness_&nbsp;: il ne sert qu'à transformer un _blocage infini_ sur un thread propriétaire mort en un échec **borné** et éventuel.
+Le point le plus subtil. `call_timeout` (180&nbsp;s par défaut) n'est **pas** une deadline par opération. C'est un seuil de _liveness_&nbsp;: il ne sert qu'à transformer un _blocage infini_ sur un thread propriétaire mort en un échec **borné** et éventuel.
 
 Il est volontairement **découplé** de `wait_timeout` (qui, lui, borne les auto-waits de Playwright) et réglé **généreusement**, bien au-dessus du plus lent `submit` légitime&nbsp;: un long _humanized fill_, un gros `timeout=` par appel, plusieurs auto-waits dans une seule lambda.
 
@@ -257,4 +257,4 @@ Chaque driver écrit son propre fichier au nom unique, donc les artefacts par-te
 
 ## En une phrase
 
-L'API sync de Playwright est épinglée à un thread&nbsp;; Ocarina est threadé. L'acteur réconcilie les deux en confinant **tout** Playwright à un thread propriétaire daemon, en marshallisant chaque appel par `submit`, et en bornant cette marshallisation par une ceiling de liveness qui transforme un driver mort en `DriverDiedError` au lieu d'un blocage. Le reste de l'infra ne voit qu'un driver ordinaire avec `quit()` et `save_screenshot()`.
+L'API sync de Playwright est épinglée à un thread&nbsp;; Ocarina est threadé. L'acteur réconcilie les deux en confinant **tout** Playwright à un thread propriétaire daemon, en marshallisant chaque appel par `submit`, et en bornant cette marshallisation par un seuil de liveness qui transforme un driver mort en `DriverDiedError` au lieu d'un blocage. Le reste de l'infra ne voit qu'un driver ordinaire avec `quit()` et `save_screenshot()`.
