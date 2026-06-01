@@ -20,7 +20,7 @@ If you already know which repo or layer the symbol belongs to, jump directly to 
 | Railway (`Result`, `ActionChain`, `chain_actions`, `drive_page`, `match_page`) | [Railway](#framework-core--railway-02-ocarina03-railway) |
 | Invariants (`validate`, `assert_that`, `InvariantViolationError`) | [Invariants](#framework-core--invariants-02-ocarina04-invariants) |
 | Orchestration (`Test`, `TestFlow`, `TestSuite`, `TestCampaign`, `TestCycle`, `filter_tests_by_ids`) | [Orchestration](#framework-core--orchestration-02-ocarina05-orchestration) |
-| Framework other (`Scenario`, `Watcher`, `POMBase`, `ILogger`, `DriversPool`, `bootstrap`) | [Framework other](#framework-core--other-02-ocarina) |
+| Framework other (`Scenario`, `Watcher`, `POMBase`, `ILogger`, `DriversPool`, `PlaywrightDriver`, `bootstrap`) | [Framework other](#framework-core--other-02-ocarina) |
 | Functional patterns (`Thunk`, `Effect`, `TypeGuard`, `fold`) | [Functional](#functional-patterns-03-functional) |
 | Internal tests (`FakeDriver`, `syrupy`, `hypothesis`, `prysk`) | [Internal tests](#internal-tests-04-internal-tests) |
 | Igoristan (`useAuth`, `wireit`, `LoginForm`, routes) | [Igoristan](#igoristan-05-igoristan) |
@@ -92,6 +92,7 @@ If no match: go to **Step 3 — not found**.
 | `Screenshotter` | `02-ocarina/10-infra/03-screenshotter.md` |
 | `ActCounter`, `ThreadsBasedActCounter` | `02-ocarina/10-infra/04-act-counter.md` |
 | Selenium adapters, typed wrappers | `02-ocarina/10-infra/05-selenium-adapters.md` |
+| `PlaywrightDriver`, `create_playwright_driver`, `create_playwright_drivers_pool`, `create_playwright_screenshotter`, `submit` (owner thread), `_OwnerThread`, `call_timeout`, `is_dead`/`is_closed`, `DriverDiedError`, `PlaywrightTitleMixin`, `playwright_driver_healthcheck` | `02-ocarina/10-infra/06-playwright-actor.md` |
 | `CLIBuilder` | `02-ocarina/11-opinionated/01-cli-builder.md` |
 | phantom parameters, store parameters | `02-ocarina/11-opinionated/02-cli-store-phantoms.md` |
 | `SeleniumCLI`, `--only`, `--exclude` (CLI side), `_create_validate_only_exclude_mutex_effect` | `02-ocarina/11-opinionated/03-selenium-cli.md` |
@@ -231,6 +232,6 @@ If the symbol is not in the index:
 1. Try `navigate/SKILL.md` with the symbol as the question — it may match a topic keyword.
 2. Try `99-references/02-file-index.md` — it indexes source files cited across the primer.
 3. Try `99-references/01-glossary.md` — it may define the term.
-4. If still not found: the symbol is either not documented in the primer, or it's a post-v1.1.3 addition. Say so explicitly.
+4. If still not found: the symbol is either not documented in the primer, or it's a post-v1.1.8 addition. Say so explicitly.
 
 Never invent a location. "Not in the index" is a valid answer.

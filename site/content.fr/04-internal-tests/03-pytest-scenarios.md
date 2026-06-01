@@ -1,6 +1,6 @@
 ---
 title: "04.03 — Tests scénarios (pytest + allure)"
-description: "Les treize fichiers de tests scénarios d'Ocarina sous pytest et allure, qui couvrent dynamiquement le DSL et l'orchestration."
+description: "Les quinze fichiers de tests scénarios d'Ocarina sous pytest et allure, qui couvrent dynamiquement le DSL, l'orchestration et l'acteur Playwright."
 weight: 3
 date: 2026-05-20
 series: ["tests-internes"]
@@ -9,7 +9,7 @@ series_order: 3
 
 # 04.03&nbsp;—&nbsp;Tests scénarios (pytest + allure)
 
-> 13 fichiers `test_*.py` du dossier `tests/scenarios/` couvrent le DSL et l'orchestration. Tests dynamiques.
+> 15 fichiers `test_*.py` du dossier `tests/scenarios/` couvrent le DSL, l'orchestration et l'acteur Playwright. Tests dynamiques.
 
 ## Listing
 
@@ -24,6 +24,8 @@ tests/scenarios/
 ├── test_screenshotter.py                    # Screenshotter (single shot, burst, healthcheck, threadsafety)
 ├── test_driver_builder.py                   # DriverBuilder (profile tmp dir, dispose)
 ├── test_watcher.py                          # Watcher (start, stop, callback errors swallowed, dedup cache)
+├── test_playwright_driver_actor.py          # acteur PlaywrightDriver (sync_playwright mocké, sans navigateur)
+├── test_playwright_adapter.py               # smoke navigateur réel (skip si pas de Chromium installé)
 ├── test_test_suite.py                       # TestSuite (parallel, saturation, only/exclude, transient_errors)
 ├── test_test_cycle_and_bootstrap.py         # TestCycle, mode fail-fast vs wait-for-all, bootstrap
 ├── test_loggers_and_reports.py              # PrintLogger, FileLogger, pretty_print, JSON
@@ -122,6 +124,36 @@ Note&nbsp;: utilisation d'un `FakeDriverFactory` qui peut être configuré pour 
 - Crée un sous-dossier unique sous `output_root`.
 
 Note&nbsp;: ce test produit de vrais `.docx` que `python-docx` valide.
+
+## Les deux tests Playwright
+
+L'[acteur Playwright](../02-ocarina/10-infra/06-playwright-actor.md) est le choix d'implémentation le plus sensible de l'adapter&nbsp;: de la marshallisation cross-thread, des timeouts de liveness, de la gestion de crashs de drivers. Il est donc couvert à **deux niveaux&nbsp;:**
+
+| Fichier                            | Navigateur réel&nbsp;? | Ce qu'il garde                                                                                       |
+| ---------------------------------- | ---------------------- | ---------------------------------------------------------------------------------------------------- |
+| `test_playwright_driver_actor.py`  | **Non** (mock)         | La logique de marshallisation du thread propriétaire, isolée.                                            |
+| `test_playwright_adapter.py`       | **Oui** (Chromium)     | Test de bout en bout&nbsp;: warmup, pool, mixin, screenshotter, watcher.                              |
+
+### `test_playwright_driver_actor.py`&nbsp;—&nbsp;l'acteur sans navigateur
+
+`sync_playwright` est patché par un mock&nbsp;: **aucun Chromium n'est lancé**. Le fichier tourne sur n'importe quelle machine où le _package_ `playwright` est importable (CI comprise), sans binaire de navigateur. Il exerce la logique pure du thread propriétaire&nbsp;:
+
+- `submit()` renvoie bien sa valeur depuis un thread non-propriétaire&nbsp;;
+- un `submit()` ré-entrant (depuis le thread propriétaire) lève au lieu de _deadlock_&nbsp;;
+- le healthcheck sort en silence sur un driver _volontairement disposé_, mais lève si un driver vivant crashe&nbsp;;
+- le boot et les appels `submit` qui dépassent leur `call_timeout`&nbsp;→&nbsp;`DriverDiedError` **sans cesser de répondre** (assertion bornée par un seuil de temps réel écoulé)&nbsp;;
+- un driver mort refuse tout usage ultérieur&nbsp;;
+- pas de _leak_ du thread propriétaire à la disposition normale, ni après une mort de driver.
+
+### `test_playwright_adapter.py`&nbsp;—&nbsp;smoke navigateur réel
+
+Skippé automatiquement quand le binaire Chromium de Playwright n'est pas installé&nbsp;: une CI sans navigateur reste verte. L'adapter est exclu de la couverture (comme l'adapter Selenium) parce qu'il ne s'exerce que contre un vrai navigateur. Ces tests vérifient les parties spécifiques de l'adapter Playwright, sans équivalent côté Selenium&nbsp;:
+
+- l'acteur mono-thread survivant à un usage cross-thread&nbsp;;
+- le warmup de la pool passant un driver du thread de warmup à un thread worker&nbsp;;
+- le `PlaywrightTitleMixin` et le screenshotter qui marshallisent via le thread propriétaire&nbsp;;
+- un watcher lisant la page via `submit` (observe-only)&nbsp;;
+- l'écriture effective d'un `trace_<id>.zip` et d'une vidéo de session.
 
 ## Conventions
 

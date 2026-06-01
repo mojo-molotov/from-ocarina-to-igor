@@ -201,35 +201,10 @@ The AI project's `CLAUDE.md` documents the pattern for `SeleniumBackAndForwardNa
 >     ...
 > ```
 
-## The Playwright twin&nbsp;—&nbsp;an actor pinned to one thread
+## The Playwright twin
 
 > Source folder: [`src/ocarina/infra/playwright/`](https://github.com/mojo-molotov/ocarina/tree/main/src/ocarina/infra/playwright)
 
-The Playwright adapter mirrors the Selenium one file-for-file (`create_driver`, `create_drivers_pool`, `create_screenshotter`, `driver_healthcheck`, `mixins`), with **one extra file**: `driver.py`. It exists because of a single hard constraint.
+The Playwright adapter mirrors the Selenium one file-for-file (`create_driver`, `create_drivers_pool`, `create_screenshotter`, `driver_healthcheck`, `mixins`), with **one extra file**: `driver.py`.
 
-Playwright's **sync** API is _thread-affine_: every object it hands out&nbsp;—&nbsp;`Playwright`, `Browser`, `BrowserContext`, `Page`, `Locator`&nbsp;—&nbsp;is bound to the thread that called `sync_playwright().start()`. Touch one from another thread and it raises `greenlet.error: cannot switch to a different thread`.
-
-That collides head-on with Ocarina's threaded model:
-
-- `WebDriversPool.warmup()` pre-builds drivers in a dedicated warmup thread, then hands them to _worker_ threads through a queue;
-- a `Watcher` polls alongside the test chain in its own daemon thread.
-
-So `PlaywrightDriver` wraps Playwright in an **actor**: it owns a single-thread executor, all Playwright objects live on that one _owner thread_, and every interaction is marshalled onto it.
-
-```python
-self._executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix="ocarina-pw")
-self._page = self._executor.submit(self._boot, ...).result()
-
-def submit[T](self, fn: Callable[[Page], T]) -> T:
-    ...
-    return self._executor.submit(lambda: fn(self._page)).result()
-```
-
-The handle is therefore safe to **create on one thread and use from another**&nbsp;—&nbsp;only the _work_ ever touches Playwright, and that work always runs on the owner thread. Ocarina's pool, warmup and the parallélisation of the workers survive untouched, **without giving up the sync API**.
-
-Two rules keep the actor honest:
-
-1. **`submit(fn)` must return plain data** (`str`, `bool`, `bytes`, `None`)&nbsp;—&nbsp;never a live `Page`/`Locator`, which is owner-thread bound and unusable elsewhere. `PlaywrightTitleMixin` shows the pattern: `return self._driver.submit(lambda page: page.title())`.
-2. **Re-entrancy is rejected loudly.** A `submit()` (or `quit()`) issued _from_ the owner thread would queue behind the running task and then block on its own `.result()`&nbsp;—&nbsp;a silent deadlock. `PlaywrightDriver` raises a named `RuntimeError` instead of hanging.
-
-Because it exposes `quit()` and `save_screenshot()`, the actor slots into the generic `DriverBuilder` disposal and the `ScreenshotDriver` protocol **unchanged**&nbsp;—&nbsp;nothing else in `infra/` ever learns it is talking to Playwright. Browsers ship with Playwright (`playwright install`&nbsp;—&nbsp;no driver-path), the session always runs through a persistent context (a managed `user-data-dir`, like Selenium), and it can optionally record a video or capture a trace (`trace_<id>.zip`, opened with `playwright show-trace`).
+This adapter has its own dedicated page: [`06-playwright-actor.md`](06-playwright-actor.md)

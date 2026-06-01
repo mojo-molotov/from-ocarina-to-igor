@@ -16,7 +16,7 @@ Match the question against the topic table below. Pick the **first** matching ro
 | --- | --- | --- |
 | ecosystem, repos, overview, "what is", stack matrix, execution flow, repo relations | `ch00-big-picture` | `00-big-picture/01-ecosystem-map.md`, `03-global-execution-flow.md` |
 | philosophy, KISS, ISTQB, "why", citations, influences, political, anti-hype, anti-SaaS | `ch01-philosophy` | `01-philosophy/02-istqb-vs-pytest.md`, `05-political-stance.md` |
-| framework, Result, Ok, Err, ROP, railway, ActionChain, validate, invariant, orchestration, TestSuite, TestCampaign, TestCycle, Scenario, Watcher, POMBase, ports, DriversPool, bootstrap, CLI | `ch02-ocarina` | `02-ocarina/03-railway/`, `04-invariants/`, `05-orchestration/` |
+| framework, Result, Ok, Err, ROP, railway, ActionChain, validate, invariant, orchestration, TestSuite, TestCampaign, TestCycle, Scenario, Watcher, POMBase, ports, DriversPool, bootstrap, CLI, Playwright, actor, owner thread, marshalling, call_timeout, DriverDiedError | `ch02-ocarina` | `02-ocarina/03-railway/`, `04-invariants/`, `05-orchestration/`, `10-infra/06-playwright-actor.md` |
 | functional, FP, thunk, closure, fold, reduce, lazy, generics, PEP 695, discriminated union, TypeGuard | `ch03-functional` | `03-functional/01-effect-thunk-result.md`, `07-discriminated-unions-typeguards.md` |
 | internal tests, cram, prysk, pytest-mypy-plugins, syrupy, hypothesis, coverage, Allure | `ch04-internal-tests` | `04-internal-tests/` — article matching keyword |
 | igoristan, SUT, React, Vike, wireit, useAuth, OTP, commitlint, Husky, chaotic | `ch05-igoristan` | `05-igoristan/` — article matching keyword |

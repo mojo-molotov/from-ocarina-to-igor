@@ -21,6 +21,7 @@ sidebar:
 | 03  | [`03-screenshotter.md`](03-screenshotter.md)         | `Screenshotter[TDriver]` + `ScreenshotterConfig`&nbsp;: burst, healthcheck, threadsafe.                                                  |
 | 04  | [`04-act-counter.md`](04-act-counter.md)             | `ActCounter` + `ThreadsBasedActCounter` (thread-local).                                                                                  |
 | 05  | [`05-selenium-adapters.md`](05-selenium-adapters.md) | `create_driver` (Firefox/Chrome/Edge/Safari), `create_drivers_pool`, `create_screenshotter`, `driver_healthcheck`, `SeleniumTitleMixin`. |
+| 06  | [`06-playwright-actor.md`](06-playwright-actor.md)   | L'acteur `PlaywrightDriver`&nbsp;: thread propriétaire, marshallisation par `submit`, `call_timeout` de liveness, warmup cross-thread, Watcher observe-only. |
 
 ## `BuiltWebDriver[Driver]`
 

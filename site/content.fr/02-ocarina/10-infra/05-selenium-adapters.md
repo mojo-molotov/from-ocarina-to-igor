@@ -201,35 +201,10 @@ Le `CLAUDE.md` du projet IA documente le pattern pour le `SeleniumBackAndForward
 >     ...
 > ```
 
-## Le jumeau Playwright&nbsp;—&nbsp;un acteur épinglé à un seul thread
+## Le jumeau Playwright
 
 > Dossier source&nbsp;: [`src/ocarina/infra/playwright/`](https://github.com/mojo-molotov/ocarina/tree/main/src/ocarina/infra/playwright)
 
 L'adapter Playwright reprend la structure de l'adapter Selenium, fichier pour fichier (`create_driver`, `create_drivers_pool`, `create_screenshotter`, `driver_healthcheck`, `mixins`), avec **un fichier en plus**&nbsp;: `driver.py`.
 
-L'API **sync** de Playwright est _thread-affine_&nbsp;: chaque objet qu'elle renvoie&nbsp;—&nbsp;`Playwright`, `Browser`, `BrowserContext`, `Page`, `Locator`&nbsp;—&nbsp;est lié au thread qui a appelé `sync_playwright().start()`. Y toucher depuis un autre thread lève `greenlet.error: cannot switch to a different thread`.
-
-Ça entre en conflit avec le modèle de threading d'Ocarina&nbsp;:
-
-- `WebDriversPool.warmup()` pré-construit les drivers dans un thread de warmup dédié, puis les passe aux threads (_workers_) via une queue&nbsp;;
-- un `Watcher` poll à côté de la chaîne de test dans son propre _daemon thread_.
-
-Donc, `PlaywrightDriver` emballe Playwright dans un **acteur** (_Actor model_)&nbsp;: il possède un executor mono-thread, tous les objets Playwright vivent sur cet unique _thread propriétaire_, et chaque interaction y est marshallisée.
-
-```python
-self._executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix="ocarina-pw")
-self._page = self._executor.submit(self._boot, ...).result()
-
-def submit[T](self, fn: Callable[[Page], T]) -> T:
-    ...
-    return self._executor.submit(lambda: fn(self._page)).result()
-```
-
-Seul le _travail_ touche Playwright, et ce travail tourne toujours sur le thread propriétaire. La pool, le warmup et la parallélisation des workers d'Ocarina survivent intacts.
-
-Deux règles&nbsp;:
-
-1. **`submit(fn)` doit renvoyer des données brutes** (`str`, `bool`, `bytes`, `None`)&nbsp;—&nbsp;jamais une `Page`/`Locator` vivante, liée au thread propriétaire et inutilisable ailleurs. `PlaywrightTitleMixin` montre le pattern&nbsp;: `return self._driver.submit(lambda page: page.title())`.
-2. **Ré-entrer est refusé explicitement.** Un `submit()` (ou `quit()`) lancé _depuis_ le thread propriétaire provoquerait un _deadlock_. Dans ce cas, `PlaywrightDriver` lève un `RuntimeError`.
-
-Comme il expose `quit()` et `save_screenshot()`, l'acteur s'insère **sans rien changer** dans le nettoyage des ressources (_dispose_) du `DriverBuilder` générique, ni dans le protocole `ScreenshotDriver`&nbsp;—&nbsp;rien d'autre dans `infra/` ne sait jamais qu'il parle à Playwright. Les navigateurs sont livrés avec Playwright (`playwright install`&nbsp;—&nbsp;pas de driver-path), la session passe toujours par un contexte persistant (un `user-data-dir` géré, comme Selenium), et elle peut au choix enregistrer une vidéo ou capturer une trace (`trace_<id>.zip`, à ouvrir avec `playwright show-trace`).
+Cet adapter a sa propre page dédiée&nbsp;: [`06-playwright-actor.md`](06-playwright-actor.md)

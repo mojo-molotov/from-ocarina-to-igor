@@ -30,6 +30,11 @@ omit = [
     "src/ocarina/dsl/testing/selenium/*",
     "src/ocarina/opinionated/cli/selenium/*",
     "src/ocarina/pom/selenium/muted.py",
+    # Playwright adapter layer — exercised only against a real browser.
+    "src/ocarina/infra/playwright/*",
+    "src/ocarina/dsl/testing/playwright/*",
+    "src/ocarina/opinionated/cli/playwright/*",
+    "src/ocarina/pom/playwright/*",
     "src/ocarina/opinionated/cli/phantoms.py",
     # Opinionated loggers — only file_logger.py stays in scope.
     "src/ocarina/opinionated/loggers/create_matching_logger.py",
@@ -63,14 +68,18 @@ omit = [
 | `src/**/consts/**`                               | Constantes (`LOGGERS_CHOICES = (...)`).                                 |
 | `src/**/*singleton.py`                           | Wrappers Singleton triviaux.                                            |
 
-### 3. Couche Selenium (e2e seulement)
+### 3. Couches Selenium et Playwright (e2e seulement)
 
-| Chemin                                   | Justification                                                                                      |
-| ---------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `src/ocarina/infra/selenium/*`           | Code Selenium réel (`Chrome()`, `Firefox()`). Ne s'exécute qu'avec un vrai navigateur.             |
-| `src/ocarina/dsl/testing/selenium/*`     | `create_selenium_test`, `create_selenium_watcher` (factory triviales sur `Test` /&nbsp;`Watcher`). |
-| `src/ocarina/opinionated/cli/selenium/*` | `create_selenium_*_cli_store` (lit `platform.system`, instancie).                                  |
-| `src/ocarina/pom/selenium/muted.py`      | `MutedPOM` utilitaire (presque vide).                                                              |
+| Chemin                                     | Justification                                                                                       |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------- |
+| `src/ocarina/infra/selenium/*`             | Code Selenium réel (`Chrome()`, `Firefox()`). Ne s'exécute qu'avec un vrai navigateur.             |
+| `src/ocarina/dsl/testing/selenium/*`       | `create_selenium_test`, `create_selenium_watcher` (factory triviales sur `Test` /&nbsp;`Watcher`). |
+| `src/ocarina/opinionated/cli/selenium/*`   | `create_selenium_*_cli_store` (lit `platform.system`, instancie).                                  |
+| `src/ocarina/pom/selenium/muted.py`        | `MutedPOM` utilitaire (presque vide).                                                              |
+| `src/ocarina/infra/playwright/*`           | Code Playwright réel + l'[acteur `PlaywrightDriver`](../02-ocarina/10-infra/06-playwright-actor.md). Le test de bout en bout ne se prouve qu'avec un vrai navigateur. |
+| `src/ocarina/dsl/testing/playwright/*`     | `create_playwright_test`, `create_playwright_watcher` (mêmes factory triviales).                   |
+| `src/ocarina/opinionated/cli/playwright/*` | `create_playwright_cli_store` (CLI Playwright).                                                     |
+| `src/ocarina/pom/playwright/*`             | `MutedPlaywrightPOM` + `mixins` (Null Object, presque vide).                                       |
 
 Ces fichiers sont **couverts** par&nbsp;:
 
@@ -78,6 +87,8 @@ Ces fichiers sont **couverts** par&nbsp;:
 - **`ocarina-with-ai-example/ai_proof_e2e.yml`** (CI manuelle, Chrome + Firefox).
 
 Ce sont les **suites e2e externes** qui prouvent que ces adapters marchent, pas la couverture pytest du framework.
+
+> Nuance pour l'acteur Playwright&nbsp;: `infra/playwright/*` est **hors métrique de couverture**, mais sa logique de marshallisation _est_ bel et bien exercée par `test_playwright_driver_actor.py`, qui patche `sync_playwright` par un mock et tourne en CI **sans navigateur**. Omis du _score_ ≠ non testé.
 
 ### 4. Loggers opinionated (sauf FileLogger)
 

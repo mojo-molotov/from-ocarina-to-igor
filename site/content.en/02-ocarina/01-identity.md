@@ -1,6 +1,6 @@
 ---
 title: "02.01 — Ocarina's technical identity"
-description: "Ocarina's technical identity through its pyproject.toml: name, version 1.1.3, Python 3.14+, minimal dependencies and quality toolchain."
+description: "Ocarina's technical identity through its pyproject.toml: name, version 1.1.8, Python 3.14+, minimal dependencies and quality toolchain."
 weight: 1
 date: 2026-05-20
 series: ["ocarina"]
@@ -15,7 +15,7 @@ tags: ["typing"]
 ```toml
 [project]
 name = "ocarina"
-version = "1.1.3"
+version = "1.1.8"
 description = "Websites test framework for Igor"
 requires-python = ">=3.14"
 authors = [{ name="Igor Casanova", email="[REDACTED]" }]
@@ -26,7 +26,7 @@ readme = "README.md"
 dependencies = ["python-docx>=1.2.0"]
 ```
 
-1. **`version = "1.1.3"`**: _stable 1.x_, not a pre-release.
+1. **`version = "1.1.8"`**: _stable 1.x_, not a pre-release.
 2. **`requires-python = ">=3.14"`**: PEP 695 generic typing everywhere.
 3. **`dependencies = ["python-docx>=1.2.0"]`**: **one** runtime dependency. The rest lives in `dev`.
 4. **`license = "MIT"`**.

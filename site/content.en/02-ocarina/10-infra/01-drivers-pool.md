@@ -163,7 +163,7 @@ def warmup(self) -> None:
 | **Worker** (daemon)        | Creates drivers in a loop while the queue isn't full and `stop_event` isn't set. On every success, increments `progress["count"]`.                                                 |
 | **Watchdog** (main thread) | Loops, samples `progress["count"]` every 0.5s. If the value changes, **resets** the timer. If the timer exceeds `warmup_timeout`, `stop_event.set()` + `raise WarmupTimeoutError`. |
 
-A **progress-based** watchdog, not wall clock. 30s to create a driver is fine if progress _advances_. Creation blocking indefinitely → progress stalls → watchdog raises.
+A **progress-based** watchdog, not elapsed real time. 30s to create a driver is fine if progress _advances_. Creation blocking indefinitely → progress stalls → watchdog raises.
 
 ## `shutdown()`
 

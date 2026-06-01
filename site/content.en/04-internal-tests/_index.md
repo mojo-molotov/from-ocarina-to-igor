@@ -29,8 +29,8 @@ sidebar:
 
 | Family         | Tool                       | Quantity                                 | Topic                                               | Target                        |
 | -------------- | -------------------------- | ---------------------------------------- | --------------------------------------------------- | ----------------------------- |
-| Scenarios      | `pytest` + `allure-pytest` | ~13 `test_*.py` files                    | DSL and orchestration                               | Covers _behavior_             |
-| Cram           | `prysk`                    | 10 `.t` files                            | CLI: parsing, validations, defaults                 | Covers _CLI user surface_     |
+| Scenarios      | `pytest` + `allure-pytest` | ~15 `test_*.py` files                    | DSL, orchestration, Playwright actor                | Covers _behavior_             |
+| Cram           | `prysk`                    | 15 `.t` files                            | Selenium + Playwright CLI: parsing, validations, defaults | Covers _CLI user surface_     |
 | Static types   | `pytest-mypy-plugins`      | ~5 `*test_types.yml` files               | Type inferences, narrowing, expected errors         | Covers _typing_               |
 | Snapshots      | `syrupy`                   | 2 `.ambr` files                          | Output of `pretty_print_results`, `results_to_json` | Covers _output format_        |
 | Property-based | `hypothesis`               | 1 file (`test_invariants_properties.py`) | Behavior on random values                           | Covers _robustness to inputs_ |

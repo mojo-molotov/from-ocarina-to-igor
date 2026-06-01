@@ -18,6 +18,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/04-internal-
 ## Key concepts
 
 - **Five test families**: cram (CLI), pytest scenarios (integration), mypy-plugins (static types), syrupy snapshots (serialization), hypothesis (property-based).
+- **Playwright actor, two test levels**: `test_playwright_driver_actor.py` mocks `sync_playwright` to exercise the owner-thread marshalling logic in CI with no browser (re-entrancy, `call_timeout`/dead-driver, no thread leak); `test_playwright_adapter.py` is a real-browser smoke (warmup cross-thread, mixin, screenshotter, watcher, trace/video) that auto-skips without Chromium. The Playwright CLI also has its own cram `.t` files (`pw_cli_*.t`, no `--driver-path`, plus `--video-dir`/`--trace-dir`). `infra/playwright/*` is omitted from the coverage metric (like Selenium) but the actor logic is still tested via the mock.
 - **`FakeDriver`**: a `WebDriver` test double that records calls without opening a browser. Core fixture for all framework tests.
 - **`RecordingPOM`**: a `POMBase` subclass that captures which methods were called, in what order.
 - **`pytest-mypy-plugins`**: tests that assert a type annotation is or isn't accepted by mypy — the only way to test generic bounds and discriminated union exhaustiveness statically.
