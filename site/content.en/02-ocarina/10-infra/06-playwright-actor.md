@@ -87,9 +87,9 @@ def submit[T](self, fn: Callable[[Page], T]) -> T:
 
 A `ThreadPoolExecutor(max_workers=1)` would _almost_ do the job: one worker, submissions handled in order. Almost. The catch is at **process exit**.
 
-`ThreadPoolExecutor` workers are **not** daemons: they are _joined_ by an `atexit` hook. If the worker is wedged on a dead Playwright _pipe_ (the browser crashed, the transport stopped answering), it never returns&nbsp;—&nbsp;and that exit-time `join` **hangs the process forever**. On a CI run, that is a job that never finishes.
+`ThreadPoolExecutor` workers are **not** daemons: they are _joined_ by an `atexit` hook. If the worker is wedged on a dead Playwright _pipe_ (the browser crashed, the transport stopped answering), it never returns and that exit-time `join` **hangs the process forever**. On a CI run, that is a job that never finishes.
 
-So Ocarina swaps the executor for a hand-rolled `_OwnerThread`: a single **daemon** thread draining a `Queue` of `(callable, Future)`.
+So Ocarina swaps the executor for an `_OwnerThread`: a single **daemon** thread draining a `Queue` of `(callable, Future)`.
 
 ```
    _OwnerThread._run()  (daemon)
@@ -103,7 +103,7 @@ So Ocarina swaps the executor for a hand-rolled `_OwnerThread`: a single **daemo
        except: future.set_exception(...)   # any failure marshalled back to caller
 ```
 
-The difference is in **death**:
+The difference is in how thread death is handled:
 
 | `ThreadPoolExecutor(max_workers=1)`                       | `_OwnerThread` (daemon)                                                    |
 | --------------------------------------------------------- | ------------------------------------------------------------------------- |
@@ -111,13 +111,13 @@ The difference is in **death**:
 | Worker wedged on a dead pipe&nbsp;→&nbsp;`join` hangs exit    | Worker wedged&nbsp;→&nbsp;never joined, the process exits anyway          |
 | No control over the `join`                                | We **never** join ourselves (a running future is not cancellable)         |
 
-The accepted cost: a _per-death leak_. When a driver dies wedged, its thread, the stuck call, and its closure stay referenced until process exit. That is the deliberate trade against hanging the whole run. Better to leak a dead thread than to never finish.
+The accepted cost: a _per-death leak_. When a driver dies wedged, its thread, the stuck call, and its closure stay referenced until process exit. That is the deliberate trade against hanging the whole run. Better to leak a dead thread than to never finish. At process exit the leak is reclaimed anyway, since the daemon thread is torn down with the process.
 
 ## The `submit` contract
 
 Three rules, all enforced by the code:
 
-1. **Return plain data.** `fn` must return flat, thread-safe values (`str`, `bool`, `bytes`, `None`)&nbsp;—&nbsp;never a live `Page`, `Locator`, or `ElementHandle`, which are owner-thread-bound and unusable elsewhere. `PlaywrightTitleMixin` shows the pattern: `return self._driver.submit(lambda page: page.title())`.
+1. **Return plain data.** `fn` must return flat, thread-safe values (`str`, `bool`, `bytes`, `None`): never a live `Page`, `Locator`, or `ElementHandle`, which are owner-thread-bound and unusable elsewhere. `PlaywrightTitleMixin` shows the pattern: `return self._driver.submit(lambda page: page.title())`.
 2. **No re-entrancy.** A `submit()` (or `quit()`) called _from_ the owner thread would await a future that same thread is meant to resolve: a deadlock. The code detects it (`threading.get_ident() == self._owner_ident`) and raises an explicit `RuntimeError` instead of freezing.
 3. **The call is bounded.** `future.result(timeout=call_timeout)` puts a ceiling on it.
 
@@ -125,7 +125,7 @@ Three rules, all enforced by the code:
 
 The subtlest point. `call_timeout` (180s default) is **not** a per-operation deadline. It is a _liveness_ ceiling: it exists only to turn an _infinite hang_ on a dead owner thread into an eventual, **bounded** failure.
 
-It is deliberately **decoupled** from `wait_timeout` (which bounds Playwright's auto-waits) and set **generously**, well above the slowest legitimate single `submit`: a long _humanized fill_, a large per-call `timeout=`, several auto-waits in one lambda.
+It is deliberately **decoupled** from `wait_timeout` (which bounds Playwright's auto-waits) and set **generously**, well above the slowest legitimate single `submit` possible.
 
 ```
    submit(fn)
@@ -139,21 +139,20 @@ It is deliberately **decoupled** from `wait_timeout` (which bounds Playwright's 
           the running future is ABANDONED (not cancellable)
               │
               ▼
-          raise DriverDiedError  ──▶  caller skips / retries with a fresh driver
+          raise DriverDiedError  ──▶  caller retries with a fresh driver
 ```
 
-The bias is on purpose: **erring large is the right call**. Too tight a `call_timeout` would kill slow-but-alive calls; too large, it merely detects a dead driver _later_&nbsp;—&nbsp;still far better than hanging forever. Lower it for faster dead-driver recovery, raise it if a single call legitimately runs longer.
+Raise `call_timeout` whenever a single call legitimately runs longer.  
+Note: such a call can usually be split into several `submit`s instead, which remains the recommended approach above all.
 
 ## `is_dead` ≠ `is_closed`
 
-Two states, two meanings. The healthcheck and the screenshotter use them to tell a benign teardown race from a real crash.
-
 | Property    | Meaning                                                                  | The driver is…           |
 | ----------- | ------------------------------------------------------------------------ | ------------------------ |
-| `is_closed` | `quit()` was called: **voluntary** disposal.                             | reusable? no, but healthy |
-| `is_dead`   | a call exceeded `call_timeout`: the owner thread is **still stuck**.     | to be **replaced**, not reused |
+| `is_closed` | `quit()` was called: **voluntary** disposal.                             | disposed normally |
+| `is_dead`   | a call exceeded `call_timeout`: the owner thread is **stuck**.           | to be **replaced** |
 
-A _dead_ driver is also reported `closed` (any later disposal must short-circuit). The reverse is false: a voluntarily _disposed_ driver is not dead. `driver_healthcheck` leans on exactly that:
+`driver_healthcheck` leans on this:
 
 ```python
 def playwright_driver_healthcheck(driver: PlaywrightDriver) -> None:
@@ -168,8 +167,6 @@ def playwright_driver_healthcheck(driver: PlaywrightDriver) -> None:
     except Exception as exc:
         raise DriverDiedError from exc
 ```
-
-That defuses the classic teardown race: a watcher callback still in flight trying to screenshot just after the pool has disposed the driver.
 
 ## Boot is bounded too
 
@@ -190,8 +187,6 @@ finally:
         self._owner.stop()
 ```
 
-On the on-demand `acquire()` path nothing else would catch an unbounded boot: it would wedge the worker with the pool permit held. A thread the OS refuses to even spawn (resource exhaustion) is likewise treated as an infra failure&nbsp;—&nbsp;`DriverDiedError`, not a raw `RuntimeError` that would crash the run.
-
 ## The actor slots in, unchanged
 
 Because `PlaywrightDriver` exposes `quit()` and `save_screenshot()`, it satisfies the **existing generic contracts**: the [`DriverBuilder`](02-driver-builder.md) disposal (`dispose: Effect`) and the `ScreenshotDriver` protocol of the [`Screenshotter`](03-screenshotter.md). Nothing else in `infra/` ever knows it is talking to Playwright.
@@ -202,11 +197,11 @@ Because `PlaywrightDriver` exposes `quit()` and `save_screenshot()`, it satisfie
    healthcheck           ──▶ driver.submit(page.title)
 ```
 
-`quit()` is **idempotent** and marshals its own teardown (stop tracing, close context, stop Playwright) onto the owner thread, bounded by `call_timeout`, then asks the thread to stop (never joining). Called from the owner thread, it raises&nbsp;—&nbsp;like `submit`, it would deadlock.
+`quit()` is **idempotent** and marshals its own teardown (stop tracing, close context, stop Playwright) onto the owner thread, bounded by `call_timeout`, then asks the thread to stop. If called from the owner thread it raises, since, just like a re-entrant `submit`, it would deadlock.
 
-## The pool and warmup: why it is safe
+## Pool and warmup
 
-This is the whole point of the actor. `create_playwright_drivers_pool` reuses the **backend-agnostic** `WebDriversPool` with no modification:
+`create_playwright_drivers_pool` reuses the **backend-agnostic** `WebDriversPool` with no modification:
 
 ```python
 drivers_pool = WebDriversPool(
@@ -223,11 +218,11 @@ The thread that _creates_ the driver is never the thread that _runs_ Playwright.
 
 ## The Watcher: observe, don't mutate
 
-A `Watcher` polls in its own daemon thread. A Playwright watcher **MAY** read the page from its callback&nbsp;—&nbsp;via `watcher.driver.submit(...)`, marshalled like everything else, so safe across threads. But it is governed by a convention, not a ban:
+A `Watcher` polls in its own daemon thread. A Playwright watcher **MAY** read the page from its callback, via `watcher.driver.submit(...)`, marshalled like everything else, so safe across threads. But it is governed by a convention, not a ban:
 
-- **OBSERVE, don't MUTATE.** The watcher runs concurrently with the test chain; mutating the page (click/fill) from a watcher corrupts the test's state. This holds in **every** framework, Selenium included. Read-only is the user's responsibility.
+- **OBSERVE, don't MUTATE.** The watcher runs concurrently with the test chain; mutating the page (click/fill) from a watcher corrupts the test's state. Read-only is the user's responsibility.
 - **Always go through `submit`**, never touch `page` directly.
-- **Return flat data** from the lambda (`str`/`bool`/`bytes`)&nbsp;—&nbsp;never a live `Locator` or `ElementHandle`.
+- **Return flat data** from the lambda (`str`/`bool`/`bytes`), never a live `Locator` or `ElementHandle`.
 - **Performance caveat**: each watcher read serializes on the owner thread, alongside the test chain's own `submit` calls. Contention scales with poll frequency (`poll_interval`). Selenium watchers, sharing the driver directly, are freer here.
 
 ```python
@@ -242,19 +237,13 @@ def watch_banner(watcher: PlaywrightWatcher) -> None:
         watcher.report(f"Cookie banner: {text!r}", label="BANNER")
 ```
 
-## Persistent context, video and trace
-
-Just as Selenium always routes through a `user-data-dir`, the actor opens a **persistent context** (`launch_persistent_context`) rather than a standalone `Browser`: the profile survives disposal. Browsers ship with Playwright (`playwright install`)&nbsp;—&nbsp;hence the **absence of `--driver-path`** on the CLI side.
-
-Two opt-in artifacts (off by default), forwarded to every driver in the pool:
+## Video and trace
 
 | Option             | Effect                                                                                                       |
 | ------------------ | ------------------------------------------------------------------------------------------------------------ |
 | `record_video_dir` | Records a session video (must be set at context creation: Playwright cannot enable it afterwards).           |
 | `trace_dir`        | Captures a Playwright trace (`trace_<id>.zip`, open with `playwright show-trace`).                           |
 
-Each driver writes its own uniquely-named file, so per-test artifacts never collide. Files accumulate across runs&nbsp;—&nbsp;nothing is overwritten or auto-cleaned.
+## Conclusion
 
-## In one sentence
-
-Playwright's sync API is pinned to one thread; Ocarina is threaded. The actor reconciles the two by confining **all** of Playwright to one daemon owner thread, marshalling every call through `submit`, and bounding that marshalling with a liveness ceiling that turns a dead driver into a `DriverDiedError` instead of a hang. The rest of the infra only ever sees an ordinary driver with `quit()` and `save_screenshot()`.
+Playwright's sync API is pinned to one thread. The actor reconciles the two by confining Playwright. The rest of the infra only ever sees an ordinary driver with `quit()` and `save_screenshot()`.

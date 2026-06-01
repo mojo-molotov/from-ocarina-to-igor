@@ -9,7 +9,7 @@ series_order: 2
 
 # 04.02&nbsp;—&nbsp;Cram tests (`prysk`)
 
-> Tests CLI au format _cram_&nbsp;: un fichier `.t` contient des commandes shell et leur sortie attendue. Outil utilisé&nbsp;: `prysk` (réécriture moderne de l'original `cram`).
+> Tests CLI au format _cram_&nbsp;: un fichier `.t` contient des commandes shell et leur sortie attendue. Outil utilisé&nbsp;: `prysk` (réécriture moderne de `cram`).
 
 ## Fichier `.t`
 
@@ -98,7 +98,7 @@ On teste ce qui compte, pas plus.
 
 ## Les fichiers `.t` Playwright
 
-Le launcher Playwright a sa propre CLI (un `PlaywrightCliStoreSingleton`), donc son propre runner cram&nbsp;: `_demo_pw_cli.py`, qui imprime le store Playwright au lieu du store Selenium.
+Le launcher Playwright a sa propre CLI (`PlaywrightCliStoreSingleton`), donc son propre runner cram&nbsp;: `_demo_pw_cli.py`, qui écrit (_print_) le store Playwright au lieu du store Selenium.
 
 ```python
 # tests/cram/_demo_pw_cli.py
@@ -114,17 +114,17 @@ for key in ("browser", "profile_path", "headless", "workers", "wait_timeout",
     print(f"{key}={store.get(key)}")
 ```
 
-Cinq fichiers `.t` dédiés, qui reflètent la surface Selenium **moins** `--driver-path` (Playwright livre ses propres navigateurs) et **plus** `--video-dir` /&nbsp;`--trace-dir`&nbsp;:
+Cinq fichiers `.t` dédiés, qui reflètent la surface Selenium **en retirant** `--driver-path` (Playwright est livré avec ses propres navigateurs directement) et **en ajoutant** `--video-dir` /&nbsp;`--trace-dir`&nbsp;:
 
 | Fichier                         | Vérifie                                                                       |
 | ------------------------------- | ----------------------------------------------------------------------------- |
 | `pw_cli_defaults.t`             | Defaults Playwright parsés (`workers=5`, `wait_timeout=10`, `video_dir=None`) |
 | `pw_cli_help.t`                 | `--help` liste les flags&nbsp;: **pas** de `--driver-path`, mais `--video-dir` /&nbsp;`--trace-dir` |
-| `pw_cli_invalid_browser.t`      | `--browser=banana` lève (seuls `chromium`/`firefox`/`webkit`)                 |
+| `pw_cli_invalid_browser.t`      | `--browser=banana` lève (seuls `chromium`/`firefox`/`webkit` sont valides)                 |
 | `pw_cli_invalid_wait_timeout.t` | `--wait-timeout=0` lève                                                        |
 | `pw_cli_only_exclude_mutex.t`   | `--only` et `--exclude` ensemble lève                                          |
 
-Même philosophie que côté Selenium&nbsp;: on `grep` les flags, on `sort -u`, on ne teste pas la sortie complète d'argparse. La CLI est une surface utilisateur&nbsp;—&nbsp;cram est l'outil naturel, quel que soit le backend.
+Même philosophie que côté Selenium&nbsp;: on `grep` les flags, on `sort -u`, on ne teste pas la sortie complète d'argparse. La CLI est une surface utilisateur donc cram est l'outil naturel, quel que soit le backend.
 
 ## `Makefile`
 
