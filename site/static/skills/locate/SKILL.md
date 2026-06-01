@@ -231,6 +231,6 @@ If the symbol is not in the index:
 1. Try `navigate/SKILL.md` with the symbol as the question — it may match a topic keyword.
 2. Try `99-references/02-file-index.md` — it indexes source files cited across the primer.
 3. Try `99-references/01-glossary.md` — it may define the term.
-4. If still not found: the symbol is either not documented in the primer, or it's a post-v1.1.3 addition. Say so explicitly.
+4. If still not found: the symbol is either not documented in the primer, or it's a post-v1.1.8 addition. Say so explicitly.
 
 Never invent a location. "Not in the index" is a valid answer.

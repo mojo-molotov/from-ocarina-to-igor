@@ -96,6 +96,36 @@ On ne teste pas la **sortie complète** de `--help` (qui change avec les version
 
 On teste ce qui compte, pas plus.
 
+## Les fichiers `.t` Playwright
+
+Le launcher Playwright a sa propre CLI (un `PlaywrightCliStoreSingleton`), donc son propre runner cram&nbsp;: `_demo_pw_cli.py`, qui imprime le store Playwright au lieu du store Selenium.
+
+```python
+# tests/cram/_demo_pw_cli.py
+from ocarina.opinionated.cli.playwright.cli_store_singleton import (
+    PlaywrightCliStoreSingleton as CliStoreSingleton,
+)
+from ocarina.opinionated.cli.playwright.create_cli_store import create_playwright_cli_store
+
+CliStoreSingleton().push(create_playwright_cli_store())
+store = CliStoreSingleton()
+for key in ("browser", "profile_path", "headless", "workers", "wait_timeout",
+            "logger", "video_dir", "trace_dir", "only", "exclude"):
+    print(f"{key}={store.get(key)}")
+```
+
+Cinq fichiers `.t` dédiés, qui reflètent la surface Selenium **moins** `--driver-path` (Playwright livre ses propres navigateurs) et **plus** `--video-dir` /&nbsp;`--trace-dir`&nbsp;:
+
+| Fichier                         | Vérifie                                                                       |
+| ------------------------------- | ----------------------------------------------------------------------------- |
+| `pw_cli_defaults.t`             | Defaults Playwright parsés (`workers=5`, `wait_timeout=10`, `video_dir=None`) |
+| `pw_cli_help.t`                 | `--help` liste les flags&nbsp;: **pas** de `--driver-path`, mais `--video-dir` /&nbsp;`--trace-dir` |
+| `pw_cli_invalid_browser.t`      | `--browser=banana` lève (seuls `chromium`/`firefox`/`webkit`)                 |
+| `pw_cli_invalid_wait_timeout.t` | `--wait-timeout=0` lève                                                        |
+| `pw_cli_only_exclude_mutex.t`   | `--only` et `--exclude` ensemble lève                                          |
+
+Même philosophie que côté Selenium&nbsp;: on `grep` les flags, on `sort -u`, on ne teste pas la sortie complète d'argparse. La CLI est une surface utilisateur&nbsp;—&nbsp;cram est l'outil naturel, quel que soit le backend.
+
 ## `Makefile`
 
 ```makefile

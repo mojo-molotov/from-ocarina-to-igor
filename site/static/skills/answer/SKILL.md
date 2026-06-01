@@ -138,7 +138,7 @@ In both modes, use the boundaries below to be specific about why.
 
 ### The primer's known boundaries
 
-- **Versioned to v1.1.3.** Post-1.1.3 API changes aren't here.
+- **Versioned to v1.1.8.** Post-1.1.8 API changes aren't here.
 - **No runtime state.** Secrets, live Redis keys, current OTP values, current deployments — never documented.
 - **Igoristan routes are structural, not behavioral.** The primer describes what each route is for, not the JS/TS implementation detail.
 - **No step-by-step debugging procedures.** Selenium/geckodriver troubleshooting isn't covered.

@@ -1,6 +1,6 @@
 ---
 title: "04.03 — Scenario tests (pytest + allure)"
-description: "Ocarina's thirteen scenario test files under pytest and allure, dynamically covering the DSL and the orchestration."
+description: "Ocarina's fifteen scenario test files under pytest and allure, dynamically covering the DSL, the orchestration and the Playwright actor."
 weight: 3
 date: 2026-05-20
 series: ["internal-tests"]
@@ -9,7 +9,7 @@ series_order: 3
 
 # 04.03&nbsp;—&nbsp;Scenario tests (pytest + allure)
 
-> 13 `test_*.py` files in `tests/scenarios/` cover the DSL and orchestration. Dynamic tests.
+> 15 `test_*.py` files in `tests/scenarios/` cover the DSL, orchestration and the Playwright actor. Dynamic tests.
 
 ## Listing
 
@@ -24,6 +24,8 @@ tests/scenarios/
 ├── test_screenshotter.py                    # Screenshotter (single shot, burst, healthcheck, threadsafety)
 ├── test_driver_builder.py                   # DriverBuilder (profile tmp dir, dispose)
 ├── test_watcher.py                          # Watcher (start, stop, callback errors swallowed, dedup cache)
+├── test_playwright_driver_actor.py          # PlaywrightDriver actor (sync_playwright mocked, no browser)
+├── test_playwright_adapter.py               # real-browser smoke (skipped if no Chromium installed)
 ├── test_test_suite.py                       # TestSuite (parallel, saturation, only/exclude, transient_errors)
 ├── test_test_cycle_and_bootstrap.py         # TestCycle, mode fail-fast vs wait-for-all, bootstrap
 ├── test_loggers_and_reports.py              # PrintLogger, FileLogger, pretty_print, JSON
@@ -122,6 +124,36 @@ Uses a `FakeDriverFactory` that can be configured to raise / block / sleep, and 
 - Creates a unique subfolder under `output_root`.
 
 Note: this test produces real `.docx` files validated by `python-docx`.
+
+## The two Playwright tests
+
+The [Playwright actor](../02-ocarina/10-infra/06-playwright-actor.md) is the riskiest piece of the adapter: cross-thread marshalling, liveness timeouts, driver death. So it is covered at **two levels**, which need different environments.
+
+| File                               | Real browser? | What it guards                                                                  |
+| ---------------------------------- | ------------- | ------------------------------------------------------------------------------- |
+| `test_playwright_driver_actor.py`  | **No** (mock) | The owner-thread marshalling logic, in isolation.                               |
+| `test_playwright_adapter.py`       | **Yes** (Chromium) | The real end-to-end: warmup, pool, mixin, screenshotter, watcher.          |
+
+### `test_playwright_driver_actor.py`&nbsp;—&nbsp;the actor without a browser
+
+`sync_playwright` is patched with a mock: **no Chromium is launched**. The file runs on any machine where the `playwright` package is importable (CI included), with no browser binary. It exercises the pure owner-thread logic:
+
+- `submit()` returns its value from a non-owner thread;
+- a re-entrant `submit()` (from the owner thread) raises instead of deadlocking;
+- the healthcheck returns silently for a _voluntarily disposed_ driver, but raises if a live driver actually crashes;
+- boot and `submit` overrunning their `call_timeout`&nbsp;→&nbsp;`DriverDiedError` **without hanging** (asserted with a wall-clock ceiling);
+- a dead driver rejects all further use;
+- no owner-thread _leak_ on normal disposal, nor after a driver dies.
+
+### `test_playwright_adapter.py`&nbsp;—&nbsp;real-browser smoke
+
+Skipped automatically when Playwright's Chromium binary is not installed: CI without browsers stays green. The adapter is excluded from coverage (like the Selenium one) because it can only be exercised against a real browser. These tests guard the genuinely novel parts of the adapter, with no Selenium equivalent:
+
+- the single-owner-thread actor surviving cross-thread use;
+- pool warmup handing a driver from the warmup thread to a worker thread;
+- the `PlaywrightTitleMixin` and screenshotter marshalling through the owner thread;
+- a watcher reading the page via `submit` (observe-only);
+- actually writing a `trace_<id>.zip` and a session video.
 
 ## Conventions
 

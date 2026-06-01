@@ -96,6 +96,36 @@ We don't test `--help`'s **full output** (it shifts with argparse versions), jus
 
 We test what matters, nothing more.
 
+## The Playwright `.t` files
+
+The Playwright launcher has its own CLI (a `PlaywrightCliStoreSingleton`), hence its own cram runner: `_demo_pw_cli.py`, which prints the Playwright store instead of the Selenium one.
+
+```python
+# tests/cram/_demo_pw_cli.py
+from ocarina.opinionated.cli.playwright.cli_store_singleton import (
+    PlaywrightCliStoreSingleton as CliStoreSingleton,
+)
+from ocarina.opinionated.cli.playwright.create_cli_store import create_playwright_cli_store
+
+CliStoreSingleton().push(create_playwright_cli_store())
+store = CliStoreSingleton()
+for key in ("browser", "profile_path", "headless", "workers", "wait_timeout",
+            "logger", "video_dir", "trace_dir", "only", "exclude"):
+    print(f"{key}={store.get(key)}")
+```
+
+Five dedicated `.t` files, mirroring the Selenium surface **minus** `--driver-path` (Playwright ships its own browsers) and **plus** `--video-dir` /&nbsp;`--trace-dir`:
+
+| File                            | Checks                                                                          |
+| ------------------------------- | ------------------------------------------------------------------------------- |
+| `pw_cli_defaults.t`             | Playwright defaults parsed (`workers=5`, `wait_timeout=10`, `video_dir=None`)   |
+| `pw_cli_help.t`                 | `--help` lists the flags: **no** `--driver-path`, but `--video-dir` /&nbsp;`--trace-dir` |
+| `pw_cli_invalid_browser.t`      | `--browser=banana` raises (only `chromium`/`firefox`/`webkit`)                  |
+| `pw_cli_invalid_wait_timeout.t` | `--wait-timeout=0` raises                                                        |
+| `pw_cli_only_exclude_mutex.t`   | `--only` and `--exclude` together raises                                        |
+
+Same philosophy as the Selenium side: `grep` the flags, `sort -u`, never test argparse's full output. The CLI is a user surface&nbsp;—&nbsp;cram is the natural tool, whatever the backend.
+
 ## `Makefile`
 
 ```makefile

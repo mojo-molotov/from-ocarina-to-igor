@@ -6,7 +6,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/02-ocarina/`
 
 | File | Description |
 | --- | --- |
-| `01-identity.md` | Technical identity: Python 3.14+, v1.1.3, single runtime dependency (`python-docx`), `mypy --strict`, MIT. |
+| `01-identity.md` | Technical identity: Python 3.14+, v1.1.8, single runtime dependency (`python-docx`), `mypy --strict`, MIT. |
 | `02-module-tree.md` | Full Python module tree with layered ASCII diagram. **Contains ASCII diagram.** |
 | `03-railway/01-result.md` | `Result[T] = Ok[T] | Fail` discriminated union. `Fail` is not generic — the error channel is always `Exception` (deliberate KISS choice). The base type of the entire railway. |
 | `03-railway/02-action-chain-states.md` | `ActionChain` type-state builder: ActionStart → ActionFailure → ActionSuccess → ActionChain, with a parallel Neutral* chain (NeutralActionStart/Failure/Success) implementing railway short-circuiting while keeping the fluent API. **Contains ASCII diagram.** |
@@ -37,7 +37,8 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/02-ocarina/`
 | `10-infra/02-driver-builder.md` | `DriverBuilder`: constructs Firefox/Chrome WebDrivers with options. |
 | `10-infra/03-screenshotter.md` | `Screenshotter`: `ITakeScreenshot` implementation. |
 | `10-infra/04-act-counter.md` | `ActCounter`: counts actions for saturation and metrics. |
-| `10-infra/05-selenium-adapters.md` | Selenium adapters: typed wrappers around raw WebDriver calls. As of v1.1.3 a parallel Playwright adapter ships under `infra/playwright/`; the page also explains its `PlaywrightDriver` actor — Playwright's sync API is thread-affine, so all calls are marshalled onto one owner thread via `submit()` to stay compatible with Ocarina's threaded pool/warmup/Watcher. |
+| `10-infra/05-selenium-adapters.md` | Selenium adapters: typed wrappers around raw WebDriver calls. As of v1.1.3 a parallel Playwright adapter ships under `infra/playwright/`; this page covers the Selenium side and points to the dedicated actor page for the Playwright concurrency model. |
+| `10-infra/06-playwright-actor.md` | The `PlaywrightDriver` actor (the one extra file the Playwright adapter adds). Playwright's sync API is thread-affine (`greenlet.error` across threads), colliding with Ocarina's threaded pool/warmup/Watcher. The fix: confine all Playwright to one daemon owner thread, marshal every call via `submit()`, and bound it with a `call_timeout` liveness ceiling that turns a wedged/dead driver into `DriverDiedError` instead of a hang (`is_dead` vs `is_closed`). Why a hand-rolled daemon thread and not `ThreadPoolExecutor(max_workers=1)`: the executor's `atexit` join would hang on a dead pipe. Covers cross-thread warmup safety and the observe-only Watcher convention. |
 | `11-opinionated/01-cli-builder.md` | `CLIBuilder`: Click-based CLI construction for test suites. |
 | `11-opinionated/02-cli-store-phantoms.md` | Store and phantom CLI parameters. |
 | `11-opinionated/03-selenium-cli.md` | `SeleniumCLI`: opinionated CLI entry point for Selenium campaigns. A parallel Playwright CLI store ships in `opinionated/cli/playwright/` (v1.1.3). |
@@ -75,7 +76,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/02-ocarina/`
 
 ## Not covered here
 
-Private helpers, internal test utilities beyond the documented families, deprecated APIs, API changes after v1.1.3. Runtime debugging (geckodriver troubleshooting, Selenium session errors) is not documented.
+Private helpers, internal test utilities beyond the documented families, deprecated APIs, API changes after v1.1.8. Runtime debugging (geckodriver troubleshooting, Selenium session errors) is not documented.
 
 ## Going deeper
 
