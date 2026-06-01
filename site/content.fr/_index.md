@@ -1,6 +1,6 @@
 ---
 title: "Ocarina — précis"
-description: "Le précis Ocarina : un parcours complet du framework, de l'écosystème, de la philosophie et du manifeste, du big picture aux références."
+description: "Le précis Ocarina : un parcours complet du framework, de l'écosystème, de la philosophie et du manifeste, de la big picture aux références."
 weight: 0
 date: 2026-05-20
 ---
