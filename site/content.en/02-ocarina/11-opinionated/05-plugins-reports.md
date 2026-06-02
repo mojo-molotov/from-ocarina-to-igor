@@ -95,6 +95,7 @@ def generate_docx_proof(
     logs_root: Path,
     output_root: Path,
     logger: ILogger,
+    max_workers: int = 1,
 ) -> None:
     """Transform text log files from automated tests into formatted Word documents,
     including screenshots."""
@@ -109,6 +110,22 @@ def generate_docx_proof(
    - Heading 3: case name.
    - Body: log lines, with UTC dates converted to local time.
    - When a line contains `"Screenshot: <path>"`: inserts the image.
+
+### Parallel generation (since 1.1.9)
+
+Each case is an independent unit of disk I/O — it reads its own log, builds its
+own `Document`, and writes a unique output path — so the cases parallelise
+cleanly. Since Ocarina `1.1.9`, generation is opt-in parallel via `max_workers`:
+
+- **`max_workers <= 1` (default)**: the original sequential path, verbatim — no
+  list materialization, no pool, no thread.
+- **`max_workers > 1`**: cases are fanned out across a `ThreadPoolExecutor`,
+  clamped to at most the number of cases. The only shared object is the
+  `logger`; its interleaved writes are harmless for a best-effort reporter.
+
+The gain is real but hard to pin to a single multiplier — it depends on case
+count, log size and image weight. On `ocarina-with-playwright-example`'s e2e CI
+(50 DOCX), turning it on roughly halves the DOCX-generation phase.
 
 ```python
 _DEFAULT_UTC_DATE_REGEX = re.compile(r"\[UTC_DATE::([^]]+)]")
@@ -222,7 +239,7 @@ def run_plugins(*plugins: Effect, exceptions_logger: ILogger) -> None:
 - **N plugins → ThreadPoolExecutor(max_workers=N)**: all in parallel.
 - **No plugin can kill the others**: every plugin runs inside `_run_plugin`, which catches + logs via `exceptions_logger`.
 
-`generate_docx_proof` can take 10s (log parsing, Word generation, image insertion); `generate_json_results` takes 0.1s. Together in parallel: ~10s, not 10.1s.
+`generate_docx_proof` is the heavy plugin (log parsing, Word generation, image insertion); `generate_json_results` takes 0.1s. Run together, the elapsed real time is the slowest plugin, not the sum. And since `1.1.9` even that long pole parallelizes internally (see the parallel-generation note above), so it no longer dominates the way it used to.
 
 ## Why `run_plugins` takes `results` _as an argument_
 

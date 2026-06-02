@@ -25,7 +25,7 @@ type Mode = Literal[
 
 | Mode                                                        | Comportement                                                                                               |
 | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `fail-fast-on-first-smoke-campaigns-sequence-fail` (défaut) | Dès qu'une campagne de smoke fail, les **suivantes** sont _skippées_.                                      |
+| `fail-fast-on-first-smoke-campaigns-sequence-fail` (par défaut) | Dès qu'une campagne de smoke fail, les **suivantes** sont _skippées_.                                      |
 | `wait-for-all-smoke-tests`                                  | **Toutes** les campagnes de smoke s'exécutent. Si _au moins une_ fail, les campagnes _main_ sont skippées. |
 
 | Cas                                                                           | Mode                                                 |

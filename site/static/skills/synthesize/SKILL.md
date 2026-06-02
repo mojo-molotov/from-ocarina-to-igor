@@ -101,6 +101,6 @@ Rules:
 
 After the cross-ref synthesis, check:
 
-- Is one side of the relationship **not covered** in the primer? Say which side and why (runtime state, post-1.1.8, business logic detail).
+- Is one side of the relationship **not covered** in the primer? Say which side and why (runtime state, post-1.1.9, business logic detail).
 - Is the connection **inferred** rather than documented? Label it as such.
 - Does the question actually require going outside the primer (Holy Book, source code)? Say so explicitly and point to `answer/SKILL.md`'s gap recovery section for the next step.

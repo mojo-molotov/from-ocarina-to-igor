@@ -7,7 +7,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/02-ocarina/`
 | File | Description |
 | --- | --- |
 | `_index.md` | Chapter landing page. Framing + reading order: a layered walk from the deepest layer (the `Result[T]` type) up to the most visible (`bootstrap`, which boots everything). |
-| `01-identity.md` | Technical identity: Python 3.14+, v1.1.8, single runtime dependency (`python-docx`), `mypy --strict`, MIT. |
+| `01-identity.md` | Technical identity: Python 3.14+, v1.1.9, single runtime dependency (`python-docx`), `mypy --strict`, MIT. |
 | `02-module-tree.md` | Full Python module tree with layered ASCII diagram. **Contains ASCII diagram.** |
 | `03-railway/01-result.md` | `Result[T] = Ok[T] | Fail` discriminated union. `Fail` is not generic — the error channel is always `Exception` (deliberate KISS choice). The base type of the entire railway. |
 | `03-railway/02-action-chain-states.md` | `ActionChain` type-state builder: ActionStart → ActionFailure → ActionSuccess → ActionChain, with a parallel Neutral* chain (NeutralActionStart/Failure/Success) implementing railway short-circuiting while keeping the fluent API. **Contains ASCII diagram.** |
@@ -44,7 +44,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/02-ocarina/`
 | `11-opinionated/02-cli-store-phantoms.md` | Store and phantom CLI parameters. |
 | `11-opinionated/03-selenium-cli.md` | `SeleniumCLI`: opinionated CLI entry point for Selenium campaigns. A parallel Playwright CLI store ships in `opinionated/cli/playwright/` (v1.1.3). |
 | `11-opinionated/04-loggers.md` | Built-in loggers: console, file, structured. |
-| `11-opinionated/05-plugins-reports.md` | Reporter plugins: Allure, JSON, composite. |
+| `11-opinionated/05-plugins-reports.md` | Opt-in report plugins: `pretty_print_results`, `results_to_json`, `generate_docx_proof`, `timing`, run via `run_plugins` (1 plugin → sequential; N → `ThreadPoolExecutor(max_workers=N)`). Since v1.1.9 `generate_docx_proof` also parallelizes internally per case via an opt-in `max_workers` (default 1 = verbatim sequential path). |
 | `11-opinionated/06-bootstrap-launcher.md` | `bootstrap`: the one function that wires everything and starts the campaign. |
 | `12-custom-types-errors.md` | Custom types (`PageUrl`, `TestId`, …) and custom error hierarchy. |
 
@@ -57,6 +57,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/02-ocarina/`
 - **Ports**: Ocarina core depends on two interfaces (`ILogger`, `ITakeScreenshot`). Everything else is a detail.
 - **Dual backend behind the ports**: since v1.1.3 the framework ships **two** driver adapters — Selenium and Playwright — in parallel under `custom_types/`, `dsl/testing/`, `infra/`, `pom/` and `opinionated/cli/` (each has a `selenium/` and a `playwright/` subpackage). The pure DSL and the orchestration stay backend-agnostic; only the leaf `infra/<backend>/` and `pom/<backend>/` folders know the concrete driver. Adding Puppeteer or a fake driver is the same exercise.
 - **Single runtime dep**: only `python-docx` (used by the `generate_docx_proof` report plugin). Selenium and Playwright are dev/optional dependencies for their respective shipped adapters (v1.1.3), not runtime deps. No test runner, no assertion lib, no fixture framework.
+- **DOCX plugin parallelizes (v1.1.9)**: `generate_docx_proof(..., max_workers=N)` fans each test case (independent disk I/O — own log, own `Document`, unique output path) across a `ThreadPoolExecutor` clamped to the case count; the only shared object is the `logger` (harmless interleaving). `max_workers <= 1` (default) keeps the original sequential path verbatim — no list materialization, no pool, no thread. Measured on `ocarina-with-playwright-example`'s e2e CI generating 50 DOCX: the report-plugin phase (DOCX is the long pole) dropped from ~3.3s to ~1.8s between the pre-1.1.9 sequential runs (≤ 2026-06-01) and the 1.1.9 parallel runs (2026-06-02), timed from the run-log UTC timestamps spanning the first plugin line to "Generate DOCX proofs plugin — Plugin execution done".
 - **Playwright actor (owner thread)**: Playwright's sync API is thread-affine (`greenlet.error` across threads), so `PlaywrightDriver` owns one **daemon** thread and marshals every call onto it via `submit()`. `call_timeout` is a liveness ceiling (not a per-op deadline) that turns a wedged driver into `DriverDiedError` (`is_dead` ≠ `is_closed`). A hand-rolled daemon thread is used instead of `ThreadPoolExecutor(max_workers=1)` (whose `atexit` join would hang on a dead pipe), which keeps cross-thread warmup safe; the Watcher may read via `submit` but must stay observe-only.
 - **`mypy --strict`**: the entire framework is fully typed. Type errors are caught statically.
 - **Reading order** (chapter framing): the chapter is a layered walk from the deepest layer (the `Result[T]` type) up to the most visible (`bootstrap`, the one function that boots everything) — read it in that direction.
@@ -80,7 +81,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/02-ocarina/`
 
 ## Not covered here
 
-Private helpers, internal test utilities beyond the documented families, deprecated APIs, API changes after v1.1.8. Runtime debugging (geckodriver troubleshooting, Selenium session errors) is not documented.
+Private helpers, internal test utilities beyond the documented families, deprecated APIs, API changes after v1.1.9. Runtime debugging (geckodriver troubleshooting, Selenium session errors) is not documented.
 
 ## Going deeper
 

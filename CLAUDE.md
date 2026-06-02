@@ -1,5 +1,13 @@
 # CLAUDE.md
 
+## Pull requests: always in English
+
+Pull requests on this repo are **always written in English** — title AND body,
+with no exception. This holds even when the change is entirely about French
+content (`site/content.fr/`) and even when the whole conversation with the user
+is in French. The site is bilingual, but the project's PRs (like commit
+messages) are English-only. Never open or edit a PR with a French title or body.
+
 ## Prompts: reusable task playbooks
 
 The `prompts/` directory holds reusable workflow prompts for recurring tasks on
@@ -64,11 +72,23 @@ Watch for these traps (real ones that slipped through before):
   l'IA pour une mission" (a noun like "engagement" doesn't *accorder* anything;
   it's the human/the mission that sets the bounds)
 - ❌ "blast radius" rendered literally → ✅ "ce qu'un changement touche en aval"
+- ❌ "(défaut)" for a default value → ✅ "(par défaut)" (calque of "(default)";
+  in French it is always *par défaut* — "défaut" alone means a flaw, not a
+  default value)
 
 Rule: after translating, reread the French alone. If a phrase sounds like
 English wearing French words, rewrite it. Keep the project's own established
 vocabulary (e.g. "un rouge"/"un vert" for test status, "flake"/"flakiness",
 "smoke-gate") — that is house lexicon, not calque.
+
+Rule: do **two to five anti-calque passes** before presenting French — never
+ship a first draft. A single pass reliably leaves calque in. On each pass,
+reread the French *alone* (ignore the English source) and hunt specifically
+for: noun-phrase calques ("unité d'I/O disque", "le plugin lourd"), verb+object
+calques ("écrit un chemin", "ramener à un multiplicateur"), and English
+code-jargon metaphors ("chemin" for a code path, "long pole"). Rewrite each,
+then pass again — repeat until a read-through trips on nothing. Only then is it
+ready. Do not make the reader be the one who catches the calque.
 
 ## Vocabulary: concurrent programming
 

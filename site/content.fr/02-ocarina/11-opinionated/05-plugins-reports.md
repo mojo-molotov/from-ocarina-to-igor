@@ -95,6 +95,7 @@ def generate_docx_proof(
     logs_root: Path,
     output_root: Path,
     logger: ILogger,
+    max_workers: int = 1,
 ) -> None:
     """Transform text log files from automated tests into formatted Word documents,
     including screenshots."""
@@ -109,6 +110,25 @@ def generate_docx_proof(
    - Heading 3&nbsp;: nom de cas.
    - Body&nbsp;: lignes des logs, avec dates UTC adaptées à l'heure locale.
    - Quand la ligne contient `"Screenshot: <path>"`&nbsp;: insère l'image.
+
+### Génération parallélisée (depuis 1.1.9)
+
+Chaque cas constitue une opération disque indépendante&nbsp;: il lit son log,
+construit son `Document` et écrit dans un fichier de sortie qui lui est propre.
+Les cas se parallélisent donc sans accroc. Depuis Ocarina `1.1.9`, la
+génération peut être parallélisée à la demande, via `max_workers`&nbsp;:
+
+- **`max_workers <= 1` (par défaut)**&nbsp;: le traitement séquentiel d'origine,
+  inchangé — aucune liste matérialisée, aucun pool, aucun thread.
+- **`max_workers > 1`**&nbsp;: les cas sont répartis sur un `ThreadPoolExecutor`
+  dont le nombre de workers est borné au nombre de cas. Le seul objet partagé
+  est le `logger`, dont les écritures peuvent s'entrelacer — sans conséquence
+  pour un reporter best-effort.
+
+Le gain est réel mais se prête mal à un multiplicateur unique&nbsp;: il dépend
+du nombre de cas, de la taille des logs et du poids des images. Sur la CI e2e
+d'`ocarina-with-playwright-example` (50 DOCX), l'activer divise presque par
+deux la durée de génération.
 
 ```python
 _DEFAULT_UTC_DATE_REGEX = re.compile(r"\[UTC_DATE::([^]]+)]")
@@ -222,7 +242,7 @@ def run_plugins(*plugins: Effect, exceptions_logger: ILogger) -> None:
 - **N plugins&nbsp;→&nbsp;ThreadPoolExecutor(max_workers=N)**&nbsp;: tous en parallèle.
 - **Aucun plugin ne tue les autres**&nbsp;: chaque plugin est wrappé dans `_run_plugin` qui catch + log via `exceptions_logger`.
 
-`generate_docx_proof` peut prendre 10s (parse de logs, génération Word, insertion images), `generate_json_results` prend 0.1s. Les deux en parallèle prennent ~10s, pas 10.1s.
+`generate_docx_proof` est le plugin le plus coûteux (parse de logs, génération Word, insertion d'images)&nbsp;; `generate_json_results` prend 0.1s. Lancés ensemble, le temps réel écoulé est celui du plugin le plus lent, pas leur somme. Et depuis `1.1.9`, ce goulot se parallélise lui aussi en interne (voir la note sur la génération parallélisée plus haut)&nbsp;: il ne pèse plus autant qu'avant.
 
 ## Pourquoi `run_plugins` prend `results` _en argument_
 
