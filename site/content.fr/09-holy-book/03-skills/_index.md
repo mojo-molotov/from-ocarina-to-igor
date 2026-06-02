@@ -47,6 +47,7 @@ Le plugin `docs/.vitepress/plugins/skills.ts` traverse ce dossier et les copie p
 | 07  | [Refactor](07-refactor.md)     | Refactor, DRY, introduction de retries dans les POM                                  |
 | 08  | [State](08-state.md)           | Questionne les états dans le SUT (bouchons, persistance des données...)              |
 | 09  | [Setup](09-setup.md)           | Préparer l'environnement (`setup-environment`) + cadrer la latitude laissée à l'IA pour une mission (`profile-environment`) |
+| 10  | [Run](10-run.md)               | Choix d'avant-exécution (fenêtré vs headless) avant un lancement local               |
 | ... | ...                            | ...                                                                                  |
 
 ## «&nbsp;_Remonter, ne pas appliquer_&nbsp;»

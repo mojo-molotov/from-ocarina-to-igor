@@ -29,6 +29,7 @@ tags: ["holy-book", "watcher"]
 | `review-suite-stability`            | Évalue la stabilité d'une suite (proportion de retries, transient_errors hits)                                                             |
 | `review-intent-collisions`          | Détecte les tests qui s'écrasent mutuellement (intentions contradictoires) et demande/propose des clarifications                           |
 | `review-watcher-emissions`          | Audite les émissions de watchers (volume, déduplication, pertinence)                                                                       |
+| `review-hierarchy-naming`           | Audite le nommage de la hiérarchie (`TestCycle` / `TestCampaign` / `TestSuite` / `Test`) pour repérer l'antipattern où un enfant reprend le nom du parent |
 
 ## `review-dead-code`
 

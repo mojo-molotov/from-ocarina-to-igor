@@ -18,6 +18,7 @@ tags: ["holy-book"]
 | ---------------------------- | --------------------------------------------------------- |
 | `assess-test-base`           | Catalogue la base de test existante                       |
 | `assess-ecosystem`           | Recherche publique bornée, plafonnée par budget de tokens |
+| `assess-impact`              | Analyse d'impact : ce qu'un changement touche en aval, à travers le graphe de dépendances |
 | `understand-sut-constraints` | Comprend les "bornes" du SUT pour ne pas les dépasser     |
 | `understand-ocarina`         | Parcourt le Holy Book + le code source d'Ocarina          |
 
@@ -61,6 +62,18 @@ input  : sujet à comprendre (par exemple "comment CURA est-il déployé sur Her
 output : findings synthétisés, sources citées
 contrainte : budget de tokens — pas de recherche infinie
 ```
+
+## `assess-impact`
+
+```
+input  : un changement (modif du SUT / refactor prévu / une cause partagée trouvée par un diagnose-*)
+output : analyse de ce que le changement touche en aval :
+            - suit le changement à travers le graphe de dépendances
+            - classe chaque nœud touché :
+                cassé / affirmation périmée / test-gap susceptible de basculer / trou de couverture / franchissement de smoke-gate
+```
+
+L'inverse de la paire `diagnose-*`&nbsp;: les `diagnose-*` partent du symptôme et remontent jusqu'à la cause&nbsp;; `assess-impact` part du changement et trace ce qu'il touche en aval.
 
 ## `understand-sut-constraints`
 

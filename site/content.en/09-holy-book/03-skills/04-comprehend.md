@@ -18,6 +18,7 @@ tags: ["holy-book"]
 | ---------------------------- | ----------------------------------------------------------- |
 | `assess-test-base`           | Catalogs the existing test base                             |
 | `assess-ecosystem`           | Bounded public research, capped by a token budget           |
+| `assess-impact`              | Forward impact analysis: a change's blast radius through the dependency graph |
 | `understand-sut-constraints` | Understands the SUT's "boundaries" so as not to exceed them |
 | `understand-ocarina`         | Walks the Holy Book + Ocarina's source code                 |
 
@@ -61,6 +62,18 @@ input  : topic to understand (e.g. "how is CURA deployed on Heroku?")
 output : synthesized findings, sources cited
 constraint: token budget — no infinite searching
 ```
+
+## `assess-impact`
+
+```
+input  : a change (SUT change / planned refactor / a diagnose-* shared-component cause)
+output : forward blast-radius analysis:
+            - trace the change through the dependency graph
+            - classify each affected node:
+                broken / stale claim / gap-test-may-flip / coverage-gap / smoke-gate crossing
+```
+
+The **forward dual** of the `diagnose-*` pair: those walk the graph backward (symptom → cause), `assess-impact` walks it forward (change → blast radius).
 
 ## `understand-sut-constraints`
 

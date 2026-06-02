@@ -24,6 +24,7 @@ tags: ["holy-book"]
 | `manual-reproduction-guide` | Rédige un scénario de reproduction exécutable par un humain                      |
 | `manage-backlog`            | `BACKLOG.md`                                                                     |
 | `pr-report`                 | Rapport de PR adapté                                                             |
+| `plan-test-effort`          | Chiffrage de l'effort de test, première passe : exigences graduées, registre de risques allégé, poids relatifs (S / M / L), questions ouvertes |
 
 ## `empiricism`
 

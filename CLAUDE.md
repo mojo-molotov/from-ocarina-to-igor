@@ -47,6 +47,29 @@ Rule: leave every ASCII diagram exactly as it is. If a diagram seems wrong,
 ask before changing anything. Do not "clean up" diagrams as part of an
 unrelated edit.
 
+## French prose: no English calque
+
+When writing French (`site/content.fr/`), do not transpose English syntax word
+for word. Rethink the sentence in French — French word order, verbs, and idioms
+are not the English ones. This applies especially when translating an English
+article into its French counterpart: translate the *meaning*, not the structure.
+
+Watch for these traps (real ones that slipped through before):
+
+- ❌ "re-dérive l'échec" → ✅ "reprend l'analyse de zéro" (don't calque
+  "re-derive")
+- ❌ "échelle du synthétique au réel" → ✅ "remonte du synthétique vers le réel"
+- ❌ "plan d'effort de test" → ✅ "chiffrage de l'effort de test"
+- ❌ "la latitude que l'engagement accorde au LLM" → ✅ "la latitude laissée à
+  l'IA pour une mission" (a noun like "engagement" doesn't *accorder* anything;
+  it's the human/the mission that sets the bounds)
+- ❌ "blast radius" rendered literally → ✅ "ce qu'un changement touche en aval"
+
+Rule: after translating, reread the French alone. If a phrase sounds like
+English wearing French words, rewrite it. Keep the project's own established
+vocabulary (e.g. "un rouge"/"un vert" for test status, "flake"/"flakiness",
+"smoke-gate") — that is house lexicon, not calque.
+
 ## Vocabulary: concurrent programming
 
 When writing about concurrent execution in programming contexts, use:

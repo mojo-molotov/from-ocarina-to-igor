@@ -24,6 +24,7 @@ tags: ["holy-book"]
 | `manual-reproduction-guide` | Writes a step-by-step reproduction scenario executable by a human     |
 | `manage-backlog`            | `BACKLOG.md`                                                          |
 | `pr-report`                 | PR report adapted to context                                          |
+| `plan-test-effort`          | First-pass test-effort plan: graded requirements, lightweight risk register, relative effort weights (S / M / L), open questions |
 
 ## `empiricism`
 

@@ -47,6 +47,7 @@ The `docs/.vitepress/plugins/skills.ts` plugin walks this folder and copies them
 | 07  | [Refactor](07-refactor.md)     | Refactor, DRY, introduce retries in POMs                                 |
 | 08  | [State](08-state.md)           | Question SUT states (stubs, data persistence...)                         |
 | 09  | [Setup](09-setup.md)           | Set up the environment (`setup-environment`) + govern engagement latitude (`profile-environment`) |
+| 10  | [Run](10-run.md)               | Pre-run choices (headed vs headless) before a local dispatch                          |
 | ... | ...                            | ...                                                                      |
 
 ## "_Surface, don't apply_"

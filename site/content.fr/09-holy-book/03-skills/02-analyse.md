@@ -10,16 +10,42 @@ tags: ["holy-book"]
 
 # 09.03.02&nbsp;—&nbsp;Skills Analyse
 
-> Analyses **dynamiques**&nbsp;: utilisent les logs /&nbsp;les rapports d'une exécution récente pour diagnostiquer la flakiness.
+> Analyses **dynamiques**&nbsp;: utilisent les logs /&nbsp;les rapports d'une exécution récente pour diagnostiquer un échec. Deux skills de diagnostic de cause racine ouvrent la famille&nbsp;—&nbsp;`diagnose-root-cause` pour un rouge déterministe, `diagnose-flake-root-cause` pour un échec intermittent&nbsp;—&nbsp;et aiguillent vers les expériences contrôlées `analyse-*`.
 
 ## Listing (potentiellement non exhaustif)
 
 | Skill                          | Cible                                                                                     |
 | ------------------------------ | ----------------------------------------------------------------------------------------- |
+| `diagnose-root-cause`          | Analyse de cause racine d'un rouge **déterministe**&nbsp;: repart de zéro, remonte du synthétique vers le réel, cause triée en cinq familles |
+| `diagnose-flake-root-cause`    | Analyse de cause racine d'un échec **intermittent** (un flake)&nbsp;: taux d'échec, signature, corrélation&nbsp;; orchestre les expériences `analyse-*` |
 | `analyse-flakiness`            | Élargit le filet des `transient_errors`&nbsp;; les morts chroniques sont de vraies flakes |
 | `analyse-fixture-flakiness`    | Instrumente setup/teardown&nbsp;; rend visibles les contaminations entre tests            |
 | `analyse-watcher-flakiness`    | Analyse la fiabilité des watchers (volume, dedupe, faux positifs)                         |
 | `analyse-screenshot-flakiness` | Regroupe les captures d'écran par `(test, étape, navigateur)`, détecte les différences    |
+
+## `diagnose-root-cause`
+
+```
+input  : un rouge déterministe (échoue à chaque exécution)
+output : analyse de cause racine structurée :
+            - reprend l'analyse de zéro, sans réutiliser les hypothèses précédentes
+            - remonte du synthétique vers le réel (faux driver → vrai navigateur)
+            - lit la source, confirme avec une sonde
+            - cause racine triée en cinq familles
+         passe la main à diagnose-flake-root-cause si l'échec se révèle intermittent
+```
+
+## `diagnose-flake-root-cause`
+
+```
+input  : un échec intermittent (un flake)
+output : analyse de cause racine fondée sur la distribution :
+            - établit un taux d'échec (la distribution est la preuve)
+            - fixe la signature, corrèle
+            - aiguille vers la bonne expérience analyse-*, augmente le taux pour confirmer
+            - classe en cinq familles de flakes
+         l'orchestrateur de la famille analyse-*
+```
 
 ## `analyse-flakiness`
 

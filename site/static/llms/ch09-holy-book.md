@@ -8,10 +8,10 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/09-holy-book
 | --- | --- |
 | `_index.md` | Chapter landing page. "Goals": the Holy Book exists as much for LLMs as for humans (generates llms.txt/llms-full.txt, exposes CLAUDE.md/CLAUDE.slim.md, FR/EN/RU PDFs, 40+ skills). "Ideology": code is raw data, a white box — what AI has worked with from the start. Carries the docs/ page list mapping files to Holy Book chapters. |
 | `01-stack-vitepress.md` | VitePress 2 alpha + @sugarat theme + in-house plugins + Pagefind local search. Build toolchain. |
-| `02-i18n.md` | Internationalization: FR (primary) / EN / RU. Page structure, translation conventions, fallback behavior. |
-| `03-skills/_index.md` | Skills taxonomy map: 40+ LLM procedures grouped into families (review, analyse, black-hat, comprehend, pick, author, refactor, state, setup). **Contains ASCII diagram.** |
+| `02-i18n.md` | Internationalization: EN at the `docs/` root (default locale) / FR (`docs/fr/`) / RU (`docs/ru/`). Page structure, translation conventions; every page exists in all three. |
+| `03-skills/_index.md` | Skills taxonomy map: 40+ LLM procedures grouped into families (review, analyse, black-hat, comprehend, pick, author, refactor, state, setup, run). **Contains ASCII diagram.** |
 | `03-skills/01-review.md` | `review` skill family: code review procedures. |
-| `03-skills/02-analyse.md` | `analyse` skill family: analysis procedures. |
+| `03-skills/02-analyse.md` | `analyse` skill family: the `diagnose-root-cause` / `diagnose-flake-root-cause` orchestrators in front of the `analyse-*` flakiness experiments. |
 | `03-skills/03-black-hat.md` | `black-hat` skill family: adversarial testing procedures. |
 | `03-skills/04-comprehend.md` | `comprehend` skill family: understanding procedures. |
 | `03-skills/05-pick.md` | `pick` skill family: selection / decision procedures. |
@@ -19,6 +19,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/09-holy-book
 | `03-skills/07-refactor.md` | `refactor` skill family: refactoring procedures. |
 | `03-skills/08-state.md` | `state` skill family: state-management procedures. |
 | `03-skills/09-setup.md` | `setup` skill family: `setup-environment` (onboarding) + `profile-environment` (engagement-latitude governance, emits a `CLAUDE.profile.md` appendix that `setup-environment` concatenates into `CLAUDE.md`). |
+| `03-skills/10-run.md` | `run` skill family: `propose-visual-review` (headed vs headless choice before a local dispatch, command composed for the user to launch). |
 | `04-claude-md.md` | `CLAUDE.md` / `CLAUDE.slim.md` structure and content, exposed publicly on the Holy Book site. **Contains ASCII diagram.** |
 | `05-pdf-generation.md` | FR/EN/RU PDF generation pipeline via `prompts/generate-books/`. Reportlab + AI orchestration. **Contains ASCII diagram.** |
 | `06-public-resources.md` | Table of all public URLs: `llms.txt`, `llms-full.txt`, PDFs, skills directory, Allure report, GitHub repos. |

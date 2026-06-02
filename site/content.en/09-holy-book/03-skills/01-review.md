@@ -29,6 +29,7 @@ tags: ["holy-book", "watcher"]
 | `review-suite-stability`            | Evaluates a suite's stability (proportion of retries, transient_errors hits)                                           |
 | `review-intent-collisions`          | Detects tests that overwrite each other (conflicting intents) and asks/proposes clarifications                         |
 | `review-watcher-emissions`          | Audits watcher emissions (volume, dedup, relevance)                                                                    |
+| `review-hierarchy-naming`           | Audits the test-hierarchy naming (`TestCycle` / `TestCampaign` / `TestSuite` / `Test`) for the lazy-naming antipattern where a child carries the parent's name |
 
 ## `review-dead-code`
 
