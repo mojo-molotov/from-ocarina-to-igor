@@ -6,6 +6,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/07-ocarina-e
 
 | File | Description |
 | --- | --- |
+| `_index.md` | Chapter landing page. Holy Book "First steps" quote naming `ocarina-example` the source of truth. Carries the `main.py` bootstrap snippet and the e2e `TestCycle` composition: mode `wait-for-all-smoke-tests`, 2 smoke campaigns (global + corsicamon) + 4 main campaigns (login, randomness, sacred upload, corsicamon). |
 | `01-tree.md` | Full `src/` tree: `pages/`, `lib/`, `api/`, `caches/`, `constants/`, `tests/`. **Contains ASCII diagram.** |
 | `02-adapters.md` | The 5 adapters: `act`, `match_page`, `TestSuite`, `TestCampaign`, `EnvGetters` — how to specialize Ocarina for a project. |
 | `03-scenarios-login.md` | Dashboard login scenarios: happy path, unhappy path, data-driven (multiple credentials). |
@@ -27,6 +28,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/07-ocarina-e
 - **`EnvGetters`**: typed access to environment variables. Two `Literal` type parameters enumerate the allowed credential keys and value keys — accessing an undefined key is a type error.
 - **`catch_me_if_you_can`**: the canonical `Watcher` example. Registers a lazy callback that fires when the chaotic form reaches an observable state. Documents the Watcher pattern in real use.
 - **CI**: `e2e.yml` spins up a Redis service container, downloads geckodriver manually, and runs the full e2e campaign against the live Igoristan site.
+- **Source of truth** (framing): the Holy Book names `ocarina-example` *the* canonical reference — any "how do I do X" starts with "look at how it's done here". The chapter landing page shows the `main.py` bootstrap and the e2e `TestCycle` composition: mode `wait-for-all-smoke-tests`, 2 smoke campaigns (global + corsicamon) + 4 main campaigns (login, randomness, sacred upload, corsicamon).
 
 ## Diagrams
 

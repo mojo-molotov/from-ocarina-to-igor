@@ -6,6 +6,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/99-reference
 
 | File | Description |
 | --- | --- |
+| `_index.md` | Chapter landing page. Framing: glossary, file index and cited people — the lookup chapter for a precise term or source file. |
 | `01-glossary.md` | Full glossary: ROP, ISTQB, Ocarina-specific terms, functional programming concepts, security terminology. |
 | `02-file-index.md` | Per-repo index of every source file cited in the primer, with the article(s) that cite it. |
 

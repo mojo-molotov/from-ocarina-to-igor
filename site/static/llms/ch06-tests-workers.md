@@ -6,6 +6,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/06-tests-wor
 
 | File | Description |
 | --- | --- |
+| `_index.md` | Chapter landing page. "Goals": ~7 TypeScript files total (3 endpoints, 2 `lib/`, 1 `consts/`) plus `package.json`/`vercel.json`, "deployable in 30 seconds" by a human. The only repo in the ecosystem under ISC (not MIT). |
 | `01-stack-edge.md` | Stack: Vercel Edge Functions (`runtime: "edge"`), Upstash Redis, `otplib`. Three endpoints, two lib files, zero Next.js app code. |
 | `02-otp-endpoint.md` | `GET /api/otp` — generates a TOTP code, stores event in Redis, returns free payload. |
 | `03-otp-history.md` | `GET /api/otp-history` — Redis SCAN + returns every OTP event ever generated (for test assertions). |
@@ -22,6 +23,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/06-tests-wor
 - **Vercel Edge**: deployed to Vercel's edge network. The `runtime: "edge"` pragma means the functions run in V8 isolates, not Node.js. This constrains available APIs — hence Upstash (REST-based Redis, edge-compatible) instead of standard Redis clients.
 - **Authorization**: every endpoint checks for a shared API key. Tests must supply it via header or query param.
 - **No GitHub CI**: `tests-workers` has no GitHub Actions workflows. Deployment is handled automatically by Vercel on push to main. **Contains ASCII diagram** (article 07).
+- **Deliberately tiny** (goals): ~7 TypeScript files total (3 endpoints, 2 `lib/`, 1 `consts/`) plus `package.json`/`vercel.json`, "deployable in 30 seconds" by a human (`pnpm install` → `vercel env add` → `vercel deploy`). It is the only repo in the ecosystem under **ISC** (not MIT), kept from the Vercel scaffold default.
 
 ## Diagrams
 

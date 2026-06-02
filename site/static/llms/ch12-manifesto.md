@@ -6,6 +6,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/12-manifesto
 
 | File | Description |
 | --- | --- |
+| `_index.md` | Chapter landing page. Framing: you don't adopt Ocarina because it's good — you adopt it because you heard the slogan, and the slogan comes from elsewhere; that elsewhere is documented here. "Why the culture?": the technique (ROP, types, laziness, composition) is coherent because it's animated by an ethic from the 1999–2011 hacker scene. |
 | `01-sourced-citations.md` | Every quote in the Holy Book manifesto, attributed to its source. Full citation table. |
 | `02-lulzsec-lulzboat-antisec.md` | LulzSec, the Lulzboat, Operation AntiSec, the original AntiSec movement (1999). Why these are cited. |
 | `03-ytcracker-nerdcore-digital-gangster.md` | YTCracker (Bryce Case Jr.), Nerdcore hip-hop, Digital Gangster forum (2005), NASA hack 1999. Source of "live as a white hat, or die as a black hat". |
@@ -36,6 +37,8 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/12-manifesto
 - **SaaS refusal** has an economic argument: the SaaS industry's ARR fraud and LP/VC extraction model is documented. Ocarina's MIT + gift model is a political stance against this.
 - **Survivor psyche**: the author's cohort experienced the 2000s underground internet (harassment, state-level threats in teenagers' bedrooms). The psychological adaptations (radical self-reliance, extreme diligence, distrust of institutions) are features of the code, not bugs.
 - **DEF CON** is the annual tribal validation venue. YTCracker's trajectory (NASA hack at 17 → DEF CON performer → corporate cybersec consulting) embodies "live as a white hat, or die as a black hat".
+- **You heard the slogan** (framing): you don't adopt Ocarina "because it's good" — you adopt it because you heard the slogan, and the slogan comes from *elsewhere*; that elsewhere is what this chapter documents.
+- **Why the culture?**: Ocarina's technique (ROP, types, laziness, composition) is coherent because it's animated by an *ethic* — the one drawn from the 1999–2011 hacker scene. The ethic isn't decoration; it's what ruled out every feature, DSL and shortcut. Reading `02-ocarina/*` without this is like understanding the instrument without hearing the score.
 
 ## Diagrams
 

@@ -6,6 +6,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/00-big-pictu
 
 | File | Description |
 | --- | --- |
+| `_index.md` | Chapter landing page. Framing: cartography of the ecosystem — who talks to whom, who depends on what, which way the data flows. Cross-links to philosophy (Ch 01), the framework (Ch 02), both example suites (Ch 07/08), the SUT (Ch 05) and the OTP/Corsicadex backend (Ch 06). |
 | `01-ecosystem-map.md` | ASCII diagram: the six repos on one map, their role, license, and the contract binding them. **Contains ASCII diagram.** |
 | `02-stack-matrix.md` | Tech stack per repo: language, runtime deps, build tool, deployment target, current version. |
 | `03-global-execution-flow.md` | End-to-end execution flow: USER → CLI → DriversPool → TestCycle → SUT → Plugins. **Contains ASCII diagram.** |

@@ -6,6 +6,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/01-philosoph
 
 | File | Description |
 | --- | --- |
+| `_index.md` | Chapter landing page. Framing: Ocarina is opinionated; the philosophy is the filter that killed every feature, DSL and shortcut along the way, not a decorative preamble. |
 | `01-flip-the-problem.md` | The bet opposite to Robot Framework / Cucumber: dissolve the technical/non-technical barrier with AI as the bridge, not a DSL. |
 | `02-istqb-vs-pytest.md` | Why ISTQB methodology is the reading grid and pytest/Jest/Mocha are hybrids. Consequence: the four-level hierarchy `Test → TestSuite → TestCampaign → TestCycle`. |
 | `03-kiss-and-complexity.md` | KISS done right: rejection of ostentatious complexity, rejection of "declarative object-oriented", rejection of rewriting in Rust. |
@@ -19,6 +20,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/01-philosoph
 - **KISS as a filter**: every feature, shortcut, and DSL that was refused was refused by applying KISS. The result is ~4,060 SLOC (AST count, excluding blank lines, comments and docstrings; ~8,700 raw lines in `src/`) with one runtime dependency (`python-docx`).
 - **Political stance**: Ocarina refuses SaaS, refuses `async`/`await` (not a testing concern), refuses No-Code (anti-intellectual), refuses careerist influencer culture.
 - **Citations are sourced**: every quote in the Holy Book manifesto has an attributed source. Ch 12 documents them all.
+- **Opinionated by design** (chapter framing): the philosophy isn't a decorative preamble — it's the filter that ruled out every feature, DSL and shortcut. Ocarina refuses to be all things to all people.
 
 ## Connections
 

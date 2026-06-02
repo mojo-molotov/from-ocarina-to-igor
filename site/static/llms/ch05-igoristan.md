@@ -6,6 +6,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/05-igoristan
 
 | File | Description |
 | --- | --- |
+| `_index.md` | Chapter landing page. "Why a deliberately chaotic SUT": a site that always works is useless for demoing a resilient framework. Carries the mechanic→page mapping table (transient_errors/replay, match_page/when, Watcher, Redis cache+locks, file upload, UI-side API key → the matching Igoristan pages). |
 | `01-stack.md` | Stack: React 19 / Vike SSG / Vite 7 / Tailwind 4 / Valibot / wireit / pnpm. Hosted on GitHub Pages. |
 | `02-routes.md` | The 10 routes, their role, and their deliberate dose of chaos (random errors, random loaders, fake auth). |
 | `03-use-auth.md` | The fake `useAuth` hook, MFA OTP flow, `Math.random() < 0.9` non-determinism. **Contains ASCII diagram.** |
@@ -22,6 +23,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/05-igoristan
 - **wireit**: dependency-aware task runner (like Make but for JS), replacing npm scripts. The pipeline is documented in article 05 with a graph.
 - **Stack**: SSG (static site generation) via Vike means pages are pre-rendered HTML, no Node.js server at runtime. Deployed to GitHub Pages.
 - **SUT relationship**: `ocarina-example` tests Igoristan. The two repos are designed together but kept separate.
+- **Chaos is the point** (framing): a site that always works is useless for demoing a resilient framework. The chapter landing page maps each Ocarina mechanic to the Igoristan page that exercises it — `transient_errors`/replay (useAuth 10% fail, corsicamon 1/5 raises, dsed 30% error), `match_page`/`when` (dsed, madness), `Watcher` (chaotic-form), Redis cache+locks (useAuth OTP), file upload (sacred-upload), UI-side API key (corsicamon).
 
 ## Diagrams
 

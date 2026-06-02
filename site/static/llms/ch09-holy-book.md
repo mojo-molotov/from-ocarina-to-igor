@@ -6,6 +6,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/09-holy-book
 
 | File | Description |
 | --- | --- |
+| `_index.md` | Chapter landing page. "Goals": the Holy Book exists as much for LLMs as for humans (generates llms.txt/llms-full.txt, exposes CLAUDE.md/CLAUDE.slim.md, FR/EN/RU PDFs, 40+ skills). "Ideology": code is raw data, a white box — what AI has worked with from the start. Carries the docs/ page list mapping files to Holy Book chapters. |
 | `01-stack-vitepress.md` | VitePress 2 alpha + @sugarat theme + in-house plugins + Pagefind local search. Build toolchain. |
 | `02-i18n.md` | Internationalization: FR (primary) / EN / RU. Page structure, translation conventions, fallback behavior. |
 | `03-skills/_index.md` | Skills taxonomy map: 40+ LLM procedures grouped into families (review, analyse, black-hat, comprehend, pick, author, refactor, state, setup). **Contains ASCII diagram.** |
@@ -30,6 +31,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/09-holy-book
 - **`CLAUDE.md`**: the AI operating instructions file, exposed publicly so users can copy it into their own projects. `CLAUDE.slim.md` is a condensed version for contexts with token limits.
 - **PDF generation**: the Holy Book generates trilingual PDFs using Reportlab, orchestrated by an AI agent reading `prompts/generate-books/`. The pipeline is documented with a flow diagram.
 - **Three languages**: FR is the primary language (author's native language). EN and RU are maintained. The i18n article documents which pages exist in all three and which fall back to FR.
+- **Docs for humans *and* LLMs** (ideology): "Code is raw data. Auditable. Inspectable. A white box." — the Holy Book operationalizes that bet; without it an LLM has to *guess* how Ocarina works, with it it *consults* docs written for it. The chapter landing page also maps the `docs/` pages to their Holy Book chapter titles (What is Ocarina?, First feedbacks, First steps, First scenarios, First jutsus, First real-world hurdles, Extensibility, Using Ocarina with AI).
 
 ## Diagrams
 

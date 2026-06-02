@@ -6,6 +6,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/10-cicd/`.
 
 | File | Description |
 | --- | --- |
+| `_index.md` | Chapter landing page. Overview count table (workflows per repo). "Cross-cutting discipline": the conventions shared across every workflow (`workflow_dispatch` always present, venv/node_modules cache, matrix strategy, `fail-fast: false`, artifact upload, `if: always()`, `environment:` for secrets, `concurrency: pages`, `defaults.run.shell: bash`). "Light on PR, heavy on manual". |
 | `01-matrix.md` | Summary matrix of every CI workflow across all six repos: repo, workflow file, trigger, OS/runtime, what it does. |
 | `02-ocarina-workflows.md` | `ocarina` repo: `main_ci.yml` (full build + tests ubuntu × windows × py 3.14), `dev_ci.yml` (lint + typecheck), `unstable_python_full_build.yml` (nightly on Python pre-release). |
 | `03-example-workflows.md` | `ocarina-example` repo: `main_ci.yml` (lint + typecheck), `dev_ci.yml`, `e2e.yml` (ubuntu + Redis service + Firefox + geckodriver 0.35.0). |
@@ -23,6 +24,8 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/10-cicd/`.
 - **Redis service container**: `e2e.yml` in `ocarina-example` spins up a Redis service container for the distributed lock tests. The container is available at `redis://localhost:6379` during the run.
 - **Heroku warm-up**: `ai_proof_e2e.yml` pings CURA Healthcare before running tests (Heroku eco-dyno cold starts).
 - **Allure history**: after each `ocarina` CI run, a composite action (`allure-history`) appends the new report to GitHub Pages, maintaining a browsable history.
+- **Cross-cutting discipline** (conventions shared by every workflow): `workflow_dispatch` always present (manual launch), venv/`node_modules` caching, matrix strategy with `fail-fast: false`, artifact upload of everything generated with `if: always()`, `environment:` for secrets (`OC`, `github-pages`), `concurrency: pages` against deploy races, `defaults.run.shell: bash` for cross-OS parity.
+- **Light on PR, heavy on manual**: push/PR runs fast lint + typecheck + unit tests; full (heavy) e2e runs on manual `workflow_dispatch`; a monthly cron runs `unstable_python_full_build.yml` on Python 3.15-dev.
 
 ## Diagrams
 

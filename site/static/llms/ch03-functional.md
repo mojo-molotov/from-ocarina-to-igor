@@ -6,6 +6,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/03-functiona
 
 | File | Description |
 | --- | --- |
+| `_index.md` | Chapter landing page. Framing: a transversal rereading of the framework from the FP angle — small code, but it embodies a serious number of named, justified FP patterns. Carries the Holy Book "First feedbacks" quote on people who twisted ROP / lazy evaluation / IoC. |
 | `01-effect-thunk-result.md` | `Effect`, `Thunk[T]`, `Result[T]`: the three primitive types. How they compose. |
 | `02-closures-ioc.md` | Closures as the primitive of inversion of control — how Ocarina avoids dependency injection frameworks. |
 | `03-lazy-evaluation.md` | Laziness throughout: `ChainRunner`, `validate.execute`, `Watcher` callback, lazy prefixes. Nothing executes until asked. |
@@ -22,6 +23,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/03-functiona
 - **Fold left**: `chain_actions` is `functools.reduce` over thunks, threading the accumulated `Result[T]`. Short-circuits on first `Fail`.
 - **PEP 695**: Ocarina requires Python 3.14+ because it uses the new type alias syntax. The chapter explains the generics design.
 - **Sealed unions**: `@final` on `Ok` and `Err` + exhaustive `match` = the type checker guarantees every case is handled.
+- **Why a dedicated chapter** (framing): Ocarina's code is small but embodies a serious number of FP patterns; this chapter names them, justifies them, and points to where they live. The Holy Book's "First feedbacks" rant — people twisting ROP, lazy evaluation and IoC without understanding them — is why the FP foundations are spelled out explicitly.
 
 ## Connections
 

@@ -6,6 +6,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/02-ocarina/`
 
 | File | Description |
 | --- | --- |
+| `_index.md` | Chapter landing page. Framing + reading order: a layered walk from the deepest layer (the `Result[T]` type) up to the most visible (`bootstrap`, which boots everything). |
 | `01-identity.md` | Technical identity: Python 3.14+, v1.1.8, single runtime dependency (`python-docx`), `mypy --strict`, MIT. |
 | `02-module-tree.md` | Full Python module tree with layered ASCII diagram. **Contains ASCII diagram.** |
 | `03-railway/01-result.md` | `Result[T] = Ok[T] | Fail` discriminated union. `Fail` is not generic — the error channel is always `Exception` (deliberate KISS choice). The base type of the entire railway. |
@@ -58,6 +59,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/02-ocarina/`
 - **Single runtime dep**: only `python-docx` (used by the `generate_docx_proof` report plugin). Selenium and Playwright are dev/optional dependencies for their respective shipped adapters (v1.1.3), not runtime deps. No test runner, no assertion lib, no fixture framework.
 - **Playwright actor (owner thread)**: Playwright's sync API is thread-affine (`greenlet.error` across threads), so `PlaywrightDriver` owns one **daemon** thread and marshals every call onto it via `submit()`. `call_timeout` is a liveness ceiling (not a per-op deadline) that turns a wedged driver into `DriverDiedError` (`is_dead` ≠ `is_closed`). A hand-rolled daemon thread is used instead of `ThreadPoolExecutor(max_workers=1)` (whose `atexit` join would hang on a dead pipe), which keeps cross-thread warmup safe; the Watcher may read via `submit` but must stay observe-only.
 - **`mypy --strict`**: the entire framework is fully typed. Type errors are caught statically.
+- **Reading order** (chapter framing): the chapter is a layered walk from the deepest layer (the `Result[T]` type) up to the most visible (`bootstrap`, the one function that boots everything) — read it in that direction.
 
 ## Diagrams
 

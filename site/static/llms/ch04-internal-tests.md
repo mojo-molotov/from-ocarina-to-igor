@@ -6,6 +6,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/04-internal-
 
 | File | Description |
 | --- | --- |
+| `_index.md` | Chapter landing page. Carries the five-family summary table (family × tool × quantity × target) and the "Approach": exercise the framework from the outside like a real user — no asserts on private attributes, no mocks of internals — so the tests validate the public contract, not the implementation. |
 | `01-strategy.md` | "From the outside like a user" strategy. `conftest.py`: `FakeDriver`, `RecordingPOM`, fixture builders. |
 | `02-cram-prysk.md` | Cram tests via `prysk`: `.t` files that test the CLI by running it and diffing stdout. |
 | `03-pytest-scenarios.md` | Pytest scenarios applied to the framework itself (pytest + allure + hypothesis). |
@@ -25,6 +26,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/04-internal-
 - **Hypothesis** is used to generate arbitrary combinations of actions and invariant inputs, proving the railway's error-handling is sound under any sequence.
 - **Coverage policy**: Ocarina does not chase 100% line coverage. The policy documents which paths are intentionally untested (e.g., driver lifecycle under real network conditions).
 - **Allure history**: each CI run uploads a new Allure report to GitHub Pages, maintaining a browsable test history at `https://mojo-molotov.github.io/ocarina/allure-report/`.
+- **"From the outside like a user"** (approach): the tests never inspect internal machinery — no asserts on private attributes, no mocks of framework internals, just a minimal fake driver + pool and small constructors. The guarantee is that tests validate the public contract, not the implementation. The chapter landing page also carries a summary table sizing each family (≈15 pytest scenario files, 15 cram `.t` files, ≈5 mypy-plugins `.yml`, 2 syrupy `.ambr`, 1 hypothesis file).
 
 ## Connections
 

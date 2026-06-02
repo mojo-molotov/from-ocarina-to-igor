@@ -6,6 +6,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/11-independe
 
 | File | Description |
 | --- | --- |
+| `_index.md` | Chapter landing page. "Independence in three dimensions" (vs vendors, vs ecosystems, vs "experts" imposing mental models). "Contrast" table (typical test tool vs Ocarina). "Practical consequences": a consultant can show up at a client with Ocarina in their pocket, almost without asking permission. |
 | `01-sovereign-grammar.md` | No imposed DSL, no ecosystem lock-in, extension by composition. Why Ocarina's vocabulary is sovereign. |
 | `02-auditability.md` | "Auditable in an afternoon": 1 runtime dependency (`python-docx`), ~4,060 SLOC, MIT. Anti-No-Code. |
 | `03-explicit-refusals.md` | Documented explicit refusals: `async`/`await`, pytest plugin, "stylish" contributions, "geek stuff". |
@@ -18,6 +19,8 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/11-independe
 - **`async`/`await` refusal**: explicitly documented. Selenium is synchronous; adding `async` complexity to tests adds cognitive overhead with no benefit for the use case. The refusal is final, not provisional.
 - **Pytest plugin refusal**: Ocarina does not integrate as a pytest plugin. It is a standalone orchestrator. Using pytest as a runner would mean living under pytest's conventions and lifecycle, which contradicts sovereign grammar.
 - **"Stylish" contributions refusal**: contributions that add complexity for aesthetic reasons (clever abstractions, metaprogramming, etc.) are refused. KISS is enforced at the contribution level.
+- **Independence in three dimensions** (framing): vis-à-vis vendors (no proprietary platform, no SaaS, no required third-party API), vis-à-vis ecosystems (no pytest plugin, no external DSL, no heavy framework to learn), and vis-à-vis "experts" who impose their mental models (composition not inheritance, project adapters not opaque wrappers, auditable).
+- **Practical promise**: a consultant can show up at a client with Ocarina in their pocket, *almost* without asking anyone's permission — pip install (or copy it in by hand), write the adapters, run.
 
 ## Connections
 

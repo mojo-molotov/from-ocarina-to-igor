@@ -6,6 +6,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/08-ai-exampl
 
 | File | Description |
 | --- | --- |
+| `_index.md` | Chapter landing page. "Success story" (Code 99% Claude / 1% human; Intelligence 50/50). "Holy Book reminder": the four things this project is NOT (no autonomous test generation, no patching hallucinations in CI, no rewriting the spec, never runs active security tests). "Singularity": reading PHP source to find real defects, business-logic vulnerability tests, cross-browser divergence as a finding. |
 | `01-ai-manifesto.md` | The repo README: "Code: 99% Claude / Intelligence: 50-50" headline, the AI co-authorship manifesto. |
 | `02-sut-cura.md` | CURA Healthcare: external open-source PHP SUT hosted on Heroku eco-dyno (cold starts). |
 | `03-canonical-documents.md` | The 4 canonical documents: `CLAUDE.md` (AI instructions), `CURA_FRD.md` (functional requirements), `CURA_TEST_STRATEGY.md`, `IDENTIFIED_GAPS.md`. |
@@ -24,6 +25,9 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/08-ai-exampl
 - **Gap taxonomy**: gaps are categorized and coded (G-SEC-*, G-DATA-*, G-SPEC-*, B-BROWSER-*, A-ENV-*). Each gap documents a discovered defect or limitation in the SUT.
 - **CI matrix**: Firefox and Chrome are tested in parallel. ChromeDriver produces verbose stacktraces on known warnings — the CI workflow filters them to keep logs readable.
 - **Heroku warm-up**: CURA's Heroku eco-dyno sleeps after inactivity. The CI workflow pings the app before running tests.
+- **99/1 code, 50/50 judgement** (success story): almost every line was machine-written; the judgement — what to test, what to distrust, when to dig and when to stop — was shared.
+- **Four things this project is NOT** (Holy Book reminder): it doesn't generate tests autonomously; doesn't patch hallucinations in CI (a failure triggers `review-report` + `analyse-*`); doesn't rewrite the spec (only `update-frd-and-tests` does, with a revision line); and never runs active security tests. The human keeps control; the AI produces the machinery.
+- **The singularity**: reading the PHP source to find real defects (missing CSRF, client-only validation, history ordered by submission), business-logic vulnerability tests (past-date booking, duplicate appointments), and cross-browser divergence as a finding (Chrome BFCache restoring a `no-store` page after logout). Each gap is documented with `file:line` + PHP evidence and materialized as an intentionally red test.
 
 ## Connections
 
