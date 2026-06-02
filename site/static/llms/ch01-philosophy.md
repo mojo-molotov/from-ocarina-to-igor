@@ -17,7 +17,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/01-philosoph
 
 - **"Flip the problem"**: instead of a DSL so non-technical stakeholders can write tests, Ocarina gives structured typed code so AI can write tests that non-technical stakeholders can read.
 - **ISTQB vocabulary** is a deliberate political choice — it is the shared grammar of the testing profession, not a pytest/unittest convention.
-- **KISS as a filter**: every feature, shortcut, and DSL that was refused was refused by applying KISS. The result is a framework small enough to be auditable in an afternoon, with a single runtime dependency (`python-docx`).
+- **KISS as a filter**: every feature, shortcut, and DSL that was refused was refused by applying KISS. The result is ~4,060 SLOC (AST count, excluding blank lines, comments and docstrings; ~8,700 raw lines in `src/`) with one runtime dependency (`python-docx`).
 - **Political stance**: Ocarina refuses SaaS, refuses `async`/`await` (not a testing concern), refuses No-Code (anti-intellectual), refuses careerist influencer culture.
 - **Citations are sourced**: every quote in the Holy Book manifesto has an attributed source. Ch 12 documents them all.
 - **Opinionated by design** (chapter framing): the philosophy isn't a decorative preamble — it's the filter that ruled out every feature, DSL and shortcut. Ocarina refuses to be all things to all people.

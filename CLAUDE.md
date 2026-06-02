@@ -1,5 +1,37 @@
 # CLAUDE.md
 
+## Prompts: reusable task playbooks
+
+The `prompts/` directory holds reusable workflow prompts for recurring tasks on
+this repo. Before doing one of these tasks by hand, read the matching prompt and
+follow it — they encode the exact procedure, format, and constraints the user
+expects.
+
+- `prompts/update-llm-briefs.md` — syncing the LLM briefs in `site/static/llms/`
+  (and `site/static/llms.txt`) after content under `site/content.en/` changes.
+  Follow it whenever primer content is added, removed, or substantially edited so
+  the briefs don't drift from the source.
+
+When a task matches a prompt in `prompts/`, that prompt's instructions take
+precedence over improvising. If none matches, proceed normally.
+
+## Measured figures: LLM briefs only, not editorial content
+
+Hard numbers measured from the real `ocarina` source — SLOC counts especially —
+belong in the **LLM-facing** files only: the briefs under `site/static/llms/` and
+`site/static/llms.txt`. They are static files an LLM reads to size the codebase;
+they are not rendered as editorial HTML.
+
+Never put such a measured figure in the **editorial content** under
+`site/content.en/` or `site/content.fr/` (it is rendered to HTML and read by
+humans on the site). There, describe size qualitatively instead — e.g. "auditable
+in an afternoon", "~2 SBOM entries", "a single runtime dependency" — the way the
+articles already do.
+
+In the briefs, when you cite a measured figure, give a verifiable number and state
+how it was measured (e.g. "~4,060 SLOC, AST count excluding blank lines, comments
+and docstrings; ~8,700 raw lines in `src/`") — never a vague "~N lines".
+
 ## ASCII diagrams: do not touch
 
 Never modify, "fix", or reformat ASCII diagrams in the markdown content under
