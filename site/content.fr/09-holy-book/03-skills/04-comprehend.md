@@ -20,26 +20,35 @@ tags: ["holy-book"]
 | `assess-ecosystem`           | Recherche publique bornée, plafonnée par budget de tokens |
 | `assess-impact`              | Analyse d'impact : ce qu'un changement touche en aval, à travers le graphe de dépendances |
 | `understand-sut-constraints` | Comprend les "bornes" du SUT pour ne pas les dépasser     |
-| `understand-ocarina`         | Parcourt le Holy Book + le code source d'Ocarina          |
+| `understand-ocarina`         | Aiguille selon la classe de question : le Holy Book pour la référence, le livre from-ocarina-to-igor pour l'intention ; puis la source d'Ocarina + l'exemple correspondant à l'adaptateur en place |
 
 ## `understand-ocarina`
 
 ```
-input  : question de l'utilisateur ("comment fait-on un match_page ?")
-output : Claude charge :
-            - les pages Holy Book pertinentes (depuis https://mojo-molotov.github.io/ocarina-holy-book)
-            - le code source d'Ocarina si nécessaire (gh api repos/mojo-molotov/ocarina/...)
-            - les exemples des deux projets ocarina-example / ocarina-with-ai-example
-         puis répond avec citations
+input  : question de l'utilisateur — aiguillée selon sa classe :
+            - "comment fait-on un match_page ?"   (référence : ce qu'est une primitive) → Holy Book
+            - "pourquoi la suite est-elle bâtie sur Railway ?" (intention / cartographie / pourquoi) → le livre from-ocarina-to-igor
+output : Claude charge, selon la classe de question :
+            - référence    → les pages Holy Book pertinentes (https://mojo-molotov.github.io/ocarina-holy-book)
+            - intention    → les chapitres pertinents du livre from-ocarina-to-igor (https://mojo-molotov.github.io/from-ocarina-to-igor/)
+            - comportement → la source d'Ocarina (clone), si la doc ne le couvre pas
+            - forme        → l'exemple correspondant à l'adaptateur du projet :
+                              Selenium   → ocarina-example, ocarina-with-ai-example
+                              Playwright → ocarina-with-playwright-example
+         puis répond avec citations (tier + URL de page/chapitre ou file:line)
 ```
 
 `SKILL.md`&nbsp;:
 
-> **Tier 1&nbsp;—&nbsp;Ocarina Holy Book (LLM-oriented, public).** The canonical LLM-facing documentation. Reach via `WebFetch` for specific pages once the page-list is known.
+> **Tier 1&nbsp;—&nbsp;Ocarina Holy Book (reference, public).** What a primitive _is_ — signature, contract, lifecycle. Reach via `WebFetch` for specific pages once the page-list is known.
 >
-> **Tier 2&nbsp;—&nbsp;Holy Book repo (cloned + built locally, when Tier 1 unreachable).** If the website is down (DNS /&nbsp;not-yet-published /&nbsp;offline /&nbsp;404), fallback on the repository source. Clone + build locally.
+> **Tier 1B&nbsp;—&nbsp;the from-ocarina-to-igor book (intent / cartography / philosophy, public).** Why Ocarina is shaped this way and how the ecosystem repos relate. The two doc sites are routed by question class, not a fixed order; a question with both halves consults both.
 >
-> **Tier 3+&nbsp;—&nbsp;Ocarina source code, ocarina-example, ocarina-with-ai-example.** For code-level questions.
+> **Tier 2&nbsp;—&nbsp;doc-site repos (cloned + built locally, per-site fallback).** If a site is down (DNS /&nbsp;not-yet-published /&nbsp;offline /&nbsp;404), clone + build that site locally. The fallback is per-site: a 404 on the Holy Book doesn't mean the book is down too.
+>
+> **Tier 3&nbsp;—&nbsp;Ocarina source clone.** For behaviour the docs don't cover.
+>
+> **Tier 4&nbsp;—&nbsp;worked-example clones, matched to the driver adapter.** Selenium: ocarina-example, ocarina-with-ai-example. Playwright: ocarina-with-playwright-example.
 
 ## `assess-test-base`
 
