@@ -118,7 +118,7 @@ construit son `Document` et écrit dans un fichier de sortie qui lui est propre.
 Les cas se parallélisent donc sans accroc. Depuis Ocarina `1.1.9`, la
 génération peut être parallélisée à la demande, via `max_workers`&nbsp;:
 
-- **`max_workers <= 1` (défaut)**&nbsp;: le traitement séquentiel d'origine,
+- **`max_workers <= 1` (par défaut)**&nbsp;: le traitement séquentiel d'origine,
   inchangé — aucune liste matérialisée, aucun pool, aucun thread.
 - **`max_workers > 1`**&nbsp;: les cas sont répartis sur un `ThreadPoolExecutor`
   dont le nombre de workers est borné au nombre de cas. Le seul objet partagé
@@ -126,7 +126,7 @@ génération peut être parallélisée à la demande, via `max_workers`&nbsp;:
   pour un reporter best-effort.
 
 Le gain est réel mais se prête mal à un multiplicateur unique&nbsp;: il dépend
-du nombre de cas, de la taille des logs et du poids des images. Sur l'e2e CI
+du nombre de cas, de la taille des logs et du poids des images. Sur la CI e2e
 d'`ocarina-with-playwright-example` (50 DOCX), l'activer divise presque par
 deux la durée de génération.
 

@@ -72,6 +72,9 @@ Watch for these traps (real ones that slipped through before):
   l'IA pour une mission" (a noun like "engagement" doesn't *accorder* anything;
   it's the human/the mission that sets the bounds)
 - ❌ "blast radius" rendered literally → ✅ "ce qu'un changement touche en aval"
+- ❌ "(défaut)" for a default value → ✅ "(par défaut)" (calque of "(default)";
+  in French it is always *par défaut* — "défaut" alone means a flaw, not a
+  default value)
 
 Rule: after translating, reread the French alone. If a phrase sounds like
 English wearing French words, rewrite it. Keep the project's own established
