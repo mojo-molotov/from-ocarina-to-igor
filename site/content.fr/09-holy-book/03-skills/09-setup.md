@@ -1,6 +1,6 @@
 ---
-title: "09.03.09 — Skill Setup"
-description: "Le skill Setup exposé aux IA, setup-environment : l'onboarding d'un nouveau contributeur, humain ou IA, sur un projet Ocarina."
+title: "09.03.09 — Skills Setup"
+description: "Les skills Setup exposés aux IA, setup-environment et profile-environment : préparer l'environnement d'un contributeur et cadrer la latitude laissée à l'IA pour une mission donnée sur un projet Ocarina."
 weight: 9
 date: 2026-05-20
 series: ["skills"]
@@ -8,9 +8,9 @@ series_order: 9
 tags: ["holy-book"]
 ---
 
-# 09.03.09&nbsp;—&nbsp;Skill Setup
+# 09.03.09&nbsp;—&nbsp;Skills Setup
 
-> Un seul skill&nbsp;: `setup-environment`. Onboarding d'un nouveau contributeur (humain ou IA) sur le projet.
+> Deux skills&nbsp;: `setup-environment` (onboarding d'un nouveau contributeur, humain ou IA) et `profile-environment` (cadre la latitude laissée à l'IA pour une mission donnée). Tous deux alimentent le `CLAUDE.md` assemblé de la suite.
 
 ## Le skill
 
@@ -89,6 +89,28 @@ Si le _pre-commit_ a une «&nbsp;_grosse_&nbsp;» batterie, comme par exemple de
 | Le nouveau venu lit le README, fait les étapes _à la main_, se trompe, s'énerve, publie une vidéo YouTube pour insulter Ocarina | Étapes _séquentielles_, vérifiées une par une |
 | Pas de check que tout marche vraiment                                                                                           | Smoke-check confirme                          |
 | `CLAUDE.local.md` souvent oublié                                                                                                | Le skill force sa création                    |
+
+## `profile-environment`&nbsp;—&nbsp;le cadre de la mission
+
+`setup-environment` met en place la mécanique. `profile-environment` répond à une autre question&nbsp;: **jusqu'où l'humain laisse-t-il l'IA aller sur ce SUT&nbsp;?**
+
+Par défaut, toute la batterie de skills répond implicitement&nbsp;: **le maximum**. Le Holy Book a été écrit pour CURA, une démo publique open-source aux identifiants publics codés en dur&nbsp;; les règles autorisent donc tout&nbsp;: _lire la source du SUT, lancer une sonde jetable sur l'application réelle, fouiller le web ouvert, se servir d'identifiants publics_. Une vraie mission est plus restreinte.
+
+`profile-environment` mène un entretien de cadrage sur **sept dimensions**, tranchées _avec l'humain_ (ce sont des décisions de parties prenantes, pas des faits qu'on déduit du code)&nbsp;:
+
+| Dimension | Question |
+| --- | --- |
+| Accès à la source | L'IA peut-elle lire la source du SUT&nbsp;? |
+| Sondage du système en fonctionnement | Peut-elle lancer une sonde jetable sur l'application réelle&nbsp;? |
+| Sensibilité des données | Données de démo, ou vraies données personnelles /&nbsp;réglementées&nbsp;? |
+| Sortie de données & confidentialité | Recherche web autorisée&nbsp;? NDA en place&nbsp;? |
+| Seuil des tests de sécurité | Où passe la ligne des tests actifs&nbsp;? |
+| Autonomie & validation | Faut-il une validation avant chaque exécution&nbsp;? |
+| Surface de modification (repo, CI, PR) | À quoi l'IA a-t-elle le droit de toucher&nbsp;? |
+
+Il produit un appendice **`CLAUDE.profile.md`** versionné que `setup-environment` concatène dans le `CLAUDE.md` de la suite. C'est un **cliquet vers la restriction**&nbsp;: il ne fait que _resserrer_ les règles par défaut (réglées au maximum) et la ligne de sécurité, jamais les desserrer.
+
+À lancer au début de toute mission qui sort du cas de la démo publique ouverte&nbsp;: un site client, une application interne, un projet sous NDA, un SUT manipulant de vraies données personnelles. À relancer dès que les conditions changent&nbsp;: passage de la démo au client, du staging à la prod, signature d'un NDA, repo qui bascule en privé.
 
 ## «&nbsp;_Onboarding scriptable_&nbsp;»
 

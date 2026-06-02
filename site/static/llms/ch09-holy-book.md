@@ -18,7 +18,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/09-holy-book
 | `03-skills/06-author.md` | `author` skill family: authoring / writing procedures. |
 | `03-skills/07-refactor.md` | `refactor` skill family: refactoring procedures. |
 | `03-skills/08-state.md` | `state` skill family: state-management procedures. |
-| `03-skills/09-setup.md` | `setup` skill family: environment setup procedures. |
+| `03-skills/09-setup.md` | `setup` skill family: `setup-environment` (onboarding) + `profile-environment` (engagement-latitude governance, emits a `CLAUDE.profile.md` appendix that `setup-environment` concatenates into `CLAUDE.md`). |
 | `04-claude-md.md` | `CLAUDE.md` / `CLAUDE.slim.md` structure and content, exposed publicly on the Holy Book site. **Contains ASCII diagram.** |
 | `05-pdf-generation.md` | FR/EN/RU PDF generation pipeline via `prompts/generate-books/`. Reportlab + AI orchestration. **Contains ASCII diagram.** |
 | `06-public-resources.md` | Table of all public URLs: `llms.txt`, `llms-full.txt`, PDFs, skills directory, Allure report, GitHub repos. |
@@ -30,6 +30,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/09-holy-book
 - **40+ skills**: versioned LLM procedures (like plugins for AI agents) covering the full lifecycle of working with Ocarina — from writing a new scenario to debugging a CI failure. Skills are at `https://github.com/mojo-molotov/ocarina-holy-book/tree/main/docs/.vitepress/public/skills`.
 - **`CLAUDE.md`**: the AI operating instructions file, exposed publicly so users can copy it into their own projects. `CLAUDE.slim.md` is a condensed version for contexts with token limits.
 - **PDF generation**: the Holy Book generates trilingual PDFs using Reportlab, orchestrated by an AI agent reading `prompts/generate-books/`. The pipeline is documented with a flow diagram.
+- **Engagement latitude (`profile-environment`)**: the Setup family pairs `setup-environment` (stands up the env) with `profile-environment`, which governs *how much latitude the human grants the LLM* on a SUT across seven dimensions (source access, live probing, data sensitivity, egress/NDA, security-testing ceiling, autonomy/approval, repo/CI/PR surface). It emits a tracked `CLAUDE.profile.md` appendix that `setup-environment` concatenates into `CLAUDE.md`, and is a **ratchet toward restriction** — it only ever tightens the Holy Book's max-latitude defaults (authored against the open CURA demo) and the security hard line, never loosens them.
 - **Three languages**: EN sits at the `docs/` root (VitePress default locale), FR under `docs/fr/` and RU under `docs/ru/`. Every Holy Book page exists in all three — full parallel trees, routed automatically by VitePress.
 - **Docs for humans *and* LLMs** (ideology): "Code is raw data. Auditable. Inspectable. A white box." — the Holy Book operationalizes that bet; without it an LLM has to *guess* how Ocarina works, with it it *consults* docs written for it. The chapter landing page also maps the `docs/` pages to their Holy Book chapter titles (What is Ocarina?, First feedbacks, First steps, First scenarios, First jutsus, First real-world hurdles, Extensibility, Using Ocarina with AI).
 

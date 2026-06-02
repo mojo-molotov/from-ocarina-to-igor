@@ -46,7 +46,7 @@ The `docs/.vitepress/plugins/skills.ts` plugin walks this folder and copies them
 | 06  | [Author](06-author.md)         | Delegate deliverable production to the LLM                               |
 | 07  | [Refactor](07-refactor.md)     | Refactor, DRY, introduce retries in POMs                                 |
 | 08  | [State](08-state.md)           | Question SUT states (stubs, data persistence...)                         |
-| 09  | [Setup](09-setup.md)           | Set up the environment for the user                                      |
+| 09  | [Setup](09-setup.md)           | Set up the environment (`setup-environment`) + govern engagement latitude (`profile-environment`) |
 | ... | ...                            | ...                                                                      |
 
 ## "_Surface, don't apply_"
@@ -101,6 +101,7 @@ walks the docs
 4. **Watcher emissions are negative signals only.** A watcher emitting "_login succeeded_" breaks the contract.
 5. **Use distributed systems when a resource is shared.**
 6. **Artifact identification by mtime, not just by filename.** UUID suffixes are random.
+7. **Latitude only tightens.** The defaults assume an open public demo (read the SUT's source, probe the live app, public credentials). `profile-environment` narrows them per engagement; nothing ever loosens the security hard line.
 
 ## Out of scope
 

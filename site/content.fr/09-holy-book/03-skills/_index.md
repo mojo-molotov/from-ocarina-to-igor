@@ -46,7 +46,7 @@ Le plugin `docs/.vitepress/plugins/skills.ts` traverse ce dossier et les copie p
 | 06  | [Author](06-author.md)         | Délègue la production de livrables au LLM                                            |
 | 07  | [Refactor](07-refactor.md)     | Refactor, DRY, introduction de retries dans les POM                                  |
 | 08  | [State](08-state.md)           | Questionne les états dans le SUT (bouchons, persistance des données...)              |
-| 09  | [Setup](09-setup.md)           | Setup l'environnement pour l'utilisateur                                             |
+| 09  | [Setup](09-setup.md)           | Préparer l'environnement (`setup-environment`) + cadrer la latitude laissée à l'IA pour une mission (`profile-environment`) |
 | ... | ...                            | ...                                                                                  |
 
 ## «&nbsp;_Remonter, ne pas appliquer_&nbsp;»
@@ -102,6 +102,7 @@ parcourt la doc
 4. **Les signaux des watchers sont négatifs uniquement.** Un watcher qui émet «&nbsp;_login réussi_&nbsp;» casse le contrat.
 5. **Utilisation de systèmes distribués quand une ressource est partagée.**
 6. **Repérage des artefacts avec mtime, pas juste par nom de fichier.** Les suffixes UUID sont aléatoires.
+7. **La latitude ne fait que se resserrer.** Par défaut, tout est autorisé&nbsp;: démo publique ouverte (lire la source du SUT, sonder l'application réelle, identifiants publics). `profile-environment` resserre selon la mission&nbsp;; rien ne desserre jamais la ligne de sécurité.
 
 ## Hors périmètre
 
