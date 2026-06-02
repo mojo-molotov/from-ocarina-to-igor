@@ -30,7 +30,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/09-holy-book
 - **40+ skills**: versioned LLM procedures (like plugins for AI agents) covering the full lifecycle of working with Ocarina — from writing a new scenario to debugging a CI failure. Skills are at `https://github.com/mojo-molotov/ocarina-holy-book/tree/main/docs/.vitepress/public/skills`.
 - **`CLAUDE.md`**: the AI operating instructions file, exposed publicly so users can copy it into their own projects. `CLAUDE.slim.md` is a condensed version for contexts with token limits.
 - **PDF generation**: the Holy Book generates trilingual PDFs using Reportlab, orchestrated by an AI agent reading `prompts/generate-books/`. The pipeline is documented with a flow diagram.
-- **Three languages**: FR is the primary language (author's native language). EN and RU are maintained. The i18n article documents which pages exist in all three and which fall back to FR.
+- **Three languages**: EN sits at the `docs/` root (VitePress default locale), FR under `docs/fr/` and RU under `docs/ru/`. Every Holy Book page exists in all three — full parallel trees, routed automatically by VitePress.
 - **Docs for humans *and* LLMs** (ideology): "Code is raw data. Auditable. Inspectable. A white box." — the Holy Book operationalizes that bet; without it an LLM has to *guess* how Ocarina works, with it it *consults* docs written for it. The chapter landing page also maps the `docs/` pages to their Holy Book chapter titles (What is Ocarina?, First feedbacks, First steps, First scenarios, First jutsus, First real-world hurdles, Extensibility, Using Ocarina with AI).
 
 ## Diagrams

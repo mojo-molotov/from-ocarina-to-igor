@@ -170,7 +170,7 @@ Trigger with `⌘K` / `Ctrl+K`.
 
 Filters are surfaced in two collapsible groups:
 
-- **Séries** — chapter membership (one per chapter).
+- **Series** — chapter membership (one per chapter).
 - **Tags** — cross-cutting concerns (rop, watcher, scenarios,
   istqb, typage, selenium, otp, etc.).
 
