@@ -70,6 +70,15 @@ English wearing French words, rewrite it. Keep the project's own established
 vocabulary (e.g. "un rouge"/"un vert" for test status, "flake"/"flakiness",
 "smoke-gate") — that is house lexicon, not calque.
 
+Rule: do **two to five anti-calque passes** before presenting French — never
+ship a first draft. A single pass reliably leaves calque in. On each pass,
+reread the French *alone* (ignore the English source) and hunt specifically
+for: noun-phrase calques ("unité d'I/O disque", "le plugin lourd"), verb+object
+calques ("écrit un chemin", "ramener à un multiplicateur"), and English
+code-jargon metaphors ("chemin" for a code path, "long pole"). Rewrite each,
+then pass again — repeat until a read-through trips on nothing. Only then is it
+ready. Do not make the reader be the one who catches the calque.
+
 ## Vocabulary: concurrent programming
 
 When writing about concurrent execution in programming contexts, use:
