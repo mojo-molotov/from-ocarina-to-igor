@@ -1,5 +1,13 @@
 # CLAUDE.md
 
+## Pull requests: always in English
+
+Pull requests on this repo are **always written in English** — title AND body,
+with no exception. This holds even when the change is entirely about French
+content (`site/content.fr/`) and even when the whole conversation with the user
+is in French. The site is bilingual, but the project's PRs (like commit
+messages) are English-only. Never open or edit a PR with a French title or body.
+
 ## Prompts: reusable task playbooks
 
 The `prompts/` directory holds reusable workflow prompts for recurring tasks on
