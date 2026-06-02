@@ -4,7 +4,7 @@ theme = "hugo-book"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 disablePathToLower = true
-enableGitInfo = false
+enableGitInfo = true
 enableEmoji = true
 enableRobotsTXT = true
 

@@ -22,6 +22,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          # enableGitInfo (hugo.toml) derives each page's lastmod from the last
+          # commit touching it; that needs the full history, not a shallow clone.
+          fetch-depth: 0
 
       - name: Install Hugo extended
         run: |
