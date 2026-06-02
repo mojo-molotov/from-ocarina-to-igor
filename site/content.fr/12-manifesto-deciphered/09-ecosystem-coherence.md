@@ -60,7 +60,7 @@ series_order: 9
 | `ocarina-example`         | Démontrer un usage canonique             | «&nbsp;Tu peux _vraiment_ écrire des tests rigoureux comme ça&nbsp;»                              |
 | `ocarina-with-ai-example` | Faire collaborer un humain et une IA     | «&nbsp;_L'IA est le pont, pas le DSL_&nbsp;»                                                      |
 | `igoristan`               | Bâtir un SUT _chaotique_                 | «&nbsp;_Pas de démo sur un site qui fait vingt lignes d'HTML, une démo sur un vrai bordel_&nbsp;» |
-| `tests-workers`           | Coordonner des testeurs distribués       | «&nbsp;On peut être _stateless_ côté code&nbsp;»                                                  |
+| `tests-workers`           | Être le substrat par lequel les tests se coordonnent | «&nbsp;On peut être _stateless_ côté code&nbsp;»                                      |
 | `ocarina-holy-book`       | Documenter pour humains _et_ IA          | «&nbsp;_La documentation est avant tout de la donnée brute pour les LLMs_&nbsp;»                  |
 
 Si on enlève l'un de ces dépôts, l'écosystème **perd un argument**.  

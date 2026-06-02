@@ -42,4 +42,4 @@ L'Igoristan a été conçu _comme_ un terrain de jeu pour exercer chaque mécani
 ## Lectures connexes
 
 - Les scénarios qui exercent ces pages&nbsp;: [`../07-ocarina-example/`](../07-ocarina-example/README.md)
-- Le backend qui coordonne OTP et Corsicadex&nbsp;: [`../06-tests-workers/`](../06-tests-workers/README.md)
+- Le backend qui expose les endpoints OTP et Corsicadex&nbsp;: [`../06-tests-workers/`](../06-tests-workers/README.md)

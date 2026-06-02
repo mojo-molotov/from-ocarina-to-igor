@@ -60,7 +60,7 @@ series_order: 9
 | `ocarina-example`         | Demonstrate canonical usage        | "_You can_ actually _write rigorous tests like this_"                       |
 | `ocarina-with-ai-example` | Make a human and an AI collaborate | "_AI is the bridge, not the DSL_"                                           |
 | `igoristan`               | Build a _chaotic_ SUT              | "_Not a demo on a twenty-HTML-line site&nbsp;—&nbsp;a demo on a real mess_" |
-| `tests-workers`           | Coordinate distributed testers     | "You can be _stateless_ on the code side"                                   |
+| `tests-workers`           | Be the substrate testers coordinate through | "You can be _stateless_ on the code side"                             |
 | `ocarina-holy-book`       | Document for humans _and_ AI       | "_Documentation is first and foremost raw data for LLMs_"                   |
 
 Remove one of these repos and the ecosystem **loses an argument**. The six are **solidary**.

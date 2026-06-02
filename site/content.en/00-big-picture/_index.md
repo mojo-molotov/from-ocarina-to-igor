@@ -18,7 +18,7 @@ sidebar:
 | :-: | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
 | 01  | [`01-ecosystem-map.md`](01-ecosystem-map.md)                 | The six repositories on a single diagram: their role, their license, and the contract that binds them.      |
 | 02  | [`02-stack-matrix.md`](02-stack-matrix.md)                   | Technical stack per repository (language, dependencies, build, deployment, version).                        |
-| 03  | [`03-global-execution-flow.md`](03-global-execution-flow.md) | End-to-end execution flow of an e2e campaign: USER → CLI → Pool → Cycle → Plugins → SUT.                    |
+| 03  | [`03-global-execution-flow.md`](03-global-execution-flow.md) | End-to-end execution flow of an e2e campaign: USER → CLI → Pool → Cycle → SUT → Plugins.                    |
 | 04  | [`04-repo-relations.md`](04-repo-relations.md)               | Detail of bilateral relationships: who imports what, who consumes which artifact, which secrets are shared. |
 
 ## Related reading

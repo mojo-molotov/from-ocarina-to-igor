@@ -8,7 +8,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/00-big-pictu
 | --- | --- |
 | `01-ecosystem-map.md` | ASCII diagram: the six repos on one map, their role, license, and the contract binding them. **Contains ASCII diagram.** |
 | `02-stack-matrix.md` | Tech stack per repo: language, runtime deps, build tool, deployment target, current version. |
-| `03-global-execution-flow.md` | End-to-end execution flow: USER → CLI → DriversPool → TestCycle → Plugins → SUT. **Contains ASCII diagram.** |
+| `03-global-execution-flow.md` | End-to-end execution flow: USER → CLI → DriversPool → TestCycle → SUT → Plugins. **Contains ASCII diagram.** |
 | `04-repo-relations.md` | Bilateral dependency map: who imports what, who consumes which artifact, which secrets are shared. |
 
 ## Key concepts
@@ -16,7 +16,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/00-big-pictu
 - **Six repositories**: `ocarina` (framework, Python, MIT), `ocarina-example` (canonical e2e suite), `ocarina-with-ai-example` (AI co-written suite), `igoristan` (public SUT, React/Vike/Tailwind, GitHub Pages), `tests-workers` (Vercel Edge OTP backend), `ocarina-holy-book` (VitePress public docs).
 - `ocarina` is the only shared runtime dependency — all test suites import it, nothing else does.
 - `igoristan` is intentionally chaotic; it is the SUT for `ocarina-example`.
-- `tests-workers` provides OTP and Corsicadex coordination for distributed parallel test runs.
+- `tests-workers` exposes OTP and Corsicadex endpoints (primitives). It does not coordinate anything — coordinating across distributed parallel runs is left to the tests, which must make do with what the endpoints expose (e.g. the deliberately ms-stripped OTP timestamp).
 - The global execution flow: a CLI call triggers a `TestCampaign`, which fans out into `TestCycle`s, each managing a `DriversPool`, running `Test` objects against the SUT, and funneling results through reporter plugins (Allure, JSON).
 
 ## Diagrams

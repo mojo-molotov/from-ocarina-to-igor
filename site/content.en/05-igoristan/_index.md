@@ -42,4 +42,4 @@ Igoristan was built _as_ a playground to exercise every Ocarina mechanic:
 ## Related reading
 
 - The scenarios that exercise these pages: [`../07-ocarina-example/`](../07-ocarina-example/)
-- The backend that coordinates OTP and Corsicadex: [`../06-tests-workers/`](../06-tests-workers/)
+- The backend that exposes the OTP and Corsicadex endpoints: [`../06-tests-workers/`](../06-tests-workers/)
