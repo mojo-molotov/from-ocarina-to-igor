@@ -217,5 +217,3 @@ https://mojo-molotov.github.io/ocarina/allure-report/
 
 La **trend** sur la timeline est rendue possible par l'historisation.  
 On voit l'évolution des passing/failing/skipped sur les N derniers runs.
-
-Voir aussi [`02-ocarina/01-identity.md`](../02-ocarina/01-identity.md) pour la suite.

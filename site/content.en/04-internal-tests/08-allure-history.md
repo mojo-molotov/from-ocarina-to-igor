@@ -217,5 +217,3 @@ https://mojo-molotov.github.io/ocarina/allure-report/
 
 The **trend** on the timeline is what the archiving makes possible.  
 You can see passing/failing/skipped evolve across the last N runs.
-
-See also [`02-ocarina/01-identity.md`](../02-ocarina/01-identity.md) for the rest.
