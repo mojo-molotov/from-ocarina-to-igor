@@ -188,7 +188,7 @@ plus honnête sur les échecs partiels&nbsp;:
   — et signale `every DOCX generation failed` au lieu du trompeur `no test case
   found` lorsque rien n'a été écrit.
 - **Unicité des noms insensible à la casse**&nbsp;: les noms de campagne, de
-  suite et de cas sont désormais comparés via la clé
+  suite et de cas de test sont désormais comparés via la clé
   `unicodedata.normalize("NFC", name).casefold()`, si bien que `Login` et
   `login` sont reconnus comme un doublon, comme il se doit (`names must be unique
   (case-insensitive)`). Les noms d'origine restent intacts dans le modèle&nbsp;:
