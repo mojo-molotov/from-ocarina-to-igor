@@ -69,41 +69,45 @@ runs:
 
     - name: Install Allure
       shell: bash
-      run: bun add -g allure-commandline@2.41.0
+      run: bun add -g allure@3.9.0
 
     - name: Restore Allure history
       shell: bash
       run: |
         echo "📥 Restoring history..."
-        mkdir -p .allure-history-tmp
+        rm -rf .allure-history-tmp
         git clone --depth=1 \
           --branch "${{ inputs.branch-name }}" \
           "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" \
           .allure-history-tmp 2>/dev/null || echo "⚠️ First run (no history yet)"
 
-        if [ -d ".allure-history-tmp/history" ]; then
-          mkdir -p "${{ inputs.results-dir }}/history"
-          cp -r .allure-history-tmp/history/* "${{ inputs.results-dir }}/history/" || true
+        # Allure 3 keeps history in a single JSONL file (see allurerc.mjs
+        # historyPath) instead of Allure 2's history/ folder. Restore it to the
+        # repo root so `allure generate` reads and appends to it.
+        if [ -f ".allure-history-tmp/history.jsonl" ]; then
+          cp .allure-history-tmp/history.jsonl ./history.jsonl
         fi
 
     - name: Generate Allure report
       shell: bash
       run: |
         echo "📊 Generating report..."
+        # Output dir, historyPath and categories come from allurerc.mjs.
         allure generate "${{ inputs.results-dir }}" \
-          -o "${{ inputs.report-dir }}" \
-          --clean
+          --output "${{ inputs.report-dir }}"
 
     - name: Save history
       shell: bash
-      # … pousse la nouvelle history sur la branche allure-history …
+      # … pousse le nouveau history.jsonl sur la branche allure-history …
 ```
 
-1. **Setup Bun** (Bun installe `allure-commandline` plus vite que npm).
-2. **Install Allure CLI** (`bun add -g allure-commandline@2.41.0`).
-3. **Restore history**&nbsp;: clone la branche `allure-history`, copie l'arbre `history/` dans `allure-results/history/`. Si la branche n'existe pas (premier run), `|| echo "⚠️ First run"` reste silencieux.
-4. **Generate report**&nbsp;: `allure generate --clean`.
-5. **Save history**&nbsp;: push la nouvelle `history/` sur la branche `allure-history`.
+1. **Setup Bun** (Bun installe `allure` plus vite que npm).
+2. **Install Allure CLI** (`bun add -g allure@3.9.0`&nbsp;—&nbsp;le rapport «&nbsp;Awesome&nbsp;» d'Allure 3).
+3. **Restore history**&nbsp;: clone la branche `allure-history` et recopie son `history.jsonl` à la racine du repo. Si la branche n'existe pas (premier run), `|| echo "⚠️ First run"` reste silencieux.
+4. **Generate report**&nbsp;: `allure generate` (le dossier de sortie, le `historyPath` et les catégories proviennent tous d'`allurerc.mjs`&nbsp;—&nbsp;plus d'options `-o`/`--clean`&nbsp;; `--clean` a disparu avec Allure 3).
+5. **Save history**&nbsp;: pousse le nouveau `history.jsonl` sur la branche `allure-history`.
+
+> **Allure 2 → 3.** Jusqu'ici la pipeline épinglait `allure-commandline@2.41.0` et le rapport GitHub Pages restait figé sur l'ancienne interface d'Allure 2. Le mécanisme d'historisation a profondément changé d'une version majeure à l'autre&nbsp;: Allure 3 lit et complète un unique fichier `history.jsonl` (défini par `historyPath` dans `allurerc.mjs`) au lieu du dossier `history/` recopié à la main par Allure 2. La trend d'Allure 2 est incompatible avec le format JSONL&nbsp;: les tendances repartent de zéro au premier build Allure 3, puis se reconstituent au fil des runs suivants.
 
 ## `allure-history-push`
 
@@ -161,37 +165,47 @@ deploy:
 - `github.repository_visibility != 'private'`&nbsp;: seulement pour un repo public.
 - `github.event_name != 'pull_request'`&nbsp;: pas pour les PR (les PR ne déploient pas).
 
-## `categories.json`
+## `allurerc.mjs`
 
-```json
-[
-  {
-    "name": "Test defects",
-    "matchedStatuses": ["broken"],
-    "messageRegex": ".*"
+Avec Allure 3, le fichier `categories.json` dédié disparaît. La configuration&nbsp;—&nbsp;dossier de sortie, chemin de l'historique et catégories de failures&nbsp;—&nbsp;tient désormais dans un seul fichier `allurerc.mjs` que la CLI Allure charge. Les catégories sont reprises telles quelles de l'ancien `categories.json`&nbsp;: les `matchedStatuses` / `messageRegex` d'Allure 2 deviennent `matchers.statuses` / `matchers.message` (qui accepte une `RegExp`).
+
+```javascript
+// allurerc.mjs — configuration d'Allure 3.
+export default {
+  name: "Ocarina",
+  output: "allure-report",
+  historyPath: "./history.jsonl",
+  plugins: {
+    awesome: {
+      options: { reportName: "Ocarina" },
+    },
   },
-  {
-    "name": "Invariant violations",
-    "matchedStatuses": ["failed"],
-    "messageRegex": ".*InvariantViolationError.*"
+  categories: {
+    rules: [
+      { name: "Test defects", matchers: { statuses: ["broken"] } },
+      {
+        name: "Invariant violations",
+        matchers: { statuses: ["failed"], message: /.*InvariantViolationError.*/ },
+      },
+      {
+        name: "Assertion errors",
+        matchers: { statuses: ["failed"], message: /.*AssertionError.*/ },
+      },
+      { name: "Skipped", matchers: { statuses: ["skipped"] } },
+    ],
   },
-  {
-    "name": "Assertion errors",
-    "matchedStatuses": ["failed"],
-    "messageRegex": ".*AssertionError.*"
-  },
-  { "name": "Skipped", "matchedStatuses": ["skipped"], "messageRegex": ".*" }
-]
+};
 ```
+
+Le choix d'exporter un objet brut plutôt que `defineConfig` du paquet `allure` est délibéré&nbsp;: avec une installation globale (`bun add -g allure`), rien ne garantit que cet import se résolve depuis le fichier de config&nbsp;; s'en passer permet à la config de fonctionner aussi bien en CI qu'en local.
 
 ```makefile
 .PHONY: test
 test: cram-test
 	-pytest --alluredir=$(ALLURE_RESULTS) -vv --hypothesis-show-statistics
-	$(PY_CMD) -c "import shutil; shutil.copy('categories.json', '$(ALLURE_RESULTS)/categories.json')"
 ```
 
-Allure utilise `categories.json` pour ranger les failures dans une catégorie correspondante du rapport HTML.
+La cible `make test` ne copie plus `categories.json` dans les résultats&nbsp;: les catégories sont embarquées dans `allurerc.mjs`. Allure s'en sert pour ranger les failures dans la catégorie correspondante du rapport HTML.
 
 ## Statuts
 

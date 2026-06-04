@@ -162,13 +162,11 @@ La CLI est une _interface utilisateur_, pas du code Python. Cram est l'outil nat
 test: cram-test
 	@echo "Running tests..."
 	-pytest --alluredir=$(ALLURE_RESULTS) -vv --hypothesis-show-statistics
-	$(PY_CMD) -c "import shutil; shutil.copy('categories.json', '$(ALLURE_RESULTS)/categories.json')"
 ```
 
 → `make test` enchaîne&nbsp;:
 
 1. `cram-test` (les `.t`).
 2. `pytest` avec sortie Allure + `--hypothesis-show-statistics`.
-3. Copie de `categories.json` vers `allure-results/`.
 
 Si `cram-test` fail, `pytest` ne tourne pas (dépendance de cible Makefile). Le `-` devant `pytest` permet de continuer même si pytest échoue (pour produire le rapport Allure quand même).

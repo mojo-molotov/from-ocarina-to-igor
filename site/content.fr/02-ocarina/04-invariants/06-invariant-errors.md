@@ -163,13 +163,12 @@ validate(user, name="user")
 
 > Note&nbsp;: la taxonomie Allure ci-dessous concerne **les tests unitaires internes d'Ocarina** (couvrant le framework lui-même). Elle n'est pas destinée aux utilisateurs du framework, mais ces derniers peuvent **éventuellement s'en inspirer** pour leurs propres rapports.
 
-`categories.json` (cf. [`../01-identity.md`](../01-identity.md))&nbsp;:
+`allurerc.mjs` (cf. [`../01-identity.md`](../01-identity.md))&nbsp;:
 
-```json
+```javascript
 {
-  "name": "Invariant violations",
-  "matchedStatuses": ["failed"],
-  "messageRegex": ".*InvariantViolationError.*"
+  name: "Invariant violations",
+  matchers: { statuses: ["failed"], message: /.*InvariantViolationError.*/ },
 }
 ```
 

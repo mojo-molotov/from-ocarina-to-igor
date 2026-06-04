@@ -20,7 +20,7 @@ series_order: 2
 - [`Makefile`](https://github.com/mojo-molotov/ocarina/blob/main/Makefile)
 - [`mypy.ini`](https://github.com/mojo-molotov/ocarina/blob/main/mypy.ini)
 - [`.pre-commit-config.yaml`](https://github.com/mojo-molotov/ocarina/blob/main/.pre-commit-config.yaml)
-- [`categories.json`](https://github.com/mojo-molotov/ocarina/blob/main/categories.json)
+- [`allurerc.mjs`](https://github.com/mojo-molotov/ocarina/blob/main/allurerc.mjs)
 - [`README.md`](https://github.com/mojo-molotov/ocarina/blob/main/README.md)
 
 ### `src/ocarina/railway/`
