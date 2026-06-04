@@ -135,6 +135,8 @@ chain_validations(
 3. **Unique + valid names** across each campaign's suites.
 4. **Unique + valid names** across each suite's tests.
 
+Since `1.1.10`, name uniqueness at all three levels is case-insensitive (NFC + casefold).
+
 Raised _at construction_.  
 Name clash or invalid name → the user hears about it immediately.
 

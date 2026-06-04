@@ -135,6 +135,8 @@ chain_validations(
 3. **Noms uniques + valides** parmi les suites de chaque campagne.
 4. **Noms uniques + valides** parmi les tests de chaque suite.
 
+Depuis `1.1.10`, l'unicité des noms aux trois niveaux est insensible à la casse (NFC + casefold).
+
 Levé _à la construction_.  
 Si l'utilisateur a une collision ou un nommage invalide, il l'apprend immédiatement.
 

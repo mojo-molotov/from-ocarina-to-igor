@@ -80,7 +80,7 @@ def _guards_with_mounted_tests(self, tests: Sequence[Test[Driver]]) -> None:
     validate_test_runners_names(tests=tests, name="tests").execute().raise_if_invalid()
 ```
 
-→ Every `name` must be unique + valid as a filename (see `is_valid_filename`). Called **after saturation** (see [`05-saturation.md`](05-saturation.md)) because that's when the `[COPY 1] foo` names land.
+→ Every `name` must be unique + valid as a filename (see `is_valid_filename`). Since `1.1.10` this uniqueness is case-insensitive (NFC + casefold). Called **after saturation** (see [`05-saturation.md`](05-saturation.md)) because that's when the `[COPY 1] foo` names land.
 
 ### `validate_workers_amount`
 

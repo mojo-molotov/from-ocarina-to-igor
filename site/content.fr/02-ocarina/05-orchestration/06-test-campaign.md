@@ -81,7 +81,7 @@ def campaign_has_failed(results: TestCampaignResults) -> bool:
 validate_test_suites_names(suites=suites, name="suites").execute().raise_if_invalid()
 ```
 
-→ Les noms de suites de la campagne doivent être uniques. Levé _dès la construction_.
+→ Les noms de suites de la campagne doivent être uniques&nbsp;— de façon insensible à la casse depuis `1.1.10` (NFC + casefold). Levé _dès la construction_.
 
 ### Injection du nom de campagne dans les suites
 

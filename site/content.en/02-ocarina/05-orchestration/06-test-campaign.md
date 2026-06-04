@@ -81,7 +81,7 @@ def campaign_has_failed(results: TestCampaignResults) -> bool:
 validate_test_suites_names(suites=suites, name="suites").execute().raise_if_invalid()
 ```
 
-→ Suite names inside a campaign must be unique. Raised _at construction_.
+→ Suite names inside a campaign must be unique — case-insensitively since `1.1.10` (NFC + casefold). Raised _at construction_.
 
 ### Inject the campaign name into the suites
 
