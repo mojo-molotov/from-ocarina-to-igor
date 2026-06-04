@@ -213,11 +213,26 @@ jobs:
         run: make check-coding-style
       - name: Run tests
         run: make test
+
+      - name: Coverage summary
+        if: always()
+        uses: irongut/CodeCoverageSummary@51cc3a756ddcd398d447c044c02cb6aa83fdae95
+        with:
+          filename: coverage.xml
+          format: markdown
+          output: both
+          hide_complexity: true
+
+      - name: Add coverage to job summary
+        if: always()
+        run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
 ```
 
-No OS matrix. No Allure history. No deploy. Just check-style + fast tests.
+No OS matrix. No Allure history. No deploy. Just check-style + fast tests — plus a coverage summary.
 
 Triggers: `dev`, `feature/**`, `fix/**` branches. Lets contributors check their branches without touching main.
+
+**Coverage summary.** A final step parses the `coverage.xml` already produced by pytest-cov and renders it into the run's GitHub step summary (via `irongut/CodeCoverageSummary`, pinned to a commit SHA). Both steps are `if: always()`, so the summary shows up even when tests fail. No threshold is configured: it is purely informational and never gates the build. The complexity column is hidden (`hide_complexity: true`) because coverage.py / pytest-cov don't compute cyclomatic complexity, so the Cobertura value is always 0 and the column would only mislead.
 
 ## `unstable_python_full_build.yml`
 

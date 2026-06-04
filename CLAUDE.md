@@ -180,6 +180,15 @@ Examples (French):
 - ✅ "ce n'est pas une deadline par opération"
 - ❌ "ce n'est pas un deadline par opération"
 
+### pipeline is feminine in French
+
+When "pipeline" is used in French prose, it is **feminine**: write
+**une pipeline** / **la pipeline**, never "un pipeline" / "le pipeline".
+
+Examples (French):
+- ✅ "la pipeline épinglait allure-commandline@2.41.0"
+- ❌ "le pipeline épinglait allure-commandline@2.41.0"
+
 ## Frontmatter: plain text only
 
 In `site/content/**/*.md` frontmatter, the `title:` and `description:` fields

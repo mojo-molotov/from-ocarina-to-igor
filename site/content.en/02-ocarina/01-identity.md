@@ -148,7 +148,7 @@ Full detail at [`../04-internal-tests/07-coverage-policy.md`](../04-internal-tes
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | `make install`                     | Creates `.venv` if absent, `pip install -e . --group dev`, `pre-commit install`. Cross-OS (Windows / other).              |
 | `make install-on-ci`               | CI variant: `pip install -r requirements-dev.txt` then `pip install -e . --no-deps`.                                      |
-| `make test`                        | `make cram-test` then `pytest --alluredir=allure-results -vv --hypothesis-show-statistics` then copies `categories.json`. |
+| `make test`                        | `make cram-test` then `pytest --alluredir=allure-results -vv --hypothesis-show-statistics`.                              |
 | `make cram-test`                   | `prysk tests/cram/` (on Windows: no-op).                                                                                  |
 | `make check-coding-style`          | `mypy + ruff`                                                                                                             |
 | `make mypy-check`                  | `mypy src/ tests/`                                                                                                        |
@@ -161,30 +161,28 @@ Full detail at [`../04-internal-tests/07-coverage-policy.md`](../04-internal-tes
 | `make update-snapshots`            | `pytest --snapshot-update`                                                                                                |
 | `make clean` / `make clean-allure` | Cross-OS cleanup.                                                                                                         |
 
-## `categories.json` (Allure taxonomy)
+## `allurerc.mjs` (Allure taxonomy)
 
-```json
-[
-  {
-    "name": "Test defects",
-    "matchedStatuses": ["broken"],
-    "messageRegex": ".*"
-  },
-  {
-    "name": "Invariant violations",
-    "matchedStatuses": ["failed"],
-    "messageRegex": ".*InvariantViolationError.*"
-  },
-  {
-    "name": "Assertion errors",
-    "matchedStatuses": ["failed"],
-    "messageRegex": ".*AssertionError.*"
-  },
-  { "name": "Skipped", "matchedStatuses": ["skipped"], "messageRegex": ".*" }
-]
+Since the Allure 3 migration, the failure taxonomy lives in `allurerc.mjs` (the standalone `categories.json` is gone). The categories are unchanged:
+
+```javascript
+categories: {
+  rules: [
+    { name: "Test defects", matchers: { statuses: ["broken"] } },
+    {
+      name: "Invariant violations",
+      matchers: { statuses: ["failed"], message: /.*InvariantViolationError.*/ },
+    },
+    {
+      name: "Assertion errors",
+      matchers: { statuses: ["failed"], message: /.*AssertionError.*/ },
+    },
+    { name: "Skipped", matchers: { statuses: ["skipped"] } },
+  ],
+}
 ```
 
-Four categories. _Invariant violations_, for instance, catches failures that come from `validate(...).execute().raise_if_invalid()`.
+Four categories. _Invariant violations_, for instance, catches failures that come from `validate(...).execute().raise_if_invalid()`. See [`../../04-internal-tests/08-allure-history.md`](../../04-internal-tests/08-allure-history.md) for the full config.
 
 ## `.pre-commit-config.yaml`
 

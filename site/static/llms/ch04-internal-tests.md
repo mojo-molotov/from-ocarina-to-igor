@@ -14,7 +14,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/04-internal-
 | `05-syrupy-snapshots.md` | Snapshot tests (`syrupy`) for `pretty_print_results` and `results_to_json` output stability. |
 | `06-hypothesis-properties.md` | Property-based testing for invariants: `hypothesis` strategies generating arbitrary inputs to `validate`. |
 | `07-coverage-policy.md` | Coverage policy: what is tested, what is deliberately NOT tested, and why. |
-| `08-allure-history.md` | Allure report generation + composite action `allure-history` + GitHub Pages deployment. |
+| `08-allure-history.md` | Allure 3 report generation (`allure@3.9.0`, "Awesome" report, configured by `allurerc.mjs`) + composite action `allure-history` (history as a single `history.jsonl`) + GitHub Pages deployment. |
 
 ## Key concepts
 
@@ -25,7 +25,7 @@ Chapter brief for LLM navigation. Source articles: `site/content.en/04-internal-
 - **`pytest-mypy-plugins`**: tests that assert a type annotation is or isn't accepted by mypy — the only way to test generic bounds and discriminated union exhaustiveness statically.
 - **Hypothesis** is used to generate arbitrary combinations of actions and invariant inputs, proving the railway's error-handling is sound under any sequence.
 - **Coverage policy**: Ocarina does not chase 100% line coverage. The policy documents which paths are intentionally untested (e.g., driver lifecycle under real network conditions).
-- **Allure history**: each CI run uploads a new Allure report to GitHub Pages, maintaining a browsable test history at `https://mojo-molotov.github.io/ocarina/allure-report/`.
+- **Allure history**: each CI run uploads a new Allure report to GitHub Pages, maintaining a browsable test history at `https://mojo-molotov.github.io/ocarina/allure-report/`. Built with Allure 3 (`allure@3.9.0`, "Awesome" report); config (output dir, `historyPath`, failure categories) lives in `allurerc.mjs` — the standalone `categories.json` is gone — and trend history is a single `history.jsonl` (Allure 2 trends are incompatible and restart on the first Allure 3 build).
 - **"From the outside like a user"** (approach): the tests never inspect internal machinery — no asserts on private attributes, no mocks of framework internals, just a minimal fake driver + pool and small constructors. The guarantee is that tests validate the public contract, not the implementation. The chapter landing page also carries a summary table sizing each family (≈15 pytest scenario files, 15 cram `.t` files, ≈5 mypy-plugins `.yml`, 2 syrupy `.ambr`, 1 hypothesis file).
 
 ## Connections

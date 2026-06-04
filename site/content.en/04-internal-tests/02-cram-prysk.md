@@ -162,13 +162,11 @@ The CLI is a _user interface_, not Python code. Cram is the natural tool&nbsp;â€
 test: cram-test
 	@echo "Running tests..."
 	-pytest --alluredir=$(ALLURE_RESULTS) -vv --hypothesis-show-statistics
-	$(PY_CMD) -c "import shutil; shutil.copy('categories.json', '$(ALLURE_RESULTS)/categories.json')"
 ```
 
 â†’ `make test` chains:
 
 1. `cram-test` (the `.t`s).
 2. `pytest` with Allure output + `--hypothesis-show-statistics`.
-3. Copy of `categories.json` to `allure-results/`.
 
 If `cram-test` fails, `pytest` doesn't run (Makefile target dependency). The `-` before `pytest` lets execution continue even if pytest fails (so we still get the Allure report).
