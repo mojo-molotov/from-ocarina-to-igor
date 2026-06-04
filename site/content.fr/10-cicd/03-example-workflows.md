@@ -36,7 +36,7 @@ series_order: 3
 ```yaml
 services:
   redis:
-    image: redis:8.2.5
+    image: redis:8.8.0
     ports: [6379:6379]
     options: >-
       --health-cmd "redis-cli ping"
