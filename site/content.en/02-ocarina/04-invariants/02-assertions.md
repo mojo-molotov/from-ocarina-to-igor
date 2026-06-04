@@ -100,7 +100,7 @@ def has_unique_elements(*, key: Callable[[Any], Any] | None = None):
 2. **Handles unhashables**: list-based comparison, O(n²) instead of using a set. Hashables still work fine (`list`, `dict`, `set` as values are OK).
 3. **Raises `DuplicatesError`**: subclass of `InvariantViolationError`, formats the duplicates list cleanly.
 
-Used to validate uniqueness of test names / IDs.
+Used to validate uniqueness of test names / IDs. Since `1.1.10`, the name validators (campaigns, suites, cases) pass a `key` that NFC-normalizes then case-folds the name, so **name** uniqueness is case-insensitive (`Login` clashes with `login`); **ID** uniqueness stays exact.
 
 ### `is_valid_filename`
 

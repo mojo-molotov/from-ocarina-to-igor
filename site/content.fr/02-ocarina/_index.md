@@ -10,7 +10,7 @@ sidebar:
 
 # Chapitre 02&nbsp;—&nbsp;Ocarina, le framework
 
-> Ce chapitre dépile l'intégralité du framework `ocarina` (Python 3.14+, version 1.1.9) ainsi que du Railway Oriented Programming jusqu'aux plugins de reporting. Il est structuré comme un parcours en couches&nbsp;: du **plus profond** (le type `Result[T]`) vers le **plus visible** (le `bootstrap` qui démarre tout).
+> Ce chapitre dépile l'intégralité du framework `ocarina` (Python 3.14+, version 1.1.10) ainsi que du Railway Oriented Programming jusqu'aux plugins de reporting. Il est structuré comme un parcours en couches&nbsp;: du **plus profond** (le type `Result[T]`) vers le **plus visible** (le `bootstrap` qui démarre tout).
 
 ## Plan du chapitre
 

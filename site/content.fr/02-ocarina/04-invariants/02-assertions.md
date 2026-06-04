@@ -100,7 +100,7 @@ def has_unique_elements(*, key: Callable[[Any], Any] | None = None):
 2. **Supporte les unhashables**&nbsp;: on compare en O(n²) avec une liste plutôt qu'un set. Mais on peut hasher (`list`, `dict`, `set` comme valeurs sont OK).
 3. **Lève un `DuplicatesError`**&nbsp;: sous-classe de `InvariantViolationError`, qui formate joliment la liste des doublons.
 
-Utilisé pour valider l'unicité des noms de tests /&nbsp;IDs.
+Utilisé pour valider l'unicité des noms de tests /&nbsp;IDs. Depuis `1.1.10`, les validateurs de noms (campagnes, suites, cas) fournissent une `key` qui normalise le nom en NFC puis lui applique `casefold`&nbsp;: l'unicité des **noms** devient insensible à la casse (`Login` et `login` forment un doublon), tandis que l'unicité des **IDs** reste exacte.
 
 ### `is_valid_filename`
 

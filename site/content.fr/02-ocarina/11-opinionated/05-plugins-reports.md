@@ -96,6 +96,7 @@ def generate_docx_proof(
     output_root: Path,
     logger: ILogger,
     max_workers: int = 1,
+    format_date: Callable[[datetime], str] = _default_format_date,
 ) -> None:
     """Transform text log files from automated tests into formatted Word documents,
     including screenshots."""
@@ -133,19 +134,65 @@ deux la durée de génération.
 ```python
 _DEFAULT_UTC_DATE_REGEX = re.compile(r"\[UTC_DATE::([^]]+)]")
 
-def _replace_utc_date(line: str, *, utc_date_regex) -> str:
+def _default_format_date(dt: datetime) -> str:
+    return dt.strftime("[%m/%d/%Y | %Hh%M:%S.%f]")
+
+def _replace_utc_date(line: str, *, utc_date_regex, format_date) -> str:
     def _repl(m: re.Match[str]) -> str:
         with suppress(Exception):
-            return (
-                datetime.fromisoformat(m.group(1).replace("Z", "+00:00"))
-                .astimezone()
-                .strftime("[%m/%d/%Y | %Hh%M:%S.%f]")
-            )
+            local_dt = datetime.fromisoformat(m.group(1).replace("Z", "+00:00")).astimezone()
+            return format_date(local_dt)
         return m.group(0)
     return utc_date_regex.sub(_repl, line)
 ```
 
 → `[UTC_DATE::2026-05-18T09:42:31.123456+00:00]` devient `[05/18/2026 | 11h42:31.123456]` (heure locale).
+
+### Formateur de date personnalisé (depuis 1.1.10)
+
+Le format américain par défaut ci-dessus (`_default_format_date`) n'est plus
+figé dans le code. Depuis Ocarina `1.1.10`, `generate_docx_proof` accepte un
+callable `format_date`&nbsp;: il reçoit la date du marqueur **déjà ramenée à
+l'heure locale** et renvoie le texte de remplacement complet, crochets compris.
+C'est donc à l'utilisateur de décider de la mise en forme.
+
+```python
+generate_docx_proof(
+    logs_root=...,
+    output_root=...,
+    logger=...,
+    format_date=lambda dt: dt.strftime("FR[%d/%m/%Y à %Hh%M:%S]"),
+)
+```
+
+→ le même marqueur s'affiche désormais `FR[18/05/2026 à 11h42:31]`. Sans
+argument, le format par défaut demeure l'affichage américain&nbsp;: le code
+appelant existant n'a rien à changer.
+
+### Génération durcie (depuis 1.1.10)
+
+`1.1.10` met aussi la génération à l'abri des courses entre workers et la rend
+plus honnête sur les échecs partiels&nbsp;:
+
+- **Réservation atomique du chemin**&nbsp;: le repli sur un nom raccourci (quand
+  un nom est trop long) ne procède plus en deux temps (vérifier l'existence puis
+  créer). Le fichier est réservé en un seul appel système —
+  `os.open(new_path, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o644)` — si bien que
+  deux workers parallélisés ne peuvent plus revendiquer en même temps le même
+  nom dérivé d'un UUID. Une tentative qui échoue supprime au passage son fichier
+  témoin via `docx_path.unlink()`.
+- **Statistiques de génération**&nbsp;: le compteur interne devient un
+  `_GenerationStats(attempted, succeeded)` plutôt qu'un simple `int`, ce qui
+  permet de distinguer les cas découverts des fichiers réellement écrits. Le
+  reporter affiche alors le ratio — `Generated 1/2 DOCX` en cas d'échec partiel
+  — et signale `every DOCX generation failed` au lieu du trompeur `no test case
+  found` lorsque rien n'a été écrit.
+- **Unicité des noms insensible à la casse**&nbsp;: les noms de campagne, de
+  suite et de cas de test sont désormais comparés via la clé
+  `unicodedata.normalize("NFC", name).casefold()`, si bien que `Login` et
+  `login` sont reconnus comme un doublon, comme il se doit (`names must be unique
+  (case-insensitive)`). Les noms d'origine restent intacts dans le modèle&nbsp;:
+  seule la clé de comparaison subit le `casefold`.
 
 ### Détection des screenshots
 

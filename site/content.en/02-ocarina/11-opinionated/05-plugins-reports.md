@@ -96,6 +96,7 @@ def generate_docx_proof(
     output_root: Path,
     logger: ILogger,
     max_workers: int = 1,
+    format_date: Callable[[datetime], str] = _default_format_date,
 ) -> None:
     """Transform text log files from automated tests into formatted Word documents,
     including screenshots."""
@@ -130,19 +131,59 @@ count, log size and image weight. On `ocarina-with-playwright-example`'s e2e CI
 ```python
 _DEFAULT_UTC_DATE_REGEX = re.compile(r"\[UTC_DATE::([^]]+)]")
 
-def _replace_utc_date(line: str, *, utc_date_regex) -> str:
+def _default_format_date(dt: datetime) -> str:
+    return dt.strftime("[%m/%d/%Y | %Hh%M:%S.%f]")
+
+def _replace_utc_date(line: str, *, utc_date_regex, format_date) -> str:
     def _repl(m: re.Match[str]) -> str:
         with suppress(Exception):
-            return (
-                datetime.fromisoformat(m.group(1).replace("Z", "+00:00"))
-                .astimezone()
-                .strftime("[%m/%d/%Y | %Hh%M:%S.%f]")
-            )
+            local_dt = datetime.fromisoformat(m.group(1).replace("Z", "+00:00")).astimezone()
+            return format_date(local_dt)
         return m.group(0)
     return utc_date_regex.sub(_repl, line)
 ```
 
 → `[UTC_DATE::2026-05-18T09:42:31.123456+00:00]` becomes `[05/18/2026 | 11h42:31.123456]` (local time).
+
+### Custom date formatter (since 1.1.10)
+
+The US-style default above (`_default_format_date`) is no longer hard-coded.
+Since Ocarina `1.1.10`, `generate_docx_proof` takes a `format_date` callable
+that receives the marker's datetime **already converted to local time** and
+returns the full replacement text — brackets included, so the layout is yours
+to decide:
+
+```python
+generate_docx_proof(
+    logs_root=...,
+    output_root=...,
+    logger=...,
+    format_date=lambda dt: dt.strftime("FR[%d/%m/%Y à %Hh%M:%S]"),
+)
+```
+
+→ the same marker now renders as `FR[18/05/2026 à 11h42:31]`. The default stays
+the US layout, so existing call sites are untouched.
+
+### Hardened generation (since 1.1.10)
+
+`1.1.10` also makes the generation race-safe and honest about partial failures:
+
+- **Atomic path reservation**: the shortened-path fallback (when a name is too
+  long) no longer does a check-then-create. It reserves the file in a single
+  syscall — `os.open(new_path, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o644)` —
+  so two parallel workers can never both claim the same UUID-derived filename. A
+  failed attempt cleans up its placeholder via `docx_path.unlink()`.
+- **Generation stats**: the internal counter is now a `_GenerationStats(attempted, succeeded)`
+  rather than a bare `int`, so the reporter can tell discovered cases from
+  written files. The logger reports the ratio — `Generated 1/2 DOCX` on partial
+  failure — and warns `every DOCX generation failed` instead of the misleading
+  `no test case found` when nothing was written.
+- **Case-insensitive name uniqueness**: campaign, suite and case names are now
+  deduplicated under `unicodedata.normalize("NFC", name).casefold()`, so
+  `Login` and `login` collide as they should (`names must be unique
+  (case-insensitive)`). Original names are preserved in the model — only the
+  uniqueness key is folded.
 
 ### Screenshot detection
 

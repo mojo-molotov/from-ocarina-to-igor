@@ -10,7 +10,7 @@ sidebar:
 
 # Chapter 02&nbsp;—&nbsp;Ocarina, the framework
 
-> Unpacks the whole `ocarina` framework (Python 3.14+, v1.1.9) and Railway Oriented Programming straight through to the reporting plugins. Structured as a layered walk: **deepest** (the `Result[T]` type) to **most visible** (the `bootstrap` that boots everything).
+> Unpacks the whole `ocarina` framework (Python 3.14+, v1.1.10) and Railway Oriented Programming straight through to the reporting plugins. Structured as a layered walk: **deepest** (the `Result[T]` type) to **most visible** (the `bootstrap` that boots everything).
 
 ## Chapter plan
 

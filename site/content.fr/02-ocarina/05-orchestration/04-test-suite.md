@@ -80,7 +80,7 @@ def _guards_with_mounted_tests(self, tests: Sequence[Test[Driver]]) -> None:
     validate_test_runners_names(tests=tests, name="tests").execute().raise_if_invalid()
 ```
 
-→ Tous les `name` doivent être uniques + valides comme noms de fichiers (cf. `is_valid_filename`). Appelé **après saturation** (cf. [`05-saturation.md`](05-saturation.md)), parce que les noms `[COPY 1] foo` viennent d'être introduits.
+→ Tous les `name` doivent être uniques + valides comme noms de fichiers (cf. `is_valid_filename`). Depuis `1.1.10`, cette unicité est insensible à la casse (NFC + casefold). Appelé **après saturation** (cf. [`05-saturation.md`](05-saturation.md)), parce que les noms `[COPY 1] foo` viennent d'être introduits.
 
 ### `validate_workers_amount`
 
