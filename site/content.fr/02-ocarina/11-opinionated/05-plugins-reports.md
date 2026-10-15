@@ -169,7 +169,7 @@ generate_docx_proof(
 argument, le format par défaut demeure l'affichage américain&nbsp;: le code
 appelant existant n'a rien à changer.
 
-### Génération durcie (depuis 1.1.10)
+### Génération plus prudente (depuis 1.1.10)
 
 `1.1.10` met aussi la génération à l'abri des courses entre workers et la rend
 plus honnête sur les échecs partiels&nbsp;:
